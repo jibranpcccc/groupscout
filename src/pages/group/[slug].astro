@@ -15,6 +15,7 @@ import {
 } from '../../lib/communities';
 import { requiresFinancialDisclaimer, getCategoryBySlug, slugifyTag } from '../../config/categories';
 import { getPlatformById } from '../../config/platforms';
+import { siteConfig } from '../../config/site';
 import { formatDate } from '../../lib/dates';
 import { languageLabel } from '../../lib/language';
 import { communityTitle, breadcrumbJsonLd, jsonLd } from '../../lib/seo';
@@ -52,7 +53,7 @@ const webPageLd = jsonLd({
   '@type': 'WebPage',
   name: community.title,
   url: `/group/${community.slug}/`,
-  isPartOf: { '@type': 'WebSite', name: 'Community Directory' },
+  isPartOf: { '@type': 'WebSite', name: siteConfig.name },
 });
 ---
 

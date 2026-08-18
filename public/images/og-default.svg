@@ -3,7 +3,7 @@
   <rect x="0" y="0" width="1200" height="8" fill="#2563eb"/>
   <circle cx="88" cy="118" r="34" fill="#2563eb"/>
   <path d="M70 104a8 8 0 0 1 8-8h36a8 8 0 0 1 8 8v24a8 8 0 0 1-8 8h-16l-12 11v-11h-8a8 8 0 0 1-8-8v-24z" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="140" y="140" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" font-size="52" font-weight="700" fill="#1c1917">Community Directory</text>
+  <text x="140" y="140" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" font-size="52" font-weight="700" fill="#1c1917">GroupScout</text>
   <text x="88" y="230" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="#57534e">Discover public online communities</text>
   <text x="88" y="276" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" font-size="24" fill="#78716c">Telegram · WhatsApp · Discord</text>
   <g transform="translate(88 470)">

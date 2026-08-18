@@ -13,10 +13,10 @@ function getPublicSiteUrl(): string {
 
 export const siteConfig = {
   /** Display name. */
-  name: 'Community Directory',
-  shortName: 'Community Directory',
+  name: 'GroupScout',
+  shortName: 'GroupScout',
   description:
-    'A searchable directory of public online communities across Telegram, WhatsApp and Discord — categorized, checked, and ready to explore.',
+    'GroupScout is a searchable directory of public online communities across Telegram, WhatsApp and Discord — categorized, checked, and ready to explore.',
   /** Production URL, no trailing slash. Set PUBLIC_SITE_URL in Netlify/GitHub. */
   url: getPublicSiteUrl(),
   defaultLocale: 'en',

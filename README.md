@@ -1,4 +1,4 @@
-# Community Directory
+# GroupScout
 
 An automated, production-ready directory website for discovering and cataloguing
 **public online communities** on Telegram, WhatsApp and Discord — with an
