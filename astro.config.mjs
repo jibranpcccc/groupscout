@@ -42,9 +42,11 @@ export default defineConfig({
   integrations: [
     sitemap({
       filter: (page) => {
-        // Utility / non-indexable routes.
+        // Utility / non-indexable routes (submit/report are noindex forms).
         const excludedPrefixes = [
           '/404/',
+          '/submit/',
+          '/report/',
           '/submit/success/',
           '/report/success/',
           '/recently-added/',
