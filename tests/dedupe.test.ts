@@ -34,6 +34,52 @@ describe('dedupeCandidates', () => {
     expect(result.duplicates).toHaveLength(1);
   });
 
+  it('dedupes discord candidates with different invite codes but the same guild id', () => {
+    const existing = [
+      makeCommunity({
+        platform: 'discord',
+        inviteUrl: 'https://discord.gg/alpha',
+        discordGuildId: '123456789012345678',
+      }),
+    ];
+    const candidates = [
+      {
+        candidateUrl: 'https://discord.gg/beta',
+        sourceUrl: 'https://example.com/source',
+        platform: 'discord',
+        title: 'Completely different title',
+        confidence: 0.9,
+        discordGuildId: '123456789012345678',
+      },
+    ];
+    const result = dedupeCandidates(candidates, existing);
+    expect(result.duplicates).toHaveLength(1);
+    expect(result.unique).toHaveLength(0);
+  });
+
+  it('does not dedupe a discord candidate whose guild id is not in the dataset', () => {
+    const existing = [
+      makeCommunity({
+        platform: 'discord',
+        inviteUrl: 'https://discord.gg/alpha',
+        discordGuildId: '123456789012345678',
+      }),
+    ];
+    const candidates = [
+      {
+        candidateUrl: 'https://discord.gg/gamma',
+        sourceUrl: 'https://example.com/source',
+        platform: 'discord',
+        title: 'Another server entirely',
+        confidence: 0.9,
+        discordGuildId: '999999999999999999',
+      },
+    ];
+    const result = dedupeCandidates(candidates, existing);
+    expect(result.unique).toHaveLength(1);
+    expect(result.duplicates).toHaveLength(0);
+  });
+
   it('routes slug collisions to ambiguous', () => {
     const existing = [makeCommunity({ slug: 'crypto-chat', inviteUrl: 'https://t.me/one' })];
     const candidates = [

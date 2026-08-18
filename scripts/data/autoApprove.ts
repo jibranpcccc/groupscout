@@ -6,12 +6,16 @@
  *
  * Gates (all must pass):
  *  1. production guard      — no demo/sample markers (findProductionViolations)
- *  2. link status           — not `dead`
- *  3. safety flags          — none (risk-language candidates stay pending)
- *  4. real classification   — Gemini assigned at least one tag
- *  5. source evidence       — at least one sourceUrl
- *  6. scam-indicator scan   — title/description blocklist (kept pending)
- *  7. schema + dedupe       — validated before the atomic write
+ *  2. link status           — must be `active` (anything else stays pending)
+ *  3. freshness             — lastCheckedAt exists and is recent (within the
+ *                             last 48h, or at/after AUTO_APPROVE_SINCE when set)
+ *  4. independent source    — at least one sourceUrl whose hostname differs
+ *                             from the inviteUrl hostname
+ *  5. safety flags          — none (risk-language candidates stay pending)
+ *  6. real classification   — Gemini assigned at least one tag
+ *  7. source evidence       — at least one sourceUrl
+ *  8. scam-indicator scan   — title/description blocklist (kept pending)
+ *  9. schema + dedupe       — validated before the atomic write
  *
  * Cap: AUTO_APPROVE_MAX per run (default 30) — a runaway discovery run can
  * never flood the site.
@@ -23,6 +27,9 @@ import type { Community } from '../../src/types/community';
 
 const MAX_PER_RUN = Number(process.env.AUTO_APPROVE_MAX ?? 30);
 
+/** ISO timestamp; when set, records must have been checked at or after it. */
+const AUTO_APPROVE_SINCE = process.env.AUTO_APPROVE_SINCE;
+
 /** Financial/scam indicators → hold for human review. Never auto-publish. */
 const BLOCKLIST =
   /\b(guaranteed profits?|guaranteed returns?|100%\s*win|win rate|risk[- ]?free|double your money|get rich|pump and dump|signals? vip|private signals?|profit signals?|earn \$?\d+[kkm]?\s*(per|a|every) (day|week)|passive income (guaranteed|without))\b/i;
@@ -32,11 +39,39 @@ interface GateResult {
   held: { record: Community; reasons: string[] }[];
 }
 
+/** Lowercased hostname of a URL, or '' when it cannot be parsed. */
+function hostnameOf(url: string): string {
+  try {
+    return new URL(url).hostname.toLowerCase();
+  } catch {
+    return '';
+  }
+}
+
 function checkGates(record: Community): string[] {
   const reasons: string[] = [];
 
   if (findProductionViolations([record]).length > 0) reasons.push('production-guard');
-  if (record.linkStatus === 'dead') reasons.push('link-dead');
+  if (record.linkStatus !== 'active') reasons.push('link-not-active');
+  // Freshness: lastCheckedAt must exist and be recent — within the last 48h,
+  // or at/after AUTO_APPROVE_SINCE when the workflow sets it (ISO string compare).
+  if (!record.lastCheckedAt) {
+    reasons.push('not-recently-checked');
+  } else {
+    const cutoff =
+      AUTO_APPROVE_SINCE ?? new Date(Date.now() - 48 * 3600 * 1000).toISOString();
+    if (record.lastCheckedAt < cutoff) reasons.push('not-recently-checked');
+  }
+  // Independent source: at least one sourceUrl on a different hostname than
+  // the inviteUrl (unparseable URLs can't count as independent evidence).
+  const inviteHost = hostnameOf(record.inviteUrl);
+  const hasIndependentSource =
+    inviteHost !== '' &&
+    (record.sourceUrls ?? []).some((url) => {
+      const host = hostnameOf(url);
+      return host !== '' && host !== inviteHost;
+    });
+  if (!hasIndependentSource) reasons.push('no-independent-source');
   if (record.safetyFlags && record.safetyFlags.length > 0) reasons.push('safety-flags');
   if (!record.tags || record.tags.length < 1) reasons.push('not-classified');
   if (!record.sourceUrls || record.sourceUrls.length < 1) reasons.push('no-source');

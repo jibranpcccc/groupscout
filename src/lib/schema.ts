@@ -35,6 +35,7 @@ export const communitySchema = z
       .string()
       .max(500)
       .refine(isHttpUrl, { message: 'inviteUrl must be a valid http(s) URL' }),
+    discordGuildId: z.string().max(32).nullable().optional(),
     description: z
       .string()
       .max(400, 'description too long (max 400 chars)')

@@ -10,6 +10,7 @@ import { log } from '../utilities';
 import { discoveryConfig } from '../../src/config/discovery';
 import { categories } from '../../src/config/categories';
 import { isGeminiConfigured } from '../discover/geminiSearch';
+import { enforceCategoryConsistency } from './categoryConsistency';
 import type { ParsedCandidate } from '../discover/parseCandidates';
 
 export const classificationSchema = z
@@ -53,6 +54,26 @@ interface ClassificationInput {
   candidate: ParsedCandidate;
   anchorCategory?: string;
   anchorTag?: string;
+}
+
+/**
+ * Apply rule-based category consistency to a classification result before
+ * it leaves this module. Overrides the category only on a strong (>=2
+ * keyword hits from one category) signal; logs a structured line when a
+ * fix is applied.
+ */
+function applyCategoryConsistency(result: ClassificationResult): ClassificationResult {
+  const fixed = enforceCategoryConsistency({
+    title: result.title,
+    description: result.description,
+    tags: result.tags,
+    category: result.category,
+  });
+  if (fixed.changed) {
+    log('classify', `category fix: ${String(result.category ?? 'null')} -> ${fixed.category} (${fixed.reason})`);
+    return { ...result, category: fixed.category };
+  }
+  return result;
 }
 
 /**
@@ -128,14 +149,14 @@ export async function classifyCandidate(input: ClassificationInput): Promise<Cla
         log('classify', `attempt ${attempt + 1}: invalid classification (${result.error.issues.length} issues) — retrying`);
         continue;
       }
-      return result.data;
+      return applyCategoryConsistency(result.data);
     } catch (err) {
       log('classify', `attempt ${attempt + 1} failed: ${err instanceof Error ? err.message : String(err)}`);
     }
   }
 
   log('classify', 'all attempts failed — using safe fallback');
-  return fallback;
+  return applyCategoryConsistency(fallback);
 }
 
 /**

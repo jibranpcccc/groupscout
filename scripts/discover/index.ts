@@ -65,7 +65,7 @@ async function run(): Promise<void> {
   log('discover', `mode: ${args.dryRun ? 'DRY-RUN (no writes)' : 'live'}`);
   log(
     'discover',
-    `budget: ${discoveryConfig.maxQueriesPerRun} queries max, ${discoveryConfig.maxNewCandidatesPerRun} new candidates max`
+    `budget: ${discoveryConfig.maxSearchQueries} search queries max, ${discoveryConfig.maxProviderRequests} provider requests max, ${discoveryConfig.maxNewCandidatesPerRun} new candidates max`
   );
 
   const published = loadPublished() as Community[];
@@ -73,7 +73,7 @@ async function run(): Promise<void> {
   log('discover', `existing data: ${published.length} published, ${pending.length} pending`);
 
   // ---- Query generation ----
-  const queries = generateQueries();
+  const queries = generateQueries({ maxQueries: discoveryConfig.maxSearchQueries });
   log('discover', `generated ${queries.length} queries`);
   if (queries.length === 0) {
     log('discover', 'no queries generated — nothing to do');
@@ -110,21 +110,35 @@ async function run(): Promise<void> {
   }
 
   // ---- Run searches ----
+  // maxSearchQueries caps how many DISTINCT query texts are searched;
+  // maxProviderRequests separately caps the total number of provider
+  // requests (each query is sent to every configured provider).
   const rawResults: DiscoveryResult[] = [];
-  let ran = 0;
+  let queriesSearched = 0;
+  let requests = 0;
+  const searchedTexts = new Set<string>();
   for (const query of queries) {
-    if (ran >= discoveryConfig.maxQueriesPerRun) break;
+    if (queriesSearched >= discoveryConfig.maxSearchQueries) break;
+    if (searchedTexts.has(query.text)) continue; // count DISTINCT query texts only
+    let searched = false;
     for (const provider of providers) {
       if (provider.name === 'manual-seeds') continue; // seeds returned once below
+      if (requests >= discoveryConfig.maxProviderRequests) break;
       const results = await provider.search(query.text);
       if (results.length > 0) {
         rawResults.push(...results.slice(0, discoveryConfig.maxCandidatesPerQuery));
         log('discover', `query "${query.text.slice(0, 60)}" → ${results.length} candidate URL(s)`);
       }
-      ran++;
-      if (ran >= discoveryConfig.maxQueriesPerRun) break;
+      requests++;
+      searched = true;
+      if (requests >= discoveryConfig.maxProviderRequests) break;
       if (discoveryConfig.requestDelayMs > 0) await sleep(discoveryConfig.requestDelayMs);
     }
+    if (searched) {
+      searchedTexts.add(query.text);
+      queriesSearched++;
+    }
+    if (requests >= discoveryConfig.maxProviderRequests) break; // budget exhausted
   }
   rawResults.push(...seedResults);
   log('discover', `found ${rawResults.length} candidate URLs total`);

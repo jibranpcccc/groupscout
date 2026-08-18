@@ -24,6 +24,10 @@ export const discoveryConfig = {
   maxCandidatesPerQuery: intFromEnv('DISCOVERY_MAX_CANDIDATES_PER_QUERY', 10),
   /** Cap on brand-new candidates accepted per run. */
   maxNewCandidatesPerRun: intFromEnv('DISCOVERY_MAX_CANDIDATES', 100),
+  /** Cap on distinct query texts searched per run (generation is balanced across platforms). */
+  maxSearchQueries: intFromEnv('DISCOVERY_MAX_SEARCH_QUERIES', 25),
+  /** Hard cap on total provider search requests per run (distinct queries × providers). */
+  maxProviderRequests: intFromEnv('DISCOVERY_MAX_PROVIDER_REQUESTS', 75),
   /** Delay between network requests (ms) — be polite to sources. */
   requestDelayMs: intFromEnv('DISCOVERY_REQUEST_DELAY_MS', 1200),
   /**

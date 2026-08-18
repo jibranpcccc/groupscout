@@ -26,6 +26,8 @@ jobs:
   discover:
     runs-on: ubuntu-latest
     env:
+      RUN_START: $(date -u +%Y-%m-%dT%H:%M:%SZ)
+      AUTO_APPROVE_SINCE: ${{ env.RUN_START }}
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       GEMINI_MODEL: gemini-3.5-flash-lite
       GEMINI_SEARCH_ENABLED: true
@@ -63,11 +65,9 @@ jobs:
         # Independent link checks (official Discord API, Telegram previews)
         # so dead invites can never be auto-published.
         run: npm run validate-links
-        continue-on-error: true
 
       - name: Gated auto-approve
         run: npm run auto-approve
-        continue-on-error: true
 
       - name: Validate data
         run: npm run validate-data

@@ -60,6 +60,14 @@ export interface Community {
   /** Normalized destination URL. Must be a real, public invite URL. */
   inviteUrl: string;
 
+  /**
+   * Real Discord guild (server) ID as returned by Discord's official API
+   * (https://discord.com/api/v10/invites/<code>?with_counts=true). Factual
+   * only — never guessed or inferred. Lets us dedupe communities that share
+   * one guild across different invite codes.
+   */
+  discordGuildId?: string | null;
+
   /** Concise factual description. External text is treated as untrusted. */
   description?: string | null;
 

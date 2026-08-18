@@ -364,7 +364,7 @@
     "slug": "discord-aleo",
     "title": "Aleo Network Foundation",
     "platform": "discord",
-    "category": "ai-tech",
+    "category": "crypto-web3",
     "subcategory": null,
     "tags": [
       "aleo",
@@ -389,7 +389,7 @@
     ],
     "discoveryMethod": "gemini-search",
     "discoveredAt": "2026-08-18T14:27:00.711Z",
-    "updatedAt": "2026-08-18T14:27:32.909Z",
+    "updatedAt": "2026-08-18T16:46:46.921Z",
     "safetyFlags": [],
     "featured": false,
     "published": true,

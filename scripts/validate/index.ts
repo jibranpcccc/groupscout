@@ -82,6 +82,7 @@ async function main(): Promise<void> {
       memberCount?: number;
       memberCountSource?: string;
       memberCountCheckedAt?: string;
+      discordGuildId?: string;
     }
   >();
 
@@ -103,11 +104,23 @@ async function main(): Promise<void> {
 
     // Discord's official API returns factual guild data — store it only when
     // the community has no member count yet (with the API URL as source).
-    let memberInfo: { memberCount?: number; memberCountSource?: string; memberCountCheckedAt?: string } = {};
+    // The guild ID is factual identity data too: stored once (never guessed)
+    // so later dedupe can match one real guild across invite codes.
+    let memberInfo: {
+      memberCount?: number;
+      memberCountSource?: string;
+      memberCountCheckedAt?: string;
+      discordGuildId?: string;
+    } = {};
     if (community.platform === 'discord' && typeof observed === 'object') {
       const detailed = observed as DiscordCheckResult;
+      if (detailed.guildId && community.discordGuildId == null) {
+        memberInfo.discordGuildId = detailed.guildId;
+        log('validate', `${community.id}: Discord API returned guild id ${detailed.guildId} — storing for dedupe`);
+      }
       if (detailed.memberCount != null && community.memberCount == null && detailed.sourceUrl) {
         memberInfo = {
+          ...memberInfo,
           memberCount: detailed.memberCount,
           memberCountSource: detailed.sourceUrl,
           memberCountCheckedAt: new Date().toISOString(),
@@ -162,6 +175,7 @@ async function main(): Promise<void> {
         memberCount: u.memberCount ?? c.memberCount,
         memberCountSource: u.memberCountSource ?? c.memberCountSource,
         memberCountCheckedAt: u.memberCountCheckedAt ?? c.memberCountCheckedAt,
+        discordGuildId: u.discordGuildId ?? c.discordGuildId,
       };
     });
 

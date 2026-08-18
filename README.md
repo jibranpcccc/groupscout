@@ -115,12 +115,16 @@ The daily pipeline (`discover-groups.yml`) now **auto-approves** candidates that
 pass every quality gate — see `scripts/data/autoApprove.ts`:
 
 1. production guard (no demo/sample markers)
-2. link status is not `dead` (checked against official platform APIs first)
-3. no safety flags (risk-language candidates are held)
-4. Gemini actually classified it (≥1 tag)
-5. has source evidence (`sourceUrls`)
-6. no scam indicators in title/description
-7. capped at `AUTO_APPROVE_MAX` (default 30) per run
+2. link status is exactly `active` (verified against official platform APIs
+   within the run — `unknown`/`dead` are held)
+3. checked recently: `lastCheckedAt` within 48h, or at/after the workflow's
+   run start (`AUTO_APPROVE_SINCE`)
+4. independent source: at least one `sourceUrl` from a different host than the
+   invite URL (the community itself can't be its own proof)
+5. no safety flags (risk-language candidates are held)
+6. Gemini actually classified it (≥1 tag)
+7. no scam indicators in title/description
+8. capped at `AUTO_APPROVE_MAX` (default 30) per run
 
 Anything held stays in `pending-groups.json` for you. To publish a held
 candidate manually:

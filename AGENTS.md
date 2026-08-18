@@ -58,8 +58,11 @@ across components — extend the platform config instead.
    see `scripts/data/autoApprove.ts`) — auto-approval requires: production
    guard clean, link not dead, no safety flags, ≥1 tag (Gemini classified),
    ≥1 sourceUrl, no scam indicators, and is capped per run
-   (`AUTO_APPROVE_MAX`, default 30). Auto-approval NEVER sets a verification
-   status beyond `unverified`, and NEVER assigns `manually-reviewed`.
+   (`AUTO_APPROVE_MAX`, default 30). Auto-approval additionally requires
+   `linkStatus === 'active'`, a recent `lastCheckedAt` (48h or the run's
+   `AUTO_APPROVE_SINCE`), and an independent source URL (host differs from the
+   invite URL). Auto-approval NEVER sets a verification status beyond
+   `unverified`, and NEVER assigns `manually-reviewed`.
 7. **ZERO demo/sample content in production — enforced.** `npm run validate-data`
    FAILS the build if any record has `isSample: true`, an example.com/placeholder
    invite URL or source URL, "(Demo)" in the title, or "Demo fixture" in the

@@ -18,6 +18,8 @@ import type { LinkStatus } from '../../src/types/community';
 export interface DiscordCheckResult {
   status: LinkStatus;
   guildName?: string | null;
+  /** Real Discord guild (server) id from the API — factual, never guessed. */
+  guildId?: string | null;
   memberCount?: number | null;
   /** API URL that returned the data — usable as a memberCountSource. */
   sourceUrl?: string | null;
@@ -45,7 +47,7 @@ export async function validateDiscordDetailed(url: string): Promise<DiscordCheck
     if (res.status !== 200) return empty;
 
     const data = (await res.json()) as {
-      guild?: { name?: string; approximate_member_count?: number } | null;
+      guild?: { id?: string; name?: string; approximate_member_count?: number } | null;
     };
 
     // A legitimate invite must resolve to a guild (server). Invites without
@@ -55,6 +57,7 @@ export async function validateDiscordDetailed(url: string): Promise<DiscordCheck
     const result: DiscordCheckResult = {
       status: 'active',
       guildName: data.guild.name ?? null,
+      guildId: data.guild.id ?? null,
       memberCount:
         typeof data.guild.approximate_member_count === 'number'
           ? data.guild.approximate_member_count
