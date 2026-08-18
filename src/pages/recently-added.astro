@@ -12,6 +12,7 @@ const communities = getRecentlyAdded(50);
   title={pageTitle('Recently Added')}
   description="The newest public communities added to the directory, ordered by discovery date."
   canonicalPath="/recently-added/"
+  noindex
   intro="Communities newest to the directory first. “Recently added” reflects our discovery date, not a trend score."
   count={`${communities.length} communities`}
   breadcrumbs={[{ label: 'Recently Added' }]}

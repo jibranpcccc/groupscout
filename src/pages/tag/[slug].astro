@@ -4,7 +4,7 @@ import CommunityGrid from '../../components/CommunityGrid.astro';
 import EmptyState from '../../components/EmptyState.astro';
 import { getAllTags, slugifyTag, getCategoryBySlug } from '../../config/categories';
 import { getByTag, getPublishedCommunities } from '../../lib/communities';
-import { TAG_PAGE_MIN_COMMUNITIES } from '../../config/discovery';
+import { TAG_PAGE_MIN_COMMUNITIES, TAG_PAGE_INDEX_MIN } from '../../config/discovery';
 import { tagPageTitle, breadcrumbJsonLd, jsonLd } from '../../lib/seo';
 
 /**
@@ -48,6 +48,7 @@ const pageLd = jsonLd({
   title={tagPageTitle(tag.name)}
   description={`Public communities tagged ${tag.name}. Browse, filter and discover.`}
   canonicalPath={`/tag/${tag.slug}/`}
+  noindex={communities.length < TAG_PAGE_INDEX_MIN}
   intro={`Communities tagged “${tag.name}”.`}
   count={`${communities.length} communities`}
   breadcrumbs={[{ label: tag.name }]}

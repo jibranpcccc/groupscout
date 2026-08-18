@@ -14,7 +14,7 @@
 import 'dotenv/config';
 import { loadPublished, loadPending, writeJsonAtomic } from '../data/io';
 import { validateTelegram } from './telegram';
-import { validateDiscord } from './discord';
+import { validateDiscordDetailed, type DiscordCheckResult } from './discord';
 import { validateWhatsApp } from './whatsapp';
 import { validateGeneric } from './generic';
 import { log, sleep } from '../utilities';
@@ -22,9 +22,17 @@ import { validationConfig } from '../../src/config/discovery';
 import { validateDataset } from '../../src/lib/schema';
 import type { Community, LinkStatus } from '../../src/types/community';
 
-const ADAPTERS: Record<string, (url: string) => Promise<LinkStatus>> = {
+type AdapterResult = LinkStatus | DiscordCheckResult;
+
+function statusOf(result: AdapterResult): LinkStatus {
+  return typeof result === 'string' ? result : result.status;
+}
+
+const ADAPTERS: Record<string, (url: string) => Promise<AdapterResult>> = {
   telegram: validateTelegram,
-  discord: validateDiscord,
+  // Detailed adapter: official invite API with counts → returns guild name
+  // and member count alongside the status (stored with the API URL as source).
+  discord: validateDiscordDetailed,
   whatsapp: validateWhatsApp,
   generic: validateGeneric,
 };
@@ -65,7 +73,17 @@ async function main(): Promise<void> {
   const now = new Date().toISOString();
 
   let checks = 0;
-  const updates = new Map<string, { linkStatus: LinkStatus; lastCheckedAt: string; linkCheckFailures: number }>();
+  const updates = new Map<
+    string,
+    {
+      linkStatus: LinkStatus;
+      lastCheckedAt: string;
+      linkCheckFailures: number;
+      memberCount?: number;
+      memberCountSource?: string;
+      memberCountCheckedAt?: string;
+    }
+  >();
 
   const all = [...published, ...pending];
   for (const community of all) {
@@ -76,23 +94,48 @@ async function main(): Promise<void> {
     if (community.linkStatus === 'removed') continue;
 
     const adapter = ADAPTERS[community.platform] ?? ADAPTERS.generic;
-    let observed: LinkStatus;
+    let observed: AdapterResult;
     try {
       observed = await adapter(community.inviteUrl);
     } catch {
       observed = 'unknown';
     }
 
+    // Discord's official API returns factual guild data — store it only when
+    // the community has no member count yet (with the API URL as source).
+    let memberInfo: { memberCount?: number; memberCountSource?: string; memberCountCheckedAt?: string } = {};
+    if (community.platform === 'discord' && typeof observed === 'object') {
+      const detailed = observed as DiscordCheckResult;
+      if (detailed.memberCount != null && community.memberCount == null && detailed.sourceUrl) {
+        memberInfo = {
+          memberCount: detailed.memberCount,
+          memberCountSource: detailed.sourceUrl,
+          memberCountCheckedAt: new Date().toISOString(),
+        };
+        log('validate', `${community.id}: Discord API returned guild "${detailed.guildName}" with ${detailed.memberCount} members — storing sourced count`);
+      }
+    }
+
     const failures = community.linkCheckFailures ?? 0;
     const { status: nextStatus, failures: nextFailures } = transition(
       community.linkStatus,
-      observed,
+      statusOf(observed),
       failures
     );
-    if (nextStatus !== community.linkStatus || nextFailures !== failures || community.lastCheckedAt !== now) {
-      updates.set(community.id, { linkStatus: nextStatus, lastCheckedAt: now, linkCheckFailures: nextFailures });
+    if (
+      nextStatus !== community.linkStatus ||
+      nextFailures !== failures ||
+      community.lastCheckedAt !== now ||
+      Object.keys(memberInfo).length > 0
+    ) {
+      updates.set(community.id, {
+        linkStatus: nextStatus,
+        lastCheckedAt: now,
+        linkCheckFailures: nextFailures,
+        ...memberInfo,
+      });
       if (nextStatus !== community.linkStatus) {
-        log('validate', `${community.id}: ${community.linkStatus} → ${nextStatus} (observed ${observed}, failures ${failures}→${nextFailures})`);
+        log('validate', `${community.id}: ${community.linkStatus} → ${nextStatus} (observed ${statusOf(observed)}, failures ${failures}→${nextFailures})`);
       }
     }
 
@@ -110,9 +153,16 @@ async function main(): Promise<void> {
   const apply = (records: Community[]): Community[] =>
     records.map((c) => {
       const u = updates.get(c.id);
-      return u
-        ? { ...c, linkStatus: u.linkStatus, lastCheckedAt: u.lastCheckedAt, linkCheckFailures: u.linkCheckFailures }
-        : c;
+      if (!u) return c;
+      return {
+        ...c,
+        linkStatus: u.linkStatus,
+        lastCheckedAt: u.lastCheckedAt,
+        linkCheckFailures: u.linkCheckFailures,
+        memberCount: u.memberCount ?? c.memberCount,
+        memberCountSource: u.memberCountSource ?? c.memberCountSource,
+        memberCountCheckedAt: u.memberCountCheckedAt ?? c.memberCountCheckedAt,
+      };
     });
 
   const nextPublished = apply(published);

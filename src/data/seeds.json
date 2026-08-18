@@ -19,5 +19,12 @@
     "platform": "telegram",
     "confidence": 0.9,
     "evidence": "Public Telegram channel named Python."
+  },
+  {
+    "candidateUrl": "https://discord.gg/reactiflux",
+    "sourceUrl": "https://reactiflux.com/",
+    "platform": "discord",
+    "confidence": 0.95,
+    "evidence": "Reactiflux \u2014 the official community Discord for React, linked from reactiflux.com."
   }
 ]

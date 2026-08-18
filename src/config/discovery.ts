@@ -62,5 +62,19 @@ export const validationConfig = {
  */
 export const TAG_PAGE_MIN_COMMUNITIES = 2;
 
+/**
+ * Minimum number of REAL published communities a tag page needs before it
+ * is indexable (noindex + sitemap exclusion below this). Prevents thin
+ * programmatic SEO pages.
+ */
+export const TAG_PAGE_INDEX_MIN = 5;
+
+/**
+ * Minimum number of REAL published communities a category page needs before
+ * it is indexable. Empty/near-empty category pages get noindex + sitemap
+ * exclusion while still being browsable.
+ */
+export const CATEGORY_INDEX_MIN = 3;
+
 /** Page size for directory grids / static pagination. */
 export const PAGE_SIZE = 24;

@@ -5,7 +5,7 @@
  */
 import 'dotenv/config';
 import { loadPublished, loadPending, loadSeeds } from './io';
-import { validateDataset } from '../../src/lib/schema';
+import { validateDataset, findProductionViolations } from '../../src/lib/schema';
 import { assertTagSlugsUnique } from '../../src/config/categories';
 
 function main(): void {
@@ -33,6 +33,16 @@ function main(): void {
     failed = true;
     console.error(`[validate] FAILED — ${result.errors.length} issue(s):`);
     for (const err of result.errors) console.error(`  - ${err}`);
+  }
+
+  // PRODUCTION SAFETY GUARD: zero demo/sample content allowed anywhere.
+  const violations = findProductionViolations([...published, ...pending]);
+  if (violations.length > 0) {
+    failed = true;
+    console.error(`[validate] PRODUCTION GUARD FAILED — ${violations.length} demo/sample violation(s):`);
+    for (const v of violations) console.error(`  - ${v.id}: ${v.reason}`);
+  } else {
+    console.log('[validate] production guard OK — no demo/sample content in data');
   }
 
   // Seeds file: light validation (it is developer input, not production data).

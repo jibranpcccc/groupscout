@@ -4,7 +4,7 @@
  */
 import 'dotenv/config';
 import { loadPublished, loadPending, writeJsonAtomic } from './io';
-import { validateDataset } from '../../src/lib/schema';
+import { validateDataset, findProductionViolations } from '../../src/lib/schema';
 import type { Community } from '../../src/types/community';
 
 function main(): void {
@@ -26,6 +26,14 @@ function main(): void {
   if (!record) {
     console.error(`[approve] no pending record with id "${target}".`);
     console.error(`[approve] pending ids: ${pending.map((c) => c.id).join(', ') || '(none)'}`);
+    process.exit(1);
+  }
+
+  // PRODUCTION GUARD: a demo/sample record can never be approved.
+  const guard = findProductionViolations([record]);
+  if (guard.length > 0) {
+    console.error('[approve] REFUSED — production guard violation(s):');
+    for (const v of guard) console.error(`  - ${v.id}: ${v.reason}`);
     process.exit(1);
   }
 

@@ -7,7 +7,7 @@ import SafetyNotice from '../../components/SafetyNotice.astro';
 import { categories, getCategoryBySlug, slugifyTag } from '../../config/categories';
 import { getByCategory } from '../../lib/communities';
 import { sortCommunities, availableFilterOptions } from '../../lib/filters';
-import { PAGE_SIZE } from '../../config/discovery';
+import { PAGE_SIZE, CATEGORY_INDEX_MIN } from '../../config/discovery';
 import { categoryPageTitle, breadcrumbJsonLd, jsonLd } from '../../lib/seo';
 import { jsonForClient } from '../../scripts/directory';
 
@@ -37,6 +37,7 @@ const pageLd = jsonLd({
   title={categoryPageTitle(category.slug)}
   description={`${category.description} Browse and filter public ${category.name} communities.`}
   canonicalPath={`/category/${category.slug}/`}
+  noindex={all.length < CATEGORY_INDEX_MIN}
   intro={category.description}
   count={`${all.length} communities`}
   breadcrumbs={[{ label: category.name }]}

@@ -38,8 +38,13 @@ across components — extend the platform config instead.
    pricing, endorsements. If unknown → `null` / `"unknown"`, and the UI hides it.
 2. **No fake "Verified" badges.** Only these verification states exist:
    `unverified | source-confirmed | owner-confirmed | manually-reviewed`.
+   `source-confirmed` requires real evidence connecting a source to the exact
+   community URL (e.g. an official site linking the invite). No script ever
+   auto-assigns `manually-reviewed` — that is a human editorial decision only.
 3. **Member counts only when sourced**: store `memberCount`, `memberCountSource`,
-   `memberCountCheckedAt` together, or all `null`. Never estimate.
+   `memberCountCheckedAt` together, or all `null`. Never estimate. The Discord
+   validator may store API-returned guild member counts with the API URL as
+   source — that is factual data, not estimation.
 4. **No ratings/reviews/growth metrics in V1.** No "trending", "fastest growing",
    "4.9 stars". "Featured" is an explicit editorial config field only.
 5. **Public content only.** The discovery system must never join private groups,
@@ -49,10 +54,15 @@ across components — extend the platform config instead.
 6. **`src/data/groups.json` is the source of truth** for published listings;
    `src/data/pending-groups.json` holds discoveries that need review. Discovery
    results default to `pending` unless `AUTO_PUBLISH_DISCOVERED=true` (keep false).
-7. **Do not rewrite JSON files unnecessarily.** Load → validate → normalize →
+7. **ZERO demo/sample content in production — enforced.** `npm run validate-data`
+   FAILS the build if any record has `isSample: true`, an example.com/placeholder
+   invite URL or source URL, "(Demo)" in the title, or "Demo fixture" in the
+   description (`findProductionViolations` in `src/lib/schema.ts`). `npm run
+   approve` refuses demo records. Fixtures may live only in `tests/`.
+8. **Do not rewrite JSON files unnecessarily.** Load → validate → normalize →
    modify → deduplicate → validate again → write atomically (temp file + rename).
-8. **Do not copy full third-party content.** Use factual metadata and concise
-   original summaries based on evidence. Store original source URLs.
+9. **Do not copy full third-party content.** Use factual metadata and concise
+   original summaries based on public evidence. Store original source URLs.
 
 ## 5. TypeScript conventions
 
@@ -83,6 +93,13 @@ across components — extend the platform config instead.
   `TAG_PAGE_MIN_COMMUNITIES` listings), no arbitrary filter-permutation pages,
   no programmatic SEO spam. Search/filter query permutations canonicalize to
   the base directory URL. Sitemap excludes utility routes.
+- Thin-page controls (config in `src/config/discovery.ts`): tag pages with
+  fewer than `TAG_PAGE_INDEX_MIN` (5) real communities get `noindex` + sitemap
+  exclusion; category pages with fewer than `CATEGORY_INDEX_MIN` (3) real
+  communities get `noindex` + sitemap exclusion; `/recently-added/` and
+  `/recently-updated/` are `noindex` + excluded from the sitemap.
+- The sitemap filter in `astro.config.mjs` computes real published counts from
+  `groups.json` — demo/sample records can never appear in the sitemap.
 - Structured data only where semantically appropriate (WebSite, CollectionPage,
   ItemList, BreadcrumbList, WebPage, Organization). **Never** fake Review /
   AggregateRating / Product schema.
@@ -126,6 +143,15 @@ adapters (see `scripts/validate/`). Cautious transitions only:
 first failure → `unknown`; repeated strong 404/invalid evidence → `dead`;
 manual report → `reported`. Never guess; bot-blocking must not produce `dead`.
 Update `lastCheckedAt` for every check. Respect rate limits and delays.
+
+Platform rules:
+- Telegram: HTTP 200 is NOT evidence. Personal/contact pages ("Contact @",
+  "If you have Telegram, you can contact", "Send Message") are rejected →
+  `unknown`. `active` requires real channel/group preview structure.
+- Discord: official invite API (`/api/v10/invites/<code>?with_counts=true`).
+  Active requires a legitimate guild result; guild name and member count are
+  stored only when the API returns them (API URL as source).
+- WhatsApp: uncertain → `unknown`. Generic invite HTML is not proof.
 
 ## 10. Moderation rules
 

@@ -139,3 +139,65 @@ export function validateDataset(
     pendingCount: pending.length,
   };
 }
+
+/**
+ * PRODUCTION SAFETY GUARD — sample/demo content must never reach production.
+ *
+ * Fails for any record that is (or looks like) a development fixture:
+ * - `isSample === true` (published or pending)
+ * - example.com (or any non-production placeholder host) invite URL
+ * - example.com in sourceUrls
+ * - "(Demo)" in the title
+ * - "Demo fixture" in the description
+ *
+ * `npm run validate-data` and CI fail when this returns violations, so demo
+ * data can never be built or deployed again.
+ */
+const DEMO_HOSTS = new Set(['example.com', 'example.org', 'example.net', 'localhost', '127.0.0.1']);
+
+export interface ProductionViolation {
+  id: string;
+  reason: string;
+}
+
+export function findProductionViolations(records: unknown[]): ProductionViolation[] {
+  const violations: ProductionViolation[] = [];
+  for (const record of records) {
+    const c = record as Partial<CommunityRecord>;
+    const id = c.id ?? '(unknown id)';
+    // Node 18+ provides a global URL — declared for eslint's no-undef.
+    /* global URL */
+    const urlHost = (() => {
+      try {
+        return new URL(c.inviteUrl ?? '').hostname.toLowerCase().replace(/^www\./, '');
+      } catch {
+        return '';
+      }
+    })();
+
+    if (c.isSample === true) {
+      violations.push({ id, reason: 'isSample === true (demo fixture in production data)' });
+    }
+    if (c.published && c.inviteUrl && DEMO_HOSTS.has(urlHost)) {
+      violations.push({ id, reason: `inviteUrl hostname "${urlHost}" is a placeholder/demo host` });
+    }
+    if (c.published && c.sourceUrls?.some((u) => DEMO_HOSTS.has(hostOf(u)))) {
+      violations.push({ id, reason: 'sourceUrls contain a placeholder/demo host' });
+    }
+    if (c.published && c.title?.toLowerCase().includes('(demo)')) {
+      violations.push({ id, reason: 'title contains "(Demo)"' });
+    }
+    if (c.published && c.description?.toLowerCase().includes('demo fixture')) {
+      violations.push({ id, reason: 'description contains "Demo fixture"' });
+    }
+  }
+  return violations;
+}
+
+function hostOf(url: string): string {
+  try {
+    return new URL(url).hostname.toLowerCase().replace(/^www\./, '');
+  } catch {
+    return '';
+  }
+}

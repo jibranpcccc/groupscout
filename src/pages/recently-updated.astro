@@ -14,6 +14,7 @@ const communities = sortCommunities(getPublishedCommunities(), 'recently-checked
   title={pageTitle('Recently Updated')}
   description="Communities whose links were checked most recently, ordered by last-checked date."
   canonicalPath="/recently-updated/"
+  noindex
   intro="Listings sorted by their most recent link check. Link health is re-verified on a schedule; this page shows what was checked most recently."
   count={`${communities.length} communities`}
   breadcrumbs={[{ label: 'Recently Updated' }]}

@@ -45,6 +45,20 @@ const categoryCounts = new Map(
         <SearchBox size="lg" id="hero-search" />
       </div>
 
+      {
+        stats.listed === 0 && (
+          <div class="mx-auto mt-10 max-w-2xl rounded-xl border border-blue-200 bg-blue-50 p-4 text-sm text-blue-900">
+            <p class="font-semibold">New communities are being reviewed.</p>
+            <p class="mt-1 text-blue-800/90">
+              The first verified listings are in the review queue. In the meantime you can{' '}
+              <a href="/submit/" class="font-medium underline">submit a community</a>,{' '}
+              <a href="/how-we-verify/" class="font-medium underline">see how verification works</a>, or{' '}
+              <a href="/safety/" class="font-medium underline">read the safety guide</a>.
+            </p>
+          </div>
+        )
+      }
+
       <dl class="mx-auto mt-10 flex max-w-xl flex-wrap items-center justify-center gap-x-10 gap-y-4">
         <div>
           <dt class="sr-only">Listed communities</dt>
@@ -133,33 +147,41 @@ const categoryCounts = new Map(
     </div>
   </section>
 
-  <!-- Recently added -->
-  <section class="mx-auto w-full max-w-6xl px-4 pt-12 sm:px-6">
-    <div class="flex items-end justify-between">
-      <h2 class="text-xl font-semibold text-stone-900">Recently Added</h2>
-      <a href="/recently-added/" class="text-sm font-medium text-blue-700 hover:text-blue-800">
-        View all →
-      </a>
-    </div>
-    <div class="mt-4">
-      <CommunityGrid communities={recentlyAdded} />
-    </div>
-  </section>
+  <!-- Recently added (hidden when empty — never filled with fixtures) -->
+  {
+    recentlyAdded.length > 0 && (
+      <section class="mx-auto w-full max-w-6xl px-4 pt-12 sm:px-6">
+        <div class="flex items-end justify-between">
+          <h2 class="text-xl font-semibold text-stone-900">Recently Added</h2>
+          <a href="/recently-added/" class="text-sm font-medium text-blue-700 hover:text-blue-800">
+            View all →
+          </a>
+        </div>
+        <div class="mt-4">
+          <CommunityGrid communities={recentlyAdded} />
+        </div>
+      </section>
+    )
+  }
 
   <AdPlaceholder slot="leaderboard" />
 
-  <!-- Recently checked -->
-  <section class="mx-auto w-full max-w-6xl px-4 pt-12 sm:px-6">
-    <div class="flex items-end justify-between">
-      <h2 class="text-xl font-semibold text-stone-900">Recently Checked</h2>
-      <a href="/recently-updated/" class="text-sm font-medium text-blue-700 hover:text-blue-800">
-        View all →
-      </a>
-    </div>
-    <div class="mt-4">
-      <CommunityGrid communities={recentlyChecked} />
-    </div>
-  </section>
+  <!-- Recently checked (hidden when empty — never filled with fixtures) -->
+  {
+    recentlyChecked.length > 0 && (
+      <section class="mx-auto w-full max-w-6xl px-4 pt-12 sm:px-6">
+        <div class="flex items-end justify-between">
+          <h2 class="text-xl font-semibold text-stone-900">Recently Checked</h2>
+          <a href="/recently-updated/" class="text-sm font-medium text-blue-700 hover:text-blue-800">
+            View all →
+          </a>
+        </div>
+        <div class="mt-4">
+          <CommunityGrid communities={recentlyChecked} />
+        </div>
+      </section>
+    )
+  }
 
   <!-- Trust + CTA -->
   <section class="mx-auto w-full max-w-6xl px-4 pt-12 sm:px-6">
