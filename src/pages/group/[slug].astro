@@ -16,6 +16,7 @@ import {
 import { requiresFinancialDisclaimer, getCategoryBySlug, slugifyTag } from '../../config/categories';
 import { getPlatformById } from '../../config/platforms';
 import { formatDate } from '../../lib/dates';
+import { languageLabel } from '../../lib/language';
 import { communityTitle, breadcrumbJsonLd, jsonLd } from '../../lib/seo';
 
 export function getStaticPaths() {
@@ -135,7 +136,7 @@ const webPageLd = jsonLd({
               community.language && (
                 <div>
                   <dt class="text-xs font-medium uppercase tracking-wide text-stone-500">Language</dt>
-                  <dd class="mt-1 text-sm text-stone-700">{community.language}</dd>
+                  <dd class="mt-1 text-sm text-stone-700">{languageLabel(community.language)}</dd>
                 </div>
               )
             }
