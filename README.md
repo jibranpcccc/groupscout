@@ -165,21 +165,28 @@ committed.
   record to `src/data/groups.json` (or `npm run approve -- <id>` for
   discoveries) → commit → Netlify rebuilds.
 
-### Free search API (Brave) — recommended for free-tier operation
+### Free search API — recommended for free-tier operation
 
 Gemini's Google Search grounding is quota-blocked on most free-tier keys, so
-for $0 web discovery use the **Brave Search API**:
+for $0 web discovery use a free search provider (set **either** key):
 
-1. Sign up at https://brave.com/search/api/ (free, no credit card).
-2. Copy the API key into `.env` as `BRAVE_API_KEY=...`.
-3. Add it as a GitHub secret named `BRAVE_API_KEY` so the daily scheduled
-   discovery uses it too.
-4. Run `npm run discover -- --dry-run` to preview, then `npm run discover`.
+- **Tavily** — https://tavily.com/ — free plan historically 1,000 searches/month,
+  email signup, no credit card. Key → `TAVILY_API_KEY`.
+- **Brave Search API** — https://brave.com/search/api/ — free tier 2,000
+  queries/month. Key → `BRAVE_API_KEY`. (Check current pricing — the free tier
+  has sometimes required a card or paid starter plan.)
 
-Brave's free tier is 2,000 queries/month (~66/day) at 1 request/second — the
-pipeline's default budget (30 queries/day) fits comfortably. Only results
-whose URL is a real t.me / chat.whatsapp.com / discord.gg link are kept as
-candidates; Gemini (free tier) classifies them into `pending-groups.json`.
+Then:
+
+1. Copy the key into `.env` (`TAVILY_API_KEY=...` or `BRAVE_API_KEY=...`).
+2. Add the same key as a GitHub secret with the matching name so the daily
+   scheduled discovery uses it too.
+3. Run `npm run discover -- --dry-run` to preview, then `npm run discover`.
+
+Both free tiers (1,000–2,000 queries/month) comfortably cover the pipeline's
+default budget of 30 queries/day. Only results whose URL is a real
+t.me / chat.whatsapp.com / discord.gg link are kept as candidates; Gemini
+(free tier) classifies them into `pending-groups.json`.
 
 ### Gemini configuration
 

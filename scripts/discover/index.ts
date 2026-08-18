@@ -17,6 +17,7 @@ import 'dotenv/config';
 import { generateQueries } from './generateQueries';
 import { GeminiGoogleSearchProvider, isGeminiConfigured } from './geminiSearch';
 import { BraveSearchProvider, isBraveConfigured } from './braveSearch';
+import { TavilySearchProvider, isTavilyConfigured } from './tavilySearch';
 import { ManualSeedProvider, type DiscoveryProvider, type DiscoveryResult } from './discoverySources';
 import { parseCandidates, type ParsedCandidate } from './parseCandidates';
 import { dedupeCandidates } from '../data/deduplicate';
@@ -90,6 +91,10 @@ async function run(): Promise<void> {
   if (isBraveConfigured()) {
     providers.push(new BraveSearchProvider());
     log('discover', 'provider: brave-search (free tier, BRAVE_API_KEY)');
+  }
+  if (isTavilyConfigured()) {
+    providers.push(new TavilySearchProvider());
+    log('discover', 'provider: tavily-search (free tier, TAVILY_API_KEY)');
   }
   const seedProvider = new ManualSeedProvider(args.seedsPath);
   const seedResults = seedProvider.getSeedResults();
