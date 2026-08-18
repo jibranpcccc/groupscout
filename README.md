@@ -165,7 +165,23 @@ committed.
   record to `src/data/groups.json` (or `npm run approve -- <id>` for
   discoveries) → commit → Netlify rebuilds.
 
-## Gemini configuration
+### Free search API (Brave) — recommended for free-tier operation
+
+Gemini's Google Search grounding is quota-blocked on most free-tier keys, so
+for $0 web discovery use the **Brave Search API**:
+
+1. Sign up at https://brave.com/search/api/ (free, no credit card).
+2. Copy the API key into `.env` as `BRAVE_API_KEY=...`.
+3. Add it as a GitHub secret named `BRAVE_API_KEY` so the daily scheduled
+   discovery uses it too.
+4. Run `npm run discover -- --dry-run` to preview, then `npm run discover`.
+
+Brave's free tier is 2,000 queries/month (~66/day) at 1 request/second — the
+pipeline's default budget (30 queries/day) fits comfortably. Only results
+whose URL is a real t.me / chat.whatsapp.com / discord.gg link are kept as
+candidates; Gemini (free tier) classifies them into `pending-groups.json`.
+
+### Gemini configuration
 
 1. Create a key at https://aistudio.google.com/apikey.
 2. Local: put it in `.env` (`GEMINI_API_KEY=...`).

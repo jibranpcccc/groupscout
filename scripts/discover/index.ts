@@ -16,6 +16,7 @@
 import 'dotenv/config';
 import { generateQueries } from './generateQueries';
 import { GeminiGoogleSearchProvider, isGeminiConfigured } from './geminiSearch';
+import { BraveSearchProvider, isBraveConfigured } from './braveSearch';
 import { ManualSeedProvider, type DiscoveryProvider, type DiscoveryResult } from './discoverySources';
 import { parseCandidates, type ParsedCandidate } from './parseCandidates';
 import { dedupeCandidates } from '../data/deduplicate';
@@ -85,7 +86,10 @@ async function run(): Promise<void> {
     log('discover', 'provider: gemini-google-search (grounding enabled)');
   } else {
     log('discover', 'provider: gemini-google-search SKIPPED — GEMINI_API_KEY missing or GEMINI_SEARCH_ENABLED=false');
-    log('discover', '  → run with --dry-run to see the pipeline; website works without discovery');
+  }
+  if (isBraveConfigured()) {
+    providers.push(new BraveSearchProvider());
+    log('discover', 'provider: brave-search (free tier, BRAVE_API_KEY)');
   }
   const seedProvider = new ManualSeedProvider(args.seedsPath);
   const seedResults = seedProvider.getSeedResults();
@@ -95,7 +99,7 @@ async function run(): Promise<void> {
   }
 
   if (providers.length === 0) {
-    log('discover', 'no providers available. Add GEMINI_API_KEY to .env or populate src/data/seeds.json.');
+    log('discover', 'no providers available. Set GEMINI_API_KEY (paid grounding), BRAVE_API_KEY (free search), or populate src/data/seeds.json.');
     process.exitCode = 1;
     return;
   }

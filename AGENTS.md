@@ -106,6 +106,9 @@ published dataset.
 - Free-tier reality: Google Search grounding is usually quota-blocked on free
   API keys (429, handled gracefully); classification (plain generateContent)
   works. `seeds.json` + classification is the full free-tier discovery path.
+- Recommended free search provider: Brave Search API (`BRAVE_API_KEY`,
+  scripts/discover/braveSearch.ts) — 2,000 queries/month free, real web
+  index, platform-filtered candidates. Gemini remains the free classifier.
 - The classifier intentionally avoids `responseSchema` (it triggers
   pathological repeated-token output on some flash models) — it uses a strict
   JSON prompt, `maxOutputTokens` cap, one retry, JSON salvage and Zod
