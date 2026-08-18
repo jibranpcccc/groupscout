@@ -15,6 +15,12 @@ describe('normalizeInviteUrl', () => {
     expect(normalizeInviteUrl('https://T.ME/ExampleChannel')).toBe('https://t.me/examplechannel');
   });
 
+  it('canonicalizes t.me/s/ preview pages and post links to channel URLs', () => {
+    expect(normalizeInviteUrl('https://t.me/s/crypto/3411')).toBe('https://t.me/crypto');
+    expect(normalizeInviteUrl('https://t.me/s/deepinsight?before=135')).toBe('https://t.me/deepinsight');
+    expect(normalizeInviteUrl('t.me/s/videogenerator')).toBe('https://t.me/videogenerator');
+  });
+
   it('preserves discord invite token case', () => {
     expect(normalizeInviteUrl('https://discord.gg/AbCdEf12')).toBe('https://discord.gg/AbCdEf12');
   });

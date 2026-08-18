@@ -48,6 +48,14 @@ export function normalizeInviteUrl(input: string): string | null {
   // Telegram usernames are case-insensitive → normalize path for t.me hosts.
   if (TELEGRAM_HOSTS.has(host)) {
     url.pathname = url.pathname.toLowerCase();
+    // Public channel web previews (t.me/s/<name>[/<post-number>]) canonicalize
+    // to the channel URL. s-pages and post numbers are NOT invitation tokens
+    // (public channels only), and their query params are preview pagination.
+    const sm = url.pathname.match(/^\/s\/([^/]+)(?:\/\d+)?\/?$/);
+    if (sm) {
+      url.pathname = `/${sm[1]}`;
+      url.searchParams.forEach((_, key) => url.searchParams.delete(key));
+    }
   }
 
   // Preserve the rest of the path/token verbatim (case-sensitive tokens).
