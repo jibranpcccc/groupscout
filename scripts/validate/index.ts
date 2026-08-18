@@ -29,16 +29,34 @@ const ADAPTERS: Record<string, (url: string) => Promise<LinkStatus>> = {
   generic: validateGeneric,
 };
 
-function transition(current: LinkStatus, observed: LinkStatus): LinkStatus {
-  // Report/removed are moderation states — link checks never overwrite them.
-  if (current === 'reported' || current === 'removed') return current;
-  if (observed === 'active') return 'active';
-  if (observed === 'dead') {
-    // Only escalate to dead if we already had evidence of trouble.
-    if (current === 'dead' || current === 'unknown') return 'dead';
-    return 'unknown';
+/**
+ * Cautious status transitions (spec §25):
+ *   first failure / ambiguity  → unknown (failures+1)
+ *   repeated strong 404/410    → dead (failures >= 2)
+ *   recovery                   → active (failures reset)
+ * Report/removed are moderation states — link checks never overwrite them.
+ */
+function transition(
+  current: LinkStatus,
+  observed: LinkStatus,
+  failures: number
+): { status: LinkStatus; failures: number } {
+  if (current === 'reported' || current === 'removed') {
+    return { status: current, failures };
   }
-  return 'unknown';
+  if (observed === 'active') {
+    return { status: 'active', failures: 0 };
+  }
+  if (observed === 'dead') {
+    const nextFailures = failures + 1;
+    if (current === 'dead' || nextFailures >= 2) {
+      return { status: 'dead', failures: nextFailures };
+    }
+    return { status: 'unknown', failures: nextFailures };
+  }
+  // Ambiguous/blocked/timeout — never dead, and failures only accumulate
+  // on strong evidence (handled above).
+  return { status: 'unknown', failures: 0 };
 }
 
 async function main(): Promise<void> {
@@ -47,7 +65,7 @@ async function main(): Promise<void> {
   const now = new Date().toISOString();
 
   let checks = 0;
-  const updates = new Map<string, { linkStatus: LinkStatus; lastCheckedAt: string }>();
+  const updates = new Map<string, { linkStatus: LinkStatus; lastCheckedAt: string; linkCheckFailures: number }>();
 
   const all = [...published, ...pending];
   for (const community of all) {
@@ -65,11 +83,16 @@ async function main(): Promise<void> {
       observed = 'unknown';
     }
 
-    const nextStatus = transition(community.linkStatus, observed);
-    if (nextStatus !== community.linkStatus || community.lastCheckedAt !== now) {
-      updates.set(community.id, { linkStatus: nextStatus, lastCheckedAt: now });
+    const failures = community.linkCheckFailures ?? 0;
+    const { status: nextStatus, failures: nextFailures } = transition(
+      community.linkStatus,
+      observed,
+      failures
+    );
+    if (nextStatus !== community.linkStatus || nextFailures !== failures || community.lastCheckedAt !== now) {
+      updates.set(community.id, { linkStatus: nextStatus, lastCheckedAt: now, linkCheckFailures: nextFailures });
       if (nextStatus !== community.linkStatus) {
-        log('validate', `${community.id}: ${community.linkStatus} → ${nextStatus} (observed ${observed})`);
+        log('validate', `${community.id}: ${community.linkStatus} → ${nextStatus} (observed ${observed}, failures ${failures}→${nextFailures})`);
       }
     }
 
@@ -87,7 +110,9 @@ async function main(): Promise<void> {
   const apply = (records: Community[]): Community[] =>
     records.map((c) => {
       const u = updates.get(c.id);
-      return u ? { ...c, linkStatus: u.linkStatus, lastCheckedAt: u.lastCheckedAt } : c;
+      return u
+        ? { ...c, linkStatus: u.linkStatus, lastCheckedAt: u.lastCheckedAt, linkCheckFailures: u.linkCheckFailures }
+        : c;
     });
 
   const nextPublished = apply(published);

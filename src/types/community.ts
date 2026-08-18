@@ -90,6 +90,13 @@ export interface Community {
   /** Moderation flags (e.g. "potential-risk-language"). Not consumer-facing safety ratings. */
   safetyFlags?: string[];
 
+  /**
+   * Consecutive strong-failure count from link checks (404/410 evidence).
+   * Internal only — used to honor "first failure → unknown, repeated
+   * strong evidence → dead". Never displayed.
+   */
+  linkCheckFailures?: number;
+
   /** Editorial placement only — never implies "best" or a rating. */
   featured?: boolean;
 

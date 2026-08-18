@@ -57,6 +57,7 @@ export const communitySchema = z
     discoveredAt: z.string().refine(isValidIsoDate, { message: 'discoveredAt must be an ISO date' }),
     updatedAt: z.string().nullable().optional(),
     safetyFlags: z.array(z.string().max(80)).max(10).optional(),
+    linkCheckFailures: z.number().int().nonnegative().max(10).optional(),
     featured: z.boolean().optional(),
     isSample: z.boolean().optional(),
     published: z.boolean(),
