@@ -1,7 +1,13 @@
 name: Discover Communities
 
-# Daily discovery run (non-peak UTC time) + manual trigger.
-# Discovered candidates land in pending-groups.json for human review.
+# Daily automated pipeline (non-peak UTC time) + manual trigger:
+#   discover (Tavily/Brave/Gemini search) → link validation → gated
+#   auto-approve → schema validation → commit → Netlify auto-deploy.
+#
+# Gated auto-publish: candidates publish ONLY when they pass all quality
+# gates (production guard, non-dead link, no safety flags, classified,
+# sourced, no scam indicators) — everything else stays pending for human
+# review. Cap AUTO_APPROVE_MAX per run (default 30).
 # Only real data changes are committed; secrets are never committed.
 
 on:
@@ -21,13 +27,18 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-      GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
-      GEMINI_SEARCH_ENABLED: ${{ vars.GEMINI_SEARCH_ENABLED }}
-      BRAVE_API_KEY: ${{ secrets.BRAVE_API_KEY }}
+      GEMINI_MODEL: gemini-3.5-flash-lite
+      GEMINI_SEARCH_ENABLED: true
       TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
-      DISCOVERY_MAX_QUERIES: ${{ vars.DISCOVERY_MAX_QUERIES }}
-      DISCOVERY_MAX_CANDIDATES: ${{ vars.DISCOVERY_MAX_CANDIDATES }}
-      AUTO_PUBLISH_DISCOVERED: ${{ vars.AUTO_PUBLISH_DISCOVERED }}
+      BRAVE_API_KEY: ${{ secrets.BRAVE_API_KEY }}
+      # Budget math: ~25 queries/day ≈ 750 Tavily credits/month (free tier
+      # is 1,000/mo). Keeps the daily cost at $0 with headroom.
+      DISCOVERY_MAX_QUERIES: 25
+      DISCOVERY_MAX_CANDIDATES: 120
+      AUTO_PUBLISH_DISCOVERED: false
+      VALIDATE_MAX_CHECKS: 45
+      VALIDATE_DELAY_MS: 1200
+      AUTO_APPROVE_MAX: 30
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -42,10 +53,20 @@ jobs:
         run: npm ci
 
       - name: Run discovery
-        run: npm run discover
         # A failing discovery (quota exhaustion, Gemini errors, network)
         # must not break the run — the workflow still validates + commits
         # whatever data changed.
+        run: npm run discover
+        continue-on-error: true
+
+      - name: Validate new links
+        # Independent link checks (official Discord API, Telegram previews)
+        # so dead invites can never be auto-published.
+        run: npm run validate-links
+        continue-on-error: true
+
+      - name: Gated auto-approve
+        run: npm run auto-approve
         continue-on-error: true
 
       - name: Validate data
@@ -59,6 +80,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No data changes — nothing to commit."
           else
-            git commit -m "data: update discovered communities"
+            git commit -m "data: publish discovered communities"
             git push
           fi

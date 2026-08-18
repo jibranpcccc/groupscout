@@ -18,7 +18,8 @@
     "discover": "tsx scripts/discover/index.ts",
     "validate-links": "tsx scripts/validate/index.ts",
     "data:stats": "tsx scripts/data/stats.ts",
-    "approve": "tsx scripts/data/approve.ts"
+    "approve": "tsx scripts/data/approve.ts",
+    "auto-approve": "tsx scripts/data/autoApprove.ts"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.2.1",

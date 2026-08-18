@@ -111,10 +111,27 @@ never treated as a source.
 
 ## Reviewing pending discoveries
 
+The daily pipeline (`discover-groups.yml`) now **auto-approves** candidates that
+pass every quality gate — see `scripts/data/autoApprove.ts`:
+
+1. production guard (no demo/sample markers)
+2. link status is not `dead` (checked against official platform APIs first)
+3. no safety flags (risk-language candidates are held)
+4. Gemini actually classified it (≥1 tag)
+5. has source evidence (`sourceUrls`)
+6. no scam indicators in title/description
+7. capped at `AUTO_APPROVE_MAX` (default 30) per run
+
+Anything held stays in `pending-groups.json` for you. To publish a held
+candidate manually:
+
 ```bash
 npm run data:stats              # see pending count
 npm run approve -- <candidate-id>   # publish one pending record
 ```
+
+A candidate that fails a gate never becomes public — auto-approval never
+sets a verification status beyond `unverified`.
 
 or edit `src/data/pending-groups.json` manually (set `published: true` and
 move the record into `groups.json`). Every write path validates the schema

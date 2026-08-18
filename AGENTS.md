@@ -53,7 +53,13 @@ across components — extend the platform config instead.
    crawl prohibited resources. If a source blocks automation → `status = unknown`.
 6. **`src/data/groups.json` is the source of truth** for published listings;
    `src/data/pending-groups.json` holds discoveries that need review. Discovery
-   results default to `pending` unless `AUTO_PUBLISH_DISCOVERED=true` (keep false).
+   results default to `pending`. Publication is either manual (`npm run
+   approve -- <id>`) or via the gated daily pipeline (`npm run auto-approve`,
+   see `scripts/data/autoApprove.ts`) — auto-approval requires: production
+   guard clean, link not dead, no safety flags, ≥1 tag (Gemini classified),
+   ≥1 sourceUrl, no scam indicators, and is capped per run
+   (`AUTO_APPROVE_MAX`, default 30). Auto-approval NEVER sets a verification
+   status beyond `unverified`, and NEVER assigns `manually-reviewed`.
 7. **ZERO demo/sample content in production — enforced.** `npm run validate-data`
    FAILS the build if any record has `isSample: true`, an example.com/placeholder
    invite URL or source URL, "(Demo)" in the title, or "Demo fixture" in the
