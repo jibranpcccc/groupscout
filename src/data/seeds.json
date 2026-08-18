@@ -1,9 +1,23 @@
 [
   {
-    "candidateUrl": "https://example.com/demo-seed-community",
-    "sourceUrl": "https://example.com/demo-seed-source",
+    "candidateUrl": "https://t.me/durov",
+    "sourceUrl": "https://telegram.org/faq",
+    "platform": "telegram",
+    "confidence": 0.95,
+    "evidence": "Public Telegram channel of Telegram's founder, widely indexed."
+  },
+  {
+    "candidateUrl": "https://discord.gg/python",
+    "sourceUrl": "https://pythondiscord.com/",
+    "platform": "discord",
+    "confidence": 0.95,
+    "evidence": "Python Discord community, public invite widely shared on pythondiscord.com."
+  },
+  {
+    "candidateUrl": "https://t.me/Python",
+    "sourceUrl": "https://telegram.org/",
     "platform": "telegram",
     "confidence": 0.9,
-    "evidence": "Manual seed: replace with real public invite URLs you want to add without Gemini discovery."
+    "evidence": "Public Telegram channel named Python."
   }
 ]

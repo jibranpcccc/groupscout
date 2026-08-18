@@ -1,5 +1,108 @@
 [
   {
+    "id": "cand-msymjmqr-7k7g3i",
+    "slug": "telegram-durov",
+    "title": "durov",
+    "platform": "telegram",
+    "category": "ai-tech",
+    "subcategory": null,
+    "tags": [
+      "telegram",
+      "founder",
+      "channel"
+    ],
+    "inviteUrl": "https://t.me/durov",
+    "description": "Public Telegram channel of Telegram's founder.",
+    "language": null,
+    "country": null,
+    "accessType": "free",
+    "communityType": "other",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://telegram.org/faq"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-18T12:13:52.994Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false
+  },
+  {
+    "id": "cand-msymjobp-u1035o",
+    "slug": "discord-python",
+    "title": "Python Discord",
+    "platform": "discord",
+    "category": "ai-tech",
+    "subcategory": null,
+    "tags": [
+      "python",
+      "discord",
+      "programming",
+      "community"
+    ],
+    "inviteUrl": "https://discord.gg/python",
+    "description": "Python Discord community, public invite widely shared on pythondiscord.com.",
+    "language": "en",
+    "country": null,
+    "accessType": "free",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://pythondiscord.com/"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-18T12:13:55.045Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false
+  },
+  {
+    "id": "cand-msymjpvi-ujttw8",
+    "slug": "telegram-python",
+    "title": "Python",
+    "platform": "telegram",
+    "category": "ai-tech",
+    "subcategory": null,
+    "tags": [
+      "python",
+      "programming",
+      "telegram"
+    ],
+    "inviteUrl": "https://t.me/python",
+    "description": "Public Telegram channel named Python.",
+    "language": null,
+    "country": null,
+    "accessType": "free",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://telegram.org/"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-18T12:13:57.054Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false
+  },
+  {
     "id": "demo-pending-future-of-work",
     "slug": "future-of-work",
     "title": "Future of Work Discussions (Demo Pending)",

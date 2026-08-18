@@ -34,8 +34,13 @@ export const discoveryConfig = {
   automaticPublishing: boolFromEnv('AUTO_PUBLISH_DISCOVERED', false),
   /** Gemini search grounding toggle. */
   geminiSearchEnabled: boolFromEnv('GEMINI_SEARCH_ENABLED', true),
-  /** Gemini model; configurable via GEMINI_MODEL. */
-  geminiModel: process.env.GEMINI_MODEL || 'gemini-2.5-flash',
+  /**
+   * Gemini model; configurable via GEMINI_MODEL. Defaults to the lite model:
+   * on free tiers it is quota-friendly and its structured-output responses
+   * are far more reliable than the full flash models (which can truncate or
+   * loop). Works fine for both search-grounding attempts and classification.
+   */
+  geminiModel: process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite',
 } as const;
 
 export const validationConfig = {

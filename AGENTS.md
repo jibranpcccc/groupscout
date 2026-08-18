@@ -103,6 +103,14 @@ published dataset.
   wording. Gemini must **never** invent URLs/member counts/reviews, declare a
   community safe, or endorse it.
 - A real URL must exist as evidence — Gemini's prose is not a source.
+- Free-tier reality: Google Search grounding is usually quota-blocked on free
+  API keys (429, handled gracefully); classification (plain generateContent)
+  works. `seeds.json` + classification is the full free-tier discovery path.
+- The classifier intentionally avoids `responseSchema` (it triggers
+  pathological repeated-token output on some flash models) — it uses a strict
+  JSON prompt, `maxOutputTokens` cap, one retry, JSON salvage and Zod
+  validation instead. Default model `gemini-3.5-flash-lite` is the most
+  reliable free-tier choice.
 - Budget controls in `src/config/discovery.ts` + env overrides; `--dry-run`
   and `--limit` supported. Structured logs, no secrets printed.
 

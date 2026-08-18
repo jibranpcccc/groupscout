@@ -35,33 +35,18 @@ const categoryNames = categories.map((c) => c.slug).join(', ');
 
 const SYSTEM_PROMPT = [
   'You are a metadata classifier for a directory of public online communities (Telegram, WhatsApp, Discord).',
-  `Classify the candidate using ONLY the supplied source evidence (URL, source page title, snippet, query context).`,
+  'Classify the candidate using ONLY the supplied source evidence (URL, source page title, snippet, query context).',
   'Rules:',
   '- Use only supplied source evidence.',
   '- If unknown, return null (or "unknown" for enums).',
   '- Do not invent facts. Do not invent URLs. Do not infer member counts.',
   '- title: the community name if clearly identifiable from evidence, else null.',
   `- category: one of: ${categoryNames}, else null.`,
-  '- tags: max 8 short tags, lowercase-ish, derived from evidence.',
+  '- tags: max 8 short tags derived from evidence.',
   '- description: max 400 chars, a concise factual summary of the evidence. null if no evidence.',
-  '- confidence: 0..1 — how confident you are that the candidate is a real, public, well-described community. Use low values for weak evidence.',
-  'Respond with JSON only, matching this schema exactly:',
-  JSON.stringify(
-    {
-      title: 'string|null',
-      category: 'string|null',
-      subcategory: 'string|null',
-      tags: ['string'],
-      language: 'string|null',
-      country: 'string|null',
-      communityType: 'discussion|education|signals|news|jobs|deals|support|other|unknown',
-      accessType: 'free|paid|mixed|unknown',
-      description: 'string|null',
-      confidence: 0.5,
-    },
-    null,
-    2
-  ),
+  '- confidence: number 0..1.',
+  'Reply with JSON only, exactly matching this shape:',
+  '{"title":"string|null","category":"string|null","subcategory":"string|null","tags":["string"],"language":"string|null","country":"string|null","communityType":"discussion|education|signals|news|jobs|deals|support|other|unknown","accessType":"free|paid|mixed|unknown","description":"string|null","confidence":0.5}',
 ].join('\n');
 
 interface ClassificationInput {
@@ -71,9 +56,11 @@ interface ClassificationInput {
 }
 
 /**
- * Classify a candidate. On any failure (no key, model error, invalid JSON)
- * returns a minimal safe classification with confidence 0 so the pipeline
- * can continue without crashing.
+ * Classify a candidate. Hardened for free-tier model quirks:
+ * bounded output tokens, one retry on malformed JSON, and salvage of the
+ * first balanced JSON object before falling back to a safe minimal result.
+ * On any failure (no key, model error, invalid JSON) returns a minimal
+ * safe classification with confidence 0 so the pipeline continues.
  */
 export async function classifyCandidate(input: ClassificationInput): Promise<ClassificationResult> {
   const fallback: ClassificationResult = {
@@ -93,60 +80,101 @@ export async function classifyCandidate(input: ClassificationInput): Promise<Cla
     return fallback;
   }
 
-  try {
-    const { GoogleGenAI } = await import('@google/genai');
-    const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY as string });
+  const evidenceText = [
+    `Candidate URL: ${input.candidate.candidateUrl}`,
+    `Source page: ${input.candidate.sourceUrl}`,
+    input.candidate.evidence ? `Source snippet: ${input.candidate.evidence}` : null,
+    input.anchorTag ? `Query anchor tag: ${input.anchorTag}` : null,
+  ]
+    .filter(Boolean)
+    .join('\n');
 
-    const evidenceText = [
-      `Candidate URL: ${input.candidate.candidateUrl}`,
-      `Source page: ${input.candidate.sourceUrl}`,
-      input.candidate.evidence ? `Source snippet: ${input.candidate.evidence}` : null,
-      input.anchorTag ? `Query anchor tag: ${input.anchorTag}` : null,
-    ]
-      .filter(Boolean)
-      .join('\n');
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      const { GoogleGenAI } = await import('@google/genai');
+      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY as string });
 
-    const response = await ai.models.generateContent({
-      model: discoveryConfig.geminiModel,
-      contents: [
-        { role: 'user', parts: [{ text: SYSTEM_PROMPT }] },
-        { role: 'user', parts: [{ text: `Evidence:\n${evidenceText}` }] },
-      ],
-      config: {
-        responseMimeType: 'application/json',
-        responseSchema: {
-          type: 'OBJECT',
-          properties: {
-            title: { type: 'STRING' },
-            category: { type: 'STRING' },
-            subcategory: { type: 'STRING' },
-            tags: { type: 'ARRAY', items: { type: 'STRING' } },
-            language: { type: 'STRING' },
-            country: { type: 'STRING' },
-            communityType: { type: 'STRING' },
-            accessType: { type: 'STRING' },
-            description: { type: 'STRING' },
-            confidence: { type: 'NUMBER' },
-          },
+      const response = await ai.models.generateContent({
+        model: discoveryConfig.geminiModel,
+        contents: [
+          { role: 'user', parts: [{ text: SYSTEM_PROMPT }] },
+          { role: 'user', parts: [{ text: `Evidence:\n${evidenceText}` }] },
+        ],
+        config: {
+          responseMimeType: 'application/json',
+          // Bounded output — prevents runaway/token-budget truncation.
+          // NOTE: no responseSchema here — in current Gemini API versions
+          // the schema parameter itself triggers pathological repeated-token
+          // output on some flash models; the strict prompt + Zod validation
+          // below is more reliable.
+          maxOutputTokens: 1024,
         },
-      },
-    });
+      });
 
-    const text = response?.candidates?.[0]?.content?.parts?.map((p: { text?: string }) => p.text ?? '').join('') ?? '';
-    if (!text) {
-      log('classify', 'empty model response — using fallback');
-      return fallback;
-    }
+      const text = response?.candidates?.[0]?.content?.parts?.map((p: { text?: string }) => p.text ?? '').join('') ?? '';
+      if (!text) {
+        log('classify', `attempt ${attempt + 1}: empty model response`);
+        continue;
+      }
 
-    const parsed = JSON.parse(text) as unknown;
-    const result = classificationSchema.safeParse(parsed);
-    if (!result.success) {
-      log('classify', `invalid classification JSON (${result.error.issues.length} issues) — using fallback`);
-      return fallback;
+      const parsed = parseModelJson(text);
+      if (!parsed) {
+        log('classify', `attempt ${attempt + 1}: malformed JSON (${text.length} chars) — retrying`);
+        continue;
+      }
+
+      const result = classificationSchema.safeParse(parsed);
+      if (!result.success) {
+        log('classify', `attempt ${attempt + 1}: invalid classification (${result.error.issues.length} issues) — retrying`);
+        continue;
+      }
+      return result.data;
+    } catch (err) {
+      log('classify', `attempt ${attempt + 1} failed: ${err instanceof Error ? err.message : String(err)}`);
     }
-    return result.data;
-  } catch (err) {
-    log('classify', `classification failed: ${err instanceof Error ? err.message : String(err)}`);
-    return fallback;
   }
+
+  log('classify', 'all attempts failed — using safe fallback');
+  return fallback;
+}
+
+/**
+ * Parse model JSON defensively: try full parse, then salvage the first
+ * balanced JSON object from the text (models occasionally emit trailing
+ * junk or get truncated mid-array).
+ */
+function parseModelJson(text: string): unknown {
+  const trimmed = text.trim();
+  try {
+    return JSON.parse(trimmed) as unknown;
+  } catch {
+    /* fall through to salvage */
+  }
+  const start = trimmed.indexOf('{');
+  if (start === -1) return null;
+  let depth = 0;
+  let inString = false;
+  let escaped = false;
+  for (let i = start; i < trimmed.length; i++) {
+    const ch = trimmed[i];
+    if (inString) {
+      if (escaped) escaped = false;
+      else if (ch === '\\') escaped = true;
+      else if (ch === '"') inString = false;
+      continue;
+    }
+    if (ch === '"') inString = true;
+    else if (ch === '{') depth++;
+    else if (ch === '}') {
+      depth--;
+      if (depth === 0) {
+        try {
+          return JSON.parse(trimmed.slice(start, i + 1)) as unknown;
+        } catch {
+          return null;
+        }
+      }
+    }
+  }
+  return null;
 }

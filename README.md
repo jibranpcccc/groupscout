@@ -174,6 +174,22 @@ committed.
 4. Netlify: only needed if you run discovery there; the scheduled discovery
    runs in GitHub Actions instead.
 
+### Free-tier notes (important)
+
+- **Search grounding** (Google Search via `googleSearch` tool) is typically
+  **quota-blocked on free-tier keys** (429 RESOURCE_EXHAUSTED). The pipeline
+  handles this gracefully: grounding queries fail individually, the run
+  continues, and nothing crashes.
+- **Classification works on the free tier.** Seeds + classification is the
+  full free-tier discovery path: `npm run discover` reads `src/data/seeds.json`
+  (real public URLs you add yourself), Gemini classifies each one, and results
+  land in `pending-groups.json` for review — no grounding required.
+- The default model `gemini-3.5-flash-lite` is the most reliable free-tier
+  choice for structured output. Some flash models produce truncated or
+  repetitive JSON when given a `responseSchema`; this project intentionally
+  uses a strict JSON prompt + bounded output tokens + retry + Zod validation
+  instead, which tests showed to be dependable.
+
 ## Removing sample data
 
 `src/data/groups.json` contains **demo fixtures** (every record has
