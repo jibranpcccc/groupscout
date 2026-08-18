@@ -1,0 +1,78 @@
+---
+import DirectoryLayout from '../../layouts/DirectoryLayout.astro';
+import CommunityGrid from '../../components/CommunityGrid.astro';
+import FilterBar from '../../components/FilterBar.astro';
+import EmptyState from '../../components/EmptyState.astro';
+import { platforms, getPlatformById } from '../../config/platforms';
+import { getByPlatform } from '../../lib/communities';
+import { sortCommunities, availableFilterOptions } from '../../lib/filters';
+import { PAGE_SIZE } from '../../config/discovery';
+import { platformPageTitle, breadcrumbJsonLd, jsonLd } from '../../lib/seo';
+import { jsonForClient } from '../../scripts/directory';
+
+export function getStaticPaths() {
+  return platforms.map((p) => ({ params: { slug: p.id } }));
+}
+
+const { slug } = Astro.params;
+const platform = getPlatformById(slug ?? '');
+if (!platform) return Astro.redirect('/404', 301);
+
+const all = getByPlatform(platform.id);
+const sorted = sortCommunities(all, 'newest');
+const pageOne = sorted.slice(0, PAGE_SIZE);
+const options = availableFilterOptions(all);
+
+const pageLd = jsonLd({
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: `${platform.name} Communities`,
+  description: platform.description,
+  url: `/platform/${platform.id}/`,
+});
+---
+
+<DirectoryLayout
+  title={platformPageTitle(platform.id)}
+  description={`Public ${platform.name} communities listed in the directory. ${platform.description}`}
+  canonicalPath={`/platform/${platform.id}/`}
+  intro={platform.description}
+  count={`${all.length} communities`}
+  breadcrumbs={[{ label: platform.name }]}
+  jsonLd={`${breadcrumbJsonLd([{ name: `${platform.name} Communities`, path: `/platform/${platform.id}/` }])}\n${pageLd}`}
+>
+  <p class="mb-4 rounded-lg border border-stone-200 bg-stone-50 p-3 text-sm text-stone-600">
+    This page lists {platform.name} communities that were publicly identified. It does not
+    imply any affiliation with or endorsement by {platform.name}.
+  </p>
+
+  <FilterBar options={options} current={{ platform: platform.id }} basePath={`/platform/${platform.id}/`} />
+
+  <p data-directory-summary class="mt-4 text-sm text-stone-500">
+    {all.length > 0
+      ? `Showing 1–${Math.min(PAGE_SIZE, all.length)} of ${all.length}`
+      : 'No communities on this platform yet'}
+  </p>
+
+  <div class="mt-4">
+    {
+      all.length === 0 ? (
+        <EmptyState message={`No ${platform.name} communities listed yet.`} />
+      ) : (
+        <div
+          id="directory-view"
+          data-base={`/platform/${platform.id}/`}
+          data-page-size={PAGE_SIZE}
+        >
+          <script type="application/json" id="directory-data" set:html={jsonForClient(all)} is:inline />
+          <CommunityGrid communities={pageOne} />
+        </div>
+      )
+    }
+  </div>
+</DirectoryLayout>
+
+<script>
+  import { initDirectoryView } from '../../scripts/directory';
+  initDirectoryView();
+</script>

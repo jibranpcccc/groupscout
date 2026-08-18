@@ -1,0 +1,38 @@
+# ------------------------------------------------------------------
+# Netlify configuration
+# ------------------------------------------------------------------
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  # Production site URL is set in the Netlify UI (Site settings -> Environment
+  # variables). It is used for canonical URLs, sitemap and robots.txt.
+  # PUBLIC_SITE_URL = "https://your-domain.example"
+
+# ------------------------------------------------------------------
+# Security headers (conservative: functionality must not break)
+# ------------------------------------------------------------------
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
+    # Permissive CSP for V1: Astro emits some inline bootstrap scripts and
+    # Tailwind injects inline styles. Netlify Forms posts to the same origin.
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+
+# ------------------------------------------------------------------
+# Redirects
+# ------------------------------------------------------------------
+[[redirects]]
+  from = "/communities/1/"
+  to = "/communities/"
+  status = 301
+
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301

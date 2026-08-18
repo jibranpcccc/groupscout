@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SearchBox from '../components/SearchBox.astro';
+import { pageTitle } from '../lib/seo';
+import { categories } from '../config/categories';
+---
+
+<BaseLayout
+  title={pageTitle('Page Not Found')}
+  description="The page you were looking for could not be found."
+  canonicalPath="/404/"
+  noindex
+>
+  <div class="mx-auto w-full max-w-2xl px-4 py-20 text-center sm:px-6">
+    <p class="text-sm font-semibold uppercase tracking-widest text-blue-700">404</p>
+    <h1 class="mt-2 text-3xl font-bold tracking-tight text-stone-900">Page not found</h1>
+    <p class="mt-3 text-stone-600">
+      The page you're looking for doesn't exist, or a listing may have been removed.
+      Try searching, or browse the categories below.
+    </p>
+
+    <div class="mx-auto mt-8 max-w-xl">
+      <SearchBox id="search-404" size="lg" />
+    </div>
+
+    <div class="mt-10">
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        <a href="/" class="btn-primary">Back to home</a>
+        <a href="/communities/" class="btn-secondary">Browse communities</a>
+        <a href="/submit/" class="btn-secondary">Submit a community</a>
+      </div>
+    </div>
+
+    <h2 class="mt-12 text-sm font-semibold text-stone-900">Popular categories</h2>
+    <div class="mt-4 flex flex-wrap justify-center gap-2">
+      {categories.map((cat) => (
+        <a
+          href={`/category/${cat.slug}/`}
+          class="rounded-full border border-stone-200 bg-surface px-3 py-1 text-sm text-stone-600 hover:border-blue-300 hover:text-blue-700"
+        >
+          {cat.name}
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

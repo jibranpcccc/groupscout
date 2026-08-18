@@ -1,0 +1,23 @@
+---
+import DirectoryLayout from '../layouts/DirectoryLayout.astro';
+import CommunityGrid from '../components/CommunityGrid.astro';
+import EmptyState from '../components/EmptyState.astro';
+import { getPublishedCommunities } from '../lib/communities';
+import { sortCommunities } from '../lib/filters';
+import { pageTitle, breadcrumbJsonLd } from '../lib/seo';
+
+/** "Recently checked" — the honest alternative to fake trending sections. */
+const communities = sortCommunities(getPublishedCommunities(), 'recently-checked').slice(0, 50);
+---
+
+<DirectoryLayout
+  title={pageTitle('Recently Updated')}
+  description="Communities whose links were checked most recently, ordered by last-checked date."
+  canonicalPath="/recently-updated/"
+  intro="Listings sorted by their most recent link check. Link health is re-verified on a schedule; this page shows what was checked most recently."
+  count={`${communities.length} communities`}
+  breadcrumbs={[{ label: 'Recently Updated' }]}
+  jsonLd={breadcrumbJsonLd([{ name: 'Recently Updated', path: '/recently-updated/' }])}
+>
+  {communities.length === 0 ? <EmptyState /> : <CommunityGrid communities={communities} />}
+</DirectoryLayout>

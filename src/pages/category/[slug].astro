@@ -1,0 +1,101 @@
+---
+import DirectoryLayout from '../../layouts/DirectoryLayout.astro';
+import CommunityGrid from '../../components/CommunityGrid.astro';
+import FilterBar from '../../components/FilterBar.astro';
+import EmptyState from '../../components/EmptyState.astro';
+import SafetyNotice from '../../components/SafetyNotice.astro';
+import { categories, getCategoryBySlug, slugifyTag } from '../../config/categories';
+import { getByCategory } from '../../lib/communities';
+import { sortCommunities, availableFilterOptions } from '../../lib/filters';
+import { PAGE_SIZE } from '../../config/discovery';
+import { categoryPageTitle, breadcrumbJsonLd, jsonLd } from '../../lib/seo';
+import { jsonForClient } from '../../scripts/directory';
+
+export function getStaticPaths() {
+  return categories.map((c) => ({ params: { slug: c.slug } }));
+}
+
+const { slug } = Astro.params;
+const category = getCategoryBySlug(slug ?? '');
+if (!category) return Astro.redirect('/404', 301);
+
+const all = getByCategory(category.slug);
+const sorted = sortCommunities(all, 'newest');
+const pageOne = sorted.slice(0, PAGE_SIZE);
+const options = availableFilterOptions(all);
+
+const pageLd = jsonLd({
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: `${category.name} Communities`,
+  description: category.description,
+  url: `/category/${category.slug}/`,
+});
+---
+
+<DirectoryLayout
+  title={categoryPageTitle(category.slug)}
+  description={`${category.description} Browse and filter public ${category.name} communities.`}
+  canonicalPath={`/category/${category.slug}/`}
+  intro={category.description}
+  count={`${all.length} communities`}
+  breadcrumbs={[{ label: category.name }]}
+  jsonLd={`${breadcrumbJsonLd([{ name: category.name, path: `/category/${category.slug}/` }])}\n${pageLd}`}
+>
+  {
+    category.note && (
+      <p class="mb-4 rounded-lg border border-stone-200 bg-stone-50 p-3 text-sm text-stone-600">
+        {category.note}
+      </p>
+    )
+  }
+  {
+    category.financialDisclaimerRequired && <SafetyNotice variant="financial" class="mb-4" />
+  }
+
+  <FilterBar options={options} current={{ category: category.slug }} basePath={`/category/${category.slug}/`} />
+
+  <p data-directory-summary class="mt-4 text-sm text-stone-500">
+    {all.length > 0
+      ? `Showing 1–${Math.min(PAGE_SIZE, all.length)} of ${all.length}`
+      : 'No communities in this category yet'}
+  </p>
+
+  <div class="mt-4">
+    {
+      all.length === 0 ? (
+        <EmptyState message="No communities in this category yet." />
+      ) : (
+        <div
+          id="directory-view"
+          data-base={`/category/${category.slug}/`}
+          data-page-size={PAGE_SIZE}
+        >
+          <script type="application/json" id="directory-data" set:html={jsonForClient(all)} is:inline />
+          <CommunityGrid communities={pageOne} />
+        </div>
+      )
+    }
+  </div>
+
+  <div class="mt-8">
+    <h2 class="text-sm font-semibold text-stone-900">Tags in this category</h2>
+    <div class="mt-3 flex flex-wrap gap-2">
+      {
+        category.tags.map((tag) => (
+          <a
+            href={`/tag/${slugifyTag(tag)}/`}
+            class="rounded-full border border-stone-200 bg-surface px-3 py-1 text-sm text-stone-600 hover:border-blue-300 hover:text-blue-700"
+          >
+            {tag}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</DirectoryLayout>
+
+<script>
+  import { initDirectoryView } from '../../scripts/directory';
+  initDirectoryView();
+</script>

@@ -1,0 +1,41 @@
+---
+interface Props {
+  /** 'general' | 'financial' | 'external' — controls wording. */
+  variant?: 'general' | 'financial' | 'external';
+  class?: string;
+}
+
+const { variant = 'general' } = Astro.props;
+const className = Astro.props.class;
+
+const copy = {
+  general: {
+    title: 'Directory listings are external resources',
+    body: 'Inclusion in this directory is not an endorsement. Always evaluate a community yourself before joining, and never share passwords, recovery phrases or sensitive information based on a listing alone.',
+  },
+  financial: {
+    title: 'Financial communities — read this first',
+    body: 'Communities listed here may discuss financial markets. Directory inclusion does not constitute financial advice, an endorsement, or verification of performance claims. Verify claims independently and never send money or sensitive information based solely on a directory listing.',
+  },
+  external: {
+    title: 'You are leaving this site',
+    body: 'This link opens an external community that we do not host or control. Be cautious about sharing personal information, and verify administrators independently.',
+  },
+}[variant];
+---
+
+<aside
+  class:list={[
+    'flex gap-3 rounded-xl border border-amber-200 bg-amber-50/70 p-4 dark:border-amber-900 dark:bg-amber-950/40',
+    className,
+  ]}
+  role="note"
+>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="mt-0.5 size-5 shrink-0 text-amber-600 dark:text-amber-400" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v4m0 4h.01M10.3 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.7 3.86a2 2 0 0 0-3.4 0z" />
+  </svg>
+  <div>
+    <p class="text-sm font-semibold text-amber-900 dark:text-amber-300">{copy.title}</p>
+    <p class="mt-1 text-sm leading-relaxed text-amber-800/90 dark:text-amber-200/80">{copy.body}</p>
+  </div>
+</aside>

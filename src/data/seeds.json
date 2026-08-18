@@ -1,0 +1,9 @@
+[
+  {
+    "candidateUrl": "https://example.com/demo-seed-community",
+    "sourceUrl": "https://example.com/demo-seed-source",
+    "platform": "telegram",
+    "confidence": 0.9,
+    "evidence": "Manual seed: replace with real public invite URLs you want to add without Gemini discovery."
+  }
+]

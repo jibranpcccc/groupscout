@@ -1,0 +1,53 @@
+---
+import type { LinkStatus } from '../types/community';
+
+interface Props {
+  status: LinkStatus;
+  size?: 'sm' | 'md';
+}
+
+const { status, size = 'sm' } = Astro.props;
+const textClass = size === 'sm' ? 'text-xs' : 'text-sm';
+
+const styles: Record<LinkStatus, { label: string; dot: string; text: string }> = {
+  active: {
+    label: 'Link active',
+    dot: 'bg-emerald-500',
+    text: 'text-emerald-700 bg-emerald-50 border-emerald-200',
+  },
+  unknown: {
+    label: 'Status unknown',
+    dot: 'bg-stone-400',
+    text: 'text-stone-600 bg-stone-50 border-stone-200',
+  },
+  dead: {
+    label: 'Invite unavailable',
+    dot: 'bg-rose-500',
+    text: 'text-rose-700 bg-rose-50 border-rose-200',
+  },
+  removed: {
+    label: 'Removed',
+    dot: 'bg-stone-400',
+    text: 'text-stone-500 bg-stone-50 border-stone-200 line-through',
+  },
+  reported: {
+    label: 'Reported',
+    dot: 'bg-amber-500',
+    text: 'text-amber-700 bg-amber-50 border-amber-200',
+  },
+};
+
+const s = styles[status];
+---
+
+<span
+  class:list={[
+    'inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 font-medium',
+    textClass,
+    s.text,
+  ]}
+  title={`Link status: ${s.label}`}
+>
+  <span class:list={['size-1.5 rounded-full', s.dot]} aria-hidden="true" />
+  {s.label}
+</span>

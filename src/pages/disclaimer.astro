@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { pageTitle, breadcrumbJsonLd } from '../lib/seo';
+import { siteConfig } from '../config/site';
+---
+
+<BaseLayout
+  title={pageTitle('Disclaimer')}
+  description={`Disclaimer for ${siteConfig.name}.`}
+  canonicalPath="/disclaimer/"
+  jsonLd={breadcrumbJsonLd([{ name: 'Disclaimer', path: '/disclaimer/' }])}
+>
+  <div class="mx-auto w-full max-w-3xl px-4 py-10 sm:px-6">
+    <h1 class="text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">Disclaimer</h1>
+    <p class="mt-2 text-sm text-stone-500">Last updated: August 2026</p>
+
+    <div class="prose-static mt-6">
+      <h2>Directory inclusion is not an endorsement</h2>
+      <p>
+        {siteConfig.name} lists public online communities for discovery purposes.
+        Inclusion in this directory does not mean we endorse, recommend, verify or
+        vouch for any community, its administrators, its members or its content.
+      </p>
+
+      <h2>No financial advice</h2>
+      <p>
+        Communities listed here may discuss financial markets, crypto, forex, stocks
+        or earning money online. Nothing on this site constitutes financial advice,
+        an endorsement, or verification of performance claims. Never send money or
+        sensitive information based solely on a directory listing. Verify claims
+        independently and consult a qualified professional where appropriate.
+      </p>
+
+      <h2>Accuracy</h2>
+      <p>
+        Listings are based on publicly available information at the time of
+        discovery. Links break, communities change, and information becomes stale.
+        We attempt to check links and record honest statuses, but we make no
+        warranty that any listing is currently accurate.
+      </p>
+
+      <h2>External links</h2>
+      <p>
+        You may leave this site when visiting a community. We do not control
+        external sites and are not responsible for their content or practices.
+      </p>
+
+      <h2>Reporting problems</h2>
+      <p>
+        If a listing is wrong, misleading, or harmful, please{' '}
+        <a href="/report/">report it</a> so we can review it.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

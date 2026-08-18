@@ -1,0 +1,90 @@
+---
+import { siteConfig } from '../config/site';
+import { buildMeta } from '../lib/seo';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath: string;
+  noindex?: boolean;
+  ogType?: 'website' | 'article';
+  ogImage?: string;
+  /** Raw JSON-LD string (use jsonLd() from src/lib/seo.ts). */
+  jsonLd?: string;
+}
+
+const {
+  title,
+  description,
+  canonicalPath,
+  noindex = false,
+  ogType = 'website',
+  ogImage,
+  jsonLd,
+} = Astro.props;
+
+const meta = buildMeta({ title, description, canonicalPath, noindex, ogType, ogImage });
+---
+
+<!doctype html>
+<html lang={siteConfig.defaultLocale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{meta.title}</title>
+    <meta name="description" content={meta.description} />
+    <link rel="canonical" href={meta.canonical} />
+    <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow'} />
+
+    <meta property="og:type" content={meta.og.type} />
+    <meta property="og:url" content={meta.og.url} />
+    <meta property="og:title" content={meta.og.title} />
+    <meta property="og:description" content={meta.og.description} />
+    <meta property="og:image" content={meta.og.image} />
+    <meta property="og:site_name" content={meta.og.siteName} />
+
+    <meta name="twitter:card" content={meta.twitter.card} />
+    <meta name="twitter:title" content={meta.twitter.title} />
+    <meta name="twitter:description" content={meta.twitter.description} />
+    <meta name="twitter:image" content={meta.twitter.image} />
+
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" title={siteConfig.name} href="/rss.xml" />
+
+    <script is:inline>
+      // Theme bootstrap: respect stored preference, else system preference.
+      (function () {
+        try {
+          const stored = localStorage.getItem('theme');
+          const dark =
+            stored === 'dark' ||
+            (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          document.documentElement.classList.toggle('dark', dark);
+        } catch {
+          /* localStorage unavailable — keep light default */
+        }
+      })();
+    </script>
+
+    {
+      jsonLd && <script type="application/ld+json" set:html={jsonLd} is:inline />
+    }
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-blue-600 focus:px-4 focus:py-2 focus:text-white"
+    >
+      Skip to main content
+    </a>
+    <Header />
+    <main id="main-content" class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,46 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs, { type BreadcrumbItem } from '../components/Breadcrumbs.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath: string;
+  noindex?: boolean;
+  /** Optional page header intro rendered above the slot. */
+  intro?: string;
+  /** Optional count line under the H1, e.g. "24 communities". */
+  count?: string;
+  breadcrumbs?: BreadcrumbItem[];
+  jsonLd?: string;
+}
+
+const {
+  title,
+  description,
+  canonicalPath,
+  noindex = false,
+  intro,
+  count,
+  breadcrumbs,
+  jsonLd,
+} = Astro.props;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  noindex={noindex}
+  jsonLd={jsonLd}
+>
+  <div class="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6">
+    {breadcrumbs && <Breadcrumbs items={breadcrumbs} class="mb-4" />}
+    <header class="mb-6">
+      <h1 class="text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">{title}</h1>
+      {intro && <p class="mt-2 max-w-3xl text-stone-600">{intro}</p>}
+      {count && <p class="mt-1 text-sm font-medium text-blue-700">{count}</p>}
+    </header>
+    <slot />
+  </div>
+</BaseLayout>

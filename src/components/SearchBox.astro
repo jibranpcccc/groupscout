@@ -1,0 +1,53 @@
+---
+interface Props {
+  id?: string;
+  defaultValue?: string;
+  size?: 'lg' | 'sm';
+  placeholder?: string;
+  autoFocus?: boolean;
+  label?: string;
+}
+
+const {
+  id = 'search-input',
+  defaultValue = '',
+  size = 'sm',
+  placeholder = 'Search communities, categories, tags…',
+  autoFocus = false,
+  label = 'Search communities',
+} = Astro.props;
+---
+
+<form action="/communities/" method="get" role="search" class="w-full">
+  <label for={id} class="sr-only">{label}</label>
+  <div class:list={['relative flex items-center', size === 'lg' ? 'max-w-2xl' : '']}>
+    <svg
+      viewBox="0 0 20 20"
+      fill="currentColor"
+      class="pointer-events-none absolute left-3.5 size-5 text-stone-400"
+      aria-hidden="true"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11zM2 9a7 7 0 1 1 12.45 4.4l3.07 3.08a.75.75 0 1 1-1.06 1.06l-3.08-3.07A7 7 0 0 1 2 9z"
+        clip-rule="evenodd"
+      />
+    </svg>
+    <input
+      type="search"
+      name="q"
+      id={id}
+      value={defaultValue}
+      placeholder={placeholder}
+      autofocus={autoFocus}
+      autocomplete="off"
+      class:list={[
+        'field pl-11',
+        size === 'lg' ? 'rounded-xl py-3 text-base' : 'py-2',
+      ]}
+    />
+    <button type="submit" class="btn-primary absolute right-1.5 top-1/2 -translate-y-1/2 px-3.5 py-1.5">
+      Search
+    </button>
+  </div>
+</form>

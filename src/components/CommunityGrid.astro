@@ -1,0 +1,23 @@
+---
+import type { Community } from '../types/community';
+import CommunityCard from './CommunityCard.astro';
+
+interface Props {
+  communities: Community[];
+  /** Optional id for client-side mounting (directory search view). */
+  id?: string;
+  /** Data attributes consumed by the client script. */
+  dataAttrs?: Record<string, string>;
+}
+
+const { communities, id, dataAttrs } = Astro.props;
+const attrs = dataAttrs
+  ? Object.entries(dataAttrs)
+      .map(([k, v]) => ({ [`data-${k}`]: v }))
+      .reduce((acc, cur) => ({ ...acc, ...cur }), {})
+  : {};
+---
+
+<div id={id} {...attrs} class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+  {communities.map((c) => <CommunityCard community={c} />)}
+</div>

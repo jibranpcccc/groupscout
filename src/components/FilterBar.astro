@@ -1,0 +1,161 @@
+---
+import type { FilterOptions, FilterState } from '../lib/filters';
+import { categories } from '../config/categories';
+import { platforms } from '../config/platforms';
+
+/**
+ * Filter bar — renders only options actually represented in the data
+ * (except category/platform which come from config). Query params are
+ * shareable: /communities/?platform=telegram&category=ai-tech
+ */
+interface Props {
+  options: FilterOptions;
+  current: FilterState;
+  basePath: string;
+}
+
+const { options, current, basePath } = Astro.props;
+
+const selectClass = 'field w-auto min-w-36 py-1.5 text-sm';
+
+function optionLabel(key: string, value: string): string {
+  if (key === 'platform') return platforms.find((p) => p.id === value)?.name ?? value;
+  if (key === 'category') return categories.find((c) => c.slug === value)?.name ?? value;
+  if (key === 'verification')
+    return { unverified: 'Unverified', 'source-confirmed': 'Source confirmed', 'owner-confirmed': 'Owner confirmed', 'manually-reviewed': 'Manually reviewed' }[value] ?? value;
+  if (key === 'linkStatus')
+    return { active: 'Link active', unknown: 'Status unknown', dead: 'Invite unavailable', removed: 'Removed', reported: 'Reported' }[value] ?? value;
+  return value;
+}
+
+function buildHref(key: string, value: string): string {
+  const params = new URLSearchParams();
+  const entries = Object.entries(current) as [string, string | undefined][];
+  for (const [k, v] of entries) {
+    if (v && !(k === key && v === value)) params.set(k, v);
+  }
+  if (value !== 'all') params.set(key, value);
+  const qs = params.toString();
+  return qs ? `${basePath}?${qs}` : basePath;
+}
+---
+
+<form class="flex flex-wrap items-center gap-3" method="get" action={basePath} data-directory-form>
+  <span class="text-sm font-medium text-stone-700">Filter:</span>
+
+  <label class="sr-only" for="filter-platform">Platform</label>
+  <select id="filter-platform" name="platform" class={selectClass}>
+    <option value="all" selected={!current.platform}>All platforms</option>
+    {options.platforms.map((p) => (
+      <option value={p} selected={current.platform === p}>{optionLabel('platform', p)}</option>
+    ))}
+  </select>
+
+  <label class="sr-only" for="filter-category">Category</label>
+  <select id="filter-category" name="category" class={selectClass}>
+    <option value="all" selected={!current.category}>All categories</option>
+    {options.categories.map((c) => (
+      <option value={c} selected={current.category === c}>{optionLabel('category', c)}</option>
+    ))}
+  </select>
+
+  {
+    options.tags.length > 0 && (
+      <>
+        <label class="sr-only" for="filter-tag">Tag</label>
+        <select id="filter-tag" name="tag" class={selectClass}>
+          <option value="all" selected={!current.tag}>All tags</option>
+          {options.tags.map((t) => (
+            <option value={t.slug} selected={current.tag === t.slug}>{t.name}</option>
+          ))}
+        </select>
+      </>
+    )
+  }
+
+  {
+    options.languages.length > 0 && (
+      <>
+        <label class="sr-only" for="filter-language">Language</label>
+        <select id="filter-language" name="language" class={selectClass}>
+          <option value="all" selected={!current.language}>All languages</option>
+          {options.languages.map((l) => (
+            <option value={l} selected={current.language === l}>{l}</option>
+          ))}
+        </select>
+      </>
+    )
+  }
+
+  {
+    options.accessTypes.length > 0 && (
+      <>
+        <label class="sr-only" for="filter-access">Access</label>
+        <select id="filter-access" name="accessType" class={selectClass}>
+          <option value="all" selected={!current.accessType}>Any access</option>
+          {options.accessTypes.map((a) => (
+            <option value={a} selected={current.accessType === a}>{optionLabel('accessType', a)}</option>
+          ))}
+        </select>
+      </>
+    )
+  }
+
+  {
+    options.verificationStatuses.length > 0 && (
+      <>
+        <label class="sr-only" for="filter-verification">Verification</label>
+        <select id="filter-verification" name="verification" class={selectClass}>
+          <option value="all" selected={!current.verification}>Any verification</option>
+          {options.verificationStatuses.map((v) => (
+            <option value={v} selected={current.verification === v}>{optionLabel('verification', v)}</option>
+          ))}
+        </select>
+      </>
+    )
+  }
+
+  {
+    options.linkStatuses.length > 0 && (
+      <>
+        <label class="sr-only" for="filter-linkstatus">Link status</label>
+        <select id="filter-linkstatus" name="linkStatus" class={selectClass}>
+          <option value="all" selected={!current.linkStatus}>Any link status</option>
+          {options.linkStatuses.map((s) => (
+            <option value={s} selected={current.linkStatus === s}>{optionLabel('linkStatus', s)}</option>
+          ))}
+        </select>
+      </>
+    )
+  }
+
+  <label class="sr-only" for="filter-sort">Sort by</label>
+  <select id="filter-sort" name="sort" class={selectClass}>
+    <option value="newest" selected={!current.sort || current.sort === 'newest'}>Newest first</option>
+    <option value="recently-checked" selected={current.sort === 'recently-checked'}>Recently checked</option>
+    <option value="alphabetical" selected={current.sort === 'alphabetical'}>Alphabetical</option>
+    {options.hasMemberCounts && (
+      <option value="member-count" selected={current.sort === 'member-count'}>Member count</option>
+    )}
+  </select>
+
+  <noscript>
+    <button type="submit" class="btn-secondary px-3 py-1.5 text-xs">Apply</button>
+  </noscript>
+</form>
+
+<div class="mt-3 flex flex-wrap gap-2">
+  {options.tags.slice(0, 12).map((t) => (
+    <a
+      href={buildHref('tag', t.slug)}
+      class:list={[
+        'rounded-full border px-3 py-1 text-xs font-medium',
+        current.tag === t.slug
+          ? 'border-blue-300 bg-blue-50 text-blue-700'
+          : 'border-stone-200 bg-surface text-stone-600 hover:border-blue-300 hover:text-blue-700',
+      ]}
+    >
+      {t.name}
+    </a>
+  ))}
+</div>

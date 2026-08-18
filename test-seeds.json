@@ -1,0 +1,5 @@
+[
+  { "candidateUrl": "https://t.me/pipelinetestchannel", "sourceUrl": "https://example.com/source1", "platform": "telegram", "confidence": 0.9, "evidence": "Pipeline test seed." },
+  { "candidateUrl": "https://discord.gg/pipelinetest", "sourceUrl": "https://example.com/source2", "platform": "discord", "confidence": 0.9, "evidence": "Pipeline test seed." },
+  { "candidateUrl": "https://t.me/pipelinetestchannel", "sourceUrl": "https://example.com/source3", "platform": "telegram", "confidence": 0.9, "evidence": "Duplicate of first seed — must be deduped." }
+]

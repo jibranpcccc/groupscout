@@ -1,0 +1,62 @@
+name: Discover Communities
+
+# Daily discovery run (non-peak UTC time) + manual trigger.
+# Discovered candidates land in pending-groups.json for human review.
+# Only real data changes are committed; secrets are never committed.
+
+on:
+  schedule:
+    - cron: '17 4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data-write
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    env:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+      GEMINI_SEARCH_ENABLED: ${{ vars.GEMINI_SEARCH_ENABLED }}
+      DISCOVERY_MAX_QUERIES: ${{ vars.DISCOVERY_MAX_QUERIES }}
+      DISCOVERY_MAX_CANDIDATES: ${{ vars.DISCOVERY_MAX_CANDIDATES }}
+      AUTO_PUBLISH_DISCOVERED: ${{ vars.AUTO_PUBLISH_DISCOVERED }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run discovery
+        run: npm run discover
+        # A failing discovery (quota exhaustion, Gemini errors, network)
+        # must not break the run — the workflow still validates + commits
+        # whatever data changed.
+        continue-on-error: true
+
+      - name: Validate data
+        run: npm run validate-data
+
+      - name: Commit data changes (bot)
+        run: |
+          git config user.name "community-directory-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add src/data/
+          if git diff --cached --quiet; then
+            echo "No data changes — nothing to commit."
+          else
+            git commit -m "data: update discovered communities"
+            git push
+          fi

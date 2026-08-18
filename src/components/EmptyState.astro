@@ -1,0 +1,41 @@
+---
+import { categories } from '../config/categories';
+
+interface Props {
+  message?: string;
+  /** When true, offer "clear filters" (only on filterable pages). */
+  showClear?: boolean;
+}
+
+const { message = 'No communities match these filters yet.', showClear = false } = Astro.props;
+---
+
+<div class="card flex flex-col items-center gap-4 p-10 text-center">
+  <div class="grid size-12 place-items-center rounded-full bg-stone-100 text-stone-400" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="size-6">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9.17 9.5a3 3 0 0 1 5.66 0M12 5.5a6 6 0 0 1 5.7 8.1M9.2 8.9A6 6 0 0 0 7.7 16m2.8-1.2L8.7 16.5M12 13v3m0 0-1.5 1.5M12 16l1.5 1.5M3.4 3.4l17.2 17.2" />
+    </svg>
+  </div>
+  <div>
+    <p class="font-medium text-stone-800">{message}</p>
+    <p class="mt-1 text-sm text-stone-500">
+      Try a broader search, or explore categories below.
+    </p>
+  </div>
+  <div class="flex flex-wrap items-center justify-center gap-2">
+    {showClear && (
+      <a href="/communities/" class="btn-secondary text-sm">Clear filters</a>
+    )}
+    <a href="/submit/" class="btn-primary text-sm">Submit a community</a>
+  </div>
+  <div class="flex flex-wrap justify-center gap-2">
+    {categories.map((cat) => (
+      <a
+        href={`/category/${cat.slug}/`}
+        class="rounded-full border border-stone-200 bg-surface px-3 py-1 text-xs font-medium text-stone-600 hover:border-blue-300 hover:text-blue-700"
+      >
+        {cat.name}
+      </a>
+    ))}
+  </div>
+</div>

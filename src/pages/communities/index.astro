@@ -1,0 +1,89 @@
+---
+import DirectoryLayout from '../../layouts/DirectoryLayout.astro';
+import CommunityGrid from '../../components/CommunityGrid.astro';
+import FilterBar from '../../components/FilterBar.astro';
+import EmptyState from '../../components/EmptyState.astro';
+import { getPublishedCommunities } from '../../lib/communities';
+import { sortCommunities, availableFilterOptions } from '../../lib/filters';
+import { PAGE_SIZE } from '../../config/discovery';
+import { pageTitle, collectionPageJsonLd, breadcrumbJsonLd } from '../../lib/seo';
+import { jsonForClient } from '../../scripts/directory';
+
+const all = getPublishedCommunities();
+const sorted = sortCommunities(all, 'newest');
+const pageOne = sorted.slice(0, PAGE_SIZE);
+const options = availableFilterOptions(all);
+const totalPages = Math.max(1, Math.ceil(all.length / PAGE_SIZE));
+
+const jsonLd = `${collectionPageJsonLd(
+  'All Communities',
+  'Browse all public online communities in the directory.',
+  all
+)}\n${breadcrumbJsonLd([{ name: 'Communities', path: '/communities/' }])}`;
+---
+
+<DirectoryLayout
+  title={pageTitle('All Communities')}
+  description="Browse every public online community in the directory — filter by platform, category, tag, language and link status."
+  canonicalPath="/communities/"
+  intro="Every published community, sorted newest first. Use search and filters to narrow things down — the full dataset is available client-side with no page reloads."
+  count={`${all.length} communities`}
+  breadcrumbs={[{ label: 'Communities' }]}
+  jsonLd={jsonLd}
+>
+  <FilterBar options={options} current={{}} basePath="/communities/" />
+
+  <p data-directory-summary class="mt-4 text-sm text-stone-500">
+    {all.length > 0
+      ? `Showing 1–${Math.min(PAGE_SIZE, all.length)} of ${all.length}`
+      : 'No communities yet'}
+  </p>
+
+  <div class="mt-4">
+    {
+      all.length === 0 ? (
+        <EmptyState />
+      ) : (
+        <div id="directory-view" data-base="/communities/" data-page-size={PAGE_SIZE}>
+          <script
+            type="application/json"
+            id="directory-data"
+            set:html={jsonForClient(all)}
+            is:inline
+          />
+          <CommunityGrid communities={pageOne} />
+        </div>
+      )
+    }
+  </div>
+
+  <div data-directory-pager class="mt-8">
+    {
+      totalPages > 1 && (
+        <nav aria-label="Pagination" class="flex flex-wrap items-center gap-2">
+          {
+            Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
+              <a
+                href={p === 1 ? '/communities/' : `/communities/${p}/`}
+                aria-current={p === 1 ? 'page' : 'false'}
+                class:list={[
+                  'inline-flex items-center rounded-lg border px-3 py-1.5 text-sm font-medium',
+                  p === 1
+                    ? 'border-blue-300 bg-blue-50 text-blue-700'
+                    : 'border-stone-200 bg-surface text-stone-600 hover:border-blue-300 hover:text-blue-700',
+                ]}
+              >
+                {p}
+              </a>
+            ))
+          }
+        </nav>
+      )
+    }
+  </div>
+</DirectoryLayout>
+
+<script>
+  import { initDirectoryView } from '../../scripts/directory';
+  initDirectoryView();
+</script>

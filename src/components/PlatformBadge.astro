@@ -1,0 +1,48 @@
+---
+import { getPlatformById } from '../config/platforms';
+import type { Platform } from '../types/community';
+
+interface Props {
+  platform: Platform;
+  size?: 'sm' | 'md';
+  /** Show the platform name next to the icon (default true). */
+  showName?: boolean;
+}
+
+const { platform, size = 'sm', showName = true } = Astro.props;
+const config = getPlatformById(platform);
+if (!config) throw new Error(`Unknown platform: ${platform}`);
+const iconClass = size === 'sm' ? 'size-3.5' : 'size-4.5';
+const textClass = size === 'sm' ? 'text-xs' : 'text-sm';
+---
+
+<span
+  class:list={[
+    'inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 font-medium',
+    textClass,
+    config.color,
+  ]}
+>
+  {
+    platform === 'telegram' && (
+      <svg viewBox="0 0 24 24" fill="currentColor" class={iconClass} aria-hidden="true">
+        <path d="M21.9 4.3c.3-1.1-.4-1.7-1.4-1.4L2.7 9.9c-1 .3-1 1.4-.1 1.7l4.7 1.5 1.8 5.8c.2.8 1 1 1.6.5l2.7-2.4 4.9 3.6c.6.4 1.4.1 1.6-.7l2.9-13.6zM8.4 12.6l9.4-5.9c.4-.3.8.2.5.5l-7.6 7.2-.3 3-1.4-4.4-.6-.4z" />
+      </svg>
+    )
+  }
+  {
+    platform === 'whatsapp' && (
+      <svg viewBox="0 0 24 24" fill="currentColor" class={iconClass} aria-hidden="true">
+        <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4 0-.5.2-.8l.4-.5c.1-.2.2-.3.3-.5v-.5c0-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4.1 1.7.7 2.3.8 3.1.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z" />
+      </svg>
+    )
+  }
+  {
+    platform === 'discord' && (
+      <svg viewBox="0 0 24 24" fill="currentColor" class={iconClass} aria-hidden="true">
+        <path d="M19.6 5.3A16.5 16.5 0 0 0 15.4 4l-.6 1.2a13.6 13.6 0 0 1 4 2 14.7 14.7 0 0 0-12.9 0 13.6 13.6 0 0 1 4-2L9.7 4a16.5 16.5 0 0 0-4.2 1.3C3.2 8.9 2.5 12.4 2.8 15.8A16.7 16.7 0 0 0 7.3 18l1-1.7a10.6 10.6 0 0 1-1.7-.8l.4-.3a11.9 11.9 0 0 0 10.2 0l.4.3c-.5.3-1.1.6-1.7.8l1 1.7a16.7 16.7 0 0 0 4.5-2.2c.4-4-.6-7.4-2.8-10.5zM9.3 13.7c-.9 0-1.6-.8-1.6-1.8s.7-1.8 1.6-1.8 1.6.8 1.6 1.8-.7 1.8-1.6 1.8zm5.5 0c-.9 0-1.6-.8-1.6-1.8s.7-1.8 1.6-1.8 1.6.8 1.6 1.8-.7 1.8-1.6 1.8z" />
+      </svg>
+    )
+  }
+  {showName && config.name}
+</span>

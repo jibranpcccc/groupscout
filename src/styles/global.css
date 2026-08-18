@@ -1,0 +1,94 @@
+@import 'tailwindcss';
+
+/* Dark mode: class strategy with system-preference fallback (see BaseLayout). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Platform accent colors (simplified glyphs — no trademark-confusing branding). */
+  --color-telegram: #229ed9;
+  --color-whatsapp: #25d366;
+  --color-discord: #5865f2;
+
+  /* Restrained neutral palette for the directory surface. */
+  --color-surface: #ffffff;
+  --color-canvas: #fafaf9;
+  --color-ink: #1c1917;
+  --color-muted: #78716c;
+
+  /* System font stack — no third-party font requests. */
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+
+  --shadow-card: 0 1px 2px 0 rgb(28 25 23 / 0.05), 0 1px 3px 0 rgb(28 25 23 / 0.06);
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply bg-canvas font-sans text-ink antialiased;
+  }
+  ::selection {
+    @apply bg-blue-600 text-white;
+  }
+  /* Visible, consistent focus states for accessibility. */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-blue-600;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-xl border border-stone-200 bg-surface shadow-card;
+  }
+  /* Shared button base — grouped so each class is independently usable. */
+  .btn,
+  .btn-primary,
+  .btn-secondary,
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-lg px-4 py-2 text-sm font-medium transition-colors;
+  }
+  .btn-primary {
+    @apply bg-blue-600 text-white hover:bg-blue-700;
+  }
+  .btn-secondary {
+    @apply border border-stone-300 bg-surface text-stone-700 hover:border-stone-400 hover:bg-stone-50;
+  }
+  .btn-ghost {
+    @apply text-stone-600 hover:bg-stone-100 hover:text-stone-900;
+  }
+  .field {
+    @apply w-full rounded-lg border border-stone-300 bg-surface px-3 py-2 text-sm text-ink placeholder:text-stone-400 focus:border-blue-500 focus:outline-2 focus:outline-blue-600/30;
+  }
+  .label {
+    @apply mb-1 block text-sm font-medium text-stone-700;
+  }
+  .prose-static h2 {
+    @apply mb-3 mt-8 text-xl font-semibold text-stone-900;
+  }
+  .prose-static h3 {
+    @apply mb-2 mt-6 text-lg font-semibold text-stone-900;
+  }
+  .prose-static p {
+    @apply mb-4 leading-relaxed text-stone-600;
+  }
+  .prose-static ul {
+    @apply mb-4 list-disc space-y-1.5 pl-5 text-stone-600;
+  }
+  .prose-static a {
+    @apply font-medium text-blue-700 underline decoration-blue-300 underline-offset-2 hover:text-blue-800;
+  }
+}

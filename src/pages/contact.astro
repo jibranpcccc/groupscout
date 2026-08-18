@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { pageTitle, breadcrumbJsonLd } from '../lib/seo';
+import { siteConfig } from '../config/site';
+---
+
+<BaseLayout
+  title={pageTitle('Contact')}
+  description={`How to contact ${siteConfig.name} with questions, corrections or removal requests.`}
+  canonicalPath="/contact/"
+  jsonLd={breadcrumbJsonLd([{ name: 'Contact', path: '/contact/' }])}
+>
+  <div class="mx-auto w-full max-w-3xl px-4 py-10 sm:px-6">
+    <h1 class="text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">Contact</h1>
+    <p class="mt-2 text-stone-600">
+      Questions, corrections or removal requests? Send a message — we read everything.
+      For listing issues, the <a href="/report/" class="text-blue-700 underline">report form</a>{' '}
+      is usually faster.
+    </p>
+
+    <form
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      action="/contact/?sent=1"
+      class="card mt-8 space-y-5 p-6 sm:p-8"
+    >
+      <input type="hidden" name="form-name" value="contact" />
+      <p class="hidden" aria-hidden="true">
+        <label>
+          Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off" />
+        </label>
+      </p>
+
+      <div class="grid gap-5 sm:grid-cols-2">
+        <div>
+          <label for="contact-name" class="label">Name</label>
+          <input id="contact-name" name="name" type="text" maxlength="120" class="field" />
+        </div>
+        <div>
+          <label for="contact-email" class="label">Email *</label>
+          <input id="contact-email" name="email" type="email" required maxlength="200" class="field" />
+        </div>
+      </div>
+      <div>
+        <label for="contact-message" class="label">Message *</label>
+        <textarea id="contact-message" name="message" rows="6" required maxlength="3000" class="field"></textarea>
+      </div>
+      <button type="submit" class="btn-primary">Send message</button>
+    </form>
+
+    {
+      Astro.url.searchParams.get('sent') === '1' && (
+        <div role="status" class="mt-6 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800">
+          Thanks — your message was sent.
+        </div>
+      )
+    }
+  </div>
+</BaseLayout>

@@ -1,0 +1,82 @@
+---
+import DirectoryLayout from '../../layouts/DirectoryLayout.astro';
+import CommunityGrid from '../../components/CommunityGrid.astro';
+import FilterBar from '../../components/FilterBar.astro';
+import { getPublishedCommunities } from '../../lib/communities';
+import { sortCommunities, availableFilterOptions } from '../../lib/filters';
+import { PAGE_SIZE } from '../../config/discovery';
+import { pageTitle } from '../../lib/seo';
+import { jsonForClient } from '../../scripts/directory';
+
+export function getStaticPaths() {
+  const all = getPublishedCommunities();
+  const totalPages = Math.max(1, Math.ceil(all.length / PAGE_SIZE));
+  const paths = [];
+  for (let p = 2; p <= totalPages; p++) {
+    paths.push({ params: { page: String(p) } });
+  }
+  return paths;
+}
+
+const { page } = Astro.params;
+const pageNumber = Number.parseInt(page ?? '2', 10) || 2;
+
+const all = getPublishedCommunities();
+const sorted = sortCommunities(all, 'newest');
+const totalPages = Math.max(1, Math.ceil(all.length / PAGE_SIZE));
+const start = (pageNumber - 1) * PAGE_SIZE;
+const pageItems = sorted.slice(start, start + PAGE_SIZE);
+const options = availableFilterOptions(all);
+
+if (pageNumber > totalPages) {
+  return Astro.redirect('/communities/', 301);
+}
+---
+
+<DirectoryLayout
+  title={pageTitle('All Communities')}
+  description={`All communities in the directory — page ${pageNumber}.`}
+  canonicalPath={`/communities/${pageNumber}/`}
+  intro="Browse the full directory."
+  count={`${all.length} communities`}
+  breadcrumbs={[{ label: 'Communities', href: '/communities/' }, { label: `Page ${pageNumber}` }]}
+>
+  <FilterBar options={options} current={{}} basePath="/communities/" />
+
+  <p data-directory-summary class="mt-4 text-sm text-stone-500">
+    Showing {start + 1}–{Math.min(start + PAGE_SIZE, all.length)} of {all.length}
+  </p>
+
+  <div class="mt-4">
+    <div id="directory-view" data-base="/communities/" data-page-size={PAGE_SIZE}>
+      <script type="application/json" id="directory-data" set:html={jsonForClient(all)} is:inline />
+      <CommunityGrid communities={pageItems} />
+    </div>
+  </div>
+
+  <div data-directory-pager class="mt-8">
+    <nav aria-label="Pagination" class="flex flex-wrap items-center gap-2">
+      {
+        Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
+          <a
+            href={p === 1 ? '/communities/' : `/communities/${p}/`}
+            aria-current={p === pageNumber ? 'page' : 'false'}
+            class:list={[
+              'inline-flex items-center rounded-lg border px-3 py-1.5 text-sm font-medium',
+              p === pageNumber
+                ? 'border-blue-300 bg-blue-50 text-blue-700'
+                : 'border-stone-200 bg-surface text-stone-600 hover:border-blue-300 hover:text-blue-700',
+            ]}
+          >
+            {p}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</DirectoryLayout>
+
+<script>
+  import { initDirectoryView } from '../../scripts/directory';
+  initDirectoryView();
+</script>

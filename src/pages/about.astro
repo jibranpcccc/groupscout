@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { pageTitle, breadcrumbJsonLd, jsonLd } from '../lib/seo';
+import { siteConfig } from '../config/site';
+import { getDatasetStats } from '../lib/communities';
+import { categories } from '../config/categories';
+import { platforms } from '../config/platforms';
+
+const stats = getDatasetStats();
+const pageLd = jsonLd({
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: 'About',
+  url: '/about/',
+});
+---
+
+<BaseLayout
+  title={pageTitle('About')}
+  description={`What ${siteConfig.name} is, how it works and where its listings come from.`}
+  canonicalPath="/about/"
+  jsonLd={`${breadcrumbJsonLd([{ name: 'About', path: '/about/' }])}\n${pageLd}`}
+>
+  <div class="mx-auto w-full max-w-3xl px-4 py-10 sm:px-6">
+    <h1 class="text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">About</h1>
+    <div class="prose-static mt-6">
+      <p>
+        {siteConfig.name} is a searchable directory of <strong>public online
+        communities</strong> across {platforms.map((p) => p.name).join(', ')}.
+        It helps people discover communities worth joining — and helps them judge
+        whether a listing is trustworthy before they click.
+      </p>
+      <h2>Where listings come from</h2>
+      <p>
+        Listings are identified from publicly available sources: web search
+        discovery, direct submissions, and manual curation. Every listing stores
+        its source URLs, discovery date, verification state and link-check status.
+      </p>
+      <h2>What this directory is not</h2>
+      <p>
+        We are not a messaging platform, and inclusion is not an endorsement.
+        We do not join groups, scrape member data, or claim that any community is
+        “safe” or profitable. See <a href="/safety/">Safety</a> and{' '}
+        <a href="/how-we-verify/">How We Verify</a>.
+      </p>
+      <h2>Current dataset</h2>
+      <ul>
+        <li>{stats.listed} published communities</li>
+        <li>{stats.categories} categories with listings</li>
+        <li>{stats.platforms} platforms</li>
+        <li>{stats.withMemberCounts} listings with a sourced member count</li>
+      </ul>
+      <p>
+        Numbers above are computed from the live dataset — we never display
+        invented statistics.
+      </p>
+      <h2>Categories</h2>
+      <ul>
+        {categories.map((c) => (
+          <li>
+            <a href={`/category/${c.slug}/`}>{c.name}</a> — {c.description}
+          </li>
+        ))}
+      </ul>
+      <h2>Contact</h2>
+      <p>
+        Questions, corrections or removal requests? Use the{' '}
+        <a href="/contact/">contact page</a>, <a href="/submit/">submit a
+        community</a>, or <a href="/report/">report a listing</a>.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

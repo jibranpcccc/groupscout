@@ -1,0 +1,22 @@
+---
+import { getCategoryBySlug } from '../config/categories';
+
+interface Props {
+  slug: string;
+  size?: 'sm' | 'md';
+}
+
+const { slug, size = 'sm' } = Astro.props;
+const category = getCategoryBySlug(slug);
+const textClass = size === 'sm' ? 'text-xs' : 'text-sm';
+---
+
+<a
+  href={`/category/${slug}/`}
+  class:list={[
+    'inline-flex items-center rounded-full border border-stone-200 bg-stone-50 px-2.5 py-0.5 font-medium text-stone-700 hover:border-blue-300 hover:bg-blue-50 hover:text-blue-700',
+    textClass,
+  ]}
+>
+  {category?.name ?? slug}
+</a>

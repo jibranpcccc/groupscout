@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SafetyNotice from '../components/SafetyNotice.astro';
+import { pageTitle, breadcrumbJsonLd } from '../lib/seo';
+---
+
+<BaseLayout
+  title={pageTitle('Safety')}
+  description="Practical safety rules for using community directory listings."
+  canonicalPath="/safety/"
+  jsonLd={breadcrumbJsonLd([{ name: 'Safety', path: '/safety/' }])}
+>
+  <div class="mx-auto w-full max-w-3xl px-4 py-10 sm:px-6">
+    <h1 class="text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">Safety</h1>
+    <p class="mt-2 text-stone-600">A short, practical guide to staying safe when exploring community listings.</p>
+
+    <SafetyNotice class="mt-6" />
+
+    <div class="prose-static mt-8">
+      <h2>The basics</h2>
+      <ul>
+        <li>
+          <strong>Directory listings are external.</strong> Every listing points to
+          a community hosted by someone else. Inclusion is not an endorsement.
+        </li>
+        <li>
+          <strong>Evaluate before you join.</strong> Look at the community's pinned
+          messages, admin behavior and public history before sharing anything.
+        </li>
+        <li>
+          <strong>Never share passwords, recovery phrases or private keys</strong> —
+          in any group, for any reason, regardless of who asks.
+        </li>
+        <li>
+          <strong>Be skeptical of guaranteed profits.</strong> “100% win rate”,
+          “risk-free returns”, “double your money” — these are not real. Treat them
+          as red flags, not opportunities.
+        </li>
+        <li>
+          <strong>Verify administrators independently.</strong> Anyone can copy a
+          username or avatar. Confirm identities through the platform's official
+          channels before trusting instructions.
+        </li>
+        <li>
+          <strong>Don't send money based on a listing.</strong> If a community asks
+          for payment to join or “unlock” access, treat that with extreme caution.
+        </li>
+      </ul>
+
+      <h2>Financial communities</h2>
+      <p>
+        Communities that discuss crypto, forex, stocks or earning money vary wildly
+        in quality and intent. Our listings distinguish education, discussion, news
+        and signals — but even an “education” label is not a guarantee. Verify any
+        claim independently, and never trade with money you cannot afford to lose.
+      </p>
+
+      <h2>What we check — and what we don't</h2>
+      <p>
+        We check whether invite links appear to work, and we record honest
+        verification states (<a href="/how-we-verify/">see How We Verify</a>).
+        We do <strong>not</strong> audit community content, members, admins or
+        financial claims. A checked link is a working link — nothing more.
+      </p>
+
+      <h2>Report problems</h2>
+      <p>
+        See a dead invite, scam behavior, or misleading information? Use the{' '}
+        <a href="/report/">report form</a> — every report is reviewed by a human.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { pageTitle } from '../lib/seo';
+import { getCommunityById, slugExists } from '../lib/communities';
+
+/**
+ * Report form — Netlify static form. Reports never automatically remove or
+ * modify a listing; they are reviewed manually. Listing id/slug/url are
+ * prefilled from query params (server-side + JS-free).
+ */
+const params = Astro.url.searchParams;
+const reportId = params.get('id') ?? '';
+const reportSlug = params.get('slug') ?? '';
+const reportUrl = params.get('url') ?? '';
+
+// Only accept values that correspond to a real listing (prevents junk prefills).
+const knownSlug = reportSlug && slugExists(reportSlug);
+const knownId = reportId && Boolean(getCommunityById(reportId));
+const listingKnown = knownSlug || knownId;
+
+const reasons = [
+  'Dead invite',
+  'Scam concern',
+  'Misleading information',
+  'Wrong category',
+  'Duplicate',
+  'Inappropriate content',
+  'Ownership request',
+  'Other',
+];
+---
+
+<BaseLayout
+  title={pageTitle('Report a Listing')}
+  description="Report a dead link, scam concern or misleading listing. Reports are reviewed manually."
+  canonicalPath="/report/"
+  noindex
+>
+  <div class="mx-auto w-full max-w-3xl px-4 py-10 sm:px-6">
+    <h1 class="text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">
+      Report a Listing
+    </h1>
+    <p class="mt-2 text-stone-600">
+      Found a dead invite, misleading information, or something that looks like a scam?
+      Tell us about it. Reports are reviewed by a human — they never auto-remove a listing.
+    </p>
+
+    {listingKnown && (
+      <p class="mt-4 rounded-lg border border-blue-200 bg-blue-50 p-3 text-sm text-blue-800">
+        Reporting: <strong>{reportSlug}</strong>
+        {reportUrl && (
+          <span class="block truncate text-xs">{reportUrl}</span>
+        )}
+      </p>
+    )}
+
+    <form
+      name="listing-report"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      action="/report/success/"
+      class="card mt-8 space-y-5 p-6 sm:p-8"
+    >
+      <input type="hidden" name="form-name" value="listing-report" />
+      <p class="hidden" aria-hidden="true">
+        <label>
+          Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off" />
+        </label>
+      </p>
+
+      <div class="grid gap-5 sm:grid-cols-2">
+        <div>
+          <label for="listing-url" class="label">Listing URL or ID *</label>
+          <input
+            id="listing-url"
+            name="listing-url"
+            type="text"
+            required
+            maxlength="500"
+            class="field"
+            value={reportUrl || (reportSlug ? `/group/${reportSlug}/` : '')}
+            placeholder="e.g. /group/example/ or the listing ID"
+          />
+        </div>
+        <div>
+          <label for="reason" class="label">Reason *</label>
+          <select id="reason" name="reason" required class="field">
+            <option value="">Select a reason…</option>
+            {reasons.map((r) => <option value={r}>{r}</option>)}
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <label for="details" class="label">Details</label>
+        <textarea
+          id="details"
+          name="details"
+          rows="5"
+          maxlength="2000"
+          class="field"
+          placeholder="What did you observe? Please be specific and factual."
+        ></textarea>
+      </div>
+
+      <div>
+        <label for="reporter-email" class="label">
+          Optional contact email <span class="font-normal text-stone-400">(never shown publicly)</span>
+        </label>
+        <input id="reporter-email" name="reporter-email" type="email" maxlength="200" class="field" />
+      </div>
+
+      <input type="hidden" name="listing-id" value={reportId} />
+      <input type="hidden" name="listing-slug" value={reportSlug} />
+
+      <button type="submit" class="btn-primary w-full sm:w-auto">Submit report</button>
+    </form>
+  </div>
+</BaseLayout>
+
+<script>
+  // Defensive client-side prefill of the report target from URL params.
+  // Values are assigned via .value (never innerHTML) — no injection possible.
+  const params = new URLSearchParams(window.location.search);
+  const urlInput = document.getElementById('listing-url') as HTMLInputElement | null;
+  const idHidden = document.querySelector<HTMLInputElement>('input[name="listing-id"]');
+  const slugHidden = document.querySelector<HTMLInputElement>('input[name="listing-slug"]');
+  const reportUrl = params.get('url');
+  const reportId = params.get('id');
+  const reportSlug = params.get('slug');
+  if (reportUrl && urlInput && !urlInput.value) urlInput.value = reportUrl;
+  if (idHidden) idHidden.value = reportId ?? '';
+  if (slugHidden) slugHidden.value = reportSlug ?? '';
+</script>

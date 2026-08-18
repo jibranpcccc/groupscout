@@ -1,0 +1,54 @@
+name: Validate Community Links
+
+# Scheduled link-health checks (several times per week, not excessive).
+# Uses cautious status transitions; only meaningful changes are committed.
+
+on:
+  schedule:
+    - cron: '23 6 * * 1,4'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data-write
+  cancel-in-progress: false
+
+jobs:
+  validate-links:
+    runs-on: ubuntu-latest
+    env:
+      VALIDATE_MAX_CHECKS: ${{ vars.VALIDATE_MAX_CHECKS }}
+      VALIDATE_DELAY_MS: ${{ vars.VALIDATE_DELAY_MS }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate links
+        run: npm run validate-links
+        continue-on-error: true
+
+      - name: Validate data
+        run: npm run validate-data
+
+      - name: Commit status changes (bot)
+        run: |
+          git config user.name "community-directory-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add src/data/
+          if git diff --cached --quiet; then
+            echo "No link status changes — nothing to commit."
+          else
+            git commit -m "data: update link health statuses"
+            git push
+          fi

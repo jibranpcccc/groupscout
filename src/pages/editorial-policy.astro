@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { pageTitle, breadcrumbJsonLd } from '../lib/seo';
+---
+
+<BaseLayout
+  title={pageTitle('Editorial Policy')}
+  description="Where listings come from, the role of AI, and how corrections and removals work."
+  canonicalPath="/editorial-policy/"
+  jsonLd={breadcrumbJsonLd([{ name: 'Editorial Policy', path: '/editorial-policy/' }])}
+>
+  <div class="mx-auto w-full max-w-3xl px-4 py-10 sm:px-6">
+    <h1 class="text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">Editorial Policy</h1>
+
+    <div class="prose-static mt-6">
+      <h2>Where listings come from</h2>
+      <ul>
+        <li><strong>Public discovery.</strong> Automated discovery searches publicly
+          indexed sources for community invite URLs. Only public information is used.</li>
+        <li><strong>Submissions.</strong> Anyone can submit a public community via the
+          submit form. Submissions are reviewed manually before publication.</li>
+        <li><strong>Manual curation.</strong> Maintainers may add listings directly
+          with documented sources.</li>
+      </ul>
+
+      <h2>The role of AI</h2>
+      <p>
+        AI (Gemini) helps generate discovery queries, classify candidate listings,
+        suggest categories/tags and summarize public evidence. AI cannot independently
+        establish truth. Every candidate must be backed by a real URL, and factual
+        fields (member counts, dates, sources) require real sources when possible.
+        AI never invents URLs, metrics, reviews or endorsements, and it never decides
+        what gets published — new discoveries go to a pending queue for human review.
+      </p>
+
+      <h2>What gets published</h2>
+      <p>
+        A listing is published when it has a real public invite URL and passes
+        moderation. “Passing moderation” means no obvious harmful content — it is not
+        a safety certification. Listings may carry <code>safetyFlags</code> (e.g.
+        potential-risk-language) that are shown to readers without us declaring the
+        community a scam.
+      </p>
+
+      <h2>Corrections</h2>
+      <p>
+        Corrections are accepted via the report form or contact page. We review them
+        against evidence and update listings when justified. We do not publish
+        unverified corrections as fact.
+      </p>
+
+      <h2>Removal / deletion</h2>
+      <p>
+        Listings can be removed for: confirmed illegality, clear fraud, spam, or at
+        the verified request of a community owner (owner-confirmed). Removal requests
+        are handled by a human. We prefer marking listings unavailable over silently
+        deleting indexed URLs — dead or removed listings keep their detail page with
+        an explanatory note where useful, then can be archived later.
+      </p>
+
+      <h2>Dead-link handling</h2>
+      <p>
+        Repeated strong failures move a link to <code>dead</code>. We don't delete a
+        listing after one failed request, and bot-blocking is never treated as
+        evidence of death.
+      </p>
+
+      <h2>Content copying</h2>
+      <p>
+        We do not republish full third-party content. Descriptions are concise,
+        factual summaries based on public evidence.
+      </p>
+
+      <h2>Advertising and sponsors</h2>
+      <p>
+        If advertising or sponsored listings are introduced later, they will be
+        clearly labeled and never prioritized by payment in the organic listings.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

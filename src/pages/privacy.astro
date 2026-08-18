@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { pageTitle, breadcrumbJsonLd } from '../lib/seo';
+import { siteConfig } from '../config/site';
+---
+
+<BaseLayout
+  title={pageTitle('Privacy Policy')}
+  description={`Privacy policy for ${siteConfig.name} — what data is collected and why.`}
+  canonicalPath="/privacy/"
+  jsonLd={breadcrumbJsonLd([{ name: 'Privacy', path: '/privacy/' }])}
+>
+  <div class="mx-auto w-full max-w-3xl px-4 py-10 sm:px-6">
+    <h1 class="text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">Privacy Policy</h1>
+    <p class="mt-2 text-sm text-stone-500">Last updated: August 2026</p>
+
+    <div class="prose-static mt-6">
+      <p>
+        This policy describes what {siteConfig.name} collects and why. We keep it
+        accurate to the technology actually used — we do not claim cookies or
+        analytics that do not exist.
+      </p>
+
+      <h2>What this site collects</h2>
+      <p>
+        This website is a static site. It does not set tracking cookies, does not run
+        third-party analytics, and does not use advertising networks. Browsing the
+        directory requires no account and no personal data.
+      </p>
+
+      <h2>Forms</h2>
+      <p>
+        When you submit a community, report a listing, or contact us, the information
+        you enter is transmitted to Netlify Forms (our hosting provider) and stored in
+        its submissions inbox. This may include your name, email address (when
+        provided) and the message content. We use this only to process your request.
+      </p>
+      <ul>
+        <li>Admin contact details from submissions are never published.</li>
+        <li>Reporter details from reports are never published.</li>
+        <li>We do not place emails into the public dataset.</li>
+      </ul>
+
+      <h2>Hosting and logs</h2>
+      <p>
+        The site is hosted by Netlify, which processes standard server logs
+        (IP addresses, request paths, user agents) for security and operations.
+        These logs are governed by Netlify's privacy practices, not ours.
+      </p>
+
+      <h2>Automated discovery</h2>
+      <p>
+        Our discovery pipeline works only with publicly available information and
+        stores only public URLs and metadata. It does not collect private messages,
+        member profiles or hidden data.
+      </p>
+
+      <h2>Your choices</h2>
+      <p>
+        You can contact us to request access to, correction of, or deletion of
+        personal information you submitted through our forms. Email addresses stored
+        in form submissions are retained only as long as needed to process the
+        request.
+      </p>
+
+      <h2>Changes</h2>
+      <p>
+        If the technology behind this site changes (for example, if analytics or
+        advertising are added), this policy will be updated to reflect it.
+      </p>
+
+      <h2>Contact</h2>
+      <p>Questions about privacy? Use the <a href="/contact/">contact page</a>.</p>
+    </div>
+  </div>
+</BaseLayout>

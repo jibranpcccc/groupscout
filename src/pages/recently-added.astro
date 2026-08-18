@@ -1,0 +1,21 @@
+---
+import DirectoryLayout from '../layouts/DirectoryLayout.astro';
+import CommunityGrid from '../components/CommunityGrid.astro';
+import EmptyState from '../components/EmptyState.astro';
+import { getRecentlyAdded } from '../lib/communities';
+import { pageTitle, breadcrumbJsonLd } from '../lib/seo';
+
+const communities = getRecentlyAdded(50);
+---
+
+<DirectoryLayout
+  title={pageTitle('Recently Added')}
+  description="The newest public communities added to the directory, ordered by discovery date."
+  canonicalPath="/recently-added/"
+  intro="Communities newest to the directory first. “Recently added” reflects our discovery date, not a trend score."
+  count={`${communities.length} communities`}
+  breadcrumbs={[{ label: 'Recently Added' }]}
+  jsonLd={breadcrumbJsonLd([{ name: 'Recently Added', path: '/recently-added/' }])}
+>
+  {communities.length === 0 ? <EmptyState /> : <CommunityGrid communities={communities} />}
+</DirectoryLayout>

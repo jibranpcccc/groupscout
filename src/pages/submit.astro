@@ -1,0 +1,166 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SafetyNotice from '../components/SafetyNotice.astro';
+import { categories } from '../config/categories';
+import { platforms } from '../config/platforms';
+import { pageTitle } from '../lib/seo';
+
+/**
+ * Community submission form — Netlify static form.
+ *
+ * Netlify flow: form POST → Netlify Forms inbox → manual review →
+ * approved listings are added to src/data/groups.json by a maintainer and
+ * committed (which triggers a Netlify rebuild). Submissions are NEVER
+ * auto-published to the JSON data.
+ */
+const success = Astro.url.searchParams.get('success') === 'true';
+---
+
+<BaseLayout
+  title={pageTitle('Submit a Community')}
+  description="Submit a public online community for review. Submissions are reviewed manually before publication."
+  canonicalPath="/submit/"
+  noindex
+>
+  <div class="mx-auto w-full max-w-3xl px-4 py-10 sm:px-6">
+    <h1 class="text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">
+      Submit a Community
+    </h1>
+    <p class="mt-2 text-stone-600">
+      Know a public community that belongs in the directory? Tell us about it.
+      Submissions are <strong>reviewed manually</strong> before anything is published.
+    </p>
+
+    {
+      success && (
+        <div
+          role="status"
+          class="mt-6 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800"
+        >
+          <p class="font-semibold">Thanks — your submission was received.</p>
+          <p class="mt-1">
+            It is now in the review queue. Publication is not guaranteed and takes a
+            human review. You can <a href="/submit/" class="underline">submit another</a>.
+          </p>
+        </div>
+      )
+    }
+
+    <form
+      name="community-submission"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      action="/submit/success/"
+      class="card mt-8 space-y-5 p-6 sm:p-8"
+    >
+      <input type="hidden" name="form-name" value="community-submission" />
+      <p class="hidden" aria-hidden="true">
+        <label>
+          Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off" />
+        </label>
+      </p>
+
+      <div class="grid gap-5 sm:grid-cols-2">
+        <div>
+          <label for="community-name" class="label">Community name *</label>
+          <input
+            id="community-name"
+            name="community-name"
+            type="text"
+            required
+            maxlength="140"
+            class="field"
+            placeholder="e.g. AI Builders Lounge"
+          />
+        </div>
+        <div>
+          <label for="platform" class="label">Platform *</label>
+          <select id="platform" name="platform" required class="field">
+            <option value="">Select platform…</option>
+            {platforms.map((p) => <option value={p.id}>{p.name}</option>)}
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <label for="category" class="label">Category *</label>
+        <select id="category" name="category" required class="field">
+          <option value="">Select category…</option>
+          {categories.map((c) => <option value={c.slug}>{c.name}</option>)}
+        </select>
+      </div>
+
+      <div>
+        <label for="invite-url" class="label">Invite URL *</label>
+        <input
+          id="invite-url"
+          name="invite-url"
+          type="url"
+          required
+          maxlength="500"
+          class="field"
+          placeholder="https://t.me/example or https://discord.gg/… or https://chat.whatsapp.com/…"
+        />
+        <p class="mt-1 text-xs text-stone-500">
+          Must be a public invite link you are authorized to share.
+        </p>
+      </div>
+
+      <div>
+        <label for="description" class="label">Short description</label>
+        <textarea
+          id="description"
+          name="description"
+          rows="3"
+          maxlength="400"
+          class="field"
+          placeholder="A factual, concise summary (max 400 characters)."
+        ></textarea>
+      </div>
+
+      <div class="grid gap-5 sm:grid-cols-2">
+        <div>
+          <label for="language" class="label">Language</label>
+          <input id="language" name="language" type="text" maxlength="40" class="field" placeholder="e.g. English" />
+        </div>
+        <div>
+          <label for="country" class="label">Country</label>
+          <input id="country" name="country" type="text" maxlength="40" class="field" placeholder="Optional" />
+        </div>
+      </div>
+
+      <div>
+        <label for="admin-contact" class="label">
+          Optional admin contact <span class="font-normal text-stone-400">(never shown publicly)</span>
+        </label>
+        <input
+          id="admin-contact"
+          name="admin-contact"
+          type="email"
+          maxlength="200"
+          class="field"
+          placeholder="Only used if we need to verify this listing"
+        />
+      </div>
+
+      <fieldset class="space-y-2">
+        <legend class="label">Before you submit</legend>
+        <label class="flex items-start gap-2 text-sm text-stone-600">
+          <input type="checkbox" name="confirmation" value="yes" required class="mt-0.5 size-4" />
+          I confirm this is a public community and I have the right/authority to share this
+          information. I understand submission does not guarantee publication.
+        </label>
+      </fieldset>
+
+      <p class="rounded-lg border border-stone-200 bg-stone-50 p-3 text-xs leading-relaxed text-stone-500">
+        Submissions are reviewed before publication. The directory may remove unsafe,
+        misleading or unauthorized submissions. Admin contact details stay private.
+      </p>
+
+      <button type="submit" class="btn-primary w-full sm:w-auto">Submit for review</button>
+    </form>
+
+    <SafetyNotice class="mt-6" />
+  </div>
+</BaseLayout>

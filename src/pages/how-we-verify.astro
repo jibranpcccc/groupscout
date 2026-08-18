@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import VerificationBadge from '../components/VerificationBadge.astro';
+import StatusBadge from '../components/StatusBadge.astro';
+import { pageTitle, breadcrumbJsonLd } from '../lib/seo';
+---
+
+<BaseLayout
+  title={pageTitle('How We Verify')}
+  description="What verification states mean, what link checks cover, and what they don't."
+  canonicalPath="/how-we-verify/"
+  jsonLd={breadcrumbJsonLd([{ name: 'How We Verify', path: '/how-we-verify/' }])}
+>
+  <div class="mx-auto w-full max-w-3xl px-4 py-10 sm:px-6">
+    <h1 class="text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">How We Verify</h1>
+    <p class="mt-2 text-stone-600">
+      We're transparent about what each listing's status actually means — and what it
+      doesn't. We never imply comprehensive safety auditing.
+    </p>
+
+    <div class="prose-static mt-8">
+      <h2>Verification states</h2>
+      <p>Every listing carries exactly one verification state:</p>
+
+      <h3><VerificationBadge status="unverified" size="md" /> — Unverified</h3>
+      <p>
+        A public URL was found, but no additional verification was performed.
+        This is the default state for most discovered listings.
+      </p>
+
+      <h3><VerificationBadge status="source-confirmed" size="md" /> — Source confirmed</h3>
+      <p>
+        The source page clearly identifies the community and its invite URL — for
+        example, a blog post that names the community and links its public invite.
+      </p>
+
+      <h3><VerificationBadge status="owner-confirmed" size="md" /> — Owner confirmed</h3>
+      <p>
+        The community's owner or admin completed an ownership verification method.
+        This process may be offered later; currently no listings use this state.
+      </p>
+
+      <h3><VerificationBadge status="manually-reviewed" size="md" /> — Manually reviewed</h3>
+      <p>
+        An administrator manually reviewed the listing. This means a human looked at
+        it — it is not a safety certification.
+      </p>
+
+      <h2>Link status</h2>
+      <p>Link checks answer one question: does the invite URL appear reachable?</p>
+      <ul>
+        <li><StatusBadge status="active" /> — the URL responded as reachable at the last check.</li>
+        <li><StatusBadge status="unknown" /> — the URL could not be confidently verified (blocks, timeouts, ambiguous responses). We never guess.</li>
+        <li><StatusBadge status="dead" /> — repeated strong evidence (e.g. persistent 404s) that the invite no longer works.</li>
+        <li><StatusBadge status="reported" /> — a user reported a problem; awaiting manual review.</li>
+        <li><StatusBadge status="removed" /> — the listing was removed by moderation.</li>
+      </ul>
+      <p>
+        Checks run on a schedule, never during the website build, and only against
+        publicly observable signals — we never join groups to “test” them.
+      </p>
+
+      <h2>What we never claim</h2>
+      <ul>
+        <li>We never mark a community “safe” or “trusted”.</li>
+        <li>We never generate ratings, reviews or growth metrics.</li>
+        <li>Member counts appear only when a real source provides them.</li>
+        <li>Directory discovery is not verification — finding a public URL is just finding a URL.</li>
+      </ul>
+
+      <h2>Corrections</h2>
+      <p>
+        Something wrong? Use the <a href="/report/">report form</a> or{' '}
+        <a href="/contact/">contact us</a>. Corrections are reviewed and applied by a
+        human.
+      </p>
+    </div>
+  </div>
+</BaseLayout>
