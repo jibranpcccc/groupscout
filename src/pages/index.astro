@@ -3,11 +3,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import SearchBox from '../components/SearchBox.astro';
 import PlatformBadge from '../components/PlatformBadge.astro';
 import CommunityGrid from '../components/CommunityGrid.astro';
-import SafetyNotice from '../components/SafetyNotice.astro';
 import AdPlaceholder from '../components/AdPlaceholder.astro';
 import { siteConfig } from '../config/site';
 import { categories } from '../config/categories';
 import { platforms } from '../config/platforms';
+import { exams, getExam } from '../config/exams';
 import {
   getPublishedCommunities,
   getRecentlyAdded,
@@ -16,12 +16,24 @@ import {
 } from '../lib/communities';
 import { pageTitle, websiteJsonLd, organizationJsonLd } from '../lib/seo';
 
+const published = getPublishedCommunities();
 const stats = getDatasetStats();
 const recentlyAdded = getRecentlyAdded(8);
 const recentlyChecked = getRecentlyChecked(8);
 const categoryCounts = new Map(
-  categories.map((c) => [c.slug, getPublishedCommunities().filter((x) => x.category === c.slug).length])
+  categories.map((c) => [c.slug, published.filter((x) => x.category === c.slug).length])
 );
+
+// Exams covered by real published inventory (exams field), fallback to config
+// for the browse cards — cards link to exam pages regardless of inventory.
+const examSlugsWithInventory = new Set(published.flatMap((c) => c.exams ?? []));
+const featuredExams = [
+  'sat', 'ielts', 'gre', 'mcat', 'nclex', 'usmle', 'cfa', 'aws', 'security-plus', 'ccna', 'pmp',
+]
+  .map((slug) => getExam(slug))
+  .filter((e): e is NonNullable<typeof e> => Boolean(e));
+
+const emptyState = published.length === 0;
 ---
 
 <BaseLayout
@@ -33,89 +45,87 @@ const categoryCounts = new Map(
   <!-- Hero -->
   <section class="border-b border-stone-200 bg-gradient-to-b from-blue-50/80 to-canvas">
     <div class="mx-auto w-full max-w-6xl px-4 py-16 text-center sm:px-6 sm:py-20">
-      <h1 class="mx-auto max-w-3xl text-3xl font-bold tracking-tight text-stone-900 sm:text-5xl">
-        Find Communities Worth Joining
+      <h1 class="mx-auto max-w-3xl text-4xl font-bold tracking-tight text-stone-900 sm:text-5xl">
+        Find Active Exam Prep &amp; Study Groups
       </h1>
-      <p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-stone-600 sm:text-lg">
-        {siteConfig.name} helps you discover public online communities across
-        Telegram, WhatsApp and Discord — categorized, checked and ready to explore.
+      <p class="mx-auto mt-4 max-w-2xl text-lg text-stone-600">
+        Discover public Discord, Telegram and WhatsApp communities for exam
+        preparation, professional certifications and study support.
       </p>
-
-      <div class="mt-8 flex justify-center">
-        <SearchBox size="lg" id="hero-search" />
+      <div class="mx-auto mt-8 max-w-xl">
+        <SearchBox size="lg" placeholder="Search SAT, IELTS, MCAT, CFA, AWS study groups…" />
       </div>
 
-      {
-        stats.listed === 0 && (
-          <div class="mx-auto mt-10 max-w-2xl rounded-xl border border-blue-200 bg-blue-50 p-4 text-sm text-blue-900">
-            <p class="font-semibold">New communities are being reviewed.</p>
-            <p class="mt-1 text-blue-800/90">
-              The first verified listings are in the review queue. In the meantime you can{' '}
-              <a href="/submit/" class="font-medium underline">submit a community</a>,{' '}
-              <a href="/how-we-verify/" class="font-medium underline">see how verification works</a>, or{' '}
-              <a href="/safety/" class="font-medium underline">read the safety guide</a>.
-            </p>
-          </div>
-        )
-      }
-
-      <dl class="mx-auto mt-10 flex max-w-xl flex-wrap items-center justify-center gap-x-10 gap-y-4">
+      <!-- Counters (computed from real data) -->
+      <dl class="mx-auto mt-10 grid max-w-2xl grid-cols-2 gap-4 sm:grid-cols-4">
         <div>
-          <dt class="sr-only">Listed communities</dt>
-          <dd class="text-2xl font-bold text-stone-900">{stats.listed}</dd>
-          <dd class="text-xs font-medium uppercase tracking-wide text-stone-500">Listed Communities</dd>
+          <dd class="text-2xl font-bold text-stone-900">{published.length}</dd>
+          <dt class="text-xs font-medium uppercase tracking-wide text-stone-500">Listed Study Communities</dt>
         </div>
         <div>
-          <dt class="sr-only">Categories</dt>
-          <dd class="text-2xl font-bold text-stone-900">{stats.categories}</dd>
-          <dd class="text-xs font-medium uppercase tracking-wide text-stone-500">Categories</dd>
+          <dd class="text-2xl font-bold text-stone-900">{examSlugsWithInventory.size || exams.length}</dd>
+          <dt class="text-xs font-medium uppercase tracking-wide text-stone-500">Exams Covered</dt>
         </div>
         <div>
-          <dt class="sr-only">Platforms</dt>
-          <dd class="text-2xl font-bold text-stone-900">{stats.platforms}</dd>
-          <dd class="text-xs font-medium uppercase tracking-wide text-stone-500">Platforms</dd>
+          <dd class="text-2xl font-bold text-stone-900">{published.length ? platforms.filter((p) => published.some((c) => c.platform === p.id)).length : platforms.length}</dd>
+          <dt class="text-xs font-medium uppercase tracking-wide text-stone-500">Platforms</dt>
         </div>
         <div>
-          <dt class="sr-only">Recently checked</dt>
-          <dd class="text-2xl font-bold text-stone-900">{stats.recentlyChecked}</dd>
-          <dd class="text-xs font-medium uppercase tracking-wide text-stone-500">Recently Checked</dd>
+          <dd class="text-2xl font-bold text-stone-900">{recentlyChecked.length}</dd>
+          <dt class="text-xs font-medium uppercase tracking-wide text-stone-500">Recently Checked</dt>
         </div>
       </dl>
     </div>
   </section>
 
-  <!-- Platforms -->
-  <section class="mx-auto w-full max-w-6xl px-4 pt-12 sm:px-6">
+  <!-- Empty state (zero inventory — honest, no fixtures) -->
+  {
+    emptyState && (
+      <section class="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6">
+        <div class="rounded-xl border border-blue-100 bg-blue-50/60 p-6 text-center">
+          <p class="text-lg font-semibold text-stone-900">New study communities are being reviewed.</p>
+          <p class="mt-2 text-sm text-stone-600">
+            In the meantime, explore exams, learn how verification works, or submit a study group you know.
+          </p>
+          <div class="mt-4 flex flex-wrap justify-center gap-3 text-sm font-medium">
+            <a href="/communities/" class="rounded-lg bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">Browse Exams</a>
+            <a href="/how-we-verify/" class="rounded-lg border border-stone-300 px-4 py-2 text-stone-700 hover:bg-stone-100">How Verification Works</a>
+            <a href="/safety/" class="rounded-lg border border-stone-300 px-4 py-2 text-stone-700 hover:bg-stone-100">Study Safety</a>
+            <a href="/submit/" class="rounded-lg border border-stone-300 px-4 py-2 text-stone-700 hover:bg-stone-100">Submit a Community</a>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <!-- Browse Exams & Certifications -->
+  <section class="mx-auto w-full max-w-6xl px-4 pt-14 sm:px-6">
     <div class="flex items-end justify-between">
-      <h2 class="text-xl font-semibold text-stone-900">Browse by Platform</h2>
-      <a href="/communities/" class="text-sm font-medium text-blue-700 hover:text-blue-800">
-        Browse all →
-      </a>
+      <h2 class="text-xl font-semibold text-stone-900">Browse Exams &amp; Certifications</h2>
+      <a href="/communities/" class="text-sm font-medium text-blue-700 hover:underline">All communities →</a>
     </div>
-    <div class="mt-4 grid gap-4 sm:grid-cols-3">
+    <div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
       {
-        platforms.map((p) => (
+        featuredExams.map((exam) => (
           <a
-            href={`/platform/${p.id}/`}
-            class="card group p-5 transition-shadow hover:shadow-md"
+            href={`/exam/${exam.slug}/`}
+            class="card group flex items-center justify-between p-4 transition-shadow hover:shadow-md"
           >
-            <div class="flex items-center gap-3">
-              <PlatformBadge platform={p.id} size="md" showName={false} />
-              <div>
-                <p class="font-semibold text-stone-900 group-hover:text-blue-700">{p.name}</p>
-                <p class="text-xs text-stone-500">{p.description}</p>
-              </div>
+            <div>
+              <p class="font-semibold text-stone-900 group-hover:text-blue-700">{exam.name}</p>
+              <p class="text-xs text-stone-500">{exam.description}</p>
             </div>
+            <span class="ml-2 text-stone-400 group-hover:text-blue-600" aria-hidden="true">→</span>
           </a>
         ))
       }
     </div>
   </section>
 
-  <!-- Categories -->
+  <!-- Exam families -->
   <section class="mx-auto w-full max-w-6xl px-4 pt-12 sm:px-6">
-    <h2 class="text-xl font-semibold text-stone-900">Browse by Category</h2>
-    <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <h2 class="text-xl font-semibold text-stone-900">Exam Families</h2>
+    <div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
       {
         categories.map((cat) => (
           <a
@@ -124,7 +134,7 @@ const categoryCounts = new Map(
           >
             <div>
               <p class="font-semibold text-stone-900 group-hover:text-blue-700">{cat.name}</p>
-              <p class="mt-1 line-clamp-2 text-sm text-stone-500">{cat.description}</p>
+              <p class="mt-1 text-sm text-stone-500">{cat.description}</p>
             </div>
             <p class="mt-3 text-xs font-medium text-stone-400">
               {categoryCounts.get(cat.slug) ?? 0} listed
@@ -132,30 +142,39 @@ const categoryCounts = new Map(
           </a>
         ))
       }
-      <a
-        href="/submit/"
-        class="card group flex flex-col justify-between border-dashed p-5 transition-shadow hover:shadow-md"
-      >
-        <div>
-          <p class="font-semibold text-blue-700 group-hover:text-blue-800">Submit a Community</p>
-          <p class="mt-1 line-clamp-2 text-sm text-stone-500">
-            Know a public community worth listing? Submissions are reviewed manually.
-          </p>
-        </div>
-        <p class="mt-3 text-xs font-medium text-blue-600">Get listed →</p>
-      </a>
     </div>
   </section>
 
-  <!-- Recently added (hidden when empty — never filled with fixtures) -->
+  <!-- Platforms -->
+  <section class="mx-auto w-full max-w-6xl px-4 pt-12 sm:px-6">
+    <h2 class="text-xl font-semibold text-stone-900">Platforms</h2>
+    <div class="mt-4 grid gap-3 sm:grid-cols-3">
+      {
+        platforms.map((p) => (
+          <a
+            href={`/platform/${p.id}/`}
+            class="card flex items-center justify-between p-5 transition-shadow hover:shadow-md"
+          >
+            <div class="flex items-center gap-3">
+              <PlatformBadge platform={p.id} />
+              <p class="font-semibold text-stone-900">{p.name}</p>
+            </div>
+            <span class="text-xs text-stone-500">
+              {published.filter((c) => c.platform === p.id).length} study groups
+            </span>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Recently added — hidden when empty, never filled with fixtures -->
   {
     recentlyAdded.length > 0 && (
       <section class="mx-auto w-full max-w-6xl px-4 pt-12 sm:px-6">
         <div class="flex items-end justify-between">
           <h2 class="text-xl font-semibold text-stone-900">Recently Added</h2>
-          <a href="/recently-added/" class="text-sm font-medium text-blue-700 hover:text-blue-800">
-            View all →
-          </a>
+          <a href="/recently-added/" class="text-sm font-medium text-blue-700 hover:underline">View all →</a>
         </div>
         <div class="mt-4">
           <CommunityGrid communities={recentlyAdded} />
@@ -164,36 +183,20 @@ const categoryCounts = new Map(
     )
   }
 
-  <AdPlaceholder slot="leaderboard" />
-
-  <!-- Recently checked (hidden when empty — never filled with fixtures) -->
-  {
-    recentlyChecked.length > 0 && (
-      <section class="mx-auto w-full max-w-6xl px-4 pt-12 sm:px-6">
-        <div class="flex items-end justify-between">
-          <h2 class="text-xl font-semibold text-stone-900">Recently Checked</h2>
-          <a href="/recently-updated/" class="text-sm font-medium text-blue-700 hover:text-blue-800">
-            View all →
-          </a>
-        </div>
-        <div class="mt-4">
-          <CommunityGrid communities={recentlyChecked} />
-        </div>
-      </section>
-    )
-  }
-
-  <!-- Trust + CTA -->
+  <!-- Study safety notice -->
   <section class="mx-auto w-full max-w-6xl px-4 pt-12 sm:px-6">
-    <SafetyNotice />
-    <div class="card mt-6 flex flex-col items-center gap-4 p-8 text-center sm:flex-row sm:justify-between sm:text-left">
-      <div>
-        <p class="text-lg font-semibold text-stone-900">Know a public community worth listing?</p>
-        <p class="mt-1 text-sm text-stone-500">
-          Submissions are reviewed before publication — no automatic listings.
-        </p>
-      </div>
-      <a href="/submit/" class="btn-primary shrink-0">Submit a Community</a>
+    <div class="rounded-xl border border-amber-200 bg-amber-50/70 p-5">
+      <h2 class="text-base font-semibold text-stone-900">Study safely</h2>
+      <p class="mt-1 max-w-3xl text-sm leading-relaxed text-stone-600">
+        Directory inclusion is not an endorsement of study materials or claims made inside a
+        community. Avoid groups offering leaked exams, guaranteed test questions, impersonation
+        services or unauthorized credentials. Learn more at{" "}
+        <a href="/safety/" class="font-medium text-amber-800 underline">Study Safety</a>.
+      </p>
     </div>
+  </section>
+
+  <section class="mx-auto w-full max-w-6xl px-4 pt-10 sm:px-6">
+    <AdPlaceholder slot="in-content" />
   </section>
 </BaseLayout>

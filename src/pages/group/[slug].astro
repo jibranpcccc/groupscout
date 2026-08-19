@@ -13,7 +13,9 @@ import {
   getRelatedCommunities,
   getCategoryLabel,
 } from '../../lib/communities';
-import { requiresFinancialDisclaimer, getCategoryBySlug, slugifyTag } from '../../config/categories';
+import { getCategoryBySlug, slugifyTag } from '../../config/categories';
+import { getExamName } from '../../config/exams';
+import { getExamFamilyName } from '../../config/examFamilies';
 import { getPlatformById } from '../../config/platforms';
 import { siteConfig } from '../../config/site';
 import { formatDate } from '../../lib/dates';
@@ -31,7 +33,10 @@ if (!community) return Astro.redirect('/404', 301);
 const platformConfig = getPlatformById(community.platform);
 const categoryConfig = getCategoryBySlug(community.category);
 const related = getRelatedCommunities(community, 6);
-const showFinancial = requiresFinancialDisclaimer(community.category);
+const marketLabels: Record<string, string> = {
+  US: 'United States', UK: 'United Kingdom', CA: 'Canada', AU: 'Australia',
+  NZ: 'New Zealand', IE: 'Ireland', 'global-english': 'Global English',
+};
 
 const checked = formatDate(community.lastCheckedAt);
 const discovered = formatDate(community.discoveredAt);
@@ -110,7 +115,7 @@ const webPageLd = jsonLd({
       </a>
     </div>
 
-    <SafetyNotice variant={showFinancial ? 'financial' : 'general'} class="mt-6" />
+    <SafetyNotice variant="study" class="mt-6" />
 
     <div class="mt-8 grid gap-8 lg:grid-cols-3">
       <div class="lg:col-span-2">
@@ -125,6 +130,61 @@ const webPageLd = jsonLd({
               <dt class="text-xs font-medium uppercase tracking-wide text-stone-500">Platform</dt>
               <dd class="mt-1 text-sm text-stone-700">{platformConfig?.name}</dd>
             </div>
+            {
+              (community.exams ?? []).length > 0 && (
+                <div>
+                  <dt class="text-xs font-medium uppercase tracking-wide text-stone-500">Exams</dt>
+                  <dd class="mt-1 flex flex-wrap gap-1.5">
+                    {
+                      community.exams.map((slug) => (
+                        <a
+                          href={`/exam/${slug}/`}
+                          class="rounded-md bg-blue-50 px-2 py-0.5 text-xs font-medium text-blue-800 hover:bg-blue-100"
+                        >
+                          {getExamName(slug)}
+                        </a>
+                      ))
+                    }
+                  </dd>
+                </div>
+              )
+            }
+            {
+              (community.targetMarkets ?? []).length > 0 && (
+                <div>
+                  <dt class="text-xs font-medium uppercase tracking-wide text-stone-500">Target markets</dt>
+                  <dd class="mt-1 text-sm text-stone-700">
+                    {community.targetMarkets.map((m) => marketLabels[m] ?? m).join(', ')}
+                  </dd>
+                </div>
+              )
+            }
+            {
+              (community.studyTypes ?? []).length > 0 && (
+                <div>
+                  <dt class="text-xs font-medium uppercase tracking-wide text-stone-500">Study type</dt>
+                  <dd class="mt-1 text-sm capitalize text-stone-700">
+                    {community.studyTypes.map((s) => s.replace(/-/g, ' ')).join(', ')}
+                  </dd>
+                </div>
+              )
+            }
+            {
+              community.certificationProvider && (
+                <div>
+                  <dt class="text-xs font-medium uppercase tracking-wide text-stone-500">Certification provider</dt>
+                  <dd class="mt-1 text-sm text-stone-700">{community.certificationProvider}</dd>
+                </div>
+              )
+            }
+            {
+              community.examLevel && (
+                <div>
+                  <dt class="text-xs font-medium uppercase tracking-wide text-stone-500">Exam level</dt>
+                  <dd class="mt-1 text-sm text-stone-700">{community.examLevel}</dd>
+                </div>
+              )
+            }
             {
               community.subcategory && (
                 <div>

@@ -11,6 +11,7 @@ const siteUrl = process.env.PUBLIC_SITE_URL || 'http://localhost:4321';
 // Indexation thresholds (must match src/config/discovery.ts).
 const TAG_PAGE_INDEX_MIN = 5;
 const CATEGORY_INDEX_MIN = 3;
+const EXAM_INDEX_MIN = 5;
 
 // Real published counts from the production data source — demo/sample
 // records are excluded so they can never appear in the sitemap.
@@ -28,11 +29,15 @@ const slugifyTag = (tag) =>
 
 const tagCounts = new Map();
 const categoryCounts = new Map();
+const examCounts = new Map();
 for (const c of realGroups) {
   categoryCounts.set(c.category, (categoryCounts.get(c.category) || 0) + 1);
   for (const t of c.tags) {
     const s = slugifyTag(t);
     tagCounts.set(s, (tagCounts.get(s) || 0) + 1);
+  }
+  for (const e of c.exams ?? []) {
+    examCounts.set(e, (examCounts.get(e) || 0) + 1);
   }
 }
 
@@ -58,6 +63,10 @@ export default defineConfig({
         // Thin tag pages (fewer than TAG_PAGE_INDEX_MIN real communities).
         const tagMatch = page.match(/\/tag\/([^/]+)\/$/);
         if (tagMatch && (tagCounts.get(tagMatch[1]) ?? 0) < TAG_PAGE_INDEX_MIN) return false;
+
+        // Thin exam pages (fewer than EXAM_INDEX_MIN real communities).
+        const examMatch = page.match(/\/exam\/([^/]+)\/$/);
+        if (examMatch && (examCounts.get(examMatch[1]) ?? 0) < EXAM_INDEX_MIN) return false;
 
         // Empty/near-empty category pages.
         const catMatch = page.match(/\/category\/([^/]+)\/$/);

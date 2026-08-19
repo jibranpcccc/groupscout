@@ -6,6 +6,7 @@ import { makeCommunity } from './helpers';
 function realRecord(overrides: Record<string, unknown> = {}): Record<string, unknown> {
   return {
     ...makeCommunity({
+      published: true, // realRecord represents a published listing (publish-gated guards apply)
       isSample: false,
       inviteUrl: 'https://t.me/realpublicchannel',
       sourceUrls: ['https://medium.com/@real-community/announcement'], // non-demo host
@@ -68,5 +69,23 @@ describe('findProductionViolations (production safety guard)', () => {
       realRecord({ inviteUrl: 'https://chat.whatsapp.com/RealCode123' }),
     ];
     expect(findProductionViolations(records)).toHaveLength(0);
+  });
+
+  it('fails published records whose vertical is not study-prep (niche guard)', () => {
+    const violations = findProductionViolations([
+      realRecord({ vertical: 'crypto-web3' }),
+      realRecord({ vertical: 'ai-tech' }),
+      realRecord({ vertical: null }),
+    ]);
+    expect(violations).toHaveLength(3);
+    expect(violations.every((v) => v.reason.includes('vertical'))).toBe(true);
+    expect(violations[0]?.reason).toContain('study-prep');
+  });
+
+  it('allows unpublished records with a legacy vertical (pending migration)', () => {
+    const violations = findProductionViolations([
+      realRecord({ published: false, vertical: 'crypto-web3' }),
+    ]);
+    expect(violations).toHaveLength(0);
   });
 });

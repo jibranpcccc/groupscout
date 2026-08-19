@@ -2,11 +2,28 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { pageTitle, breadcrumbJsonLd, jsonLd } from '../lib/seo';
 import { siteConfig } from '../config/site';
-import { getDatasetStats } from '../lib/communities';
-import { categories } from '../config/categories';
+import { getDatasetStats, getPublishedCommunities } from '../lib/communities';
+import { examFamilies, getExamFamilyName } from '../config/examFamilies';
 import { platforms } from '../config/platforms';
+import { getExamName } from '../config/exams';
 
 const stats = getDatasetStats();
+const published = getPublishedCommunities();
+
+// Covered-exam metrics are computed from the live dataset, never guessed.
+const coveredExams = [...new Set(published.flatMap((c) => c.exams))].sort((a, b) =>
+  getExamName(a).localeCompare(getExamName(b))
+);
+const coveredFamilies = [
+  ...new Set(
+    published.flatMap((c) =>
+      c.examFamilies.length > 0
+        ? c.examFamilies
+        : (c.category ? [c.category] : [])
+    )
+  ),
+].sort((a, b) => getExamFamilyName(a).localeCompare(getExamFamilyName(b)));
+
 const pageLd = jsonLd({
   '@context': 'https://schema.org',
   '@type': 'AboutPage',
@@ -25,43 +42,64 @@ const pageLd = jsonLd({
     <h1 class="text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">About</h1>
     <div class="prose-static mt-6">
       <p>
-        {siteConfig.name} is a searchable directory of <strong>public online
-        communities</strong> across {platforms.map((p) => p.name).join(', ')}.
-        It helps people discover communities worth joining — and helps them judge
-        whether a listing is trustworthy before they click.
+        {siteConfig.name} is a searchable directory of{' '}
+        <strong>public exam-prep and professional-certification study communities</strong>{' '}
+        across {platforms.map((p) => p.name).join(', ')}. It helps students find
+        communities worth joining for exams like the SAT, GRE, IELTS, USMLE, CFA, AWS
+        certifications and many others — and helps them judge whether a listing is
+        trustworthy before they click.
       </p>
+
+      <h2>Why it exists</h2>
+      <p>
+        Study groups are scattered across Discord, Telegram and WhatsApp, and most students
+        discover them through word of mouth or search. Many are excellent; some sell fake
+        exam dumps, impersonate tutors, or push credential scams. {siteConfig.name} exists
+        to make the landscape visible — what communities exist, for which exams, on which
+        platforms — with honest verification states and practical{' '}
+        <a href="/safety/">safety guidance</a>.
+      </p>
+
       <h2>Where listings come from</h2>
       <p>
-        Listings are identified from publicly available sources: web search
-        discovery, direct submissions, and manual curation. Every listing stores
-        its source URLs, discovery date, verification state and link-check status.
+        Listings are identified from publicly available sources: web search discovery,
+        direct submissions, and manual curation. Every listing stores its source URLs,
+        discovery date, verification state and link-check status. Listings are organized
+        by exam, exam family, target market and study type.
       </p>
+
       <h2>What this directory is not</h2>
       <p>
-        We are not a messaging platform, and inclusion is not an endorsement.
-        We do not join groups, scrape member data, or claim that any community is
-        “safe” or profitable. See <a href="/safety/">Safety</a> and{' '}
+        We are not an exam provider, a school, a tutoring service or a certification
+        authority. Inclusion is not an endorsement. We do not join groups, scrape member
+        data, or claim that any community is “safe” or that its materials are official.
+        See <a href="/safety/">Safety</a> and{' '}
         <a href="/how-we-verify/">How We Verify</a>.
       </p>
+
       <h2>Current dataset</h2>
       <ul>
-        <li>{stats.listed} published communities</li>
-        <li>{stats.categories} categories with listings</li>
+        <li>{stats.listed} published study communities</li>
+        <li>{stats.categories} exam families with listings</li>
+        <li>{coveredFamilies.length} exam families represented in the dataset</li>
+        <li>{coveredExams.length} exams / certifications covered</li>
         <li>{stats.platforms} platforms</li>
         <li>{stats.withMemberCounts} listings with a sourced member count</li>
       </ul>
       <p>
-        Numbers above are computed from the live dataset — we never display
-        invented statistics.
+        Numbers above are computed from the live dataset — we never display invented
+        statistics.
       </p>
-      <h2>Categories</h2>
+
+      <h2>Exam families</h2>
       <ul>
-        {categories.map((c) => (
+        {examFamilies.map((f) => (
           <li>
-            <a href={`/category/${c.slug}/`}>{c.name}</a> — {c.description}
+            <a href={`/category/${f.slug}/`}>{f.name}</a> — {f.description}
           </li>
         ))}
       </ul>
+
       <h2>Contact</h2>
       <p>
         Questions, corrections or removal requests? Use the{' '}

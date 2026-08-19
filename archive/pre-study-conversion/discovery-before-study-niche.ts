@@ -24,14 +24,7 @@ export const discoveryConfig = {
   maxCandidatesPerQuery: intFromEnv('DISCOVERY_MAX_CANDIDATES_PER_QUERY', 10),
   /** Cap on brand-new candidates accepted per run. */
   maxNewCandidatesPerRun: intFromEnv('DISCOVERY_MAX_CANDIDATES', 100),
-  /**
-   * Cap on distinct query texts searched per run. Query generation is
-   * study-niche: exam × platform × modifier cells with a tiered budget —
-   * high-priority exams ≈ 70%, secondary exams ≈ 20%, experimental /
-   * general-study queries ≈ 10% — interleaved round-robin across exams and
-   * platforms (Discord/Telegram ≈ 40% each, WhatsApp ≈ 20%), with per-exam
-   * caps so no single exam monopolizes the budget.
-   */
+  /** Cap on distinct query texts searched per run (generation is balanced across platforms). */
   maxSearchQueries: intFromEnv('DISCOVERY_MAX_SEARCH_QUERIES', 25),
   /** Hard cap on total provider search requests per run (distinct queries × providers). */
   maxProviderRequests: intFromEnv('DISCOVERY_MAX_PROVIDER_REQUESTS', 75),
@@ -86,12 +79,6 @@ export const TAG_PAGE_INDEX_MIN = 5;
  * exclusion while still being browsable.
  */
 export const CATEGORY_INDEX_MIN = 3;
-
-/**
- * Minimum number of REAL published communities an /exam/ page needs before
- * it is indexable. Thin exam pages get noindex + sitemap exclusion.
- */
-export const EXAM_INDEX_MIN = 5;
 
 /** Page size for directory grids / static pagination. */
 export const PAGE_SIZE = 24;

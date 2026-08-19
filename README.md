@@ -1,317 +1,147 @@
-# GroupScout
+# StudyScout
 
-An automated, production-ready directory website for discovering and cataloguing
-**public online communities** on Telegram, WhatsApp and Discord — with an
-architecture ready for more platforms (Reddit, Slack, Facebook Groups, Skool,
-GitHub Discussions, public forums) later.
+**Find active exam-prep and professional-certification study groups across Discord, Telegram and WhatsApp.**
 
-> **Core principle:** the product is built on **real structured information**,
-> never mass-generated fake SEO content. Member counts, ratings, "trending"
-> numbers and "verified" badges are only shown when real evidence exists.
+StudyScout is an automated, statically generated directory of public study
+communities for entrance exams, admissions tests, professional licensing
+exams, English proficiency tests, finance/accounting certifications, and
+technology/security/cloud/networking certifications.
 
----
+Built with Astro + TypeScript + Tailwind CSS, deployed on Netlify, powered by
+a free-tier discovery engine (Tavily/Brave search + Gemini classification)
+with strict quality gates, cautious link validation, and a pending-first
+review workflow.
 
-## What this project is
+## Project purpose
 
-- A searchable, filterable, categorized directory of publicly discoverable communities.
-- Static-generated pages (Astro SSG) — no database required to serve content in V1.
-- An automated discovery pipeline (Gemini with Google Search grounding) that
-  finds candidate public invite URLs and routes them to a **pending review**
-  queue — discovery is not publication.
-- A cautious link-health engine that checks stored URLs without ever joining
-  groups or scraping private data.
-- GitHub Actions for scheduled discovery, link validation and CI quality gates.
-- Netlify-ready deployment with forms, headers and redirects configured.
+> This project is an exam-preparation and professional-certification
+> community directory. Do not reintroduce unrelated general-community niches
+> without explicit owner approval. — AGENTS.md
 
-## Stack
+## Exam taxonomy
 
-| Layer | Choice |
-|---|---|
-| Framework | Astro 5 (static site generation) |
-| Language | TypeScript (strict) |
-| Styling | Tailwind CSS 4 |
-| Data store | JSON (`src/data/*.json`) via a centralized repository layer |
-| Schema validation | Zod |
-| AI classification/discovery | Gemini API (`@google/genai`) with Google Search grounding |
-| Tests | Vitest |
-| CI/CD | GitHub Actions + Netlify |
+- 13 exam families (`src/config/examFamilies.ts`): College Admissions,
+  Graduate Admissions, English Proficiency, Medical & Healthcare, Law,
+  Finance & Accounting, Technology, Cybersecurity, Cloud, Networking,
+  Project Management, Professional Licensing, General Study.
+- 45 exams (`src/config/exams.ts`): SAT, ACT, AP Exams, PSAT, GRE, GMAT,
+  IELTS, TOEFL, PTE, Cambridge English, OET, MCAT, USMLE, NCLEX, UCAT, PLAB,
+  LSAT, Bar Exam, SQE, CFA, CPA, ACCA, FRM, CIMA, CMA, AWS, Azure, Google
+  Cloud, Security+, A+, CISSP, CEH, OSCP, CySA+, PenTest+, CCNA, CCNP,
+  Network+, PMP, CAPM, PRINCE2, Scrum PSM, CSM, and more.
+- Every record carries `vertical: "study-prep"`; production validation
+  REJECTS published records from any other vertical.
 
-## Local installation
+## Data model
 
-```bash
-git clone <your-repo-url>
-cd community-directory
-npm install
-npm run dev
+See `src/types/community.ts` and `src/lib/schema.ts`. Key fields:
+
+- `vertical: 'study-prep'`
+- `category` = primary exam family
+- `examFamilies`, `exams` — evidence-based only (never guessed)
+- `targetMarkets` — `US | UK | CA | AU | NZ | IE | global-english`
+- `certificationProvider`, `examLevel` — only when evidenced
+- `studyTypes` — discussion, study-group, practice-questions, accountability,
+  resources, exam-strategy, peer-support
+- Plus the existing integrity fields: `linkStatus`, `verificationStatus`,
+  `sourceUrls`, `memberCount` (only when sourced), `discordGuildId` (dedupe).
+
+## Discovery pipeline
+
+```
+Tavily / Brave / (Gemini search grounding)
+        ↓  real candidate URLs only
+normalize (platform rules, t.me/s canonicalization)
+        ↓
+platform-specific validation (Discord invite API, Telegram preview, cautious WhatsApp)
+        ↓
+study relevance filter (explicit exam-prep/study focus required)
+        ↓
+Gemini classification (zero-guess, evidence-based)
+        ↓
+exam-risk classifier (leaked dumps / proxy test takers / credential fraud → REJECT)
+        ↓
+deduplication (URL, Telegram handle, Discord guild ID, titles)
+        ↓
+pending-groups.json (published=false — ALWAYS review first)
 ```
 
-Open http://localhost:4321. The site runs fully **without any API keys**.
+- `AUTO_PUBLISH_DISCOVERED=false` — nothing is ever published without gates.
+- The daily GitHub Action (04:17 UTC) runs discover → validate-links →
+  gated auto-approve → commit → Netlify auto-deploy. Auto-approve requires:
+  link `active` + fresh check + independent source + no safety flags +
+  classified + no scam indicators + production guard clean, capped at 30/day.
+- Rejected candidates (wrong niche, dead, risk) land in
+  `src/data/rejected-candidates.json` with reasons.
+
+## Commands
+
+```bash
+npm install
+npm run dev               # local dev server (default http://localhost:4321)
+npm run build             # production build → dist/
+npm run typecheck         # TypeScript strict check
+npm run lint              # ESLint
+npm run test              # vitest (93+ tests)
+npm run validate-data     # schema + production guard + dataset invariants
+npm run data:stats        # dataset summary
+npm run discover -- --dry-run          # discovery plan (no writes)
+npm run discover                        # live discovery → pending
+npm run validate-links                  # link health checks (official APIs)
+npm run auto-approve                    # gated auto-publish of pending
+npm run approve -- <candidate-id>       # manual approve of a held candidate
+```
 
 ## Environment variables
 
-Copy `.env.example` to `.env` for local discovery work. Only `GEMINI_API_KEY`
-is needed, and only for `npm run discover` — the website builds without it.
+See `.env.example`. Key variables:
 
-| Variable | Purpose | Default |
-|---|---|---|
-| `PUBLIC_SITE_URL` | Canonical URLs, sitemap, robots.txt | `http://localhost:4321` |
-| `GEMINI_API_KEY` | Discovery/classification (optional) | — |
-| `GEMINI_MODEL` | Gemini model for discovery | `gemini-2.5-flash` |
-| `GEMINI_SEARCH_ENABLED` | Google Search grounding toggle | `true` |
-| `DISCOVERY_MAX_QUERIES` | Query budget per run | `30` |
-| `DISCOVERY_MAX_CANDIDATES` | New-candidate cap per run | `100` |
-| `AUTO_PUBLISH_DISCOVERED` | Publish straight to groups.json | `false` |
-| `VALIDATE_DELAY_MS` | Delay between link checks | `1500` |
-| `VALIDATE_MAX_CHECKS` | Max links checked per run | `200` |
-| `SHOW_AD_PLACEHOLDERS` | Render non-functional ad boxes | `false` |
+| Variable | Purpose |
+|---|---|
+| `PUBLIC_SITE_URL` | Canonical site URL (Netlify: `https://groupscout.netlify.app`) |
+| `TAVILY_API_KEY` | Free-tier web search (1,000 credits/mo) — recommended |
+| `BRAVE_API_KEY` | Alternative free search provider |
+| `GEMINI_API_KEY` | Classification (free tier works; search grounding usually needs paid) |
+| `GEMINI_MODEL` | Default `gemini-3.5-flash-lite` |
+| `DISCOVERY_MAX_SEARCH_QUERIES` | Distinct query topics per run (default 25) |
+| `DISCOVERY_MAX_PROVIDER_REQUESTS` | Total search-API calls per run (default 75) |
+| `AUTO_APPROVE_MAX` | Max auto-published per run (default 30) |
+| `AUTO_PUBLISH_DISCOVERED` | Keep `false` |
 
-## Data structure
+Secrets are never committed. GitHub Actions reads them from repository secrets
+(`TAVILY_API_KEY`, `BRAVE_API_KEY`, `GEMINI_API_KEY`).
 
-- `src/data/groups.json` — the **production content source** (published listings).
-- `src/data/pending-groups.json` — discoveries/submissions awaiting human review.
-- `src/data/seeds.json` — manual seed URLs usable without Gemini.
-- `src/types/community.ts` — the strongly typed community model.
-- `src/lib/schema.ts` — Zod runtime validation; the build fails on malformed data.
+## Validation & safety
 
-Every listing records: platform, category, tags, invite URL, description,
-verification status (`unverified | source-confirmed | owner-confirmed |
-manually-reviewed`), link status (`active | unknown | dead | removed |
-reported`), source URLs, discovery method/date, and (only when sourced) member
-counts. Missing information is `null`/`unknown` and the UI hides it — nothing
-is ever invented.
+- **Active ≠ verified.** A working link only proves reachability.
+- **Never fabricated:** member counts, pass rates, score improvements,
+  reviews, verification status, official affiliation, exam categories.
+- Exam-risk classifier (`scripts/safety/examRiskClassifier.ts`) rejects
+  leaked-exam/dump/braindump/proxy-test-taker/credential-fraud groups and
+  flags ambiguous risk language for human review. Legitimate practice
+  questions, mock exams, flashcards and study notes are NOT flagged.
+- Source-confirmed requires an independent page that links the exact invite.
 
-## Adding a community manually
+## Deployment
 
-1. Open `src/data/groups.json`.
-2. Copy an existing record as a template and fill it in with **real facts**:
-   - `id`/`slug`: lowercase, permanent (never change after publication).
-   - `inviteUrl`: the real public invite link.
-   - `sourceUrls`: where the listing was publicly identified.
-   - `memberCount` fields: only with a real source; otherwise keep `null`.
-3. Run `npm run validate-data` to confirm the record is valid.
-4. Commit — Netlify rebuilds automatically.
+1. GitHub repo: `jibranpcccc/groupscout` (auto-deploy workflow on push).
+2. Netlify site: `groupscout.netlify.app` (same project as the pre-conversion site).
+3. Deploy manually: `npm run build && npx netlify deploy --prod --dir=dist`.
 
-## Running discovery
+## SEO & indexing
 
-```bash
-npm run discover -- --dry-run   # plan only — prints what would be added, writes nothing
-npm run discover                # live run (requires GEMINI_API_KEY)
-npm run discover -- --limit 5   # cap new candidates
-npm run discover -- --seeds ./my-seeds.json
-```
+- Unique titles/descriptions/canonicals per page; OG/Twitter tags; JSON-LD
+  (WebSite, Organization, CollectionPage, ItemList, BreadcrumbList).
+- Indexation thresholds (centralized in `src/config/discovery.ts`):
+  exam pages index at ≥5 real listings, categories at ≥3, tags at ≥5.
+  Below that: `noindex,follow` + sitemap exclusion.
+- Sitemap only contains indexable production URLs — no thin pages, no
+  form/utility pages, no old-niche pages.
 
-The pipeline: query generation → Google-search-grounded Gemini → candidate
-URLs → normalization → deduplication → validation → Gemini classification →
-confidence checks → **pending-groups.json** (default) or groups.json (only
-with `AUTO_PUBLISH_DISCOVERED=true`, which you should keep off until the
-pipeline proves reliable).
+## Removing/changing content
 
-Only real URLs from search grounding count as evidence — Gemini's prose is
-never treated as a source.
-
-## Reviewing pending discoveries
-
-The daily pipeline (`discover-groups.yml`) now **auto-approves** candidates that
-pass every quality gate — see `scripts/data/autoApprove.ts`:
-
-1. production guard (no demo/sample markers)
-2. link status is exactly `active` (verified against official platform APIs
-   within the run — `unknown`/`dead` are held)
-3. checked recently: `lastCheckedAt` within 48h, or at/after the workflow's
-   run start (`AUTO_APPROVE_SINCE`)
-4. independent source: at least one `sourceUrl` from a different host than the
-   invite URL (the community itself can't be its own proof)
-5. no safety flags (risk-language candidates are held)
-6. Gemini actually classified it (≥1 tag)
-7. no scam indicators in title/description
-8. capped at `AUTO_APPROVE_MAX` (default 30) per run
-
-Anything held stays in `pending-groups.json` for you. To publish a held
-candidate manually:
-
-```bash
-npm run data:stats              # see pending count
-npm run approve -- <candidate-id>   # publish one pending record
-```
-
-A candidate that fails a gate never becomes public — auto-approval never
-sets a verification status beyond `unverified`.
-
-or edit `src/data/pending-groups.json` manually (set `published: true` and
-move the record into `groups.json`). Every write path validates the schema
-first and writes atomically.
-
-## Validating links
-
-```bash
-npm run validate-links
-```
-
-Checks stored invite URLs via per-platform adapters (public signals only —
-never joining groups). Transitions are cautious: a single failure → `unknown`,
-repeated strong 404s → `dead`, bot-blocking is never treated as death. Every
-check stamps `lastCheckedAt`.
-
-## GitHub Actions
-
-| Workflow | Schedule | What it does |
-|---|---|---|
-| `discover-groups.yml` | daily 04:17 UTC + manual | discovery → validate → commit real changes |
-| `validate-groups.yml` | Mon/Thu 06:23 UTC + manual | link health → validate → commit status changes |
-| `quality-check.yml` | push/PR to main | typecheck, lint, test, validate-data, build |
-
-Workflows tolerate quota exhaustion, Gemini errors, transient network errors,
-empty discoveries and duplicates — one bad candidate never breaks a run. Only
-actual data changes are committed, by a bot identity, and secrets are never
-committed.
-
-## Netlify deployment
-
-1. Push this repository to GitHub.
-2. In Netlify: **Add new site → Import an existing project → pick the repo**.
-3. Netlify reads `netlify.toml`: build command `npm run build`, publish
-   directory `dist` — no manual config needed.
-4. In **Site settings → Environment variables**, set:
-   - `PUBLIC_SITE_URL` = your production domain (e.g. `https://example.com`)
-   - (optional) `SHOW_AD_PLACEHOLDERS` if you want placeholder ad boxes
-5. Deploy. The first build is deterministic and needs no secrets.
-
-## Netlify Forms
-
-- `/submit/` (community submissions), `/report/` (listing reports) and
-  `/contact/` use Netlify static forms with honeypot spam protection.
-- Submissions land in **Netlify → Forms** for manual review. They are **not**
-  automatically written to the JSON dataset.
-- Review flow: read the submission → verify the invite URL → add the approved
-  record to `src/data/groups.json` (or `npm run approve -- <id>` for
-  discoveries) → commit → Netlify rebuilds.
-
-### Free search API — recommended for free-tier operation
-
-Gemini's Google Search grounding is quota-blocked on most free-tier keys, so
-for $0 web discovery use a free search provider (set **either** key):
-
-- **Tavily** — https://tavily.com/ — free plan historically 1,000 searches/month,
-  email signup, no credit card. Key → `TAVILY_API_KEY`.
-- **Brave Search API** — https://brave.com/search/api/ — free tier 2,000
-  queries/month. Key → `BRAVE_API_KEY`. (Check current pricing — the free tier
-  has sometimes required a card or paid starter plan.)
-
-Then:
-
-1. Copy the key into `.env` (`TAVILY_API_KEY=...` or `BRAVE_API_KEY=...`).
-2. Add the same key as a GitHub secret with the matching name so the daily
-   scheduled discovery uses it too.
-3. Run `npm run discover -- --dry-run` to preview, then `npm run discover`.
-
-Both free tiers (1,000–2,000 queries/month) comfortably cover the pipeline's
-default budget of 30 queries/day. Only results whose URL is a real
-t.me / chat.whatsapp.com / discord.gg link are kept as candidates; Gemini
-(free tier) classifies them into `pending-groups.json`.
-
-### Gemini configuration
-
-1. Create a key at https://aistudio.google.com/apikey.
-2. Local: put it in `.env` (`GEMINI_API_KEY=...`).
-3. GitHub Actions: add it as a **repository secret** named `GEMINI_API_KEY`
-   (Settings → Secrets and variables → Actions). Never put secrets in YAML.
-4. Netlify: only needed if you run discovery there; the scheduled discovery
-   runs in GitHub Actions instead.
-
-### Free-tier notes (important)
-
-- **Search grounding** (Google Search via `googleSearch` tool) is typically
-  **quota-blocked on free-tier keys** (429 RESOURCE_EXHAUSTED). The pipeline
-  handles this gracefully: grounding queries fail individually, the run
-  continues, and nothing crashes.
-- **Classification works on the free tier.** Seeds + classification is the
-  full free-tier discovery path: `npm run discover` reads `src/data/seeds.json`
-  (real public URLs you add yourself), Gemini classifies each one, and results
-  land in `pending-groups.json` for review — no grounding required.
-- The default model `gemini-3.5-flash-lite` is the most reliable free-tier
-  choice for structured output. Some flash models produce truncated or
-  repetitive JSON when given a `responseSchema`; this project intentionally
-  uses a strict JSON prompt + bounded output tokens + retry + Zod validation
-  instead, which tests showed to be dependable.
-
-## Removing sample data
-
-`src/data/groups.json` contains **demo fixtures** (every record has
-`"isSample": true` and uses `example.com` invite URLs). Before production:
-
-1. Run `npm run data:stats` to see the dataset.
-2. Remove every record with `"isSample": true` from `groups.json` and
-   `pending-groups.json` (the only pending record is a sample).
-3. Run `npm run validate-data` and `npm run build`.
-4. Consider replacing `seeds.json` with your real seed URLs (or `[]`).
-
-Never ship the demo fixtures as real listings — they are clearly fictional.
-
-## Production checklist
-
-- [ ] Remove all `isSample` records
-- [ ] Set `PUBLIC_SITE_URL` in Netlify
-- [ ] Add `GEMINI_API_KEY` to GitHub secrets
-- [ ] Add your real seed URLs to `seeds.json`
-- [ ] Review `/privacy`, `/terms`, `/disclaimer` copy with a lawyer
-- [ ] Replace `public/favicon.svg` + `public/images/og-default.svg` with your brand
-- [ ] Edit `src/config/site.ts` for your site name
-- [ ] Test Netlify Forms (submit + report) on the live site
-- [ ] Confirm `npm run validate-data` and `npm run build` pass in CI
-
-## GitHub setup
-
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-gh repo create community-directory --private --source=. --push
-```
-
-Then add the repository secret:
-
-```
-Name:  GEMINI_API_KEY
-Value: <your Gemini API key>
-```
-
-## Future database migration
-
-```
-JSON (V1)
-  ↓
-repository layer (src/lib/communities.ts — already centralized)
-  ↓
-Supabase/PostgreSQL
-```
-
-The UI never reads data files directly; a future migration re-implements
-`src/lib/communities.ts` against a database and nothing else changes.
-
-## Known V1 limitations
-
-- **WhatsApp:** discovery is limited to publicly indexed `chat.whatsapp.com`
-  URLs; not every public group is globally discoverable.
-- **Discord:** only publicly discoverable invite links from permitted sources;
-  we never enumerate servers.
-- **Telegram:** public URLs found via public search; we never join groups.
-- **Member counts:** only shown when a real source provides them.
-- **Ratings:** not implemented (no review system exists — by design).
-- **Verification:** directory discovery is not verification. See
-  `/how-we-verify/`.
-
-## Commands summary
-
-```bash
-npm run dev              # dev server
-npm run build            # production build
-npm run preview          # serve the built site
-npm run typecheck        # astro check + tsc --noEmit
-npm run lint             # eslint
-npm run test             # vitest
-npm run validate-data    # schema + duplicate validation
-npm run discover         # Gemini discovery → pending queue
-npm run validate-links   # link health checks
-npm run data:stats       # dataset summary
-npm run approve -- <id>  # publish a pending record
-```
+- Manage listings in `src/data/groups.json` (published) and
+  `src/data/pending-groups.json` (review queue).
+- Old pre-conversion data is archived under `archive/pre-study-conversion/`.
+- Run `npm run validate-data` after any manual edit — it fails the build on
+  schema violations, demo markers, or non-study-prep published records.

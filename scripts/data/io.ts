@@ -46,3 +46,54 @@ export function loadPending(): { id: string }[] {
 export function loadSeeds(): unknown[] {
   return loadJson('seeds.json');
 }
+
+// ---------------------------------------------------------------------------
+// Rejected-candidates log (operational record — NOT site data, never rendered).
+// ---------------------------------------------------------------------------
+
+export type RejectedReason =
+  | 'wrong-niche'
+  | 'exam-risk'
+  | 'low-confidence'
+  | 'hard-reject-content';
+
+export interface RejectedCandidateEntry {
+  rejectedAt: string;
+  reason: RejectedReason;
+  candidateUrl: string;
+  sourceUrl: string;
+  platform: string;
+  title?: string;
+}
+
+const REJECTED_FILE = 'rejected-candidates.json';
+
+export function rejectedPath(): string {
+  return dataFilePath(REJECTED_FILE);
+}
+
+/** Load the log; a missing or empty file is a valid empty log. */
+export function loadRejectedCandidates(): RejectedCandidateEntry[] {
+  try {
+    return loadJson<RejectedCandidateEntry[]>(REJECTED_FILE);
+  } catch {
+    return [];
+  }
+}
+
+/** Write the full log atomically (temp file + rename, stable formatting). */
+export function writeRejectedCandidates(entries: RejectedCandidateEntry[]): void {
+  const target = dataFilePath(REJECTED_FILE);
+  const tmp = `${target}.tmp-${process.pid}`;
+  writeFileSync(tmp, `${JSON.stringify(entries, null, 2)}\n`, 'utf-8');
+  renameSync(tmp, target);
+}
+
+/** Bounded append — keeps the last MAX_REJECTED_LOG_ENTRIES entries. */
+export function appendRejectedCandidates(entries: RejectedCandidateEntry[]): void {
+  if (entries.length === 0) return;
+  const existing = loadRejectedCandidates();
+  const MAX_REJECTED_LOG_ENTRIES = 5000;
+  const combined = [...existing, ...entries];
+  writeRejectedCandidates(combined.slice(-MAX_REJECTED_LOG_ENTRIES));
+}

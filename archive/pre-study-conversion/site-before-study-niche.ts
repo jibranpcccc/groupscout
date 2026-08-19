@@ -12,11 +12,11 @@ function getPublicSiteUrl(): string {
 }
 
 export const siteConfig = {
-  /** Display name — change here to rebrand (routes don't depend on it). */
-  name: 'StudyScout',
-  shortName: 'StudyScout',
+  /** Display name. */
+  name: 'GroupScout',
+  shortName: 'GroupScout',
   description:
-    'StudyScout is a directory of active public exam-prep and professional-certification study communities across Discord, Telegram and WhatsApp.',
+    'GroupScout is a searchable directory of public online communities across Telegram, WhatsApp and Discord — categorized, checked, and ready to explore.',
   /** Production URL, no trailing slash. Set PUBLIC_SITE_URL in Netlify/GitHub. */
   url: getPublicSiteUrl(),
   defaultLocale: 'en',

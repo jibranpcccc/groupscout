@@ -6,67 +6,162 @@ import { pageTitle, breadcrumbJsonLd } from '../lib/seo';
 
 <BaseLayout
   title={pageTitle('Safety')}
-  description="Practical safety rules for using community directory listings."
+  description="Practical safety guidance for students exploring exam-prep and certification study communities."
   canonicalPath="/safety/"
   jsonLd={breadcrumbJsonLd([{ name: 'Safety', path: '/safety/' }])}
 >
   <div class="mx-auto w-full max-w-3xl px-4 py-10 sm:px-6">
     <h1 class="text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">Safety</h1>
-    <p class="mt-2 text-stone-600">A short, practical guide to staying safe when exploring community listings.</p>
+    <p class="mt-2 text-stone-600">
+      A short, practical guide to staying safe while exploring study communities. Study-prep
+      groups are overwhelmingly helpful — but they also attract scams aimed at stressed
+      students. Here is what to watch for.
+    </p>
 
     <SafetyNotice class="mt-6" />
 
     <div class="prose-static mt-8">
-      <h2>The basics</h2>
+      <h2>Exam leaks and fake exam dumps</h2>
       <ul>
         <li>
-          <strong>Directory listings are external.</strong> Every listing points to
-          a community hosted by someone else. Inclusion is not an endorsement.
+          <strong>Real exam content is protected.</strong> Anyone offering “today's real
+          questions”, “verified leaks” or “braindumps with guaranteed questions” is almost
+          certainly selling stolen content, invented content, or both.
         </li>
         <li>
-          <strong>Evaluate before you join.</strong> Look at the community's pinned
-          messages, admin behavior and public history before sharing anything.
+          <strong>Using leaks or dumps can get your scores cancelled.</strong> Exam bodies
+          (College Board, ETS, Pearson VUE, CFA Institute, and others) investigate leaked
+          material and routinely void scores, ban candidates, and pursue legal action.
         </li>
         <li>
-          <strong>Never share passwords, recovery phrases or private keys</strong> —
-          in any group, for any reason, regardless of who asks.
-        </li>
-        <li>
-          <strong>Be skeptical of guaranteed profits.</strong> “100% win rate”,
-          “risk-free returns”, “double your money” — these are not real. Treat them
-          as red flags, not opportunities.
-        </li>
-        <li>
-          <strong>Verify administrators independently.</strong> Anyone can copy a
-          username or avatar. Confirm identities through the platform's official
-          channels before trusting instructions.
-        </li>
-        <li>
-          <strong>Don't send money based on a listing.</strong> If a community asks
-          for payment to join or “unlock” access, treat that with extreme caution.
+          <strong>“Free dumps” are often bait.</strong> They are used to collect your email,
+          install malware, or lure you into a paid scam. If a file is that good, it is not
+          free.
         </li>
       </ul>
 
-      <h2>Financial communities</h2>
-      <p>
-        Communities that discuss crypto, forex, stocks or earning money vary wildly
-        in quality and intent. Our listings distinguish education, discussion, news
-        and signals — but even an “education” label is not a guarantee. Verify any
-        claim independently, and never trade with money you cannot afford to lose.
-      </p>
+      <h2>Credential scams</h2>
+      <ul>
+        <li>
+          <strong>Nobody can pass for you.</strong> Offers to take your exam remotely, sit
+          it for you, or “fix” your score are fraud. Exam centers verify identity, and
+          impersonation can result in cancelled results and permanent bans.
+        </li>
+        <li>
+          <strong>Guaranteed pass guarantees are lies.</strong> No legitimate prep service
+          can promise a specific score. “Pay after you pass” schemes still take your money
+          and your personal data.
+        </li>
+        <li>
+          <strong>Fake certificates are worthless and risky.</strong> Only the issuing body
+          can award a credential. Buying a “certificate” without the exam is fraud — it
+          will not survive an employer's verification check and can have legal
+          consequences.
+        </li>
+      </ul>
+
+      <h2>Fake tutors and impersonation</h2>
+      <ul>
+        <li>
+          <strong>Verify tutors independently.</strong> Anyone can copy a username, avatar
+          or profile. Confirm a tutor's identity through the platform's official channels
+          before paying or sharing anything.
+        </li>
+        <li>
+          <strong>Official-sounding names are not official.</strong> Accounts named after
+          exam boards, universities or certification bodies are often impersonators.
+          Exam boards never message students privately to demand payment or “re-register”
+          you.
+        </li>
+        <li>
+          <strong>Admins are not referees.</strong> A group admin or moderator is just
+          another user with extra buttons. Treat private offers from admins the same way
+          you would treat offers from strangers.
+        </li>
+      </ul>
+
+      <h2>Payment scams</h2>
+      <ul>
+        <li>
+          <strong>Never pay to join or “unlock”.</strong> Legitimate study communities are
+          free to join. Fees for invites, “vip access”, “verified materials” or “priority
+          exam slots” are almost always scams.
+        </li>
+        <li>
+          <strong>Only pay exam bodies and known prep providers directly.</strong> Exam
+          registration is never handled through a chat group. If someone in a group offers
+          to “register” you, they are taking your money and your personal details.
+        </li>
+        <li>
+          <strong>No gift cards, no crypto, no “processing fees”.</strong> Requests for
+          gift-card codes, cryptocurrency, or payments to random accounts are a
+          near-certain scam, regardless of the story attached.
+        </li>
+      </ul>
+
+      <h2>Phishing and malware in study files</h2>
+      <ul>
+        <li>
+          <strong>Check the URL before you click.</strong> Lookalike domains (e.g.
+          <code>collegeboard-login.xyz</code>) are used to steal credentials. Log in to
+          exam portals only by typing the official address yourself.
+        </li>
+        <li>
+          <strong>Be careful with shared study files.</strong> PDFs and images are usually
+          fine; executables, scripts, password-protected archives and “cracked” software
+          are how malware spreads. Scan anything you download.
+        </li>
+        <li>
+          <strong>Never share codes or OTPs.</strong> One-time passwords, 2FA codes and
+          verification codes are for you alone — no tutor, admin or “support agent” ever
+          legitimately needs them.
+        </li>
+      </ul>
+
+      <h2>Stolen course materials</h2>
+      <ul>
+        <li>
+          <strong>Pirated courses are both illegal and dangerous.</strong> Sharing or
+          buying cracked prep courses violates copyright, and the files are frequently
+          bundled with malware.
+        </li>
+        <li>
+          <strong>Recommend, don't redistribute.</strong> Pointing someone to an official
+          course or free resource helps them. Sending them a stolen copy puts both of you
+          at risk.
+        </li>
+      </ul>
+
+      <h2>General internet safety</h2>
+      <ul>
+        <li>
+          <strong>Keep personal details out of public groups.</strong> No full names,
+          addresses, passport/ID numbers, or financial information in chats.
+        </li>
+        <li>
+          <strong>Turn on two-factor authentication</strong> on your email and messaging
+          accounts — they are the keys to everything else.
+        </li>
+        <li>
+          <strong>Trust the official channel.</strong> For anything exam-related —
+          registration, scores, results, certification status — use the exam body's
+          official website, never a chat link someone sent you.
+        </li>
+      </ul>
 
       <h2>What we check — and what we don't</h2>
       <p>
-        We check whether invite links appear to work, and we record honest
-        verification states (<a href="/how-we-verify/">see How We Verify</a>).
-        We do <strong>not</strong> audit community content, members, admins or
-        financial claims. A checked link is a working link — nothing more.
+        We check whether invite links appear to work and record honest verification states
+        (<a href="/how-we-verify/">see How We Verify</a>). We do <strong>not</strong> audit
+        community content, members, admins, tutors or files shared inside a community.
+        A checked link is a working link — nothing more.
       </p>
 
       <h2>Report problems</h2>
       <p>
-        See a dead invite, scam behavior, or misleading information? Use the{' '}
-        <a href="/report/">report form</a> — every report is reviewed by a human.
+        See a dead invite, suspected exam-dump trading, credential fraud, or malware being
+        shared? Use the <a href="/report/">report form</a> — every report is reviewed by
+        a human.
       </p>
     </div>
   </div>

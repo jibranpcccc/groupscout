@@ -7,7 +7,7 @@ import { pageTitle, breadcrumbJsonLd } from '../lib/seo';
 
 <BaseLayout
   title={pageTitle('How We Verify')}
-  description="What verification states mean, what link checks cover, and what they don't."
+  description="What verification states mean for exam-prep communities, what link checks cover, and what they don't."
   canonicalPath="/how-we-verify/"
   jsonLd={breadcrumbJsonLd([{ name: 'How We Verify', path: '/how-we-verify/' }])}
 >
@@ -19,32 +19,69 @@ import { pageTitle, breadcrumbJsonLd } from '../lib/seo';
     </p>
 
     <div class="prose-static mt-8">
+      <h2>The limits of a directory listing</h2>
+      <p>
+        <strong>
+          A working or source-confirmed community link does not mean every study resource,
+          tutor, exam claim or file shared inside that community has been independently
+          verified.
+        </strong>
+      </p>
+      <p>
+        We verify <em>that a community exists and its invite link appears to work</em>.
+        We do not verify everything that happens inside it — we can't, and you should not
+        assume we have. Treat every community as a place to evaluate for yourself.
+      </p>
+
       <h2>Verification states</h2>
       <p>Every listing carries exactly one verification state:</p>
 
       <h3><VerificationBadge status="unverified" size="md" /> — Unverified</h3>
       <p>
-        A public URL was found, but no additional verification was performed.
+        A public invite URL was found, but no additional verification was performed.
         This is the default state for most discovered listings.
       </p>
 
       <h3><VerificationBadge status="source-confirmed" size="md" /> — Source confirmed</h3>
       <p>
-        The source page clearly identifies the community and its invite URL — for
-        example, a blog post that names the community and links its public invite.
+        A public source clearly identifies the community and its invite URL — for example,
+        an exam study blog, a prep-course page, or a public community directory that names
+        the group and links its invite. The source's claims about the community are not
+        independently re-checked.
       </p>
 
       <h3><VerificationBadge status="owner-confirmed" size="md" /> — Owner confirmed</h3>
       <p>
-        The community's owner or admin completed an ownership verification method.
-        This process may be offered later; currently no listings use this state.
+        The community's owner or admin completed an ownership verification method (for
+        example, confirming the listing from the community's own official channel). This
+        confirms the listing belongs to that community's operators — it is not a review of
+        the community's content.
       </p>
 
       <h3><VerificationBadge status="manually-reviewed" size="md" /> — Manually reviewed</h3>
       <p>
-        An administrator manually reviewed the listing. This means a human looked at
-        it — it is not a safety certification.
+        An administrator manually reviewed the listing against its public sources: the
+        invite link, the exam claims, the platform and the description. This means a human
+        looked at it — it is not a safety certification and not a guarantee that study
+        materials shared in the group are legitimate.
       </p>
+
+      <h2>What we verify about exam claims</h2>
+      <ul>
+        <li>
+          <strong>Exam / certification focus.</strong> A listing is tagged for an exam
+          (e.g. USMLE, CFA, AWS) only when the community's public materials support that
+          claim. We never guess a community's exam focus from its name alone.
+        </li>
+        <li>
+          <strong>Platform and invite.</strong> The listed platform (Discord, Telegram,
+          WhatsApp) and invite URL must match what the public source actually shows.
+        </li>
+        <li>
+          <strong>Link status.</strong> Whether the invite URL appears reachable — see
+          below.
+        </li>
+      </ul>
 
       <h2>Link status</h2>
       <p>Link checks answer one question: does the invite URL appear reachable?</p>
@@ -62,8 +99,9 @@ import { pageTitle, breadcrumbJsonLd } from '../lib/seo';
 
       <h2>What we never claim</h2>
       <ul>
-        <li>We never mark a community “safe” or “trusted”.</li>
-        <li>We never generate ratings, reviews or growth metrics.</li>
+        <li>We never mark a community “safe”, “trusted” or “exam-verified”.</li>
+        <li>We never certify that study materials, dumps or tutors inside a group are legitimate.</li>
+        <li>We never generate ratings, reviews or pass-rate statistics.</li>
         <li>Member counts appear only when a real source provides them.</li>
         <li>Directory discovery is not verification — finding a public URL is just finding a URL.</li>
       </ul>

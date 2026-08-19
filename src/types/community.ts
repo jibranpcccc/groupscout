@@ -1,19 +1,50 @@
 /**
- * Core domain types for the Community Directory.
+ * Core domain types for the StudyScout directory.
  *
  * Rule: every field that cannot be confirmed with real evidence must be
- * `null` / `"unknown"`. The UI hides unavailable fields — it never invents
- * values. See AGENTS.md §4 for the data integrity rules.
+ * `null` / `"unknown"` / `[]`. The UI hides unavailable fields — it never
+ * invents values. See AGENTS.md §4 for the data integrity rules.
  */
 
 export type Platform = 'telegram' | 'whatsapp' | 'discord';
 
+/**
+ * Category slugs = exam-family slugs (src/config/examFamilies.ts).
+ * A community's `category` is its primary exam family.
+ */
 export type CategorySlug =
-  | 'crypto-web3'
-  | 'forex-stocks'
-  | 'ai-tech'
-  | 'online-earning'
-  | 'deals-coupons';
+  | 'college-admissions'
+  | 'graduate-admissions'
+  | 'english-proficiency'
+  | 'medical-healthcare'
+  | 'law'
+  | 'finance-accounting'
+  | 'technology-certifications'
+  | 'cybersecurity-certifications'
+  | 'cloud-certifications'
+  | 'networking-certifications'
+  | 'project-management'
+  | 'professional-licensing'
+  | 'general-study';
+
+/** Exam slug (src/config/exams.ts). Validated against config at dataset level. */
+export type ExamSlug = string;
+
+/** Target markets — never guessed; only with evidence or config-justified defaults. */
+export type TargetMarket = 'US' | 'UK' | 'CA' | 'AU' | 'NZ' | 'IE' | 'global-english';
+
+/** Study types describe how a community supports exam preparation. */
+export type StudyType =
+  | 'discussion'
+  | 'study-group'
+  | 'practice-questions'
+  | 'accountability'
+  | 'resources'
+  | 'exam-strategy'
+  | 'peer-support';
+
+/** The single supported vertical. Production guard rejects anything else. */
+export type Vertical = 'study-prep';
 
 export type VerificationStatus =
   | 'unverified'
@@ -52,10 +83,26 @@ export interface Community {
 
   platform: Platform;
 
-  /** Must reference a configured category slug (src/config/categories.ts). */
+  /** The directory's single vertical — every published record must be study-prep. */
+  vertical: Vertical;
+
+  /** Must reference a configured category (exam family) slug. */
   category: CategorySlug;
   subcategory?: string | null;
   tags: string[];
+
+  /** Exam-family slugs this community covers (src/config/examFamilies.ts). */
+  examFamilies: string[];
+  /** Exam slugs this community covers (src/config/exams.ts). Never guessed. */
+  exams: string[];
+  /** Target markets — only with evidence or config-justified defaults. */
+  targetMarkets: TargetMarket[];
+  /** Certification body when known (e.g. "CompTIA") — never assumed from a name. */
+  certificationProvider?: string | null;
+  /** Study types observed (discussion, study-group, practice-questions, ...). */
+  studyTypes: StudyType[];
+  /** Exam level when known (e.g. "Level 1", "Step 2", "SY0-701") — else null. */
+  examLevel?: string | null;
 
   /** Normalized destination URL. Must be a real, public invite URL. */
   inviteUrl: string;

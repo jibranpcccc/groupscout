@@ -1,9 +1,17 @@
 /**
- * `npm run discover` — discovery pipeline entry point.
+ * `npm run discover` — discovery pipeline entry point (study-prep niche).
  *
- * Pipeline: query generation → public search sources → candidate URLs →
- * normalization → deduplication → validation → classification → confidence
- * checks → pending (or published when AUTO_PUBLISH_DISCOVERED=true).
+ * Pipeline: query generation (exam × platform × modifier, tiered 70/20/10
+ * budget) → public search sources → candidate URLs → normalization →
+ * deduplication → classification → exam-risk screening → relevance filter →
+ * confidence checks → pending (or published when AUTO_PUBLISH_DISCOVERED=true).
+ *
+ * Candidates that fail screening are logged to src/data/rejected-candidates.json
+ * (operational record) with a reason: wrong-niche, exam-risk, low-confidence
+ * or hard-reject-content. High-risk exam-fraud language (leaked questions,
+ * dumps, proxy test takers, bought certificates) is REJECTED — never pending.
+ * Risk-flagged language (answer keys, "exam leak", ...) lands in pending with
+ * safetyFlags: ["exam-risk-language"] for human review.
  *
  * Discovery is NOT publication: new candidates land in pending-groups.json
  * by default and require human review (`npm run approve -- <id>`).
@@ -14,21 +22,31 @@
  *   --seeds <path>      extra seed file (JSON array, same shape as seeds.json)
  */
 import 'dotenv/config';
-import { generateQueries } from './generateQueries';
+import { generateQueries, type DiscoveryQuery } from './generateQueries';
 import { GeminiGoogleSearchProvider, isGeminiConfigured } from './geminiSearch';
 import { BraveSearchProvider, isBraveConfigured } from './braveSearch';
 import { TavilySearchProvider, isTavilyConfigured } from './tavilySearch';
 import { ManualSeedProvider, type DiscoveryProvider, type DiscoveryResult } from './discoverySources';
 import { parseCandidates, type ParsedCandidate } from './parseCandidates';
+import { normalizeInviteUrl } from '../data/normalizeUrl';
+import { detectPlatform } from '../../src/lib/urls';
 import { dedupeCandidates } from '../data/deduplicate';
-import { loadPublished, loadPending, writeJsonAtomic } from '../data/io';
+import {
+  loadPublished,
+  loadPending,
+  writeJsonAtomic,
+  appendRejectedCandidates,
+  type RejectedCandidateEntry,
+} from '../data/io';
 import { classifyCandidate } from '../classify/classifyCommunity';
 import { buildCommunityDraft } from '../classify/normalizeMetadata';
-import { log, sleep, hasHardRejectContent, findRiskLanguage } from '../utilities';
+import { log, sleep, hasHardRejectContent } from '../utilities';
+import { classifyExamRisk } from '../safety/examRiskClassifier';
 import { discoveryConfig } from '../../src/config/discovery';
 import { validateDataset } from '../../src/lib/schema';
 import { mergeCandidateIntoDataset } from '../data/mergeListings';
-import type { Community } from '../../src/types/community';
+import { getExamName } from '../../src/config/exams';
+import type { Community, Platform } from '../../src/types/community';
 
 interface CliArgs {
   dryRun: boolean;
@@ -60,6 +78,62 @@ function uniqueSlug(base: string, taken: Set<string>): string {
   return `${base}-${i}`;
 }
 
+/** Run-level discovery analytics (query topics + funnel + gate outcomes). */
+interface RunAnalytics {
+  queriesGenerated: number;
+  queryTopics: Map<string, number>;
+  providerRequests: number;
+  rawCandidates: number;
+  invalidUrlCandidates: number;
+  unknownPlatformCandidates: number;
+  usableCandidates: number;
+  duplicates: number;
+  ambiguous: number;
+  wrongNiche: number;
+  lowConfidence: number;
+  hardReject: number;
+  riskRejected: number;
+  riskFlagged: number;
+  draftsAccepted: number;
+  pendingByExam: Map<string, number>;
+  pendingByPlatform: Map<Platform, number>;
+}
+
+function newAnalytics(): RunAnalytics {
+  return {
+    queriesGenerated: 0,
+    queryTopics: new Map(),
+    providerRequests: 0,
+    rawCandidates: 0,
+    invalidUrlCandidates: 0,
+    unknownPlatformCandidates: 0,
+    usableCandidates: 0,
+    duplicates: 0,
+    ambiguous: 0,
+    wrongNiche: 0,
+    lowConfidence: 0,
+    hardReject: 0,
+    riskRejected: 0,
+    riskFlagged: 0,
+    draftsAccepted: 0,
+    pendingByExam: new Map(),
+    pendingByPlatform: new Map(),
+  };
+}
+
+function bump(map: Map<string, number>, key: string, by = 1): void {
+  map.set(key, (map.get(key) ?? 0) + by);
+}
+
+/** Compact `topic:count` list for the analytics log line. */
+function topicSummary<T extends string>(map: Map<T, number>): string {
+  if (map.size === 0) return 'none';
+  return [...map.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .map(([k, v]) => `${k}:${v}`)
+    .join(', ');
+}
+
 async function run(): Promise<void> {
   const args = parseArgs(process.argv.slice(2));
   log('discover', `mode: ${args.dryRun ? 'DRY-RUN (no writes)' : 'live'}`);
@@ -72,9 +146,13 @@ async function run(): Promise<void> {
   const pending = loadPending() as Community[];
   log('discover', `existing data: ${published.length} published, ${pending.length} pending`);
 
-  // ---- Query generation ----
+  const analytics = newAnalytics();
+
+  // ---- Query generation (exam × platform × modifier, tiered 70/20/10) ----
   const queries = generateQueries({ maxQueries: discoveryConfig.maxSearchQueries });
-  log('discover', `generated ${queries.length} queries`);
+  analytics.queriesGenerated = queries.length;
+  for (const q of queries) bump(analytics.queryTopics, q.examSlug ?? `general:${q.categorySlug}`);
+  log('discover', `generated ${queries.length} queries (topics: ${topicSummary(analytics.queryTopics)})`);
   if (queries.length === 0) {
     log('discover', 'no queries generated — nothing to do');
     return;
@@ -115,7 +193,6 @@ async function run(): Promise<void> {
   // requests (each query is sent to every configured provider).
   const rawResults: DiscoveryResult[] = [];
   let queriesSearched = 0;
-  let requests = 0;
   const searchedTexts = new Set<string>();
   for (const query of queries) {
     if (queriesSearched >= discoveryConfig.maxSearchQueries) break;
@@ -123,29 +200,47 @@ async function run(): Promise<void> {
     let searched = false;
     for (const provider of providers) {
       if (provider.name === 'manual-seeds') continue; // seeds returned once below
-      if (requests >= discoveryConfig.maxProviderRequests) break;
+      if (analytics.providerRequests >= discoveryConfig.maxProviderRequests) break;
       const results = await provider.search(query.text);
+      analytics.providerRequests++;
       if (results.length > 0) {
         rawResults.push(...results.slice(0, discoveryConfig.maxCandidatesPerQuery));
         log('discover', `query "${query.text.slice(0, 60)}" → ${results.length} candidate URL(s)`);
       }
-      requests++;
       searched = true;
-      if (requests >= discoveryConfig.maxProviderRequests) break;
+      if (analytics.providerRequests >= discoveryConfig.maxProviderRequests) break;
       if (discoveryConfig.requestDelayMs > 0) await sleep(discoveryConfig.requestDelayMs);
     }
     if (searched) {
       searchedTexts.add(query.text);
       queriesSearched++;
     }
-    if (requests >= discoveryConfig.maxProviderRequests) break; // budget exhausted
+    if (analytics.providerRequests >= discoveryConfig.maxProviderRequests) break; // budget exhausted
   }
   rawResults.push(...seedResults);
+  analytics.rawCandidates = rawResults.length;
   log('discover', `found ${rawResults.length} candidate URLs total`);
 
-  // ---- Normalize + parse ----
+  // ---- Normalize + parse (count what parseCandidates has to drop) ----
+  let invalidUrl = 0;
+  let unknownPlatform = 0;
+  for (const raw of rawResults) {
+    const normalized = normalizeInviteUrl(raw.candidateUrl);
+    if (!normalized) {
+      invalidUrl++;
+      continue;
+    }
+    if (!detectPlatform(normalized)) unknownPlatform++;
+  }
+  analytics.invalidUrlCandidates = invalidUrl;
+  analytics.unknownPlatformCandidates = unknownPlatform;
+
   const candidates = parseCandidates(rawResults);
-  log('discover', `normalized ${candidates.length} usable candidates`);
+  analytics.usableCandidates = candidates.length;
+  log(
+    'discover',
+    `normalized ${candidates.length} usable candidates (${invalidUrl} invalid/dead URLs, ${unknownPlatform} unknown platform)`
+  );
 
   if (candidates.length === 0) {
     log('discover', 'no candidates — nothing new to process');
@@ -154,44 +249,67 @@ async function run(): Promise<void> {
 
   // ---- Deduplicate against existing data ----
   const { unique, duplicates, ambiguous } = dedupeCandidates(candidates, [...published, ...pending]);
+  analytics.duplicates = duplicates.length;
+  analytics.ambiguous = ambiguous.length;
   log('dedupe', `removed ${duplicates.length} duplicates, ${ambiguous.length} ambiguous → pending review, ${unique.length} new`);
 
-  // ---- Classify + moderate ----
+  // ---- Classify, screen for exam risk, filter by relevance ----
   const takenSlugs = new Set([...published, ...pending].map((c) => c.slug));
   const drafts: Community[] = [];
-  let rejected = 0;
-  let riskFlagged = 0;
+  const rejectedEntries: RejectedCandidateEntry[] = [];
 
   for (const candidate of unique) {
+    const anchor = queryAnchorFor(candidate, queries);
     const classification = await classifyCandidate({
       candidate,
-      anchorCategory: queryAnchorFor(candidate, queries),
+      anchorCategory: anchor,
     });
+
+    const evidenceText = [candidate.candidateUrl, candidate.evidence ?? '', classification.description ?? ''].join(' ');
+
+    // Relevance filter — keep only explicit exam-prep / study communities.
+    if (classification.relevance === false) {
+      analytics.wrongNiche++;
+      log('discover', `wrong-niche (relevance=false) — rejecting ${candidate.candidateUrl}`);
+      rejectedEntries.push(rejectEntry('wrong-niche', candidate));
+      continue;
+    }
 
     // Internal confidence gate (never shown to users).
     const confidence =
       classification.confidence > 0 ? classification.confidence : candidate.confidence * 0.6;
     if (confidence < 0.4) {
-      log('discover', `low confidence (${confidence.toFixed(2)}) — skipping ${candidate.candidateUrl}`);
-      rejected++;
+      analytics.lowConfidence++;
+      log('discover', `low confidence (${confidence.toFixed(2)}) — rejecting ${candidate.candidateUrl}`);
+      rejectedEntries.push(rejectEntry('low-confidence', candidate));
       continue;
     }
 
-    const evidenceText = [candidate.candidateUrl, candidate.evidence ?? '', classification.description ?? ''].join(' ');
+    // Obvious-harm check (drugs, stolen cards, malware, ...).
     if (hasHardRejectContent(evidenceText)) {
-      log('discover', `hard-reject content — skipping ${candidate.candidateUrl}`);
-      rejected++;
+      analytics.hardReject++;
+      log('discover', `hard-reject content — rejecting ${candidate.candidateUrl}`);
+      rejectedEntries.push(rejectEntry('hard-reject-content', candidate));
       continue;
     }
 
-    const draft = buildCommunityDraft(candidate, classification, 'ai-tech');
+    // Exam-risk screen — high-risk is REJECTED (never pending).
+    const risk = classifyExamRisk(evidenceText);
+    if (risk.level === 'high-risk-reject') {
+      analytics.riskRejected++;
+      log('discover', `exam-risk (${risk.flags.join(', ')}) — rejecting ${candidate.candidateUrl}`);
+      rejectedEntries.push(rejectEntry('exam-risk', candidate));
+      continue;
+    }
+
+    const draft = buildCommunityDraft(candidate, classification, anchor);
     draft.slug = uniqueSlug(draft.slug, takenSlugs);
     takenSlugs.add(draft.slug);
 
-    const riskFlags = findRiskLanguage(evidenceText);
-    if (riskFlags.length > 0) {
-      draft.safetyFlags = riskFlags;
-      riskFlagged++;
+    // Risk-flagged language → pending with an explicit safety flag for review.
+    if (risk.level === 'risk-flagged') {
+      draft.safetyFlags = [...new Set([...(draft.safetyFlags ?? []), 'exam-risk-language'])];
+      analytics.riskFlagged++;
     }
 
     drafts.push(draft);
@@ -203,7 +321,44 @@ async function run(): Promise<void> {
     if (discoveryConfig.requestDelayMs > 0) await sleep(discoveryConfig.requestDelayMs);
   }
 
-  log('discover', `classified ${drafts.length} new candidates (${rejected} rejected, ${riskFlagged} risk-flagged)`);
+  analytics.draftsAccepted = drafts.length;
+  for (const d of drafts) {
+    analytics.pendingByPlatform.set(d.platform, (analytics.pendingByPlatform.get(d.platform) ?? 0) + 1);
+    for (const exam of d.exams.length > 0 ? d.exams : ['general-study']) {
+      bump(analytics.pendingByExam, exam);
+    }
+  }
+
+  // ---- Persist the rejected log (operational record; skipped in dry-run) ----
+  if (!args.dryRun) {
+    appendRejectedCandidates(rejectedEntries);
+    if (rejectedEntries.length > 0) {
+      log('discover', `logged ${rejectedEntries.length} rejected candidate(s) to rejected-candidates.json`);
+    }
+  }
+
+  log(
+    'discover',
+    `classified ${drafts.length} new candidates (${analytics.wrongNiche} wrong-niche, ${analytics.riskRejected} exam-risk rejected, ${analytics.riskFlagged} risk-flagged, ${analytics.lowConfidence} low-confidence, ${analytics.hardReject} hard-reject)`
+  );
+
+  log(
+    'discover',
+    `analytics: queries=${analytics.queriesGenerated} (${topicSummary(analytics.queryTopics)}), ` +
+      `requests=${analytics.providerRequests}, raw=${analytics.rawCandidates}, ` +
+      `invalid=${analytics.invalidUrlCandidates}, unknown-platform=${analytics.unknownPlatformCandidates}, ` +
+      `usable=${analytics.usableCandidates}, duplicates=${analytics.duplicates}, ambiguous=${analytics.ambiguous}, ` +
+      `rejected=${analytics.wrongNiche + analytics.riskRejected + analytics.lowConfidence + analytics.hardReject}, ` +
+      `pending=${analytics.draftsAccepted}`
+  );
+  if (analytics.pendingByPlatform.size > 0) {
+    log('discover', `pending by platform: ${topicSummary(analytics.pendingByPlatform)}`);
+  }
+  if (analytics.pendingByExam.size > 0) {
+    const byExam = new Map<string, number>();
+    for (const [slug, count] of analytics.pendingByExam) byExam.set(getExamName(slug), count);
+    log('discover', `pending by exam: ${topicSummary(byExam)}`);
+  }
 
   // ---- Write (or plan) ----
   if (drafts.length === 0) {
@@ -218,7 +373,7 @@ async function run(): Promise<void> {
     log('dry-run', `would add ${drafts.length} record(s) to ${targetPublish ? 'groups.json' : 'pending-groups.json'}:`);
     for (const d of drafts) {
       console.log(
-        `  - ${d.title} | ${d.platform} | ${d.category} | ${d.inviteUrl}${d.safetyFlags?.length ? ` | flags: ${d.safetyFlags.join(',')}` : ''}`
+        `  - ${d.title} | ${d.platform} | ${d.category}${d.exams.length ? ` | exams: ${d.exams.join(',')}` : ''} | ${d.inviteUrl}${d.safetyFlags?.length ? ` | flags: ${d.safetyFlags.join(',')}` : ''}`
       );
     }
     log('dry-run', 'no files were modified');
@@ -247,12 +402,22 @@ async function run(): Promise<void> {
   log('discover', `commit the data change to trigger a rebuild (or run npm run approve -- <id> after review)`);
 }
 
-/** Best-effort anchor category from the query that surfaced this candidate. */
-function queryAnchorFor(candidate: ParsedCandidate, queries: { text: string; categorySlug: string }[]): string {
+function rejectEntry(reason: RejectedCandidateEntry['reason'], candidate: ParsedCandidate): RejectedCandidateEntry {
+  return {
+    rejectedAt: new Date().toISOString(),
+    reason,
+    candidateUrl: candidate.candidateUrl,
+    sourceUrl: candidate.sourceUrl,
+    platform: candidate.platform,
+  };
+}
+
+/** Best-effort anchor family from the query that surfaced this candidate. */
+function queryAnchorFor(candidate: ParsedCandidate, queries: DiscoveryQuery[]): string {
   for (const q of queries) {
     if (q.text.includes(new URL(candidate.candidateUrl).hostname)) return q.categorySlug;
   }
-  return 'ai-tech';
+  return 'general-study';
 }
 
 run().catch((err) => {

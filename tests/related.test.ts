@@ -15,10 +15,14 @@ import { getRelatedCommunities } from '../src/lib/communities';
 const base = makeCommunity({
   id: 'target',
   slug: 'target',
-  title: 'AI Builders Lounge',
+  title: 'Security+ Study Lounge',
   platform: 'telegram',
-  category: 'ai-tech',
-  tags: ['Artificial Intelligence', 'AI Agents'],
+  category: 'cybersecurity-certifications',
+  tags: ['Security+', 'Study Group'],
+  examFamilies: ['cybersecurity-certifications'],
+  exams: ['security-plus'],
+  targetMarkets: ['US'],
+  studyTypes: ['study-group', 'practice-questions'],
   language: 'en',
 });
 
@@ -34,14 +38,42 @@ describe('getRelatedCommunities', () => {
     // Patched dataset is empty; verify deterministic scoring via direct logic:
     // same category scores 4, platform-only scores 1.
     const dataset = [
-      related('same-cat', { category: 'ai-tech', platform: 'discord', tags: [], language: null }),
-      related('same-platform', { category: 'crypto-web3', platform: 'telegram', tags: [], language: null }),
+      related('same-cat', {
+        category: 'cybersecurity-certifications',
+        platform: 'discord',
+        tags: [],
+        language: null,
+      }),
+      related('same-platform', { category: 'cloud-certifications', platform: 'telegram', tags: [], language: null }),
     ];
     const scored = dataset
       .map((c) => ({ c, s: scoreFor(base, c) }))
       .sort((a, b) => b.s - a.s)
       .map((x) => x.c.id);
     expect(scored[0]).toBe('same-cat');
+  });
+
+  it('ranks same-family study communities above cross-family tag overlap', () => {
+    const dataset = [
+      related('shared-family', {
+        category: 'cybersecurity-certifications',
+        platform: 'discord',
+        tags: ['Security+', 'Exam Strategy'],
+        language: null,
+      }),
+      related('other-family-tag', {
+        category: 'cloud-certifications',
+        platform: 'telegram',
+        tags: ['Security+'],
+        language: null,
+      }),
+    ];
+    const scored = dataset
+      .map((c) => ({ c, s: scoreFor(base, c) }))
+      .sort((a, b) => b.s - a.s)
+      .map((x) => x.c.id);
+    // same category (4) + tag overlap (2) beats cross-family tag overlap (2) + platform (1).
+    expect(scored[0]).toBe('shared-family');
   });
 
   it('excludes the community itself', () => {

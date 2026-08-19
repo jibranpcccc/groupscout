@@ -22,15 +22,37 @@ export const linkStatusSchema = z.enum(['active', 'unknown', 'dead', 'removed', 
 
 export const platformSchema = z.enum(['telegram', 'whatsapp', 'discord']);
 
+export const targetMarketSchema = z.enum(['US', 'UK', 'CA', 'AU', 'NZ', 'IE', 'global-english']);
+
+export const studyTypeSchema = z.enum([
+  'discussion',
+  'study-group',
+  'practice-questions',
+  'accountability',
+  'resources',
+  'exam-strategy',
+  'peer-support',
+]);
+
 export const communitySchema = z
   .object({
     id: z.string().min(3).max(64).regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'id must be a lowercase slug'),
     slug: z.string().min(2).max(96).regex(SLUG_PATTERN, 'invalid slug format'),
     title: z.string().min(2).max(140, 'title too long'),
     platform: platformSchema,
+    // The directory's single vertical. A record without this cannot be
+    // schema-valid, and findProductionViolations rejects non-study-prep
+    // published records at the dataset level.
+    vertical: z.literal('study-prep'),
     category: z.string().min(1).refine(isCategorySlug, { message: 'category not configured' }),
     subcategory: z.string().max(120).nullable().optional(),
     tags: z.array(z.string().min(1).max(40)).max(12).default([]),
+    examFamilies: z.array(z.string().min(1).max(40)).max(8).default([]),
+    exams: z.array(z.string().min(1).max(40)).max(8).default([]),
+    targetMarkets: z.array(targetMarketSchema).max(8).default([]),
+    certificationProvider: z.string().max(80).nullable().optional(),
+    studyTypes: z.array(studyTypeSchema).max(8).default([]),
+    examLevel: z.string().max(40).nullable().optional(),
     inviteUrl: z
       .string()
       .max(500)
@@ -190,6 +212,12 @@ export function findProductionViolations(records: unknown[]): ProductionViolatio
     }
     if (c.published && c.description?.toLowerCase().includes('demo fixture')) {
       violations.push({ id, reason: 'description contains "Demo fixture"' });
+    }
+    // NICHE GUARD: every published record must belong to the study-prep
+    // vertical. Old-niche records (crypto/forex/jobs/deals/gaming) can never
+    // return to production.
+    if (c.published && c.vertical !== 'study-prep') {
+      violations.push({ id, reason: `vertical is "${String(c.vertical ?? 'missing')}" — expected "study-prep"` });
     }
   }
   return violations;

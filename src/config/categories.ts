@@ -1,10 +1,12 @@
-import type { CategorySlug } from '../types/community';
-
 /**
  * Category configuration — the single source for category navigation,
- * category pages and taxonomy. Add/remove entries here without touching
+ * category pages and taxonomy. Derived from the exam-family configuration
+ * (src/config/examFamilies.ts): add/remove families there without touching
  * any template. Category slugs must be unique and stable.
  */
+import type { CategorySlug } from '../types/community';
+import { examFamilies, getExamFamilyName } from './examFamilies';
+
 export interface CategoryConfig {
   slug: CategorySlug;
   name: string;
@@ -12,103 +14,20 @@ export interface CategoryConfig {
   description: string;
   /** Tags (subcategories) under this category. Must be unique across categories. */
   tags: string[];
-  /** Financial categories render an additional neutral disclaimer. */
+  /** Legacy flag kept false — study directories use the study safety notice instead. */
   financialDisclaimerRequired: boolean;
-  /** Optional distinction of the kind of activity (education/discussion/news/signals). */
+  /** Optional distinction of the kind of activity. */
   note?: string;
 }
 
-export const categories: CategoryConfig[] = [
-  {
-    slug: 'crypto-web3',
-    name: 'Crypto & Web3',
-    description:
-      'Communities discussing cryptocurrency, blockchain technology, DeFi and Web3 development.',
-    tags: [
-      'Crypto Discussion',
-      'Blockchain',
-      'DeFi',
-      'Airdrops',
-      'Web3 Development',
-      'Memecoins',
-      'Market Discussion',
-    ],
-    financialDisclaimerRequired: true,
-    note: 'May include discussion, news and education communities. Directory inclusion is not a recommendation to trade.',
-  },
-  {
-    slug: 'forex-stocks',
-    name: 'Forex & Stocks',
-    description:
-      'Communities around forex, stocks, commodities, futures and options — mostly education and market discussion.',
-    tags: [
-      'Forex',
-      'Stocks',
-      'Gold',
-      'XAUUSD',
-      'Futures',
-      'Options',
-      'Indices',
-      'Trading Education',
-      'Market Analysis',
-    ],
-    financialDisclaimerRequired: true,
-    note: 'Education, discussion, news and signals communities are labeled distinctly. No financial recommendations are implied.',
-  },
-  {
-    slug: 'ai-tech',
-    name: 'AI & Tech',
-    description:
-      'Communities about artificial intelligence, LLMs, prompt engineering, AI tools and software development.',
-    tags: [
-      'Artificial Intelligence',
-      'ChatGPT',
-      'AI Video',
-      'AI Images',
-      'AI Agents',
-      'Automation',
-      'Prompt Engineering',
-      'Coding',
-      'Open Source AI',
-      'Machine Learning',
-      'Local LLMs',
-    ],
-    financialDisclaimerRequired: false,
-  },
-  {
-    slug: 'online-earning',
-    name: 'Online Earning & Remote Work',
-    description:
-      'Communities about freelancing, remote jobs, side hustles and building an online business.',
-    tags: [
-      'Freelancing',
-      'Remote Jobs',
-      'Side Hustles',
-      'Entrepreneurship',
-      'Digital Marketing',
-      'E-commerce',
-      'Creator Economy',
-    ],
-    financialDisclaimerRequired: true,
-    note: 'Earning claims vary widely. Verify any income claims independently.',
-  },
-  {
-    slug: 'deals-coupons',
-    name: 'Deals & Coupons',
-    description:
-      'Communities sharing software deals, SaaS discounts, coupons, freebies and digital product offers.',
-    tags: [
-      'Software Deals',
-      'SaaS Deals',
-      'Freebies',
-      'Coupons',
-      'Shopping Deals',
-      'Courses',
-      'Digital Products',
-    ],
-    financialDisclaimerRequired: false,
-  },
-];
+export const categories: CategoryConfig[] = examFamilies.map((family) => ({
+  slug: family.slug,
+  name: family.name,
+  description: family.description,
+  tags: family.tags,
+  financialDisclaimerRequired: false,
+  note: 'Exam-prep and certification study communities. Directory inclusion is not an endorsement of materials or claims inside a community.',
+}));
 
 const categoryBySlug = new Map<string, CategoryConfig>(categories.map((c) => [c.slug, c]));
 
@@ -125,7 +44,7 @@ export function requiresFinancialDisclaimer(categorySlug: string): boolean {
 }
 
 export function getCategoryName(slug: string): string {
-  return getCategoryBySlug(slug)?.name ?? slug;
+  return getCategoryBySlug(slug)?.name ?? getExamFamilyName(slug);
 }
 
 /** All tags across categories — used for tag pages and tag navigation. */

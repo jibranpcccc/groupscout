@@ -20,19 +20,23 @@ const listingKnown = knownSlug || knownId;
 
 const reasons = [
   'Dead invite',
+  'Not actually a study community',
+  'Wrong exam',
+  'Wrong certification',
+  'Exam leak / dump concern',
+  'Credential fraud',
   'Scam concern',
-  'Misleading information',
-  'Wrong category',
+  'Malware / suspicious files',
+  'Misleading description',
+  'Impersonation',
   'Duplicate',
-  'Inappropriate content',
-  'Ownership request',
   'Other',
 ];
 ---
 
 <BaseLayout
   title={pageTitle('Report a Listing')}
-  description="Report a dead link, scam concern or misleading listing. Reports are reviewed manually."
+  description="Report a dead invite, wrong exam tag, scam concern or suspected exam-dump trading. Reports are reviewed manually."
   canonicalPath="/report/"
   noindex
 >
@@ -41,8 +45,9 @@ const reasons = [
       Report a Listing
     </h1>
     <p class="mt-2 text-stone-600">
-      Found a dead invite, misleading information, or something that looks like a scam?
-      Tell us about it. Reports are reviewed by a human — they never auto-remove a listing.
+      Found a dead invite, wrong exam or certification tag, suspected exam-dump trading,
+      credential fraud, or something that looks like a scam? Tell us about it. Reports are
+      reviewed by a human — they never auto-remove a listing.
     </p>
 
     {listingKnown && (
@@ -100,7 +105,7 @@ const reasons = [
           rows="5"
           maxlength="2000"
           class="field"
-          placeholder="What did you observe? Please be specific and factual."
+          placeholder="What did you observe? Be specific and factual — e.g. which exam material appears to be leaked, or how the scam works."
         ></textarea>
       </div>
 

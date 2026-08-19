@@ -97,7 +97,9 @@ describe('dedupeCandidates', () => {
   });
 
   it('routes near-identical titles on same platform to ambiguous (never auto-merge)', () => {
-    const existing = [makeCommunity({ title: 'AI Builders Lounge', inviteUrl: 'https://t.me/one' })];
+    const existing = [
+      makeCommunity({ title: 'AI Builders Lounge', inviteUrl: 'https://t.me/one', platform: 'telegram' }),
+    ];
     const candidates = [
       {
         candidateUrl: 'https://t.me/two',

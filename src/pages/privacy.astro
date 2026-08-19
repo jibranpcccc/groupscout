@@ -30,9 +30,9 @@ import { siteConfig } from '../config/site';
 
       <h2>Forms</h2>
       <p>
-        When you submit a community, report a listing, or contact us, the information
-        you enter is transmitted to Netlify Forms (our hosting provider) and stored in
-        its submissions inbox. This may include your name, email address (when
+        When you submit a study community, report a listing, or contact us, the
+        information you enter is transmitted to Netlify Forms (our hosting provider) and
+        stored in its submissions inbox. This may include your email address (when
         provided) and the message content. We use this only to process your request.
       </p>
       <ul>
@@ -48,11 +48,15 @@ import { siteConfig } from '../config/site';
         These logs are governed by Netlify's privacy practices, not ours.
       </p>
 
-      <h2>Automated discovery</h2>
+      <h2>Automated discovery and link checks</h2>
       <p>
-        Our discovery pipeline works only with publicly available information and
-        stores only public URLs and metadata. It does not collect private messages,
-        member profiles or hidden data.
+        Scheduled workflows (running on GitHub Actions) refresh automated link checks and
+        publish dataset updates through the repository. Our discovery pipeline works only
+        with publicly available information and stores only public URLs and metadata. It
+        does not collect private messages, member profiles or hidden data. AI assistance
+        (Gemini) is used to generate search queries and classify candidate pages from
+        public sources; the queries and public page content may be sent to the AI
+        provider for processing, but no personal data about you is involved.
       </p>
 
       <h2>Your choices</h2>

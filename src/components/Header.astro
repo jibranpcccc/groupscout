@@ -1,6 +1,6 @@
 ---
 import { siteConfig } from '../config/site';
-import { categories } from '../config/categories';
+import { examFamilies } from '../config/examFamilies';
 import { platforms } from '../config/platforms';
 
 interface Props {
@@ -11,7 +11,6 @@ const { active } = Astro.props;
 
 const navItems = [
   { href: '/communities/', label: 'Browse' },
-  { href: '/recently-added/', label: 'Recently Added' },
   { href: '/submit/', label: 'Submit Community' },
   { href: '/safety/', label: 'Safety' },
 ];
@@ -29,7 +28,7 @@ function isActive(href: string): boolean {
         aria-hidden="true"
       >
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-4.5">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-5l-5 4v-4z" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.25c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm-3 3.5c0-1.66 1.34-3 3-3s3 1.34 3 3v9.5l-1.5 1.5-1.5-1.5V9.75h-2v9.5L9.75 20l-1.5-1.5V9.75zm-2 1.5v3a3 3 0 0 1-3-3h-1a4 4 0 0 0 4 4v2h2v-6H7zm12 0h-2a3 3 0 0 1-3 3v2a4 4 0 0 0 4-4h1z" />
         </svg>
       </span>
       <span class="text-base font-semibold tracking-tight text-stone-900">{siteConfig.shortName}</span>
@@ -56,19 +55,19 @@ function isActive(href: string): boolean {
           <summary
             class="flex cursor-pointer list-none items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium text-stone-600 hover:bg-stone-100 hover:text-stone-900"
           >
-            Categories
+            Exams
             <svg viewBox="0 0 20 20" fill="currentColor" class="size-4" aria-hidden="true">
               <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.17l3.71-3.94a.75.75 0 1 1 1.08 1.04l-4.25 4.5a.75.75 0 0 1-1.08 0l-4.25-4.5a.75.75 0 0 1 .02-1.06z" clip-rule="evenodd" />
             </svg>
           </summary>
-          <div class="absolute right-0 z-50 mt-2 w-64 rounded-xl border border-stone-200 bg-surface p-2 shadow-lg">
+          <div class="absolute right-0 z-50 mt-2 w-72 rounded-xl border border-stone-200 bg-surface p-2 shadow-lg">
             {
-              categories.map((cat) => (
+              examFamilies.map((fam) => (
                 <a
-                  href={`/category/${cat.slug}/`}
+                  href={`/category/${fam.slug}/`}
                   class="block rounded-lg px-3 py-2 text-sm text-stone-700 hover:bg-stone-100"
                 >
-                  {cat.name}
+                  {fam.name}
                 </a>
               ))
             }
@@ -88,77 +87,5 @@ function isActive(href: string): boolean {
         }
       </div>
     </nav>
-
-    <div class="flex items-center gap-2">
-      <button
-        id="theme-toggle"
-        type="button"
-        class="grid size-9 place-items-center rounded-lg text-stone-500 hover:bg-stone-100 hover:text-stone-900"
-        aria-label="Toggle dark mode"
-      >
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-5 dark:hidden" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2m0 14v2m9-9h-2M5 12H3m14.36-6.36 1.42-1.42M7.22 17.78l-1.42 1.42m0-14.84 1.42 1.42m9.14 9.14 1.42 1.42" />
-          <circle cx="12" cy="12" r="4" />
-        </svg>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="hidden size-5 dark:block" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-        </svg>
-      </button>
-
-      <button
-        id="mobile-menu-toggle"
-        type="button"
-        class="grid size-9 place-items-center rounded-lg text-stone-600 hover:bg-stone-100 md:hidden"
-        aria-label="Open menu"
-        aria-expanded="false"
-        aria-controls="mobile-menu"
-      >
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-5" aria-hidden="true">
-          <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" />
-        </svg>
-      </button>
-    </div>
   </div>
-
-  <nav id="mobile-menu" class="hidden border-t border-stone-200 bg-surface px-4 py-3 md:hidden" aria-label="Mobile">
-    <div class="flex flex-col gap-1">
-      {
-        navItems.map((item) => (
-          <a href={item.href} class="rounded-lg px-3 py-2 text-sm font-medium text-stone-700 hover:bg-stone-100">
-            {item.label}
-          </a>
-        ))
-      }
-      {
-        categories.map((cat) => (
-          <a href={`/category/${cat.slug}/`} class="rounded-lg px-3 py-2 text-sm text-stone-600 hover:bg-stone-100">
-            {cat.name}
-          </a>
-        ))
-      }
-    </div>
-  </nav>
 </header>
-
-<script>
-  // Theme toggle + mobile menu (vanilla, tiny).
-  const themeToggle = document.getElementById('theme-toggle');
-  themeToggle?.addEventListener('click', () => {
-    const root = document.documentElement;
-    const next = root.classList.contains('dark') ? 'light' : 'dark';
-    root.classList.toggle('dark', next === 'dark');
-    try {
-      localStorage.setItem('theme', next);
-    } catch {
-      /* ignore */
-    }
-  });
-
-  const menuToggle = document.getElementById('mobile-menu-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
-  menuToggle?.addEventListener('click', () => {
-    const hidden = mobileMenu?.classList.toggle('hidden') === false;
-    menuToggle.setAttribute('aria-expanded', String(hidden));
-    menuToggle.setAttribute('aria-label', hidden ? 'Close menu' : 'Open menu');
-  });
-</script>

@@ -5,14 +5,17 @@
  * strip control characters, cap lengths, normalize tags, and never let
  * raw HTML/markdown through.
  */
-import type { Community } from '../../src/types/community';
+import type { Community, CategorySlug } from '../../src/types/community';
 import { normalizeInviteUrl } from '../../src/lib/urls';
-import { slugifyTag } from '../../src/config/categories';
+import { slugifyTag, isCategorySlug } from '../../src/config/categories';
+import { getExam } from '../../src/config/exams';
 import type { ClassificationResult } from './classifyCommunity';
 import type { ParsedCandidate } from '../discover/parseCandidates';
 
 const MAX_DESCRIPTION = 400;
 const MAX_TAGS = 8;
+const MAX_EXAMS = 8;
+const MAX_FAMILIES = 8;
 
 /** Remove C0 control characters without a regex (avoids lint no-control-regex). */
 function stripControlChars(input: string): string {
@@ -56,9 +59,33 @@ export function normalizeTags(tags: string[] | undefined): string[] {
   return out;
 }
 
+/** Keep only exams that exist in config (the model never gets to invent slugs). */
+function normalizeExams(exams: string[] | undefined): string[] {
+  if (!exams) return [];
+  const out: string[] = [];
+  for (const slug of exams) {
+    const clean = sanitizeText(slug, 60);
+    if (!clean || !getExam(clean) || out.includes(clean)) continue;
+    out.push(clean);
+    if (out.length >= MAX_EXAMS) break;
+  }
+  return out;
+}
+
+/** Exam-family slugs derived strictly from evidenced exam slugs. */
+function familiesFromExams(exams: string[]): string[] {
+  const out: string[] = [];
+  for (const slug of exams) {
+    const family = getExam(slug)?.family;
+    if (family && !out.includes(family)) out.push(family);
+    if (out.length >= MAX_FAMILIES) break;
+  }
+  return out;
+}
+
 /**
  * Build a draft Community record from a candidate + classification.
- * Never fabricates: every field is either evidence-based or null/unknown.
+ * Never fabricates: every field is either evidence-based or null/[]/unknown.
  */
 export function buildCommunityDraft(
   candidate: ParsedCandidate,
@@ -67,10 +94,21 @@ export function buildCommunityDraft(
 ): Community {
   const now = new Date().toISOString();
 
-  const category =
-    classification.category && ['crypto-web3', 'forex-stocks', 'ai-tech', 'online-earning', 'deals-coupons'].includes(classification.category)
+  // Category: classification when it is a real exam-family slug, otherwise
+  // the query's anchor family (the query was exam-specific by construction).
+  const category: CategorySlug =
+    classification.category && isCategorySlug(classification.category)
       ? classification.category
-      : anchorCategory;
+      : isCategorySlug(anchorCategory)
+        ? anchorCategory
+        : 'general-study';
+
+  // Exams: only evidenced, config-valid exam slugs.
+  const exams = normalizeExams(classification.exams);
+  // Families: from evidenced exams; when none, the (evidence-anchored) category
+  // itself is the honest family claim.
+  const examFamilies = familiesFromExams(exams);
+  if (examFamilies.length === 0) examFamilies.push(category);
 
   // Fallback title from the URL identifier when the model found no title.
   const fallbackTitle = candidate.candidateUrl
@@ -89,13 +127,20 @@ export function buildCommunityDraft(
     slug: candidate.suggestedSlug,
     title,
     platform: candidate.platform,
-    category: category as Community['category'],
-    subcategory: sanitizeText(classification.subcategory, 120),
+    vertical: 'study-prep',
+    category,
+    subcategory: null,
     tags: normalizeTags(classification.tags),
+    examFamilies: examFamilies.slice(0, MAX_FAMILIES),
+    exams,
+    targetMarkets: classification.targetMarkets ?? [],
+    certificationProvider: classification.certificationProvider ?? null,
+    studyTypes: classification.studyTypes ?? [],
+    examLevel: classification.examLevel ?? null,
     inviteUrl: normalizeInviteUrl(candidate.candidateUrl) ?? candidate.candidateUrl,
     description,
     language: sanitizeText(classification.language, 40),
-    country: sanitizeText(classification.country, 40),
+    country: null,
     accessType: classification.accessType,
     communityType: classification.communityType,
     memberCount: null,

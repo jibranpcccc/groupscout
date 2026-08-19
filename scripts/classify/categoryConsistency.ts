@@ -1,16 +1,24 @@
 /**
- * Deterministic category-consistency enforcement for discovery output.
+ * Deterministic category-consistency enforcement for discovery output —
+ * study-prep niche.
  *
  * The LLM classifier occasionally buckets a community under the wrong
- * category (or leaves it null). This module applies fixed, rule-based
- * keyword signals to the classified text (title + description + tags)
- * and overrides the category ONLY on a strong signal: at least
- * STRONG_SIGNAL_THRESHOLD keyword hits from the same category. Weak or
+ * exam-family category (or leaves it null). This module applies fixed,
+ * rule-based keyword signals to the classified text (title + description +
+ * tags) and overrides the category ONLY on a strong signal: at least
+ * STRONG_SIGNAL_THRESHOLD keyword hits from the same exam family. Weak or
  * ambiguous signals leave the original category untouched, and records
  * whose category already matches the detected one are reported unchanged.
  *
+ * Rules are DERIVED from src/config/exams.ts + src/config/examFamilies.ts:
+ * each family's rules = family name + family tags + every keyword of every
+ * exam in that family. Adding an exam or family updates the fixer
+ * automatically — no hand-maintained category lists.
+ *
  * Pure and side-effect free: no I/O, no randomness — fully deterministic.
  */
+import { getExam } from '../../src/config/exams';
+import { examFamilies } from '../../src/config/examFamilies';
 
 export interface CategoryFixInput {
   title?: string | null;
@@ -30,35 +38,38 @@ export interface CategoryKeywordRule {
   keywords: string[];
 }
 
-/** Minimum keyword hits from a single category before an override applies. */
+/** Minimum keyword hits from a single family before an override applies. */
 export const STRONG_SIGNAL_THRESHOLD = 2;
 
+/** Unique, deduped keywords contributing to each family rule. */
+function familyKeywords(familyName: string, familyTags: string[], examSlugs: string[]): string[] {
+  const words: string[] = [];
+  const seen = new Set<string>();
+  const push = (word: string): void => {
+    const key = word.toLowerCase();
+    if (!seen.has(key)) {
+      seen.add(key);
+      words.push(word);
+    }
+  };
+  push(familyName);
+  for (const tag of familyTags) push(tag);
+  for (const slug of examSlugs) {
+    const exam = getExam(slug);
+    if (exam) for (const kw of exam.keywords) push(kw);
+  }
+  return words;
+}
+
 /**
- * Keyword rules, in priority order (on a tie the first rule wins, keeping
- * the fixer deterministic).
+ * Keyword rules, in family order (on a tie the first rule wins, keeping
+ * the fixer deterministic — config order, so English Proficiency's "oet"
+ * stays with english-proficiency unless a more specific medical term hits).
  */
-export const CATEGORY_KEYWORD_RULES: CategoryKeywordRule[] = [
-  {
-    category: 'crypto-web3',
-    keywords: ['crypto', 'blockchain', 'defi', 'web3', 'airdrop', 'memecoin'],
-  },
-  {
-    category: 'forex-stocks',
-    keywords: ['forex', 'stocks', 'xauusd', 'gold', 'futures', 'options', 'indices', 'trading'],
-  },
-  {
-    category: 'online-earning',
-    keywords: ['remote', 'freelance', 'jobs', 'side hustle', 'earn', 'entrepreneur', 'marketing', 'e-commerce', 'creator'],
-  },
-  {
-    category: 'ai-tech',
-    keywords: ['ai', 'chatgpt', 'llm', 'machine learning', 'prompt', 'coding', 'developer', 'opensource'],
-  },
-  {
-    category: 'deals-coupons',
-    keywords: ['deals', 'coupons', 'freebies', 'saas', 'courses'],
-  },
-];
+export const CATEGORY_KEYWORD_RULES: CategoryKeywordRule[] = examFamilies.map((family) => ({
+  category: family.slug,
+  keywords: familyKeywords(family.name, family.tags, family.exams),
+}));
 
 /** Lowercase and collapse every non-alphanumeric run to a single space. */
 function normalize(text: string): string {
@@ -90,9 +101,9 @@ const COMPILED_RULES: CompiledRule[] = CATEGORY_KEYWORD_RULES.map((rule) => ({
 /**
  * Enforce category consistency on a classified record.
  *
- * Counts keyword hits from the same category across title + description +
+ * Counts keyword hits from the same exam family across title + description +
  * tags and, on a strong signal (>= STRONG_SIGNAL_THRESHOLD hits from one
- * category), overrides the category. Otherwise the original category is
+ * family), overrides the category. Otherwise the original category is
  * kept. `changed` is false whenever the category is left as-is — including
  * when the detected category already equals the original.
  */
@@ -106,6 +117,16 @@ export function enforceCategoryConsistency(record: CategoryFixInput): CategoryFi
     .join(' ');
 
   if (!haystack) {
+    return { category: originalCategory, changed: false };
+  }
+
+  // STUDY-SIGNAL GUARD: category overrides are only applied to communities
+  // that are EXPLICITLY study/exam focused. A general professional or
+  // interest group (e.g. "cybersecurity professionals") must never be
+  // reclassified as an exam-study community just because keywords overlap.
+  const STUDY_SIGNAL =
+    /\b(stud(y|ying|ies|ied)|exams?|prep(aration|aring)?|practice questions?|mock (exam|test)|flashcards?|certifications?|test (prep|preparation)|revision|syllabus|study (group|session|partner|community)|question bank|exam strategy|pass the exam)\b/;
+  if (!STUDY_SIGNAL.test(haystack)) {
     return { category: originalCategory, changed: false };
   }
 

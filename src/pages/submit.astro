@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SafetyNotice from '../components/SafetyNotice.astro';
-import { categories } from '../config/categories';
 import { platforms } from '../config/platforms';
+import { examFamilies } from '../config/examFamilies';
+import { exams, getExam } from '../config/exams';
 import { pageTitle } from '../lib/seo';
 
 /**
@@ -13,22 +14,46 @@ import { pageTitle } from '../lib/seo';
  * committed (which triggers a Netlify rebuild). Submissions are NEVER
  * auto-published to the JSON data.
  */
+
+// Study-type labels: values match the StudyType union in
+// src/types/community.ts, labels are human-readable.
+const studyTypeOptions: { value: string; label: string }[] = [
+  { value: 'discussion', label: 'General discussion' },
+  { value: 'study-group', label: 'Structured study group' },
+  { value: 'practice-questions', label: 'Practice questions / mock tests' },
+  { value: 'accountability', label: 'Accountability / study buddies' },
+  { value: 'resources', label: 'Shared resources & materials' },
+  { value: 'exam-strategy', label: 'Exam strategy & tips' },
+  { value: 'peer-support', label: 'Peer support & motivation' },
+];
+
+const targetMarketOptions = [
+  { value: 'US', label: 'United States' },
+  { value: 'UK', label: 'United Kingdom' },
+  { value: 'CA', label: 'Canada' },
+  { value: 'AU', label: 'Australia' },
+  { value: 'NZ', label: 'New Zealand' },
+  { value: 'IE', label: 'Ireland' },
+  { value: 'global-english', label: 'Global English' },
+];
+
 const success = Astro.url.searchParams.get('success') === 'true';
 ---
 
 <BaseLayout
-  title={pageTitle('Submit a Community')}
-  description="Submit a public online community for review. Submissions are reviewed manually before publication."
+  title={pageTitle('Submit a Study Community')}
+  description="Submit a public exam-prep or certification study community for review. Submissions are reviewed manually before publication."
   canonicalPath="/submit/"
   noindex
 >
   <div class="mx-auto w-full max-w-3xl px-4 py-10 sm:px-6">
     <h1 class="text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">
-      Submit a Community
+      Submit a Study Community
     </h1>
     <p class="mt-2 text-stone-600">
-      Know a public community that belongs in the directory? Tell us about it.
-      Submissions are <strong>reviewed manually</strong> before anything is published.
+      Know a public study community that belongs in the directory — for an exam,
+      certification or general study support? Tell us about it. Submissions are{' '}
+      <strong>reviewed manually</strong> before anything is published.
     </p>
 
     {
@@ -71,7 +96,7 @@ const success = Astro.url.searchParams.get('success') === 'true';
             required
             maxlength="140"
             class="field"
-            placeholder="e.g. AI Builders Lounge"
+            placeholder="e.g. USMLE Step 1 Study Group"
           />
         </div>
         <div>
@@ -81,14 +106,6 @@ const success = Astro.url.searchParams.get('success') === 'true';
             {platforms.map((p) => <option value={p.id}>{p.name}</option>)}
           </select>
         </div>
-      </div>
-
-      <div>
-        <label for="category" class="label">Category *</label>
-        <select id="category" name="category" required class="field">
-          <option value="">Select category…</option>
-          {categories.map((c) => <option value={c.slug}>{c.name}</option>)}
-        </select>
       </div>
 
       <div>
@@ -103,8 +120,58 @@ const success = Astro.url.searchParams.get('success') === 'true';
           placeholder="https://t.me/example or https://discord.gg/… or https://chat.whatsapp.com/…"
         />
         <p class="mt-1 text-xs text-stone-500">
-          Must be a public invite link you are authorized to share.
+          Must be a public invite link you are authorized to share. Links that sell exam
+          dumps or leaked material will be rejected.
         </p>
+      </div>
+
+      <div class="grid gap-5 sm:grid-cols-2">
+        <div>
+          <label for="exam" class="label">Exam / Certification *</label>
+          <select id="exam" name="exam" required class="field">
+            <option value="">Select exam / certification…</option>
+            <option value="none">None / General study</option>
+            {examFamilies.map((f) => {
+              const familyExams = exams.filter((e) => e.family === f.slug);
+              if (familyExams.length === 0) return null;
+              return (
+                <optgroup label={f.name}>
+                  {familyExams.map((e) => {
+                    const resolved = getExam(e.slug);
+                    return <option value={e.slug}>{resolved?.name ?? e.slug}</option>;
+                  })}
+                </optgroup>
+              );
+            })}
+          </select>
+        </div>
+        <div>
+          <label for="exam-family" class="label">Exam family *</label>
+          <select id="exam-family" name="exam-family" required class="field">
+            <option value="">Select exam family…</option>
+            {examFamilies.map((f) => <option value={f.slug}>{f.name}</option>)}
+          </select>
+        </div>
+      </div>
+
+      <div class="grid gap-5 sm:grid-cols-2">
+        <div>
+          <label for="target-market" class="label">Target market *</label>
+          <select id="target-market" name="target-market" required class="field">
+            <option value="">Select target market…</option>
+            {targetMarketOptions.map((m) => <option value={m.value}>{m.label}</option>)}
+          </select>
+          <p class="mt-1 text-xs text-stone-500">
+            Where the exam or the community's members are primarily based.
+          </p>
+        </div>
+        <div>
+          <label for="study-type" class="label">Study type *</label>
+          <select id="study-type" name="study-type" required class="field">
+            <option value="">Select study type…</option>
+            {studyTypeOptions.map((s) => <option value={s.value}>{s.label}</option>)}
+          </select>
+        </div>
       </div>
 
       <div>
@@ -115,47 +182,55 @@ const success = Astro.url.searchParams.get('success') === 'true';
           rows="3"
           maxlength="400"
           class="field"
-          placeholder="A factual, concise summary (max 400 characters)."
+          placeholder="A factual, concise summary of the community and how it supports study (max 400 characters)."
         ></textarea>
       </div>
 
       <div class="grid gap-5 sm:grid-cols-2">
         <div>
-          <label for="language" class="label">Language</label>
-          <input id="language" name="language" type="text" maxlength="40" class="field" placeholder="e.g. English" />
+          <label for="official-source" class="label">Official / reference source</label>
+          <input
+            id="official-source"
+            name="official-source"
+            type="url"
+            maxlength="500"
+            class="field"
+            placeholder="Optional: a public page that confirms this community exists"
+          />
+          <p class="mt-1 text-xs text-stone-500">
+            e.g. a study blog, prep course page or the community's own public channel.
+          </p>
         </div>
         <div>
-          <label for="country" class="label">Country</label>
-          <input id="country" name="country" type="text" maxlength="40" class="field" placeholder="Optional" />
+          <label for="admin-contact" class="label">
+            Optional admin contact <span class="font-normal text-stone-400">(never shown publicly)</span>
+          </label>
+          <input
+            id="admin-contact"
+            name="admin-contact"
+            type="email"
+            maxlength="200"
+            class="field"
+            placeholder="Only used if we need to verify this listing"
+          />
         </div>
-      </div>
-
-      <div>
-        <label for="admin-contact" class="label">
-          Optional admin contact <span class="font-normal text-stone-400">(never shown publicly)</span>
-        </label>
-        <input
-          id="admin-contact"
-          name="admin-contact"
-          type="email"
-          maxlength="200"
-          class="field"
-          placeholder="Only used if we need to verify this listing"
-        />
       </div>
 
       <fieldset class="space-y-2">
         <legend class="label">Before you submit</legend>
         <label class="flex items-start gap-2 text-sm text-stone-600">
           <input type="checkbox" name="confirmation" value="yes" required class="mt-0.5 size-4" />
-          I confirm this is a public community and I have the right/authority to share this
-          information. I understand submission does not guarantee publication.
+          I confirm this is a public study community, I have the right/authority to share
+          this information, and it does not primarily distribute leaked exam content or
+          run credential scams. I understand submission does not guarantee publication.
         </label>
       </fieldset>
 
       <p class="rounded-lg border border-stone-200 bg-stone-50 p-3 text-xs leading-relaxed text-stone-500">
-        Submissions are reviewed before publication. The directory may remove unsafe,
-        misleading or unauthorized submissions. Admin contact details stay private.
+        Submissions are reviewed before publication. The review process checks the invite
+        link, platform and exam claims, and may take time. The directory may reject or
+        remove unsafe, misleading or unauthorized submissions. Admin contact details stay
+        private.
       </p>
 
       <button type="submit" class="btn-primary w-full sm:w-auto">Submit for review</button>

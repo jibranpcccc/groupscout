@@ -1,24 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <rect width="1200" height="630" fill="#fafaf9"/>
   <rect x="0" y="0" width="1200" height="8" fill="#2563eb"/>
-  <circle cx="88" cy="118" r="34" fill="#2563eb"/>
-  <path d="M70 104a8 8 0 0 1 8-8h36a8 8 0 0 1 8 8v24a8 8 0 0 1-8 8h-16l-12 11v-11h-8a8 8 0 0 1-8-8v-24z" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="140" y="140" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" font-size="52" font-weight="700" fill="#1c1917">GroupScout</text>
-  <text x="88" y="230" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" font-size="30" fill="#57534e">Discover public online communities</text>
-  <text x="88" y="276" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" font-size="24" fill="#78716c">Telegram · WhatsApp · Discord</text>
-  <g transform="translate(88 470)">
-    <rect x="0" y="0" width="360" height="110" rx="16" fill="#ffffff" stroke="#e7e5e4"/>
-    <text x="24" y="42" font-family="system-ui, Arial, sans-serif" font-size="22" font-weight="600" fill="#292524">Searchable</text>
-    <text x="24" y="72" font-family="system-ui, Arial, sans-serif" font-size="18" fill="#78716c">Filter by category, platform &amp; tag</text>
-  </g>
-  <g transform="translate(468 470)">
-    <rect x="0" y="0" width="360" height="110" rx="16" fill="#ffffff" stroke="#e7e5e4"/>
-    <text x="24" y="42" font-family="system-ui, Arial, sans-serif" font-size="22" font-weight="600" fill="#292524">Checked</text>
-    <text x="24" y="72" font-family="system-ui, Arial, sans-serif" font-size="18" fill="#78716c">Link health &amp; last-checked dates</text>
-  </g>
-  <g transform="translate(856 470)">
-    <rect x="0" y="0" width="260" height="110" rx="16" fill="#ffffff" stroke="#e7e5e4"/>
-    <text x="24" y="42" font-family="system-ui, Arial, sans-serif" font-size="22" font-weight="600" fill="#292524">Reviewed</text>
-    <text x="24" y="72" font-family="system-ui, Arial, sans-serif" font-size="18" fill="#78716c">Honest verification states</text>
-  </g>
+  <text x="600" y="270" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="88" font-weight="bold" fill="#1c1917">StudyScout</text>
+  <text x="600" y="350" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" fill="#57534e">Find Active Exam Prep &amp; Study Groups</text>
+  <text x="600" y="410" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="26" fill="#78716c">Discord &middot; Telegram &middot; WhatsApp</text>
+  <text x="600" y="480" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#a8a29e">SAT &middot; IELTS &middot; GRE &middot; MCAT &middot; NCLEX &middot; CFA &middot; AWS &amp; more</text>
 </svg>

@@ -5,7 +5,7 @@ import { pageTitle, breadcrumbJsonLd } from '../lib/seo';
 
 <BaseLayout
   title={pageTitle('Editorial Policy')}
-  description="Where listings come from, the role of AI, and how corrections and removals work."
+  description="Where exam-prep community listings come from, the role of AI, exam classification, and how corrections and removals work."
   canonicalPath="/editorial-policy/"
   jsonLd={breadcrumbJsonLd([{ name: 'Editorial Policy', path: '/editorial-policy/' }])}
 >
@@ -13,68 +13,150 @@ import { pageTitle, breadcrumbJsonLd } from '../lib/seo';
     <h1 class="text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">Editorial Policy</h1>
 
     <div class="prose-static mt-6">
+      <h2>What this directory is</h2>
+      <p>
+        StudyScout is a directory of public exam-prep and professional-certification study
+        communities on Discord, Telegram and WhatsApp. Listings are organized by exam and
+        certification (SAT, IELTS, USMLE, CFA, AWS, PMP, and others), exam family, target
+        market and study type. Every listing is a pointer to a community run by someone
+        else — inclusion is discovery, not endorsement.
+      </p>
+
       <h2>Where listings come from</h2>
       <ul>
         <li><strong>Public discovery.</strong> Automated discovery searches publicly
-          indexed sources for community invite URLs. Only public information is used.</li>
-        <li><strong>Submissions.</strong> Anyone can submit a public community via the
-          submit form. Submissions are reviewed manually before publication.</li>
-        <li><strong>Manual curation.</strong> Maintainers may add listings directly
-          with documented sources.</li>
+          indexed sources for exam-focused community invite URLs. Only public information
+          is used — we never join groups, scrape member data or read private content.</li>
+        <li><strong>Submissions.</strong> Anyone can submit a public study community via
+          the submit form. Submissions are reviewed manually before publication.</li>
+        <li><strong>Manual curation.</strong> Maintainers may add listings directly with
+          documented sources.</li>
       </ul>
 
-      <h2>The role of AI</h2>
+      <h2>The role of AI and search providers</h2>
       <p>
-        AI (Gemini) helps generate discovery queries, classify candidate listings,
-        suggest categories/tags and summarize public evidence. AI cannot independently
-        establish truth. Every candidate must be backed by a real URL, and factual
-        fields (member counts, dates, sources) require real sources when possible.
-        AI never invents URLs, metrics, reviews or endorsements, and it never decides
-        what gets published — new discoveries go to a pending queue for human review.
+        AI (Gemini) helps generate discovery queries, classify candidate listings, suggest
+        exams and families, and summarize public evidence. Search providers surface
+        candidate pages. Neither AI nor a search provider can independently establish
+        truth — <strong>AI output is a hypothesis, not a fact</strong>.
+      </p>
+      <ul>
+        <li>
+          <strong>Real URLs are required.</strong> A listing is only created when a real,
+          publicly reachable invite URL exists and is recorded. AI never invents URLs,
+          member counts, exam claims or descriptions.
+        </li>
+        <li>
+          <strong>AI never decides publication.</strong> New discoveries go to a pending
+          queue for human review before anything is published.
+        </li>
+        <li>
+          <strong>AI never scores or rates.</strong> It does not rank communities, compute
+          “trust scores” or generate reviews.
+        </li>
+      </ul>
+
+      <h2>Platform validation</h2>
+      <p>
+        Each listing records the platform the community actually lives on. Where the
+        platform offers a public, official way to confirm a community exists — such as
+        Discord's public invite API, which returns a guild ID — we use it. Guild or group
+        IDs are recorded only from real API responses, never inferred. This lets us dedupe
+        listings that share one community across different invite codes.
       </p>
 
-      <h2>What gets published</h2>
+      <h2>Exam classification</h2>
       <p>
-        A listing is published when it has a real public invite URL and passes
-        moderation. “Passing moderation” means no obvious harmful content — it is not
-        a safety certification. Listings may carry <code>safetyFlags</code> (e.g.
-        potential-risk-language) that are shown to readers without us declaring the
-        community a scam.
+        Listings are tagged with exams and certification bodies (e.g. USMLE, NCLEX, CFA,
+        CompTIA Security+, CCNA, PMP) only when the community's own public materials
+        support the claim — its title, description, pinned content or official links.
+        Classifications follow the configured exam registry and exam-family taxonomy:
+      </p>
+      <ul>
+        <li>An exam tag requires evidence; we never guess from a name alone.</li>
+        <li>Families (College Admissions, English Proficiency, Medical &amp; Healthcare,
+          Cloud Certifications, …) are assigned from the community's primary exam focus.</li>
+        <li>Target markets (US, UK, CA, AU, NZ, IE, Global English) are recorded only with
+          evidence or config-justified defaults, never assumed.</li>
+        <li>Communities without a single exam focus are listed under General Study
+          Communities rather than being force-tagged.</li>
+      </ul>
+
+      <h2>Source verification</h2>
+      <p>
+        Every listing stores its source URLs and verification state. Factual fields —
+        member counts, dates, certification providers, study types — require real sources
+        when possible. If a field cannot be confirmed, it is left unknown or empty rather
+        than invented. See <a href="/how-we-verify/">How We Verify</a> for the exact
+        meaning of each status.
+      </p>
+
+      <h2>Risk filtering</h2>
+      <p>
+        Candidates are screened for signs of harm before publication:
+      </p>
+      <ul>
+        <li><strong>Exam leaks and dumps.</strong> Communities that openly trade leaked
+          exam content or “verified dumps” are not listed. Promotion of stolen exam
+          material is a disqualifying risk, not a feature.</li>
+        <li><strong>Credential fraud.</strong> Proxy-testing services, score-fixing offers
+          and certificate mills are not listed.</li>
+        <li><strong>Scam indicators.</strong> Pay-to-join schemes, unverifiable “guaranteed
+          pass” claims, and impersonation of exam bodies are treated as red flags.</li>
+        <li>
+          Listings may carry internal <code>safetyFlags</code> (e.g.
+          potential-risk-language) that inform review without us declaring the community
+          a scam.
+        </li>
+      </ul>
+      <p>
+        Passing this filter means no obvious disqualifying risk was found — it is not a
+        safety certification.
+      </p>
+
+      <h2>Manual moderation</h2>
+      <p>
+        Every listing is reviewed by a human before publication: the invite URL is
+        checked, the platform is confirmed, the exam claims are compared against public
+        evidence, and the description is written as a concise factual summary. Moderation
+        decisions are made against the rules in this policy, not against any paid or
+        promotional interest.
       </p>
 
       <h2>Corrections</h2>
       <p>
         Corrections are accepted via the report form or contact page. We review them
-        against evidence and update listings when justified. We do not publish
-        unverified corrections as fact.
+        against evidence and update listings when justified. We do not publish unverified
+        corrections as fact.
       </p>
 
-      <h2>Removal / deletion</h2>
+      <h2>Removal requests</h2>
       <p>
-        Listings can be removed for: confirmed illegality, clear fraud, spam, or at
-        the verified request of a community owner (owner-confirmed). Removal requests
-        are handled by a human. We prefer marking listings unavailable over silently
-        deleting indexed URLs — dead or removed listings keep their detail page with
-        an explanatory note where useful, then can be archived later.
+        Listings can be removed for: confirmed illegality, clear fraud, exam-content
+        trading, spam, or at the verified request of a community owner (owner-confirmed).
+        Removal requests are handled by a human. We prefer marking listings unavailable
+        over silently deleting indexed URLs — dead or removed listings keep their detail
+        page with an explanatory note where useful, then can be archived later.
       </p>
 
       <h2>Dead-link handling</h2>
       <p>
         Repeated strong failures move a link to <code>dead</code>. We don't delete a
-        listing after one failed request, and bot-blocking is never treated as
-        evidence of death.
+        listing after one failed request, and bot-blocking or region blocks are never
+        treated as evidence of death.
       </p>
 
       <h2>Content copying</h2>
       <p>
-        We do not republish full third-party content. Descriptions are concise,
-        factual summaries based on public evidence.
+        We do not republish full third-party content. Descriptions are concise, factual
+        summaries based on public evidence. Exam names and certification trademarks belong
+        to their respective owners and are used only to identify the focus of a community.
       </p>
 
       <h2>Advertising and sponsors</h2>
       <p>
-        If advertising or sponsored listings are introduced later, they will be
-        clearly labeled and never prioritized by payment in the organic listings.
+        If advertising or sponsored listings are introduced later, they will be clearly
+        labeled and never prioritized by payment in the organic listings.
       </p>
     </div>
   </div>

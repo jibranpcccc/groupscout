@@ -1,6 +1,6 @@
 ---
 import { siteConfig } from '../config/site';
-import { categories } from '../config/categories';
+import { examFamilies } from '../config/examFamilies';
 import { platforms } from '../config/platforms';
 ---
 
@@ -12,16 +12,24 @@ import { platforms } from '../config/platforms';
         <p class="mt-2 max-w-xs text-sm leading-relaxed text-stone-500">
           {siteConfig.description}
         </p>
+        <p class="mt-4 text-xs text-stone-400">
+          A directory only — not an exam provider, school or certification
+          authority.
+        </p>
       </div>
 
-      <nav aria-label="Directory">
-        <p class="text-sm font-semibold text-stone-900">Directory</p>
+      <nav aria-label="Exams">
+        <p class="text-sm font-semibold text-stone-900">Browse Exams</p>
         <ul class="mt-3 space-y-2 text-sm">
-          <li><a href="/communities/" class="text-stone-600 hover:text-blue-700">Browse Communities</a></li>
-          <li><a href="/recently-added/" class="text-stone-600 hover:text-blue-700">Recently Added</a></li>
-          <li><a href="/recently-updated/" class="text-stone-600 hover:text-blue-700">Recently Updated</a></li>
-          <li><a href="/submit/" class="text-stone-600 hover:text-blue-700">Submit Community</a></li>
-          <li><a href="/report/" class="text-stone-600 hover:text-blue-700">Report a Listing</a></li>
+          {
+            examFamilies.slice(0, 8).map((fam) => (
+              <li>
+                <a href={`/category/${fam.slug}/`} class="text-stone-600 hover:text-blue-700">
+                  {fam.name}
+                </a>
+              </li>
+            ))
+          }
         </ul>
       </nav>
 
@@ -32,19 +40,7 @@ import { platforms } from '../config/platforms';
             platforms.map((p) => (
               <li>
                 <a href={`/platform/${p.id}/`} class="text-stone-600 hover:text-blue-700">
-                  {p.name} Communities
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-        <p class="mt-4 text-sm font-semibold text-stone-900">Categories</p>
-        <ul class="mt-3 space-y-2 text-sm">
-          {
-            categories.map((cat) => (
-              <li>
-                <a href={`/category/${cat.slug}/`} class="text-stone-600 hover:text-blue-700">
-                  {cat.name}
+                  {p.name} study groups
                 </a>
               </li>
             ))
@@ -52,13 +48,16 @@ import { platforms } from '../config/platforms';
         </ul>
       </nav>
 
-      <nav aria-label="About and legal">
-        <p class="text-sm font-semibold text-stone-900">About &amp; Trust</p>
+      <nav aria-label="About">
+        <p class="text-sm font-semibold text-stone-900">Directory</p>
         <ul class="mt-3 space-y-2 text-sm">
-          <li><a href="/about/" class="text-stone-600 hover:text-blue-700">About</a></li>
-          <li><a href="/safety/" class="text-stone-600 hover:text-blue-700">Safety</a></li>
+          <li><a href="/communities/" class="text-stone-600 hover:text-blue-700">Browse Communities</a></li>
+          <li><a href="/submit/" class="text-stone-600 hover:text-blue-700">Submit Community</a></li>
+          <li><a href="/report/" class="text-stone-600 hover:text-blue-700">Report a Listing</a></li>
+          <li><a href="/safety/" class="text-stone-600 hover:text-blue-700">Study Safety</a></li>
           <li><a href="/how-we-verify/" class="text-stone-600 hover:text-blue-700">How We Verify</a></li>
           <li><a href="/editorial-policy/" class="text-stone-600 hover:text-blue-700">Editorial Policy</a></li>
+          <li><a href="/about/" class="text-stone-600 hover:text-blue-700">About</a></li>
           <li><a href="/contact/" class="text-stone-600 hover:text-blue-700">Contact</a></li>
           <li><a href="/privacy/" class="text-stone-600 hover:text-blue-700">Privacy</a></li>
           <li><a href="/terms/" class="text-stone-600 hover:text-blue-700">Terms</a></li>
@@ -67,11 +66,10 @@ import { platforms } from '../config/platforms';
       </nav>
     </div>
 
-    <div class="mt-10 border-t border-stone-200 pt-6">
-      <p class="text-xs leading-relaxed text-stone-500">{siteConfig.notAffiliatedNotice}</p>
-      <p class="mt-2 text-xs text-stone-400">
-        © {new Date().getFullYear()} {siteConfig.name}. Directory listings are external resources —
-        inclusion is not an endorsement.
+    <div class="mt-10 border-t border-stone-200 pt-6 text-center">
+      <p class="text-xs text-stone-400">
+        © {new Date().getFullYear()} {siteConfig.name}. Not affiliated with Discord, Telegram,
+        WhatsApp, or any exam provider or certification body.
       </p>
     </div>
   </div>

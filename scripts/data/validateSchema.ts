@@ -4,7 +4,7 @@
  * CI and the build never run on corrupt production JSON.
  */
 import 'dotenv/config';
-import { loadPublished, loadPending, loadSeeds } from './io';
+import { loadPublished, loadPending, loadSeeds, loadRejectedCandidates } from './io';
 import { validateDataset, findProductionViolations } from '../../src/lib/schema';
 import { assertTagSlugsUnique } from '../../src/config/categories';
 
@@ -52,6 +52,24 @@ function main(): void {
       failed = true;
     }
   }
+
+  // Rejected-candidates log: operational record, never rendered — but a
+  // malformed entry means the discovery pipeline wrote garbage, so flag it.
+  const rejected = loadRejectedCandidates();
+  for (const [i, entry] of rejected.entries()) {
+    if (!entry || typeof entry !== 'object') {
+      console.error(`[validate] rejected-candidates.json #${i}: not an object`);
+      failed = true;
+      continue;
+    }
+    for (const field of ['rejectedAt', 'reason', 'candidateUrl', 'sourceUrl', 'platform'] as const) {
+      if (typeof entry[field] !== 'string' || entry[field].length === 0) {
+        console.error(`[validate] rejected-candidates.json #${i}: missing/invalid "${field}"`);
+        failed = true;
+      }
+    }
+  }
+  console.log(`[validate] rejected-candidates log OK (${rejected.length} entries)`);
 
   if (failed) {
     console.error('[validate] data validation FAILED');
