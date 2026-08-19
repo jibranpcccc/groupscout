@@ -374,11 +374,6 @@ async function run(): Promise<void> {
     raw: analytics.rawCandidates,
     normalized: analytics.usableCandidates,
     unique: unique.length,
-    passedIntent: Math.max(0, unique.length - analytics.wrongNiche),
-    passedSafety: Math.max(
-      0,
-      unique.length - analytics.wrongNiche - analytics.lowConfidence - analytics.hardReject - analytics.riskRejected
-    ),
     finalPending: drafts.length,
     wrongNiche: analytics.wrongNiche,
     lowConfidence: analytics.lowConfidence,

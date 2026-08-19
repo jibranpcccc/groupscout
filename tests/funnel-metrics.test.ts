@@ -27,8 +27,6 @@ function counters(overrides: Partial<FunnelCounters> = {}): FunnelCounters {
     raw: 86,
     normalized: 73,
     unique: 65,
-    passedIntent: 60,
-    passedSafety: 9,
     finalPending: 9,
     wrongNiche: 5,
     lowConfidence: 2,

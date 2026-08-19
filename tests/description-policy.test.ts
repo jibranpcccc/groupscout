@@ -44,7 +44,7 @@ describe('evaluateDescription — flags promotional/filler copy', () => {
 });
 
 describe('evaluateDescription — keeps factual / platform-extracted descriptions clean', () => {
-  const CLEAN: Array<[string, string]> = [
+  const CLEAN: Array<[string, string | null | undefined]> = [
     ['platform-extracted factual', 'Daily MCQs for the AWS cloud practitioner exam'],
     ['study group purpose', 'A community for CFA Level 1 candidates to share notes and discuss'],
     ['schedule + format', 'Weekly mock SAT tests on Sundays with peer review'],
