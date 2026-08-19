@@ -1,7 +1,69 @@
 # Conversion Status — GroupScout → StudyScout (handoff for review)
 
 **Repo:** `C:\HermesWork\community-directory` · **Branch:** `main` · **Date:** 2026-08-19
-**Live during conversion:** https://groupscout.netlify.app (serving the PRE-conversion site until deploy)
+**Live:** https://groupscout.netlify.app (converted site deployed, commit `ab91c58`)
+
+## ✅ COMPLETE — converted, deployed, verified live (2026-08-19)
+
+All sections from the previous draft are DONE: archive, dataset reset, taxonomy
+(13 families / 45 exams), types/schema/vertical guard, brand (StudyScout),
+trust pages + forms, tests (93 passing), crawler + exam-risk engine, public
+pages incl. 45 exam routes, sitemap/robots/noindex, clean build (78 pages,
+zero old-niche hits in dist and on the live site), small discovery test run
+(9 real study communities in pending, 71 wrong-niche rejected with reasons),
+deployed, live-verified.
+
+**Pending (owner action):**
+- AGENTS.md rewrite was blocked by the protected-file approval prompt timing
+  out (user away). The file still contains pre-conversion references — approve
+  the rewrite when convenient (I have it drafted) or have the review agent
+  note it.
+- Review the 9 pending study communities (`npm run approve -- <id>` or
+  `npm run auto-approve` for gated batch).
+- Google Search Console: not submitted (per audit instructions).
+
+## 1. Migration
+
+- Old published records archived: 22 → `archive/pre-study-conversion/groups-before-study-niche.json`
+- Old pending archived; datasets reset to empty; seeds reset to empty.
+- Old category/discovery/site configs archived under the same folder.
+
+## 2. Build
+
+- typecheck: PASS (0 errors) · lint: PASS · tests: 93/93 PASS
+- validate-data: PASS (schema + production guard + rejected-log shape)
+- build: PASS (78 pages; 45 exam pages; 0 old-niche terms in dist)
+
+## 3. New taxonomy
+
+- Exam families: 13 · Enabled exams: 45 (18 high-priority) · Platforms: Discord, Telegram, WhatsApp
+- Target markets: US, UK, CA, AU, NZ, IE, global-english (evidence-based)
+
+## 4. Discovery (first small test — real run)
+
+- Query topics: 15 (one per exam/family) · Provider requests: Tavily + Gemini
+- Raw candidates: 86 → normalized 73 → wrong-niche rejected 71 · risk-rejected 0
+- Duplicates 0 · Active after link validation: 3 (Discord API) · Pending: 9
+- Rejected log: 71 entries with reasons (`src/data/rejected-candidates.json`)
+- Gemini enabled: yes (classification) · Tavily: yes · Brave: adapter ready
+- Daily schedule: 04:17 UTC · Auto publish: FALSE (gated auto-approve available)
+
+## 5. Dataset
+
+- Published: 0 (fresh start — intentional) · Pending: 9 real study communities
+- Discord: 3 active · Telegram: 4 unknown (preview-blocked, honest) · WhatsApp: 2 unknown
+
+## 6. SEO (verified live)
+
+- Homepage title: `StudyScout` (siteConfig.name) · Canonical: https://groupscout.netlify.app/
+- robots.txt → sitemap-index.xml (production) · Sitemap: 13 URLs, zero thin exam/category pages, zero localhost
+- Empty exam pages: noindex,follow ✓ · Old /category/crypto-web3/: 404 ✓
+- Live old-niche scan: 0 hits across 8 key pages ✓
+
+## 7. Production
+
+- Git branch: main · Commit SHA: `ab91c58e3a439b9e0c436fef7d33681e74795b8c`
+- Netlify Site ID: d0979188-a441-489b-b61a-86d9d770ce9b · Production URL: https://groupscout.netlify.app
 
 ## 1. What this conversion is
 
