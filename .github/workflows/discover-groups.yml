@@ -77,6 +77,16 @@ jobs:
         # so dead invites are flagged. Observation phase: no auto-publish.
         run: npm run validate-links
 
+      - name: Hold non-active pending candidates
+        # Observation-phase audit item #4: the normal pending queue must
+        # contain ONLY linkStatus==='active' candidates with explicit exam/cert
+        # focus. Non-active links (unknown/dead/removed/reported) and generic
+        # study/accountability communities with no exam/cert focus are moved to
+        # held-groups.json — APPENDED (never overwritten), preserving the full
+        # record plus a heldReason. Discovery behaviour/taxonomy/publishing
+        # are unchanged; this only re-partitions pending.
+        run: npm run hold-non-active
+
       # NOTE (observation phase): the gated auto-approve step is deliberately
       # absent from the schedule. Discovery is pending-only. To manually
       # approve held candidates, run `npm run auto-approve` locally.

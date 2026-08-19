@@ -495,5 +495,82 @@
     "candidateUrl": "https://chat.whatsapp.com/your-link",
     "sourceUrl": "https://chat.whatsapp.com/your-link",
     "platform": "whatsapp"
+  },
+  {
+    "rejectedAt": "2026-08-19T16:36:02.807Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/okxannouncements",
+    "sourceUrl": "https://t.me/s/OKXAnnouncements?before=5630",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-08-19T16:36:03.940Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/studyniti_smritisethi",
+    "sourceUrl": "https://www.t.me/s/studyniti_smritisethi?before=36",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-08-19T16:36:05.048Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/disocordprofile",
+    "sourceUrl": "https://t.me/s/disocordprofile",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-08-19T16:36:06.544Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://chat.whatsapp.com/GlYVdiTLJvf8A1w3G2G9PT",
+    "sourceUrl": "https://chat.whatsapp.com/GlYVdiTLJvf8A1w3G2G9PT",
+    "platform": "whatsapp"
+  },
+  {
+    "rejectedAt": "2026-08-19T16:36:07.665Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://chat.whatsapp.com/HdfJI4LWRov8wyA1HfToYR",
+    "sourceUrl": "https://chat.whatsapp.com/HdfJI4LWRov8wyA1HfToYR",
+    "platform": "whatsapp"
+  },
+  {
+    "rejectedAt": "2026-08-19T16:36:08.798Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://chat.whatsapp.com/JXnGfjF9Zn2DzNNGdkUlO0",
+    "sourceUrl": "https://chat.whatsapp.com/JXnGfjF9Zn2DzNNGdkUlO0",
+    "platform": "whatsapp"
+  },
+  {
+    "rejectedAt": "2026-08-19T16:36:16.369Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/czmgroup",
+    "sourceUrl": "https://t.me/s/czmgroup?before=3994",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-08-19T16:36:17.489Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/xivivide",
+    "sourceUrl": "https://t.me/s/xivivide",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-08-19T16:36:18.608Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/ultarussia",
+    "sourceUrl": "https://t.me/s/ultarussia?before=191",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-08-19T16:36:19.544Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://chat.whatsapp.com/EGHSsN4lWE5GJZv15CGxhp",
+    "sourceUrl": "https://chat.whatsapp.com/EGHSsN4lWE5GJZv15CGxhp",
+    "platform": "whatsapp"
+  },
+  {
+    "rejectedAt": "2026-08-19T16:36:20.369Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://chat.whatsapp.com/BKQBMFayLc59mUIA3IUJw7",
+    "sourceUrl": "https://chat.whatsapp.com/BKQBMFayLc59mUIA3IUJw7",
+    "platform": "whatsapp"
   }
 ]

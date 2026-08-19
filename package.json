@@ -17,6 +17,8 @@
     "validate-data": "tsx scripts/data/validateSchema.ts",
     "discover": "tsx scripts/discover/index.ts",
     "validate-links": "tsx scripts/validate/index.ts",
+    "hold-non-active": "tsx scripts/data/holdNonActive.ts",
+    "observation-report": "tsx scripts/audit/observationReport.ts",
     "data:stats": "tsx scripts/data/stats.ts",
     "approve": "tsx scripts/data/approve.ts",
     "auto-approve": "tsx scripts/data/autoApprove.ts"

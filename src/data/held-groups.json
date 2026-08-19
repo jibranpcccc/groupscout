@@ -404,5 +404,157 @@
     "published": false,
     "linkCheckFailures": 0,
     "heldReason": "linkStatus=unknown (not active) — moved out of normal pending per integrity audit"
+  },
+  {
+    "id": "cand-mt0bckt3-wf8q56",
+    "slug": "discord-sat-preparation-992867137238618274",
+    "title": "SAT Preparation",
+    "platform": "discord",
+    "vertical": "study-prep",
+    "category": "college-admissions",
+    "subcategory": null,
+    "tags": [
+      "SAT",
+      "CollegeBoard",
+      "Digital Prep",
+      "practice tests"
+    ],
+    "examFamilies": [
+      "college-admissions"
+    ],
+    "exams": [
+      "sat"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion",
+      "practice-questions",
+      "peer-support"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://discord.com/invite/sat-preparation-992867137238618274",
+    "description": "SAT Preparation community on Discord featuring expert tips, practice tests, and a supportive study environment.",
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://discord.com/invite/sat-preparation-992867137238618274"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-19T16:36:00.470Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt0bcs5e-mogspm",
+    "slug": "telegram-ieltsspeakingpartner",
+    "title": "IELTS Speaking Partners",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "english-proficiency",
+    "subcategory": null,
+    "tags": [
+      "ielts",
+      "speaking practice",
+      "english",
+      "preparation"
+    ],
+    "examFamilies": [
+      "english-proficiency"
+    ],
+    "exams": [
+      "ielts"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion",
+      "practice-questions",
+      "peer-support"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/ieltsspeakingpartner",
+    "description": "A Telegram study group for IELTS speaking practice and preparation.",
+    "language": "English",
+    "country": null,
+    "accessType": "free",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://t.me/ieltsspeakingpartner"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-19T16:36:09.985Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt0bcu2z-xswp4s",
+    "slug": "telegram-joinchat",
+    "title": "IELTS Speaking for Success CHAT",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "english-proficiency",
+    "subcategory": null,
+    "tags": [
+      "ielts",
+      "speaking",
+      "discussion",
+      "peer-support"
+    ],
+    "examFamilies": [
+      "english-proficiency"
+    ],
+    "exams": [
+      "ielts"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion",
+      "peer-support"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/joinchat/sw7rad8rcsyqpbxa",
+    "description": "A Telegram chat group with 5,171 members for finding an IELTS Speaking partner, sharing experience and topics, and practicing speaking.",
+    "language": null,
+    "country": null,
+    "accessType": "free",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://t.me/joinchat/Sw7RAD8RcSyQpbXa"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-19T16:36:12.491Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
   }
 ]

@@ -24,3 +24,7 @@ Thumbs.db
 .idea/
 .vscode/*
 !.vscode/extensions.json
+
+# Observation-phase telemetry (runtime data, not source — regenerated each run)
+audit/telemetry/*.jsonl
+
