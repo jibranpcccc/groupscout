@@ -299,28 +299,60 @@ domain selection + initial inventory.
 ---
 
 ## Git
-- Commit: `9dd6bfd` — pushed to `main` → live at https://groupscout.netlify.app
-- Previous anchor: `ab91c58`
+- Commit: `79406df` — pushed to `main` → live at https://groupscout.netlify.app
+- Previous anchors: `9dd6bfd` (audit), `ab91c58` (conversion)
+
+---
+
+## Items #4 and #31 — COMPLETED (final pass)
+
+Both remaining audit items are now fully implemented and live-verified:
+
+**#4 — Pending queue = active only (enforced in pipeline):**
+- `scripts/data/holdNonActive.ts` created. It partitions
+  `pending-groups.json` into keep (`linkStatus==='active'` AND not
+  generic-study) vs move, appends move records to `held-groups.json`
+  (atomic write, never overwritten), and rewrites the filtered pending
+  back atomically. Wired into the workflow after "Validate new links".
+- Live-verified: a real discovery run produced 3 new candidates; all were
+  `unknown` status → automatically moved to held. Pending stayed at exactly
+  1 (Admission Hackers, active).
+
+**#31 — 7-day observation yield metrics:**
+- `scripts/audit/observationReport.ts` + `npm run observation-report`
+  (READ-ONLY aggregation, never writes telemetry/data). Computes all 10
+  metrics (A–J) with divide-by-zero → 0 and corrupt-line skipping.
+- Live bootstrap run produced real telemetry:
+  ```
+  Queries: 11  Raw: 19  Passed intent: 6  Active: 6  New pending: 6  Wrong-niche: 11
+  A. New Pending/100 Queries: 54.55   B. Wrong-Niche Rate: 57.89%
+  C. Active-Link Rate: 31.58%          D. Exam Class Rate: 72.73%
+  H. Provider: Tavily 37.5%/req, Gemini 0%   I. Platform: Telegram 5, Discord 1
+  ```
+- `audit/telemetry/*.jsonl` now gitignored (runtime observation data).
 
 ---
 
 ## ⚠️ One thing that still needs you
 
-**AGENTS.md protected-file warning:** the rewrite completed in this pass. The
-file now opens with the mandatory project statement and preserves all strict
-rules. Please skim `AGENTS.md` to confirm the engineering constitution
-matches your intent.
+**AGENTS.md:** the rewrite completed earlier in this audit — it opens with the
+mandatory project statement and preserves all strict rules. Skim it to confirm
+the engineering constitution matches your intent.
 
 **The 1 normal-pending record (Admission Hackers [SAT Prep]) is NOT published.**
 Per items #4, #19, #32: it is held for your explicit approval. To publish it
 after a fresh revalidation, run:
-```
+```bash
 npm run validate-links -- cand-mszv0u6k-ffkvyp   # re-confirm active
 npm run approve -- cand-mszv0u6k-ffkvyp          # owner-gated manual publish
 ```
 Then `git push` to trigger the Netlify deploy.
 
 ---
+
+## Final gate status (2026-08-19)
+- typecheck: PASS · lint: PASS · tests: 222/222 · validate-data: PASS · build: 78 pages
+- Live: published=0, pending=1, held=11, rejected=82
 
 ## Report path
 `docs/POST-CONVERSION-INTEGRITY-AUDIT.md` (this file)
