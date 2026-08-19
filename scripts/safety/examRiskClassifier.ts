@@ -40,7 +40,13 @@ export interface ExamRiskPattern {
 export const HIGH_RISK_PATTERNS: ExamRiskPattern[] = [
   { flag: 'leaked-exam-questions', pattern: /\bleaked\s+(?:exam\s+)?questions?\b/i },
   { flag: 'leaked-exam-questions', pattern: /\b(?:exam|test)\s+questions?\s+leaked\b/i },
-  { flag: 'real-exam-questions', pattern: /\breal\s+(?:exam|test)\s+questions?\b/i },
+  // A bare "leaked exam/test" describes circulating the actual exam content
+  // (as opposed to "paper leak"/"exam leaks" talk, which stays risk-flagged).
+  { flag: 'leaked-exam-content', pattern: /\bleaked\s+(?:exam|test)\b/i },
+  {
+    flag: 'real-exam-questions',
+    pattern: /\b(?:real|actual|original|genuine|authentic)\s+(?:exam|test)\s+questions?\b/i,
+  },
   { flag: 'real-exam-dumps', pattern: /\b(?:real|actual|original|genuine|authentic)\s+exam\s+dumps?\b/i },
   { flag: 'braindumps', pattern: /\bbrain[- ]?dumps?\b/i },
   {
@@ -49,7 +55,7 @@ export const HIGH_RISK_PATTERNS: ExamRiskPattern[] = [
   },
   {
     flag: 'proxy-test-taker',
-    pattern: /\b(?:proxy\s+test[- ]?taker|take\s+my\s+exam|do\s+my\s+exam|take\s+the\s+exam\s+for\s+you|sit\s+the\s+exam\s+for\s+you|exam\s+for\s+you\s+while\s+you|exam\s+proxy)\b/i,
+    pattern: /\b(?:proxy\s+test[- ]?taker|take\s+my\s+exam|do\s+my\s+exam|take\s+(?:the\s+)?(?:your\s+)?exam\s+for\s+you|sit\s+the\s+exam\s+for\s+you|exam\s+for\s+you\s+while\s+you|exam\s+proxy)\b/i,
   },
   {
     flag: 'pay-for-certificate',

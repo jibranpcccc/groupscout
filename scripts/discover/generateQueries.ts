@@ -8,9 +8,9 @@
  * via their family tags plus generic anchors ("exam prep", "study group").
  *
  * Budget allocation (of maxQueries, i.e. DISCOVERY_MAX_SEARCH_QUERIES):
- *   - high-priority exams ≈ 70%
- *   - secondary exams    ≈ 20%
- *   - experimental/general-study ≈ 10%
+ *   - PRIMARY / high-priority exams ≈ 85%
+ *   - secondary exams             ≈ 10%
+ *   - experimental/general-study  ≈ 5%
  *
  * Within a tier, exam × platform cells are interleaved round-robin and
  * platform weights are honored (Discord ≈ 40%, Telegram ≈ 40%, WhatsApp ≈
@@ -36,9 +36,14 @@ export interface DiscoveryQuery {
   text: string;
 }
 
-/** Tier weights: high ≈ 70%, secondary ≈ 20%, remainder ≈ 10% experimental. */
-const HIGH_WEIGHT = 0.7;
-const SECONDARY_WEIGHT = 0.2;
+/**
+ * Tier weights: PRIMARY/high ≈ 85%, secondary ≈ 10%, remainder ≈ 5% experimental.
+ * PRIMARY discovery dominates so the 17 owner-defined exams get the overwhelming
+ * share of the budget, with configured secondary exams and a tiny
+ * exploratory general-study quota sharing the rest.
+ */
+const HIGH_WEIGHT = 0.85;
+const SECONDARY_WEIGHT = 0.1;
 
 /** Platform budget weights — Discord/Telegram ≈ 40% each, WhatsApp ≈ 20%. */
 const PLATFORM_WEIGHTS: Record<Platform, number> = {

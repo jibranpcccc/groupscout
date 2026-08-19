@@ -1,13 +1,24 @@
 name: Discover Communities
 
 # Daily automated pipeline (non-peak UTC time) + manual trigger:
-#   discover (Tavily/Brave/Gemini search) → link validation → gated
-#   auto-approve → schema validation → commit → Netlify auto-deploy.
+#   discover (Tavily/Brave/Gemini search) → link validation → schema
+#   validation → commit → Netlify auto-deploy.
 #
-# Gated auto-publish: candidates publish ONLY when they pass all quality
-# gates (production guard, non-dead link, no safety flags, classified,
-# sourced, no scam indicators) — everything else stays pending for human
-# review. Cap AUTO_APPROVE_MAX per run (default 30).
+# OBSERVATION-PHASE MODE (2026-08-19+): this is a 7-day integrity /
+# discovery-observation period. Discovery is PENDING-ONLY — the daily run
+# discovers new communities and validates their links, but does NOT
+# auto-publish. The `npm run auto-approve` step is intentionally disabled
+# during this phase; discovered candidates stay in pending-groups.json for
+# manual, human review. Re-enable only when the owner ends the observation
+# period and explicitly wants gated auto-publish.
+#
+# The gated auto-approve command remains available for MANUAL use
+# (`npm run auto-approve`) and is fully hardened, but the schedule never
+# runs it on its own while in observation mode.
+#
+# Gated auto-publish (when re-enabled) requires ALL: production guard clean,
+# linkStatus 'active', fresh lastCheckedAt, independent source, no safety
+# flags, classified with specific exam/cert intent, published=false.
 # Only real data changes are committed; secrets are never committed.
 
 on:
@@ -63,11 +74,14 @@ jobs:
 
       - name: Validate new links
         # Independent link checks (official Discord API, Telegram previews)
-        # so dead invites can never be auto-published.
+        # so dead invites are flagged. Observation phase: no auto-publish.
         run: npm run validate-links
 
-      - name: Gated auto-approve
-        run: npm run auto-approve
+      # NOTE (observation phase): the gated auto-approve step is deliberately
+      # absent from the schedule. Discovery is pending-only. To manually
+      # approve held candidates, run `npm run auto-approve` locally.
+      # - name: Gated auto-approve
+      #   run: npm run auto-approve
 
       - name: Validate data
         run: npm run validate-data

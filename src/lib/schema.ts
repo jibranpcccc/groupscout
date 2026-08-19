@@ -34,6 +34,36 @@ export const studyTypeSchema = z.enum([
   'peer-support',
 ]);
 
+/**
+ * True when a memberCountSource is the ACTUAL platform evidence that backs a
+ * member count:
+ *   - Discord API invite response (discord.com/api/... or discord.com/discord.gg)
+ *   - a public Telegram channel preview (t.me/... or telegram.me/...)
+ * Anything else — an unrelated external website — is not acceptable evidence
+ * for a member number. See the memberCount superRefine below.
+ */
+const MEMBER_COUNT_EVIDENCE_HOSTS = new Set([
+  'discord.com',
+  'discord.gg',
+  'discordapp.com',
+  't.me',
+  'telegram.me',
+  'telegram.dog',
+]);
+
+export function isPlatformEvidenceSource(value: string): boolean {
+  if (!isHttpUrl(value)) return false;
+  try {
+    const host = new URL(value).hostname.toLowerCase().replace(/^www\./, '');
+    return (
+      MEMBER_COUNT_EVIDENCE_HOSTS.has(host) ||
+      [...MEMBER_COUNT_EVIDENCE_HOSTS].some((h) => host.endsWith(`.${h}`))
+    );
+  } catch {
+    return false;
+  }
+}
+
 export const communitySchema = z
   .object({
     id: z.string().min(3).max(64).regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'id must be a lowercase slug'),
@@ -93,6 +123,19 @@ export const communitySchema = z
           code: z.ZodIssueCode.custom,
           path: ['memberCount'],
           message: 'memberCount requires memberCountSource and memberCountCheckedAt',
+        });
+        return;
+      }
+      // memberCountSource must point at the ACTUAL platform evidence (the
+      // Discord API invite response or a public Telegram channel preview) —
+      // never an unrelated external website. This keeps the number traceable
+      // to the platform that hosts the community.
+      if (!isPlatformEvidenceSource(data.memberCountSource)) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ['memberCountSource'],
+          message:
+            'memberCountSource must be the platform evidence (Discord API invite or public Telegram preview), not an unrelated website',
         });
       }
     }

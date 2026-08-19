@@ -61,10 +61,19 @@ describe('communitySchema', () => {
   it('accepts member counts with a full source triple', () => {
     const ok = makeCommunity({
       memberCount: 100,
-      memberCountSource: 'https://example.com/source',
+      memberCountSource: 'https://discord.com/api/v10/guilds/123/preview',
       memberCountCheckedAt: '2026-08-01T00:00:00.000Z',
     });
     expect(communitySchema.safeParse(ok).success).toBe(true);
+  });
+
+  it('rejects member counts whose source is an unrelated external website', () => {
+    const bad = makeCommunity({
+      memberCount: 100,
+      memberCountSource: 'https://example.com/source',
+      memberCountCheckedAt: '2026-08-01T00:00:00.000Z',
+    });
+    expect(communitySchema.safeParse(bad).success).toBe(false);
   });
 
   it('rejects unknown categories', () => {

@@ -27,8 +27,8 @@ export const discoveryConfig = {
   /**
    * Cap on distinct query texts searched per run. Query generation is
    * study-niche: exam × platform × modifier cells with a tiered budget —
-   * high-priority exams ≈ 70%, secondary exams ≈ 20%, experimental /
-   * general-study queries ≈ 10% — interleaved round-robin across exams and
+   * PRIMARY/high-priority exams ≈ 85%, secondary exams ≈ 10%, experimental /
+   * general-study queries ≈ 5% — interleaved round-robin across exams and
    * platforms (Discord/Telegram ≈ 40% each, WhatsApp ≈ 20%), with per-exam
    * caps so no single exam monopolizes the budget.
    */

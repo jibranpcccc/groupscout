@@ -6,16 +6,21 @@
  *
  * Gates (all must pass):
  *  1. production guard      — no demo/sample markers (findProductionViolations)
- *  2. link status           — must be `active` (anything else stays pending)
- *  3. freshness             — lastCheckedAt exists and is recent (within the
- *                             last 48h, or at/after AUTO_APPROVE_SINCE when set)
- *  4. independent source    — at least one sourceUrl whose hostname differs
+ *  2. vertical              — must be `study-prep`
+ *  3. link status           — must be `active` (anything else, incl. `unknown`,
+ *                             stays pending)
+ *  4. freshness             — lastCheckedAt exists and is recent (within the
+ *                             freshness window [default 7 days, override
+ *                             AUTO_APPROVE_FRESHNESS_HOURS], or at/after
+ *                             AUTO_APPROVE_SINCE when set)
+ *  5. independent source    — at least one sourceUrl whose hostname differs
  *                             from the inviteUrl hostname
- *  5. safety flags          — none (risk-language candidates stay pending)
- *  6. real classification   — Gemini assigned at least one tag
- *  7. source evidence       — at least one sourceUrl
- *  8. scam-indicator scan   — title/description blocklist (kept pending)
- *  9. schema + dedupe       — validated before the atomic write
+ *  6. safety flags          — none (risk-language candidates stay pending)
+ *  7. real classification   — Gemini assigned at least one tag
+ *  8. exam/cert intent      — at least one exam OR examFamily mapped
+ *  9. source evidence       — at least one sourceUrl
+ * 10. scam-indicator scan   — title/description blocklist (kept pending)
+ * 11. schema + dedupe       — validated before the atomic write
  *
  * Cap: AUTO_APPROVE_MAX per run (default 30) — a runaway discovery run can
  * never flood the site.
@@ -29,6 +34,9 @@ const MAX_PER_RUN = Number(process.env.AUTO_APPROVE_MAX ?? 30);
 
 /** ISO timestamp; when set, records must have been checked at or after it. */
 const AUTO_APPROVE_SINCE = process.env.AUTO_APPROVE_SINCE;
+
+/** Freshness window for lastCheckedAt (hours). Default 7 days (168h). */
+const FRESHNESS_HOURS = Number(process.env.AUTO_APPROVE_FRESHNESS_HOURS ?? 168);
 
 /** Financial/scam indicators → hold for human review. Never auto-publish. */
 const BLOCKLIST =
@@ -52,16 +60,22 @@ function checkGates(record: Community): string[] {
   const reasons: string[] = [];
 
   if (findProductionViolations([record]).length > 0) reasons.push('production-guard');
+  if (record.vertical !== 'study-prep') reasons.push('not-study-prep');
   if (record.linkStatus !== 'active') reasons.push('link-not-active');
-  // Freshness: lastCheckedAt must exist and be recent — within the last 48h,
+  // Freshness: lastCheckedAt must exist and be recent — within FRESHNESS_HOURS,
   // or at/after AUTO_APPROVE_SINCE when the workflow sets it (ISO string compare).
   if (!record.lastCheckedAt) {
     reasons.push('not-recently-checked');
   } else {
     const cutoff =
-      AUTO_APPROVE_SINCE ?? new Date(Date.now() - 48 * 3600 * 1000).toISOString();
+      AUTO_APPROVE_SINCE ??
+      new Date(Date.now() - FRESHNESS_HOURS * 3600 * 1000).toISOString();
     if (record.lastCheckedAt < cutoff) reasons.push('not-recently-checked');
   }
+  // Exam/certification intent: a valid study-prep candidate must map at least
+  // one exam OR examFamily — generic study/accountability groups never qualify.
+  const hasExamIntent = (record.exams ?? []).length > 0 || (record.examFamilies ?? []).length > 0;
+  if (!hasExamIntent) reasons.push('no-exam-intent');
   // Independent source: at least one sourceUrl on a different hostname than
   // the inviteUrl (unparseable URLs can't count as independent evidence).
   const inviteHost = hostnameOf(record.inviteUrl);

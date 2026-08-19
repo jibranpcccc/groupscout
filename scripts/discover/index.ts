@@ -46,6 +46,11 @@ import { discoveryConfig } from '../../src/config/discovery';
 import { validateDataset } from '../../src/lib/schema';
 import { mergeCandidateIntoDataset } from '../data/mergeListings';
 import { getExamName } from '../../src/config/exams';
+import { computeFunnel, formatFunnel } from '../audit/funnel';
+import {
+  appendQueryTelemetry,
+  appendProviderTelemetry,
+} from '../audit/telemetry';
 import type { Community, Platform } from '../../src/types/community';
 
 interface CliArgs {
@@ -194,6 +199,12 @@ async function run(): Promise<void> {
   const rawResults: DiscoveryResult[] = [];
   let queriesSearched = 0;
   const searchedTexts = new Set<string>();
+  // Best-effort telemetry attributions (never affect pipeline behavior).
+  const providerRaw = new Map<string, number>(); // provider name -> raw candidates pushed
+  const providerRequestCount = new Map<string, number>(); // provider name -> requests
+  const providerRawUrls = new Map<string, Set<string>>(); // provider name -> raw candidate URLs pushed
+  const queryRawCount = new Map<string, number>(); // query text -> raw candidates pushed
+  const queryForRawUrl = new Map<string, string>(); // raw candidateUrl -> query text
   for (const query of queries) {
     if (queriesSearched >= discoveryConfig.maxSearchQueries) break;
     if (searchedTexts.has(query.text)) continue; // count DISTINCT query texts only
@@ -203,8 +214,16 @@ async function run(): Promise<void> {
       if (analytics.providerRequests >= discoveryConfig.maxProviderRequests) break;
       const results = await provider.search(query.text);
       analytics.providerRequests++;
+      providerRequestCount.set(provider.name, (providerRequestCount.get(provider.name) ?? 0) + 1);
       if (results.length > 0) {
-        rawResults.push(...results.slice(0, discoveryConfig.maxCandidatesPerQuery));
+        const kept = results.slice(0, discoveryConfig.maxCandidatesPerQuery);
+        rawResults.push(...kept);
+        providerRaw.set(provider.name, (providerRaw.get(provider.name) ?? 0) + kept.length);
+        const urls = providerRawUrls.get(provider.name) ?? new Set<string>();
+        for (const k of kept) urls.add(k.candidateUrl);
+        providerRawUrls.set(provider.name, urls);
+        queryRawCount.set(query.text, (queryRawCount.get(query.text) ?? 0) + kept.length);
+        for (const r of kept) queryForRawUrl.set(r.candidateUrl, query.text);
         log('discover', `query "${query.text.slice(0, 60)}" → ${results.length} candidate URL(s)`);
       }
       searched = true;
@@ -251,6 +270,15 @@ async function run(): Promise<void> {
   const { unique, duplicates, ambiguous } = dedupeCandidates(candidates, [...published, ...pending]);
   analytics.duplicates = duplicates.length;
   analytics.ambiguous = ambiguous.length;
+  // Best-effort per-query attribution for the dedupe stage.
+  const queryDuplicates = new Map<string, number>();
+  const queryActive = new Map<string, number>();
+  const queryPassedIntent = new Map<string, number>();
+  const queryWrongNiche = new Map<string, number>();
+  for (const dup of [...duplicates, ...ambiguous]) {
+    const q = queryTextFor(dup.candidateUrl, queryForRawUrl);
+    if (q) queryDuplicates.set(q, (queryDuplicates.get(q) ?? 0) + 1);
+  }
   log('dedupe', `removed ${duplicates.length} duplicates, ${ambiguous.length} ambiguous → pending review, ${unique.length} new`);
 
   // ---- Classify, screen for exam risk, filter by relevance ----
@@ -268,12 +296,15 @@ async function run(): Promise<void> {
     const evidenceText = [candidate.candidateUrl, candidate.evidence ?? '', classification.description ?? ''].join(' ');
 
     // Relevance filter — keep only explicit exam-prep / study communities.
+    const qText = queryTextFor(candidate.candidateUrl, queryForRawUrl);
     if (classification.relevance === false) {
       analytics.wrongNiche++;
+      if (qText) queryWrongNiche.set(qText, (queryWrongNiche.get(qText) ?? 0) + 1);
       log('discover', `wrong-niche (relevance=false) — rejecting ${candidate.candidateUrl}`);
       rejectedEntries.push(rejectEntry('wrong-niche', candidate));
       continue;
     }
+    if (qText) queryPassedIntent.set(qText, (queryPassedIntent.get(qText) ?? 0) + 1);
 
     // Internal confidence gate (never shown to users).
     const confidence =
@@ -313,6 +344,7 @@ async function run(): Promise<void> {
     }
 
     drafts.push(draft);
+    if (qText) queryActive.set(qText, (queryActive.get(qText) ?? 0) + 1);
     if (args.limit > 0 && drafts.length >= args.limit) break;
     if (drafts.length >= discoveryConfig.maxNewCandidatesPerRun) {
       log('discover', `reached max new candidates per run (${discoveryConfig.maxNewCandidatesPerRun})`);
@@ -337,20 +369,77 @@ async function run(): Promise<void> {
     }
   }
 
-  log(
-    'discover',
-    `classified ${drafts.length} new candidates (${analytics.wrongNiche} wrong-niche, ${analytics.riskRejected} exam-risk rejected, ${analytics.riskFlagged} risk-flagged, ${analytics.lowConfidence} low-confidence, ${analytics.hardReject} hard-reject)`
-  );
+  // ---- Sequential funnel summary (auditable — each stage derives from the prior) ----
+  const funnel = computeFunnel({
+    raw: analytics.rawCandidates,
+    normalized: analytics.usableCandidates,
+    unique: unique.length,
+    passedIntent: Math.max(0, unique.length - analytics.wrongNiche),
+    passedSafety: Math.max(
+      0,
+      unique.length - analytics.wrongNiche - analytics.lowConfidence - analytics.hardReject - analytics.riskRejected
+    ),
+    finalPending: drafts.length,
+    wrongNiche: analytics.wrongNiche,
+    lowConfidence: analytics.lowConfidence,
+    hardReject: analytics.hardReject,
+    riskRejected: analytics.riskRejected,
+    duplicates: analytics.duplicates,
+    ambiguous: analytics.ambiguous,
+    invalidUrl: analytics.invalidUrlCandidates,
+    unknownPlatform: analytics.unknownPlatformCandidates,
+    riskFlagged: analytics.riskFlagged,
+    providerRequests: analytics.providerRequests,
+  });
+  log('discover', formatFunnel(funnel));
+  // ---- Per-query telemetry (best-effort; never crashes the pipeline) ----
+  const queryByText = new Map(queries.map((q) => [q.text, q]));
+  for (const q of queries) {
+    const attr = queryByText.get(q.text);
+    if (!attr) continue;
+    const rawCount = queryRawCount.get(q.text) ?? 0;
+    appendQueryTelemetry({
+      query: q.text,
+      exam: q.examSlug ?? null,
+      platform: q.platform,
+      provider: providers.map((p) => p.name).join(','),
+      timesRun: providerRequestCount.size > 0 ? 1 : 0,
+      rawCandidateCount: rawCount,
+      passedIntentCount: queryPassedIntent.get(q.text) ?? 0,
+      activeCount: queryActive.get(q.text) ?? 0,
+      newPendingCount: queryActive.get(q.text) ?? 0,
+      duplicateCount: queryDuplicates.get(q.text) ?? 0,
+      wrongNicheCount: queryWrongNiche.get(q.text) ?? 0,
+    });
+  }
+  log('discover', `query telemetry: ${queryRawCount.size} query(ies) with candidates -> audit/telemetry/query-log.jsonl`);
 
-  log(
-    'discover',
-    `analytics: queries=${analytics.queriesGenerated} (${topicSummary(analytics.queryTopics)}), ` +
-      `requests=${analytics.providerRequests}, raw=${analytics.rawCandidates}, ` +
-      `invalid=${analytics.invalidUrlCandidates}, unknown-platform=${analytics.unknownPlatformCandidates}, ` +
-      `usable=${analytics.usableCandidates}, duplicates=${analytics.duplicates}, ambiguous=${analytics.ambiguous}, ` +
-      `rejected=${analytics.wrongNiche + analytics.riskRejected + analytics.lowConfidence + analytics.hardReject}, ` +
-      `pending=${analytics.draftsAccepted}`
-  );
+  // ---- Per-provider telemetry (best-effort) ----
+  const providerDuplicates = new Map<string, number>();
+  for (const dup of [...duplicates, ...ambiguous]) {
+    const p = providerForCandidate(dup.candidateUrl, providerRawUrls);
+    if (p) providerDuplicates.set(p, (providerDuplicates.get(p) ?? 0) + 1);
+  }
+  const providerSentToPending = new Map<string, number>();
+  for (const d of drafts) {
+    const p = providerForCandidate(d.inviteUrl, providerRawUrls);
+    if (p) providerSentToPending.set(p, (providerSentToPending.get(p) ?? 0) + 1);
+  }
+  for (const provider of providers) {
+    if (provider.name === 'manual-seeds') continue;
+    const requests = providerRequestCount.get(provider.name) ?? 0;
+    const raw = providerRaw.get(provider.name) ?? 0;
+    appendProviderTelemetry({
+      provider: provider.name,
+      requests,
+      rawCandidates: raw,
+      active: providerSentToPending.get(provider.name) ?? 0,
+      newPending: providerSentToPending.get(provider.name) ?? 0,
+      duplicates: providerDuplicates.get(provider.name) ?? 0,
+    });
+  }
+  log('discover', `provider telemetry: ${providerRequestCount.size} provider(s) -> audit/telemetry/provider-log.jsonl`);
+
   if (analytics.pendingByPlatform.size > 0) {
     log('discover', `pending by platform: ${topicSummary(analytics.pendingByPlatform)}`);
   }
@@ -418,6 +507,47 @@ function queryAnchorFor(candidate: ParsedCandidate, queries: DiscoveryQuery[]): 
     if (q.text.includes(new URL(candidate.candidateUrl).hostname)) return q.categorySlug;
   }
   return 'general-study';
+}
+
+/** Best-effort query text for a (normalized) candidate URL. Exact match first, then hostname. */
+function queryTextFor(candidateUrl: string, rawByUrl: Map<string, string>): string | undefined {
+  const exact = rawByUrl.get(candidateUrl);
+  if (exact) return exact;
+  try {
+    const host = new URL(candidateUrl).hostname;
+    for (const [rawUrl, text] of rawByUrl) {
+      try {
+        if (new URL(rawUrl).hostname === host) return text;
+      } catch {
+        /* ignore malformed raw url */
+      }
+    }
+  } catch {
+    return undefined;
+  }
+  return undefined;
+}
+
+/** Best-effort provider name attribution by hostname against surfaced raw URLs. */
+function providerForCandidate(
+  candidateUrl: string,
+  providerRawUrls: Map<string, Set<string>>
+): string | undefined {
+  try {
+    const host = new URL(candidateUrl).hostname;
+    for (const [provider, urls] of providerRawUrls) {
+      for (const raw of urls) {
+        try {
+          if (new URL(raw).hostname === host) return provider;
+        } catch {
+          /* ignore */
+        }
+      }
+    }
+  } catch {
+    return undefined;
+  }
+  return undefined;
 }
 
 run().catch((err) => {
