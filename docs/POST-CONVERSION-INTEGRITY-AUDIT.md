@@ -40,6 +40,8 @@ are not public, quality over quantity.
 **YES, it went through** in this pass (the earlier protected-file approval was
 waiting on you). The full file is at `AGENTS.md`.
 
+**Audit commit:** `9dd6bfd` + `32d490c` — deployed & live-verified (HTTP 200 on all 13 key pages)
+
 ---
 
 ## Build gates (item #35) — all green
