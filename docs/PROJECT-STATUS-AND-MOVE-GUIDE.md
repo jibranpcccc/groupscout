@@ -5,7 +5,32 @@
 **Live site:** https://groupscout.netlify.app
 **GitHub:** https://github.com/jibranpcccc/groupscout (branch `main`; auto-deploys to Netlify)
 **Audit completion commit:** `8526627`
-**Date of this document:** 2026-08-19
+**Date of this document:** 2026-08-20
+
+---
+
+## 2026-08-20 Update
+
+### ✅ Fixed: discover workflow was broken since conversion
+The daily discover workflow (`discover-groups.yml`) was **silently dead** since the observation-phase commit: an invalid `${{ env.RUN_START }}` reference in the job-level `env:` block caused GitHub's parser to reject every push (0s failure) and the daily cron (`17 4 * * *`) to never fire — the `env` context is not valid at parse time in that position. Fixed by removing the two env lines (`RUN_START`, `AUTO_APPROVE_SINCE`). Verified: manual dispatch ran end-to-end (run 32357514756), producing 5 new pending candidates, 2 surviving hold-non-active.
+
+### ✅ Fixed: telemetry test pollution
+`tests/funnel-metrics.test.ts` was writing test data (`q`/`x`/`y` rows) directly into the real production telemetry logs at `audit/telemetry/*.jsonl` — the `HERMES_TELEMETRY_DIR` env var was never set in the test despite the comment claiming it was. Fixed: tests now use `vi.resetModules()` + dynamic import with a throwaway temp dir. Polluted artifacts (5 query + 5 provider rows) were cleaned. All 222 tests pass.
+
+### ✅ Fixed: pre-existing typecheck error in observation-report test
+`tests/observation-report.test.ts:44` had a direct `globalThis as Record<...>` cast that TypeScript rejected (missing `unknown` intermediate). Fixed with `as unknown as { __obsPaths: ... }`. Now `tsc --noEmit` passes clean.
+
+### ✅ New: Tavily 26-key rotation pool
+The Tavily discovery provider now supports a **26-key rotation pool** via `TAVILY_API_KEYS` (comma-separated env var), with round-robin distribution and **429 failover**: if a key returns rate-limited, the provider automatically retries with the next key before giving up. Also supports legacy `TAVILY_API_KEY` (single) and `TAVILY_API_KEY_1..N` (numbered). The GitHub secret `TAVILY_API_KEYS` is set with all 26 keys; the workflow passes it as an env var. Verified live: pool loads, search returns results.
+
+### ⚠️ Open: Gemini API quota
+The `GEMINI_API_KEY` was added to repo secrets, but the first CI run got HTTP 429 on every Gemini call (`RESOURCE_EXHAUSTED`). The key works locally (all 3 model variants respond). The issue is likely a transient free-tier quota limit (RPM/RPD) — the key works now. The provider has `continue-on-error: true`, so the pipeline doesn't fail, but classification quality degrades when Gemini is unavailable. Fix: (a) re-run the workflow later when quota resets, (b) or generate a fresh key at aistudio.google.com.
+
+### Data state (post-Aug-20 run)
+- **Pending: 2** — Admission Hackers [SAT Prep] (discord, 13,993 members, active) + crackd - sat & act prep (discord, 28,517 members, active)
+- **Held: 15** — 12 with unknown links (10 Telegram, 2 Discord — unverifiable from this network), 1 dead, 2 active-but-generic (non-exam study)
+- **Published: 0** — auto-publish still disabled for observation phase
+- **Rejected candidates: 178** (all wrong-niche — 96/101 in today's run; query quality improvement is a recommendation below)
 
 ---
 
@@ -42,7 +67,7 @@
 
 ### B. Live verification snapshot
 - **Build gates:** typecheck PASS · lint PASS · **tests 222/222** · validate-data PASS · build 78 pages
-- **Live data:** published = 0 · pending = 1 (Admission Hackers [SAT Prep], discord, active) · held = 11 · rejected = 82
+- **Live data:** published = 0 · pending = 2 (Admission Hackers [SAT Prep], crackd - sat & act prep — both discord, active) · held = 15 · rejected = 178
 - **Live site:** homepage HTTP 200, SAT exam page `noindex`, 13 sitemap URLs, 0 old-niche hits
 
 ---
@@ -158,10 +183,10 @@ git push origin main                             # triggers Netlify deploy
 | `AGENTS.md` | Engineering constitution (study-prep niche, strict rules) |
 | `docs/POST-CONVERSION-INTEGRITY-AUDIT.md` | Full 36-item audit evidence |
 | `docs/CONVERSION-STATUS.md` | Original conversion status |
-| `src/data/pending-groups.json` | The 1 held-for-approval record |
-| `src/data/held-groups.json` | 11 held/rejected records w/ reasons |
+| `src/data/pending-groups.json` | The 2 held-for-approval records |
+| `src/data/held-groups.json` | 15 held/rejected records w/ reasons |
 | `src/data/groups.json` | Published listings (currently empty) |
-| `src/data/rejected-candidates.json` | 82 rejected (gitignored? no — tracked) |
+| `src/data/rejected-candidates.json` | 178 rejected (gitignored? no — tracked) |
 | `audit/telemetry/*.jsonl` | Observation data (**gitignored** — regenerates) |
 | `scripts/data/holdNonActive.ts` | Enforces pending = active-only |
 | `scripts/audit/observationReport.ts` | 7-day yield metrics (item #31) |
