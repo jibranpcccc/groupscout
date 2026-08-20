@@ -753,5 +753,1051 @@
     "published": false,
     "linkCheckFailures": 0,
     "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1ezmg7-a2ovi8",
+    "slug": "discord-sat-preparation-992867137238618274",
+    "title": "SAT Preparation",
+    "platform": "discord",
+    "vertical": "study-prep",
+    "category": "college-admissions",
+    "subcategory": null,
+    "tags": [
+      "sat",
+      "sat prep",
+      "practice tests"
+    ],
+    "examFamilies": [
+      "college-admissions"
+    ],
+    "exams": [
+      "sat"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion",
+      "practice-questions",
+      "peer-support"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://discord.com/invite/sat-preparation-992867137238618274",
+    "description": "SAT Preparation Discord community offering expert tips, practice tests, and a supportive community to help members crack the SAT.",
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:09:20.243Z",
+    "sourceUrls": [
+      "https://discord.com/invite/sat-preparation-992867137238618274"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:05:40.711Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 1,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1ezo12-cbaro7",
+    "slug": "telegram-indiashastra",
+    "title": "indiashastra",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "general-study",
+    "subcategory": null,
+    "tags": [
+      "UPSC",
+      "study group",
+      "aspirants"
+    ],
+    "examFamilies": [
+      "general-study"
+    ],
+    "exams": [],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/indiashastra",
+    "description": "Study group for UPSC Aspirants on Discord and Telegram.",
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:09:20.243Z",
+    "sourceUrls": [
+      "https://t.me/s/indiashastra?before=568"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:05:42.758Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1f07vg-dg54ch",
+    "slug": "telegram-abusat-760",
+    "title": "DigitSAT💻",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "college-admissions",
+    "subcategory": null,
+    "tags": [
+      "sat",
+      "digitSAT"
+    ],
+    "examFamilies": [
+      "college-admissions"
+    ],
+    "exams": [
+      "sat"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/abusat_760",
+    "description": "Telegram community for DigitSAT prep, featuring study tips such as strict timing and practice guidelines.",
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:09:20.243Z",
+    "sourceUrls": [
+      "https://t.me/s/abusat_760?before=453"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:06:08.476Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1f23sy-7zedqk",
+    "slug": "discord-study",
+    "title": "Study Together",
+    "platform": "discord",
+    "vertical": "study-prep",
+    "category": "general-study",
+    "subcategory": null,
+    "tags": [
+      "study",
+      "productivity",
+      "study-group"
+    ],
+    "examFamilies": [
+      "general-study"
+    ],
+    "exams": [],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion",
+      "study-group"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://discord.com/invite/study",
+    "description": "Study Together ♫ is a large study and productivity server on Discord for studying live with others via camera, screenshare, or chat.",
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "active",
+    "lastCheckedAt": "2026-08-20T11:09:20.243Z",
+    "sourceUrls": [
+      "https://discord.com/invite/study"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:07:36.514Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "discordGuildId": "595999872222756885",
+    "heldReason": "generic study/accountability, no exam/cert focus"
+  },
+  {
+    "id": "cand-mt1f26mp-de5077",
+    "slug": "telegram-ieltswithsanokulov",
+    "title": "Jo’rabek Sanokulov | IELTS",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "english-proficiency",
+    "subcategory": null,
+    "tags": [
+      "IELTS",
+      "reading tests",
+      "writing marathons",
+      "study"
+    ],
+    "examFamilies": [
+      "english-proficiency"
+    ],
+    "exams": [
+      "ielts"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion",
+      "resources"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/ieltswithsanokulov",
+    "description": "Telegram study community for IELTS preparation, offering writing marathons, reading tests, and study materials.",
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:09:20.243Z",
+    "sourceUrls": [
+      "https://t.me/s/IELTSwithSANOKULOV?before=6826"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:07:40.177Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1f286i-dmei8p",
+    "slug": "telegram-cambridgematerials",
+    "title": "Cambridge IELTS practice |Official™",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "english-proficiency",
+    "subcategory": null,
+    "tags": [
+      "IELTS",
+      "practice"
+    ],
+    "examFamilies": [
+      "english-proficiency"
+    ],
+    "exams": [
+      "ielts"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "practice-questions"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/cambridgematerials",
+    "description": "Cambridge IELTS practice |Official™ is a Telegram community focused on IELTS exam practice.",
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:09:20.243Z",
+    "sourceUrls": [
+      "https://t.me/s/cambridgematerials/966"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:07:42.186Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1f29wi-1bjjc4",
+    "slug": "telegram-ielts-8",
+    "title": "IELTS Academy – Telegram",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "english-proficiency",
+    "subcategory": null,
+    "tags": [
+      "ielts",
+      "practice-questions",
+      "test"
+    ],
+    "examFamilies": [
+      "english-proficiency"
+    ],
+    "exams": [
+      "ielts"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "practice-questions",
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/ielts_8",
+    "description": "IELTS Academy is a Telegram study community that provides test practice and questions for IELTS candidates.",
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:09:20.243Z",
+    "sourceUrls": [
+      "https://t.me/s/IELTS_8?before=5595"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:07:44.418Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1f2qgf-m9es1d",
+    "slug": "telegram-forielts",
+    "title": "IELTS Resources – Telegram",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "english-proficiency",
+    "subcategory": null,
+    "tags": [
+      "IELTS",
+      "English",
+      "test preparation",
+      "resources"
+    ],
+    "examFamilies": [
+      "english-proficiency"
+    ],
+    "exams": [
+      "ielts"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "resources"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/forielts",
+    "description": "Telegram channel providing IELTS resources and test preparation materials.",
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:09:20.243Z",
+    "sourceUrls": [
+      "https://t.me/s/forielts?before=36"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:08:05.871Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1f2uhj-prviq6",
+    "slug": "telegram-ieltsupdatesandrecentexams",
+    "title": "IELTS Updates And Recent Exams",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "english-proficiency",
+    "subcategory": null,
+    "tags": [
+      "ielts",
+      "ielts updates",
+      "ielts listening",
+      "practice-questions"
+    ],
+    "examFamilies": [
+      "english-proficiency"
+    ],
+    "exams": [
+      "ielts"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion",
+      "practice-questions"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/ieltsupdatesandrecentexams",
+    "description": "Telegram community for IELTS updates, recent exams, and IELTS listening tests with answers.",
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:09:20.243Z",
+    "sourceUrls": [
+      "https://t.me/s/ieltsupdatesandrecentexams?before=9654"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:08:11.095Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1f30xz-p6auab",
+    "slug": "telegram-medicine-youtube",
+    "title": "Youtube Medical Videos by MEDIROBOT",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "medical-healthcare",
+    "subcategory": null,
+    "tags": [
+      "medicine",
+      "subject tests",
+      "discussions",
+      "medical videos"
+    ],
+    "examFamilies": [
+      "medical-healthcare"
+    ],
+    "exams": [],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion",
+      "study-group"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/medicine_youtube",
+    "description": "Youtube Medical Videos by MEDIROBOT Telegram community featuring 19 subject tests and discussions designed for exam preparation.",
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:09:20.243Z",
+    "sourceUrls": [
+      "https://t.me/s/Medicine_Youtube?after=18832"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:08:19.463Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1f32jo-q9r2dq",
+    "slug": "telegram-usmle-facts",
+    "title": "USMLE FACTS",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "medical-healthcare",
+    "subcategory": null,
+    "tags": [
+      "usmle",
+      "step1",
+      "medical students",
+      "exam experience"
+    ],
+    "examFamilies": [
+      "medical-healthcare"
+    ],
+    "exams": [
+      "usmle"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": "Step 1",
+    "inviteUrl": "https://t.me/usmle_facts",
+    "description": "USMLE FACTS channel for studying and sharing experiences for the USMLE STEP 1 exam.",
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:09:20.243Z",
+    "sourceUrls": [
+      "https://t.me/s/usmle_facts?before=5487"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:08:21.540Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1f346i-0jwcw7",
+    "slug": "telegram-pathoma-videos",
+    "title": "Pathoma Videos",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "medical-healthcare",
+    "subcategory": null,
+    "tags": [
+      "AMC exam",
+      "question banks",
+      "exam prep",
+      "Pathoma"
+    ],
+    "examFamilies": [
+      "medical-healthcare"
+    ],
+    "exams": [],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "practice-questions"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/pathoma_videos",
+    "description": "Pathoma Videos 2026 — MPlusX: Study community offering question banks tailored for the AMC exam.",
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:09:20.243Z",
+    "sourceUrls": [
+      "https://t.me/s/Pathoma_Videos?before=899"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:08:23.658Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1f35sv-7dp2op",
+    "slug": "telegram-usmle-fa-uw",
+    "title": "usmle_fa_uw",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "medical-healthcare",
+    "subcategory": null,
+    "tags": [
+      "usmle",
+      "step 1",
+      "first aid",
+      "uworld"
+    ],
+    "examFamilies": [
+      "medical-healthcare"
+    ],
+    "exams": [
+      "usmle"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion",
+      "resources"
+    ],
+    "examLevel": "Step 1",
+    "inviteUrl": "https://t.me/usmle_fa_uw",
+    "description": "Telegram community focused on USMLE Step 1 prep, featuring First Aid book & videos, progress trackers for Videos, First Aid, UWorld, and Anki.",
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:09:20.243Z",
+    "sourceUrls": [
+      "https://t.me/s/usmle_fa_uw?before=181"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:08:25.759Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1f3iii-8ml5sx",
+    "slug": "telegram-clatprepeducation",
+    "title": "ClatPrep",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "general-study",
+    "subcategory": null,
+    "tags": [
+      "CLAT",
+      "CLAT 2027",
+      "CLAT 2028",
+      "Clat Mocks"
+    ],
+    "examFamilies": [
+      "general-study"
+    ],
+    "exams": [],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "practice-questions"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/clatprepeducation",
+    "description": "ClatPrep is a study community offering CLAT mocks for CLAT 2027 and CLAT 2028 with in-depth analysis and video solutions.",
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:09:20.243Z",
+    "sourceUrls": [
+      "https://t.me/s/clatprepeducation?before="
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:08:42.234Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1f3k3w-lal0gl",
+    "slug": "telegram-cpa-usa",
+    "title": "2026 CPA USA exams",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "finance-accounting",
+    "subcategory": null,
+    "tags": [
+      "cpa",
+      "cpa usa",
+      "aicpa",
+      "exam preparation"
+    ],
+    "examFamilies": [
+      "finance-accounting"
+    ],
+    "exams": [
+      "cpa"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": "AICPA",
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/cpa_usa",
+    "description": "Telegram support group for CPA aspirants and candidates preparing for CPA USA exams, conducted by the American Institute of Certified Public Accountants (AICPA).",
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:09:20.243Z",
+    "sourceUrls": [
+      "https://t.me/CPA_USA"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:08:44.300Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1f3lor-4mskij",
+    "slug": "telegram-cpaexamstudy",
+    "title": "@cpaexamstudy",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "finance-accounting",
+    "subcategory": null,
+    "tags": [
+      "cpa",
+      "cpa exam",
+      "cpa study material",
+      "becker",
+      "wiley",
+      "roger"
+    ],
+    "examFamilies": [
+      "finance-accounting"
+    ],
+    "exams": [
+      "cpa"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion",
+      "resources"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/cpaexamstudy",
+    "description": "USA CPA exam study group offering CPA study material and CPA Review Courses including Becker, Wiley, and Roger accounts.",
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:09:20.243Z",
+    "sourceUrls": [
+      "https://t.me/cpaexamstudy"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:08:46.347Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1f3n9w-5pxwr7",
+    "slug": "telegram-cpa0722127983",
+    "title": "KCE CPA college",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "finance-accounting",
+    "subcategory": null,
+    "tags": [
+      "cpa",
+      "study rooms",
+      "discussion groups",
+      "live classes"
+    ],
+    "examFamilies": [
+      "finance-accounting"
+    ],
+    "exams": [
+      "cpa"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/cpa0722127983",
+    "description": "KCE CPA college Telegram channel offering study rooms, consultation opportunities, new app videos, discussion groups, and live classes.",
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:09:20.243Z",
+    "sourceUrls": [
+      "https://t.me/s/CPA0722127983?before=80"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:08:48.404Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1f3ozt-snmcwh",
+    "slug": "telegram-accastudents",
+    "title": "ACCA Study Material",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "finance-accounting",
+    "subcategory": null,
+    "tags": [
+      "acca",
+      "study material"
+    ],
+    "examFamilies": [
+      "finance-accounting"
+    ],
+    "exams": [
+      "acca"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "resources"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/accastudents",
+    "description": "Telegram community providing ACCA study material and sharing job opportunities for candidates.",
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:09:20.243Z",
+    "sourceUrls": [
+      "https://t.me/s/accastudents?before=1890"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:08:50.632Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1f3qml-pihpni",
+    "slug": "telegram-cpabecker",
+    "title": "CPA Becker",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "finance-accounting",
+    "subcategory": null,
+    "tags": [
+      "cpa exam",
+      "cpa review questions",
+      "study materials",
+      "peer support"
+    ],
+    "examFamilies": [
+      "finance-accounting"
+    ],
+    "exams": [
+      "cpa"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion",
+      "study-group",
+      "practice-questions",
+      "resources",
+      "peer-support"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/cpabecker",
+    "description": "CPA Becker community providing study materials, peer connection, and 1000 free CPA review questions to help prepare for and pass the CPA exam.",
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:09:20.243Z",
+    "sourceUrls": [
+      "https://t.me/s/cpabecker?before=12"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:08:52.749Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1f3sav-g3xtx9",
+    "slug": "telegram-praveenkhatod",
+    "title": "CA,CFA(USA),CPA(USA) Praveen Khatod🇮🇳 – Telegram",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "finance-accounting",
+    "subcategory": null,
+    "tags": [
+      "cfa",
+      "cfa level 1",
+      "cpa"
+    ],
+    "examFamilies": [
+      "finance-accounting"
+    ],
+    "exams": [
+      "cfa",
+      "cpa"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "resources"
+    ],
+    "examLevel": "Level 1",
+    "inviteUrl": "https://t.me/praveenkhatod",
+    "description": "Telegram channel providing CFA Level 1, 2, and 3 videos and CFA L1 lectures covering the entire CFA curriculum by Praveen Khatod.",
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:09:20.243Z",
+    "sourceUrls": [
+      "https://t.me/s/praveenkhatod?before=366"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:08:54.919Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1f3ty4-z8clfi",
+    "slug": "telegram-sfmca",
+    "title": "EduInvest™ Academy",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "general-study",
+    "subcategory": null,
+    "tags": [
+      "live Q&A",
+      "group discussions",
+      "practice questions",
+      "mock exams"
+    ],
+    "examFamilies": [
+      "general-study"
+    ],
+    "exams": [],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion",
+      "study-group",
+      "practice-questions"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/sfmca",
+    "description": "EduInvest™ Academy offers interactive learning with live Q&A sessions, group discussions, practice questions, and mock exams.",
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:09:20.243Z",
+    "sourceUrls": [
+      "https://t.me/s/SFMCA?before=518"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:08:57.052Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
   }
 ]
