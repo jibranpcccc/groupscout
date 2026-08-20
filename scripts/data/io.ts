@@ -40,7 +40,20 @@ export function loadPublished(): { id: string }[] {
 }
 
 export function loadPending(): { id: string }[] {
-  return loadJson('pending-groups.json');
+  try {
+    return loadJson<{ id: string }[]>('pending-groups.json');
+  } catch {
+    return [];
+  }
+}
+
+/** Held records (observation-phase non-active / generic queue, append-only). */
+export function loadHeld(): { id: string }[] {
+  try {
+    return loadJson<{ id: string }[]>('held-groups.json');
+  } catch {
+    return [];
+  }
 }
 
 export function loadSeeds(): unknown[] {

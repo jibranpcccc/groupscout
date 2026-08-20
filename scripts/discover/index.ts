@@ -34,6 +34,7 @@ import { dedupeCandidates } from '../data/deduplicate';
 import {
   loadPublished,
   loadPending,
+  loadHeld,
   writeJsonAtomic,
   appendRejectedCandidates,
   type RejectedCandidateEntry,
@@ -149,7 +150,8 @@ async function run(): Promise<void> {
 
   const published = loadPublished() as Community[];
   const pending = loadPending() as Community[];
-  log('discover', `existing data: ${published.length} published, ${pending.length} pending`);
+  const held = loadHeld() as Community[];
+  log('discover', `existing data: ${published.length} published, ${pending.length} pending, ${held.length} held`);
 
   const analytics = newAnalytics();
 
@@ -267,7 +269,7 @@ async function run(): Promise<void> {
   }
 
   // ---- Deduplicate against existing data ----
-  const { unique, duplicates, ambiguous } = dedupeCandidates(candidates, [...published, ...pending]);
+  const { unique, duplicates, ambiguous } = dedupeCandidates(candidates, [...published, ...pending, ...held]);
   analytics.duplicates = duplicates.length;
   analytics.ambiguous = ambiguous.length;
   // Best-effort per-query attribution for the dedupe stage.
