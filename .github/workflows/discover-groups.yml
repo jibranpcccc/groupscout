@@ -41,9 +41,11 @@ jobs:
       GEMINI_MODEL: gemini-3.5-flash-lite
       GEMINI_SEARCH_ENABLED: true
       TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+      TAVILY_API_KEYS: ${{ secrets.TAVILY_API_KEYS }}
       BRAVE_API_KEY: ${{ secrets.BRAVE_API_KEY }}
-      # Budget math: ~25 queries/day ≈ 750 Tavily credits/month (free tier
-      # is 1,000/mo). Keeps the daily cost at $0 with headroom.
+      # Budget math: ~25 queries/day. TAVILY_API_KEYS holds a 26-key pool
+      # in round-robin (26,000 credits/month across keys) — the daily run
+      # rotates through keys and fails over on 429, so quota never stops it.
       DISCOVERY_MAX_QUERIES: 25
       DISCOVERY_MAX_CANDIDATES: 120
       AUTO_PUBLISH_DISCOVERED: false

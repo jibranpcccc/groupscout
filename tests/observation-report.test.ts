@@ -41,7 +41,7 @@ describe('computeObservationMetrics — yield metrics (item #31)', () => {
   });
 
   const metrics = () => {
-    const { queryPath, providerPath } = (globalThis as Record<string, { queryPath: string; providerPath: string }>).__obsPaths;
+    const { queryPath, providerPath } = (globalThis as unknown as { __obsPaths: { queryPath: string; providerPath: string } }).__obsPaths;
     return computeObservationMetrics(undefined, undefined, queryPath, providerPath);
   };
 
