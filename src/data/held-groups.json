@@ -1451,5 +1451,1139 @@
     "published": false,
     "linkCheckFailures": 0,
     "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1g5du6-lc8934",
+    "slug": "telegram-jeesimplified",
+    "title": "JEE SIMPLIFIED 🧠 – Telegram — JEE SIMPLIFIED 🧠",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "general-study",
+    "subcategory": null,
+    "tags": [
+      "study"
+    ],
+    "examFamilies": [
+      "general-study"
+    ],
+    "exams": [],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/jeesimplified",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:39:14.387Z",
+    "sourceUrls": [
+      "https://t.me/s/jeesimplified?before=106"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:38:09.102Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1g5h6o-3kfz47",
+    "slug": "telegram-dravidianlanguage",
+    "title": "Dravidian Languages Channel – Telegram — 1",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "general-study",
+    "subcategory": null,
+    "tags": [
+      "study"
+    ],
+    "examFamilies": [
+      "general-study"
+    ],
+    "exams": [],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/dravidianlanguage",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:39:14.387Z",
+    "sourceUrls": [
+      "https://t.me/s/dravidianlanguage?before=132"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:38:13.440Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1g5k5r-41xedp",
+    "slug": "telegram-gaurav-sir-physics",
+    "title": "Gaurav Gupta NEET Physics",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "medical-healthcare",
+    "subcategory": null,
+    "tags": [
+      "NEET",
+      "physics",
+      "exam strategy"
+    ],
+    "examFamilies": [
+      "medical-healthcare"
+    ],
+    "exams": [],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "exam-strategy"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/gaurav_sir_physics",
+    "description": "A study community featuring NEET physics preparation, paper attempting strategies, and discussions with NEET toppers by Gaurav Gupta (GG Sir).",
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:39:14.387Z",
+    "sourceUrls": [
+      "https://t.me/s/Gaurav_sir_Physics?before=8249"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:38:17.295Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1g5sek-eoh0yw",
+    "slug": "telegram-czmgroup",
+    "title": "Career Zone Moga IELTS Group – Telegram — 🗣️ \\Speaking Interview\\",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "english-proficiency",
+    "subcategory": null,
+    "tags": [
+      "IELTS"
+    ],
+    "examFamilies": [
+      "english-proficiency"
+    ],
+    "exams": [
+      "ielts"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/czmgroup",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:39:14.387Z",
+    "sourceUrls": [
+      "https://t.me/s/czmgroup?before=10277"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:38:27.980Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1g5tku-3j0ocp",
+    "slug": "telegram-study-abroad-ymgrad",
+    "title": "YMGrad",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "graduate-admissions",
+    "subcategory": null,
+    "tags": [
+      "GRE",
+      "GMAT",
+      "IELTS",
+      "TOEFL"
+    ],
+    "examFamilies": [
+      "graduate-admissions",
+      "english-proficiency",
+      "medical-healthcare",
+      "law"
+    ],
+    "exams": [
+      "gre",
+      "gmat",
+      "ielts",
+      "toefl",
+      "mcat",
+      "lsat"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/study_abroad_ymgrad",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:39:14.387Z",
+    "sourceUrls": [
+      "https://t.me/s/study_abroad_ymgrad?before=81"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:38:29.501Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1g5ui8-fm4zbf",
+    "slug": "telegram-indianaiproduction",
+    "title": "Indian AI Production – Telegram — Please keep patience, I will share all study material related \"Complete learning road",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "general-study",
+    "subcategory": null,
+    "tags": [
+      "study"
+    ],
+    "examFamilies": [
+      "general-study"
+    ],
+    "exams": [],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/indianaiproduction",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:39:14.387Z",
+    "sourceUrls": [
+      "https://t.me/s/IndianAIProduction?before=168"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:38:30.704Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1g5w9s-fdlq1e",
+    "slug": "telegram-reobatch5",
+    "title": "REO MAY 2023 – Telegram — LIVE WEEKEND LECTURES PLUS ZERO-BASED PRE-RECORDED LECTURES",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "general-study",
+    "subcategory": null,
+    "tags": [
+      "study"
+    ],
+    "examFamilies": [
+      "general-study"
+    ],
+    "exams": [],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/reobatch5",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:39:14.387Z",
+    "sourceUrls": [
+      "https://t.me/s/reobatch5"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:38:32.992Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1g5xs0-2bnw3w",
+    "slug": "discord-dtf4uqpdzq",
+    "title": "Join the Professor Messer Discord Server",
+    "platform": "discord",
+    "vertical": "study-prep",
+    "category": "general-study",
+    "subcategory": null,
+    "tags": [
+      "study"
+    ],
+    "examFamilies": [
+      "general-study"
+    ],
+    "exams": [],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://discord.com/invite/dtf4uQPDZq",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "active",
+    "lastCheckedAt": "2026-08-20T11:39:14.387Z",
+    "sourceUrls": [
+      "https://discord.com/invite/dtf4uQPDZq"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:38:34.944Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "discordGuildId": "524045675848269845",
+    "heldReason": "generic study/accountability, no exam/cert focus"
+  },
+  {
+    "id": "cand-mt1g5ype-fkv2ue",
+    "slug": "telegram-cissp",
+    "title": "cissp – Telegram — 16",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "cybersecurity-certifications",
+    "subcategory": null,
+    "tags": [
+      "CISSP"
+    ],
+    "examFamilies": [
+      "cybersecurity-certifications"
+    ],
+    "exams": [
+      "cissp"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/cissp",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:39:14.387Z",
+    "sourceUrls": [
+      "https://t.me/s/cissp?after=7149"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:38:36.146Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1g60o2-7ti0c7",
+    "slug": "telegram-freeonlinecourses-paid-to-free",
+    "title": "Free Online Courses – Telegram — CISSP Certification: Practice Exams (2024 Exam Updates)",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "cybersecurity-certifications",
+    "subcategory": null,
+    "tags": [
+      "CISSP"
+    ],
+    "examFamilies": [
+      "cybersecurity-certifications"
+    ],
+    "exams": [
+      "cissp"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/freeonlinecourses_paid_to_free",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:39:14.387Z",
+    "sourceUrls": [
+      "https://t.me/s/freeonlinecourses_paid_to_free?before=69141"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:38:38.690Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1g61lg-4whlkx",
+    "slug": "telegram-cisspknights",
+    "title": "View @cisspknights — Download",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "cybersecurity-certifications",
+    "subcategory": null,
+    "tags": [
+      "CISSP"
+    ],
+    "examFamilies": [
+      "cybersecurity-certifications"
+    ],
+    "exams": [
+      "cissp"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/cisspknights",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:39:14.387Z",
+    "sourceUrls": [
+      "https://t.me/s/cisspknights"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:38:39.892Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1g62iu-zb28j7",
+    "slug": "telegram-oscplatestcybersecuritycourses",
+    "title": "OSCP+ | OSEP | OSWE | CRTP | CRTE | CRTO | CPTS | eJPT — OSCP+ | OSEP | OSWE | CRTP | CRTE | CRTO | CPTS | eJPT | eCPPT",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "cybersecurity-certifications",
+    "subcategory": null,
+    "tags": [
+      "CompTIA Security+",
+      "CEH",
+      "OSCP"
+    ],
+    "examFamilies": [
+      "cybersecurity-certifications"
+    ],
+    "exams": [
+      "security-plus",
+      "ceh",
+      "oscp"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/oscplatestcybersecuritycourses",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:39:14.387Z",
+    "sourceUrls": [
+      "https://t.me/s/oscplatestcybersecuritycourses?before=1577"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:38:41.094Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1g675t-4vnu0v",
+    "slug": "telegram-spotopmpclub",
+    "title": "SPOTO PMP Study Group — [](",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "project-management",
+    "subcategory": null,
+    "tags": [
+      "PMP"
+    ],
+    "examFamilies": [
+      "project-management"
+    ],
+    "exams": [
+      "pmp"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/spotopmpclub",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:39:14.387Z",
+    "sourceUrls": [
+      "https://t.me/spotopmpclub"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:38:47.105Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1g6837-p183h8",
+    "slug": "telegram-pmpstudygroup",
+    "title": "Telegram: View @pmpstudygroup — Download",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "project-management",
+    "subcategory": null,
+    "tags": [
+      "PMP"
+    ],
+    "examFamilies": [
+      "project-management"
+    ],
+    "exams": [
+      "pmp"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/pmpstudygroup",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:39:14.387Z",
+    "sourceUrls": [
+      "https://t.me/pmpstudygroup"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:38:48.307Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1g690m-e1pq09",
+    "slug": "telegram-knowledgemap",
+    "title": "𝗞𝗻𝗼𝘄𝗹𝗲𝗱𝗴𝗲𝗠𝗮𝗽 – Telegram — Join Our September PMP Certification Preparation Group",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "project-management",
+    "subcategory": null,
+    "tags": [
+      "PMP"
+    ],
+    "examFamilies": [
+      "project-management"
+    ],
+    "exams": [
+      "pmp"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/knowledgemap",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:39:14.387Z",
+    "sourceUrls": [
+      "https://t.me/s/knowledgemap?before=2154"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:38:49.510Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1g6avd-c0f217",
+    "slug": "telegram-certibanks-2",
+    "title": "CertiBanks — 🎯 PRINCE2 Practitioner Course > Coming soon 👑",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "project-management",
+    "subcategory": null,
+    "tags": [
+      "PMP",
+      "CAPM",
+      "PRINCE2"
+    ],
+    "examFamilies": [
+      "project-management"
+    ],
+    "exams": [
+      "pmp",
+      "capm",
+      "prince2"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/certibanks",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:39:14.387Z",
+    "sourceUrls": [
+      "https://t.me/s/certibanks?before=63"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:38:51.913Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1g6bsr-vc77ma",
+    "slug": "telegram-sat-files",
+    "title": "View @SAT_files — Download",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "college-admissions",
+    "subcategory": null,
+    "tags": [
+      "SAT"
+    ],
+    "examFamilies": [
+      "college-admissions"
+    ],
+    "exams": [
+      "sat"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/sat_files",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:39:14.387Z",
+    "sourceUrls": [
+      "https://t.me/SAT_files"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:38:53.115Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1g6cq5-r39t8p",
+    "slug": "telegram-dsatfreematerials",
+    "title": "FREE DIGITAL SAT RESOURES — If you have Telegram, you can view and join FREE DIGITAL SAT RESOURES right away",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "college-admissions",
+    "subcategory": null,
+    "tags": [
+      "SAT"
+    ],
+    "examFamilies": [
+      "college-admissions"
+    ],
+    "exams": [
+      "sat"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/dsatfreematerials",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:39:14.387Z",
+    "sourceUrls": [
+      "https://t.me/dsatfreematerials"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:38:54.317Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1g6dnk-hoakrl",
+    "slug": "telegram-dsatuz",
+    "title": "DSATuz | Preparing for the SAT — 2 FULL DIGITIAL SAT PRACTICE TESTS📕 ❗️Sharing is caring🎯 ♻️ Share with your friends ♻",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "college-admissions",
+    "subcategory": null,
+    "tags": [
+      "SAT"
+    ],
+    "examFamilies": [
+      "college-admissions"
+    ],
+    "exams": [
+      "sat"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/dsatuz/1427",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:39:14.387Z",
+    "sourceUrls": [
+      "https://t.me/DSATuz/1427"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:38:55.520Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1g6ekx-6qopgf",
+    "slug": "telegram-sat-makon",
+    "title": "Telegram: View @sat_makon — 📖 | Premier SAT/AP prep for elite students Most SAT 1500+ students in Central Eurasia (200x",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "college-admissions",
+    "subcategory": null,
+    "tags": [
+      "SAT"
+    ],
+    "examFamilies": [
+      "college-admissions"
+    ],
+    "exams": [
+      "sat"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/sat_makon",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:39:14.387Z",
+    "sourceUrls": [
+      "https://t.me/sat_makon"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:38:56.721Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1g6fib-32or1u",
+    "slug": "telegram-studygroupbro",
+    "title": "Study Group — If you have Telegram, you can view and join Study Group right away",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "general-study",
+    "subcategory": null,
+    "tags": [
+      "study"
+    ],
+    "examFamilies": [
+      "general-study"
+    ],
+    "exams": [],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/studygroupbro",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:39:14.387Z",
+    "sourceUrls": [
+      "https://t.me/studygroupbro"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:38:57.923Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1g6gfq-d3b1ei",
+    "slug": "telegram-dsatuz-2",
+    "title": "DSATuz | TopTierPrep | ACE your exam — Assalomu alaykum 👋 The best channel for preparing the SAT✅ @DSATuzresults our su",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "college-admissions",
+    "subcategory": null,
+    "tags": [
+      "SAT"
+    ],
+    "examFamilies": [
+      "college-admissions"
+    ],
+    "exams": [
+      "sat"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/dsatuz",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:39:14.387Z",
+    "sourceUrls": [
+      "https://t.me/DSATuz"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:38:59.126Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1g6hd3-3o5ifp",
+    "slug": "telegram-satashkent",
+    "title": "SATashkent | College Prep Community – Telegram — SAT | AP | Free Admission Support 🏫4x Branches + Online ↗️Students' Me",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "college-admissions",
+    "subcategory": null,
+    "tags": [
+      "SAT"
+    ],
+    "examFamilies": [
+      "college-admissions"
+    ],
+    "exams": [
+      "sat"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/satashkent",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:39:14.387Z",
+    "sourceUrls": [
+      "https://t.me/s/satashkent"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:39:00.327Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1g6iah-0nr4dg",
+    "slug": "telegram-studystark",
+    "title": "Study Stark — If you’re here, you’re different",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "general-study",
+    "subcategory": null,
+    "tags": [
+      "study"
+    ],
+    "examFamilies": [
+      "general-study"
+    ],
+    "exams": [],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/studystark",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T11:39:14.387Z",
+    "sourceUrls": [
+      "https://t.me/studystark"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:39:01.529Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
   }
 ]
