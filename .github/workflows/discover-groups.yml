@@ -77,6 +77,12 @@ jobs:
         # so dead invites are flagged. Observation phase: no auto-publish.
         run: npm run validate-links
 
+      - name: Dedupe pending by Discord guild id
+        # Invite codes rotate — the same guild can appear via 2-4 different
+        # codes in one run. Guild ids are only known after validation, so
+        # this second dedupe pass collapses same-guild pending records.
+        run: npm run dedupe-pending
+
       - name: Hold non-active pending candidates
         # Observation-phase audit item #4: the normal pending queue must
         # contain ONLY linkStatus==='active' candidates with explicit exam/cert
