@@ -40,7 +40,7 @@
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
     "linkStatus": "active",
-    "lastCheckedAt": "2026-08-20T07:12:06.089Z",
+    "lastCheckedAt": "2026-08-20T10:12:03.641Z",
     "sourceUrls": [
       "https://discord.com/invite/z3y3e39n9h"
     ],
@@ -52,5 +52,56 @@
     "published": false,
     "linkCheckFailures": 0,
     "discordGuildId": "887542372756500500"
+  },
+  {
+    "id": "cand-mt1d1wqk-oj46xr",
+    "slug": "discord-crackd",
+    "title": "crackd - sat & act prep",
+    "platform": "discord",
+    "vertical": "study-prep",
+    "category": "college-admissions",
+    "subcategory": null,
+    "tags": [
+      "sat",
+      "act",
+      "sat prep",
+      "act prep"
+    ],
+    "examFamilies": [
+      "college-admissions"
+    ],
+    "exams": [
+      "sat",
+      "act"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://discord.com/invite/crackd",
+    "description": "crackd - sat & act prep is an active community for students preparing for the SAT and ACT exams.",
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "active",
+    "lastCheckedAt": "2026-08-20T10:12:03.641Z",
+    "sourceUrls": [
+      "https://discord.com/invite/crackd"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T10:11:28.124Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "discordGuildId": "1203797348019478528"
   }
 ]
