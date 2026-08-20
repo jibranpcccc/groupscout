@@ -37,8 +37,6 @@ jobs:
   discover:
     runs-on: ubuntu-latest
     env:
-      RUN_START: $(date -u +%Y-%m-%dT%H:%M:%SZ)
-      AUTO_APPROVE_SINCE: ${{ env.RUN_START }}
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       GEMINI_MODEL: gemini-3.5-flash-lite
       GEMINI_SEARCH_ENABLED: true
