@@ -2585,5 +2585,1135 @@
     "published": false,
     "linkCheckFailures": 0,
     "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1x4zqq-dtu6gw",
+    "slug": "telegram-okxannouncements",
+    "title": "OKX Announcements – Telegram — OKX Announcements",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "college-admissions",
+    "subcategory": null,
+    "tags": [
+      "ACT"
+    ],
+    "examFamilies": [
+      "college-admissions"
+    ],
+    "exams": [
+      "act"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/okxannouncements",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T19:34:42.146Z",
+    "sourceUrls": [
+      "https://t.me/s/OKXAnnouncements?before=5630"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T19:33:44.306Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1x50og-ja1e60",
+    "slug": "telegram-studyniti-smritisethi",
+    "title": "Studyniti- Study with Smriti – Telegram — Thus in the long term, the Act disincentives development of storage infrastruc",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "college-admissions",
+    "subcategory": null,
+    "tags": [
+      "ACT"
+    ],
+    "examFamilies": [
+      "college-admissions"
+    ],
+    "exams": [
+      "act"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/studyniti_smritisethi",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T19:34:42.146Z",
+    "sourceUrls": [
+      "https://www.t.me/s/studyniti_smritisethi?before=36"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T19:33:45.520Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1x592q-5lhmjx",
+    "slug": "telegram-jeenexus",
+    "title": "JEE Nexus — Join JEE Nexus 54",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "entrance-exams",
+    "subcategory": null,
+    "tags": [
+      "JEE"
+    ],
+    "examFamilies": [
+      "entrance-exams"
+    ],
+    "exams": [
+      "jee"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/jeenexus",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T19:34:42.146Z",
+    "sourceUrls": [
+      "https://t.me/s/JEEnexus?before=1818"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T19:33:56.402Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1x5a04-6wdgdn",
+    "slug": "telegram-jee-full-study-material",
+    "title": "View @JEE_Full_Study_Material — JEE Full Study Material Here ◇JEE Syllabus ◇JEE Mock Test ◇JEE Previous Year Question Pa",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "entrance-exams",
+    "subcategory": null,
+    "tags": [
+      "JEE"
+    ],
+    "examFamilies": [
+      "entrance-exams"
+    ],
+    "exams": [
+      "jee"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/jee_full_study_material",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T19:34:42.146Z",
+    "sourceUrls": [
+      "https://t.me/JEE_Full_Study_Material"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T19:33:57.604Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1x5axj-36ztow",
+    "slug": "telegram-sankalpnit",
+    "title": "Sankalp Jauhari IIT JEE gang — Prepare for IIT JEE with India's Best Online Test Series based on latest pattern",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "entrance-exams",
+    "subcategory": null,
+    "tags": [
+      "JEE"
+    ],
+    "examFamilies": [
+      "entrance-exams"
+    ],
+    "exams": [
+      "jee"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/sankalpnit",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T19:34:42.146Z",
+    "sourceUrls": [
+      "https://t.me/s/sankalpnit?before=4079"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T19:33:58.807Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1x5bux-w4akc8",
+    "slug": "telegram-jee-elevate",
+    "title": "JEE Elevate — Daily 1-on-1 Calls with an IITian mentor ✔️ Personalized timetable & strategy ✔️ Weekly progress tracking",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "entrance-exams",
+    "subcategory": null,
+    "tags": [
+      "JEE"
+    ],
+    "examFamilies": [
+      "entrance-exams"
+    ],
+    "exams": [
+      "jee"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/jee_elevate",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T19:34:42.146Z",
+    "sourceUrls": [
+      "https://t.me/s/JEE_Elevate?before=1804"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T19:34:00.009Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1x5csc-pez7pd",
+    "slug": "discord-jee-neet-gang-1043443094948954132",
+    "title": "JEE NEET GANG - Discord — JEE NEET GANG is a Discord study server that offers a platform for you to connect with other s",
+    "platform": "discord",
+    "vertical": "study-prep",
+    "category": "entrance-exams",
+    "subcategory": null,
+    "tags": [
+      "JEE",
+      "NEET"
+    ],
+    "examFamilies": [
+      "entrance-exams"
+    ],
+    "exams": [
+      "jee",
+      "neet"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://discord.com/invite/jee-neet-gang-1043443094948954132",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T19:34:42.146Z",
+    "sourceUrls": [
+      "https://discord.com/invite/jee-neet-gang-1043443094948954132"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T19:34:01.211Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 1,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1x5dpq-gu2ur5",
+    "slug": "discord-neet-fam-810850391004676096",
+    "title": "NEET FAM - Discord — Discord's one and all community for NEET UG, MBBS, NEET PG, JEE, Engeneering & more",
+    "platform": "discord",
+    "vertical": "study-prep",
+    "category": "entrance-exams",
+    "subcategory": null,
+    "tags": [
+      "JEE",
+      "NEET"
+    ],
+    "examFamilies": [
+      "entrance-exams"
+    ],
+    "exams": [
+      "jee",
+      "neet"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://discord.com/invite/neet-fam-810850391004676096",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T19:34:42.146Z",
+    "sourceUrls": [
+      "https://discord.com/invite/neet-fam-810850391004676096"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T19:34:02.414Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 1,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1x5fkj-26g2dk",
+    "slug": "discord-neet-labs-1098659349708157018",
+    "title": "NEET - Discord — It's the only NEET thing to do",
+    "platform": "discord",
+    "vertical": "study-prep",
+    "category": "entrance-exams",
+    "subcategory": null,
+    "tags": [
+      "NEET"
+    ],
+    "examFamilies": [
+      "entrance-exams"
+    ],
+    "exams": [
+      "neet"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://discord.com/invite/neet-labs-1098659349708157018",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T19:34:42.146Z",
+    "sourceUrls": [
+      "https://discord.com/invite/neet-labs-1098659349708157018"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T19:34:04.819Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 1,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1x5hag-twrwe1",
+    "slug": "telegram-ieltssspeaking",
+    "title": "IELTS SPEAKING PRACTICE — If you have Telegram, you can view and join IELTS SPEAKING PRACTICE right away",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "english-proficiency",
+    "subcategory": null,
+    "tags": [
+      "IELTS"
+    ],
+    "examFamilies": [
+      "english-proficiency"
+    ],
+    "exams": [
+      "ielts"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/ieltssspeaking",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T19:34:42.146Z",
+    "sourceUrls": [
+      "https://t.me/IeltsSspeaking"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T19:34:07.048Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1x5i7v-3rx6ty",
+    "slug": "telegram-english-group-links",
+    "title": "English Group Links – Telegram — 🛫 Smaller Groups with Nice Admins: @FRIENDS_CIRCLE_MAKE_FRIENDS https://t",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "english-proficiency",
+    "subcategory": null,
+    "tags": [
+      "IELTS"
+    ],
+    "examFamilies": [
+      "english-proficiency"
+    ],
+    "exams": [
+      "ielts"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/english_group_links",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T19:34:42.146Z",
+    "sourceUrls": [
+      "https://t.me/s/english_group_links?before=385"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T19:34:08.251Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1x5j59-7oi15w",
+    "slug": "telegram-ieltsfastrack",
+    "title": "FasTrack IELTS – Telegram — 🤩 Find an IELTS Speaking partner",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "english-proficiency",
+    "subcategory": null,
+    "tags": [
+      "IELTS"
+    ],
+    "examFamilies": [
+      "english-proficiency"
+    ],
+    "exams": [
+      "ielts"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/ieltsfastrack",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T19:34:42.146Z",
+    "sourceUrls": [
+      "https://t.me/s/IELTSFasTrack"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T19:34:09.453Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1x5k2m-mqmniv",
+    "slug": "telegram-ieltsxpressdotcom",
+    "title": "IELTSXpress",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "english-proficiency",
+    "subcategory": null,
+    "tags": [
+      "IELTS"
+    ],
+    "examFamilies": [
+      "english-proficiency"
+    ],
+    "exams": [
+      "ielts"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/ieltsxpressdotcom",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T19:34:42.146Z",
+    "sourceUrls": [
+      "https://t.me/s/ieltsxpressdotcom?q=#ieltsspeaking&before=1765"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T19:34:10.654Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1x5l00-6gd500",
+    "slug": "telegram-english-lugat",
+    "title": "anglizcha | IELTS – Telegram — \"Parenthetical words and phrases\" - \"Qo'shimcha so'zlar va iboralar\" 📚 1",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "english-proficiency",
+    "subcategory": null,
+    "tags": [
+      "IELTS"
+    ],
+    "examFamilies": [
+      "english-proficiency"
+    ],
+    "exams": [
+      "ielts"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/english_lugat",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T19:34:42.146Z",
+    "sourceUrls": [
+      "https://t.me/s/English_LUGAT?after=264"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T19:34:11.856Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1x5lxf-sw18hy",
+    "slug": "telegram-e2-ielts-videos",
+    "title": "E2 IELTS – Telegram — Useful channel to develop IELTS skills through videos If any questions: @IELTS_GO_bot Download Tel",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "english-proficiency",
+    "subcategory": null,
+    "tags": [
+      "IELTS"
+    ],
+    "examFamilies": [
+      "english-proficiency"
+    ],
+    "exams": [
+      "ielts"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/e2_ielts_videos",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T19:34:42.146Z",
+    "sourceUrls": [
+      "https://t.me/s/e2_ielts_videos"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T19:34:13.059Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1x5ogk-uvxerd",
+    "slug": "telegram-usmlephyseo",
+    "title": "Physeo Videos Step 1 | CK — Join the main study group: https://t",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "medical-healthcare",
+    "subcategory": null,
+    "tags": [
+      "USMLE"
+    ],
+    "examFamilies": [
+      "medical-healthcare"
+    ],
+    "exams": [
+      "usmle"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/usmlephyseo",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T19:34:42.146Z",
+    "sourceUrls": [
+      "https://t.me/s/USMLEPhyseo?before=852"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T19:34:16.340Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1x5pdz-2c2yuw",
+    "slug": "telegram-yousmle",
+    "title": "Usmle step 1 experiences — Usmle step 1 experiences used that extra time to review the marked questions",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "medical-healthcare",
+    "subcategory": null,
+    "tags": [
+      "USMLE"
+    ],
+    "examFamilies": [
+      "medical-healthcare"
+    ],
+    "exams": [
+      "usmle"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/yousmle",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T19:34:42.146Z",
+    "sourceUrls": [
+      "https://t.me/s/Yousmle?before=81"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T19:34:17.542Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1x5qbd-go0971",
+    "slug": "telegram-usmle-nbme",
+    "title": "USMLE 2026 - NBME STEP 1 — Your new go-to audio series for mastering USMLE Step 1 — one high-yield case at a time",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "medical-healthcare",
+    "subcategory": null,
+    "tags": [
+      "USMLE"
+    ],
+    "examFamilies": [
+      "medical-healthcare"
+    ],
+    "exams": [
+      "usmle"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/usmle_nbme",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T19:34:42.146Z",
+    "sourceUrls": [
+      "https://t.me/s/USMLE_NBME?before=3465"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T19:34:18.745Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1x5r8r-l7difo",
+    "slug": "telegram-starmedimg",
+    "title": "Starmed MEP IMG MCCQE1 NACOSCE TDM CARMS",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "medical-healthcare",
+    "subcategory": null,
+    "tags": [
+      "USMLE"
+    ],
+    "examFamilies": [
+      "medical-healthcare"
+    ],
+    "exams": [
+      "usmle"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/starmedimg",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T19:34:42.146Z",
+    "sourceUrls": [
+      "https://t.me/s/starmedimg?q=%23mlpimg"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T19:34:19.947Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1x5s65-j2wdjh",
+    "slug": "telegram-usmlepathoma",
+    "title": "Pathoma Videos 2024 | USMLE — Exocrine Pancreas, Gallbladder, and Liver Pathology (65 min) - @USMLEPathoma",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "medical-healthcare",
+    "subcategory": null,
+    "tags": [
+      "USMLE"
+    ],
+    "examFamilies": [
+      "medical-healthcare"
+    ],
+    "exams": [
+      "usmle"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/usmlepathoma",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T19:34:42.146Z",
+    "sourceUrls": [
+      "https://t.me/s/USMLEPathoma?before=368"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T19:34:21.149Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1x5t3j-o5idqf",
+    "slug": "telegram-step2",
+    "title": "All USMLE Step 2 CK – Telegram — USMLE Connection",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "medical-healthcare",
+    "subcategory": null,
+    "tags": [
+      "USMLE"
+    ],
+    "examFamilies": [
+      "medical-healthcare"
+    ],
+    "exams": [
+      "usmle"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/step2",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T19:34:42.146Z",
+    "sourceUrls": [
+      "https://t.me/s/Step2?before=359"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T19:34:22.351Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1x6358-f9eqjd",
+    "slug": "telegram-freeawsstudy",
+    "title": "View @freeawsstudy — AWS SAA-C03 Study Group",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "cloud-certifications",
+    "subcategory": null,
+    "tags": [
+      "AWS Certifications"
+    ],
+    "examFamilies": [
+      "cloud-certifications"
+    ],
+    "exams": [
+      "aws"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/freeawsstudy",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T19:34:42.146Z",
+    "sourceUrls": [
+      "https://t.me/freeawsstudy?ref=yuribacciarini.com"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T19:34:35.372Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1x642l-8ogepz",
+    "slug": "telegram-awsexamdumps",
+    "title": "Telegram: View @awsexamdumps — Download",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "cloud-certifications",
+    "subcategory": null,
+    "tags": [
+      "AWS Certifications"
+    ],
+    "examFamilies": [
+      "cloud-certifications"
+    ],
+    "exams": [
+      "aws"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/awsexamdumps",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T19:34:42.146Z",
+    "sourceUrls": [
+      "https://t.me/awsexamdumps"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T19:34:36.573Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1x6500-v4sbsn",
+    "slug": "telegram-itexamcertified",
+    "title": "IT Exam Certifications — All AWS Exams Practice Tests are updated and verified",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "general-study",
+    "subcategory": null,
+    "tags": [
+      "study"
+    ],
+    "examFamilies": [
+      "general-study"
+    ],
+    "exams": [],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/itexamcertified",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T19:34:42.146Z",
+    "sourceUrls": [
+      "https://t.me/s/itexamcertified?before=2181"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T19:34:37.776Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
   }
 ]
