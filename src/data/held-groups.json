@@ -556,5 +556,202 @@
     "featured": false,
     "published": false,
     "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1d1yfb-0jr1nk",
+    "slug": "discord-sat-preparation-992867137238618274",
+    "title": "SAT Preparation",
+    "platform": "discord",
+    "vertical": "study-prep",
+    "category": "college-admissions",
+    "subcategory": null,
+    "tags": [
+      "sat prep",
+      "practice tests",
+      "collegeboard"
+    ],
+    "examFamilies": [
+      "college-admissions"
+    ],
+    "exams": [
+      "sat"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion",
+      "practice-questions",
+      "peer-support",
+      "exam-strategy"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://discord.com/invite/sat-preparation-992867137238618274",
+    "description": "SAT Preparation community on Discord featuring practice tests, expert tips, and a supportive study group.",
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T10:12:03.641Z",
+    "sourceUrls": [
+      "https://discord.com/invite/sat-preparation-992867137238618274"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T10:11:30.311Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 1,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1d216x-tkskql",
+    "slug": "telegram-indiashastra",
+    "title": "indiashastra",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "general-study",
+    "subcategory": null,
+    "tags": [
+      "UPSC",
+      "study group",
+      "Discord"
+    ],
+    "examFamilies": [
+      "general-study"
+    ],
+    "exams": [],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "study-group",
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/indiashastra",
+    "description": "Study group for UPSC Aspirants on Discord.",
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T10:12:03.641Z",
+    "sourceUrls": [
+      "https://t.me/s/indiashastra?before=568"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T10:11:33.897Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1d26ew-6flb4d",
+    "slug": "telegram-abusat-760",
+    "title": "DigitSAT",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "college-admissions",
+    "subcategory": null,
+    "tags": [
+      "sat",
+      "sat study",
+      "sat prep"
+    ],
+    "examFamilies": [
+      "college-admissions"
+    ],
+    "exams": [
+      "sat"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "resources",
+      "study-group"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/abusat_760",
+    "description": "DigitSAT is a Telegram community focused on SAT preparation, offering study tips, practice books, and SAT study guides with practice tests.",
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T10:12:03.641Z",
+    "sourceUrls": [
+      "https://t.me/s/abusat_760?before=453"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T10:11:40.664Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt1d28uh-tppbg7",
+    "slug": "telegram-studyforjudicialservices",
+    "title": "Study For Judicial Services",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "professional-licensing",
+    "subcategory": null,
+    "tags": [
+      "judicial services",
+      "law",
+      "study"
+    ],
+    "examFamilies": [
+      "professional-licensing"
+    ],
+    "exams": [],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/studyforjudicialservices",
+    "description": "Study For Judicial Services is a study community associated with a YouTube channel for judicial services preparation.",
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-20T10:12:03.641Z",
+    "sourceUrls": [
+      "https://t.me/s/studyforjudicialservices?before=1595"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T10:11:43.817Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
   }
 ]
