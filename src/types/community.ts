@@ -15,6 +15,7 @@ export type Platform = 'telegram' | 'whatsapp' | 'discord';
 export type CategorySlug =
   | 'college-admissions'
   | 'graduate-admissions'
+  | 'entrance-exams'
   | 'english-proficiency'
   | 'medical-healthcare'
   | 'law'

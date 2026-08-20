@@ -72,6 +72,50 @@ export const exams: ExamConfig[] = [
     queryModifiers: ['study Discord', 'study group', 'Telegram study group', 'prep group', 'preparation Telegram', 'exam prep'],
   },
 
+  // --- Entrance Exams ---
+  {
+    slug: 'jee', name: 'JEE', family: 'entrance-exams', priority: 'high',
+    description: 'Study communities for the Joint Entrance Examination (JEE Main and JEE Advanced), the engineering entrance exam in India.',
+    keywords: ['jee', 'jee main', 'jee advanced', 'jee preparation', 'iit jee'],
+    queryMarkets: ['global-english'],
+    queryModifiers: ['study group', 'preparation Telegram', 'telegram group', 'discord', 'exam prep', 'study material'],
+  },
+  {
+    slug: 'neet', name: 'NEET', family: 'entrance-exams', priority: 'high',
+    description: 'Study communities for the National Eligibility cum Entrance Test (NEET-UG), the medical entrance exam in India.',
+    keywords: ['neet', 'neet ug', 'neet preparation', 'neet exam', 'medical entrance'],
+    queryMarkets: ['global-english'],
+    queryModifiers: ['study group', 'preparation Telegram', 'telegram group', 'discord', 'exam prep', 'biology study'],
+  },
+  {
+    slug: 'gate', name: 'GATE', family: 'entrance-exams', priority: 'secondary',
+    description: 'Study communities for the Graduate Aptitude Test in Engineering (GATE), the postgraduate engineering entrance exam in India.',
+    keywords: ['gate', 'gate exam', 'gate preparation', 'gate 2026'],
+    queryMarkets: ['global-english'],
+    queryModifiers: ['study group', 'telegram group', 'preparation', 'discord'],
+  },
+  {
+    slug: 'cat', name: 'CAT', family: 'entrance-exams', priority: 'secondary',
+    description: 'Study communities for the Common Admission Test (CAT), the MBA entrance exam in India.',
+    keywords: ['cat', 'cat exam', 'cat preparation', 'cat mba', 'cat 2026'],
+    queryMarkets: ['global-english'],
+    queryModifiers: ['study group', 'telegram group', 'preparation', 'discord', 'quant preparation'],
+  },
+  {
+    slug: 'cuet', name: 'CUET', family: 'entrance-exams', priority: 'secondary',
+    description: 'Study communities for the Common University Entrance Test (CUET) for undergraduate admissions in India.',
+    keywords: ['cuet', 'cuet ug', 'cuet preparation', 'cuet exam'],
+    queryMarkets: ['global-english'],
+    queryModifiers: ['study group', 'telegram group', 'preparation', 'discord'],
+  },
+  {
+    slug: 'upsc', name: 'UPSC', family: 'entrance-exams', priority: 'secondary',
+    description: 'Study communities for the UPSC Civil Services Examination, the national civil service exam in India.',
+    keywords: ['upsc', 'upsc preparation', 'upsc cse', 'civil services', 'upsc exam'],
+    queryMarkets: ['global-english'],
+    queryModifiers: ['study group', 'telegram group', 'preparation', 'discord', 'current affairs'],
+  },
+
   // --- English Proficiency ---
   {
     slug: 'ielts', name: 'IELTS', family: 'english-proficiency', priority: 'high',

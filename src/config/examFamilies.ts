@@ -36,6 +36,14 @@ export const examFamilies: ExamFamilyConfig[] = [
     tags: ['GRE', 'GMAT', 'Graduate Admissions'],
   },
   {
+    slug: 'entrance-exams',
+    name: 'Entrance Exams',
+    description:
+      'Study communities for national and regional entrance exams such as JEE, NEET, GATE, CAT, CUET and UPSC.',
+    exams: ['jee', 'neet', 'gate', 'cat', 'cuet', 'upsc'],
+    tags: ['JEE', 'NEET', 'GATE', 'CAT', 'CUET', 'UPSC', 'Entrance Exams'],
+  },
+  {
     slug: 'english-proficiency',
     name: 'English Proficiency',
     description:

@@ -2,10 +2,11 @@ import { describe, it, expect } from 'vitest';
 import { slugifyTag, assertTagSlugsUnique, categories } from '../src/config/categories';
 import { examFamilies } from '../src/config/examFamilies';
 
-/** The 13 study-scout exam families that now define the category taxonomy. */
+/** The 14 study-scout exam families that now define the category taxonomy. */
 const STUDY_FAMILY_SLUGS = [
   'college-admissions',
   'graduate-admissions',
+  'entrance-exams',
   'english-proficiency',
   'medical-healthcare',
   'law',
