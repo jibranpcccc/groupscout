@@ -1,4 +1,7 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { mkdtempSync, existsSync, readFileSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import {
   computeFunnel,
   validateFunnel,
@@ -6,8 +9,6 @@ import {
   type FunnelCounters,
 } from '../scripts/audit/funnel';
 import {
-  appendQueryTelemetry,
-  appendProviderTelemetry,
   type QueryTelemetry,
   type ProviderTelemetry,
 } from '../scripts/audit/telemetry';
@@ -170,13 +171,28 @@ describe('telemetry helpers', () => {
   });
 });
 
-describe('append telemetry — best-effort, never throws', () => {
-  it('writes and reads back a query log line', () => {
-    // Best-effort: returns a boolean and never throws, with the file
-    // redirected away from the repo's audit log via HERMES_TELEMETRY_DIR
-    // (read at module load in the pipeline). Here we only assert the
-    // return contract — appendQueryTelemetry must not throw.
-    const ok = appendQueryTelemetry({
+describe('append telemetry — isolated temp dir, never touches production logs', () => {
+  let tmpDir: string;
+  let telemetry: typeof import('../scripts/audit/telemetry');
+
+  beforeEach(async () => {
+    // HERMES_TELEMETRY_DIR is read at MODULE LOAD time, so the env var
+    // must be set BEFORE the module is (re)imported. Reset the module
+    // registry and point it at a throwaway temp dir so the production
+    // audit/telemetry/*.jsonl files are never written by tests.
+    tmpDir = mkdtempSync(join(tmpdir(), 'hermes-telemetry-test-'));
+    process.env.HERMES_TELEMETRY_DIR = tmpDir;
+    vi.resetModules();
+    telemetry = await import('../scripts/audit/telemetry');
+  });
+
+  afterEach(() => {
+    delete process.env.HERMES_TELEMETRY_DIR;
+    rmSync(tmpDir, { recursive: true, force: true });
+  });
+
+  it('writes a query log line into the isolated temp dir', () => {
+    const ok = telemetry.appendQueryTelemetry({
       query: 'q',
       exam: null,
       platform: 'telegram',
@@ -189,11 +205,18 @@ describe('append telemetry — best-effort, never throws', () => {
       duplicateCount: 0,
       wrongNicheCount: 0,
     });
-    expect(typeof ok).toBe('boolean');
+    expect(ok).toBe(true);
+    const logPath = join(tmpDir, 'query-log.jsonl');
+    expect(existsSync(logPath)).toBe(true);
+    const lines = readFileSync(logPath, 'utf-8').trim().split('\n');
+    expect(lines).toHaveLength(1);
+    const parsed = JSON.parse(lines[0]) as { query: string; provider: string };
+    expect(parsed.query).toBe('q');
+    expect(parsed.provider).toBe('x');
   });
 
-  it('writes and reads back a provider log line', () => {
-    const ok = appendProviderTelemetry({
+  it('writes a provider log line into the isolated temp dir', () => {
+    const ok = telemetry.appendProviderTelemetry({
       provider: 'y',
       requests: 1,
       rawCandidates: 1,
@@ -201,6 +224,12 @@ describe('append telemetry — best-effort, never throws', () => {
       newPending: 1,
       duplicates: 0,
     });
-    expect(typeof ok).toBe('boolean');
+    expect(ok).toBe(true);
+    const logPath = join(tmpDir, 'provider-log.jsonl');
+    expect(existsSync(logPath)).toBe(true);
+    const lines = readFileSync(logPath, 'utf-8').trim().split('\n');
+    expect(lines).toHaveLength(1);
+    const parsed = JSON.parse(lines[0]) as { provider: string };
+    expect(parsed.provider).toBe('y');
   });
 });
