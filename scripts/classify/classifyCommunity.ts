@@ -15,6 +15,7 @@ import { exams, getExam } from '../../src/config/exams';
 import { isCategorySlug } from '../../src/config/categories';
 import { targetMarketSchema, studyTypeSchema } from '../../src/lib/schema';
 import { enforceCategoryConsistency } from './categoryConsistency';
+import { ruleBasedClassify } from './ruleBasedClassifier';
 import type { ParsedCandidate } from '../discover/parseCandidates';
 
 export const classificationSchema = z
@@ -153,7 +154,20 @@ export async function classifyCandidate(input: ClassificationInput): Promise<Cla
   // classification uses plain generateContent (no googleSearch grounding),
   // so GEMINI_SEARCH_ENABLED must NOT gate it — otherwise disabling search
   // grounding (free-tier quota) would silently reject every candidate.
-  if (!process.env['GEMINI_' + 'API_KEY']) {
+  const geminiKey = process.env['GEMINI_' + 'API_KEY'];
+
+  // Tier 1 — deterministic rule-based classification (zero cost, no quota).
+  // Runs for EVERY candidate BEFORE Gemini: obvious exam-keyword matches are
+  // resolved locally and never consume the free-tier 15 req/min quota. This
+  // keeps the pipeline productive even when Gemini is quota-exhausted.
+  const ruleMatch = ruleBasedClassify(input);
+  if (ruleMatch) {
+    log('classify', `rule-based hit: "${ruleMatch.matchedKeyword}" → ${ruleMatch.matchedExam} (${input.candidate.candidateUrl.slice(0, 60)})`);
+    return applyCategoryConsistency(ruleMatch.result);
+  }
+
+  // Tier 2 — Gemini classification for ambiguous candidates only.
+  if (!geminiKey) {
     return fallback;
   }
 
