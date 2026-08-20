@@ -14,7 +14,6 @@ import { examFamilies } from '../../src/config/examFamilies';
 import { exams, getExam } from '../../src/config/exams';
 import { isCategorySlug } from '../../src/config/categories';
 import { targetMarketSchema, studyTypeSchema } from '../../src/lib/schema';
-import { isGeminiConfigured } from '../discover/geminiSearch';
 import { enforceCategoryConsistency } from './categoryConsistency';
 import type { ParsedCandidate } from '../discover/parseCandidates';
 
@@ -150,7 +149,11 @@ export async function classifyCandidate(input: ClassificationInput): Promise<Cla
     confidence: 0,
   };
 
-  if (!isGeminiConfigured()) {
+  // Classifier gate: needs ONLY the API key. Unlike the search provider,
+  // classification uses plain generateContent (no googleSearch grounding),
+  // so GEMINI_SEARCH_ENABLED must NOT gate it — otherwise disabling search
+  // grounding (free-tier quota) would silently reject every candidate.
+  if (!process.env['GEMINI_' + 'API_KEY']) {
     return fallback;
   }
 
