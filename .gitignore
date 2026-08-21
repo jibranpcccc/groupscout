@@ -25,6 +25,8 @@ Thumbs.db
 .vscode/*
 !.vscode/extensions.json
 
-# Observation-phase telemetry (runtime data, not source — regenerated each run)
-audit/telemetry/*.jsonl
+# Observation-phase telemetry — COMMITTED so the 7-day yield metrics (item
+# #31) accumulate across CI runs (ephemeral runners would otherwise lose
+# them). Append-only JSONL; merge races handled by the workflow's push retry.
+# audit/telemetry/*.jsonl
 
