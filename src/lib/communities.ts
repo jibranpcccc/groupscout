@@ -136,3 +136,27 @@ export function getCategoryLabel(slug: string): string {
 export function getPlatformLabel(id: string): string {
   return getPlatformById(id)?.name ?? id;
 }
+
+/**
+ * Deterministic indexability evaluation for individual community detail pages.
+ * Only communities with sufficient unique factual value (substantive description
+ * or verified member count data) and active status are eligible for index,follow.
+ * Thin/boilerplate listings remain fully browseable but are marked noindex,follow.
+ */
+export function isCommunityIndexWorthy(c: Community): boolean {
+  if (!c.published || c.isSample) return false;
+  if (c.linkStatus !== 'active') return false;
+
+  const hasSubstantiveDesc = Boolean(c.description && c.description.trim().length >= 40);
+  const hasMemberData = Boolean(c.memberCount && c.memberCount > 0);
+
+  if (!hasSubstantiveDesc && !hasMemberData) {
+    return false;
+  }
+
+  const hasExamOrCategory = (c.exams && c.exams.length > 0) || Boolean(c.category);
+  if (!hasExamOrCategory) return false;
+
+  return true;
+}
+

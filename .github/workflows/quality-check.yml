@@ -38,3 +38,7 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: SEO Audit
+        run: npm run seo:audit
+

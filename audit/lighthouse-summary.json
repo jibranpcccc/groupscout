@@ -1,0 +1,62 @@
+[
+  {
+    "page": "Homepage",
+    "url": "https://groupscout.netlify.app/",
+    "performance": 99,
+    "accessibility": 96,
+    "bestPractices": 100,
+    "seo": 100,
+    "fcp": "1.6 s",
+    "lcp": "1.6 s",
+    "cls": "0",
+    "tbt": "20 ms"
+  },
+  {
+    "page": "Directory Root",
+    "url": "https://groupscout.netlify.app/communities/",
+    "performance": 100,
+    "accessibility": 96,
+    "bestPractices": 100,
+    "seo": 100,
+    "fcp": "1.2 s",
+    "lcp": "1.2 s",
+    "cls": "0",
+    "tbt": "30 ms"
+  },
+  {
+    "page": "IELTS Exam Hub",
+    "url": "https://groupscout.netlify.app/exam/ielts/",
+    "performance": 99,
+    "accessibility": 96,
+    "bestPractices": 100,
+    "seo": 100,
+    "fcp": "1.5 s",
+    "lcp": "1.5 s",
+    "cls": "0",
+    "tbt": "20 ms"
+  },
+  {
+    "page": "USMLE Exam Hub",
+    "url": "https://groupscout.netlify.app/exam/usmle/",
+    "performance": 100,
+    "accessibility": 96,
+    "bestPractices": 100,
+    "seo": 100,
+    "fcp": "1.4 s",
+    "lcp": "1.4 s",
+    "cls": "0",
+    "tbt": "20 ms"
+  },
+  {
+    "page": "Community Detail Page",
+    "url": "https://groupscout.netlify.app/group/telegram-cambridge-ielts-practice-official/",
+    "performance": 100,
+    "accessibility": 95,
+    "bestPractices": 100,
+    "seo": 100,
+    "fcp": "1.0 s",
+    "lcp": "1.0 s",
+    "cls": "0",
+    "tbt": "10 ms"
+  }
+]

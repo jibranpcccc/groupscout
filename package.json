@@ -22,7 +22,8 @@
     "observation-report": "tsx scripts/audit/observationReport.ts",
     "data:stats": "tsx scripts/data/stats.ts",
     "approve": "tsx scripts/data/approve.ts",
-    "auto-approve": "tsx scripts/data/autoApprove.ts"
+    "auto-approve": "tsx scripts/data/autoApprove.ts",
+    "seo:audit": "tsx scripts/audit/seoAudit.ts"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.2.1",

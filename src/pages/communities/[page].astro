@@ -34,9 +34,10 @@ if (pageNumber > totalPages) {
 ---
 
 <DirectoryLayout
-  title={pageTitle('All Communities')}
-  description={`All communities in the directory — page ${pageNumber}.`}
+  title={pageTitle('Browse Study Groups', `Page ${pageNumber}`)}
+  description={`Browse public exam preparation study groups and communities — Page ${pageNumber} of ${totalPages}.`}
   canonicalPath={`/communities/${pageNumber}/`}
+  noindex={true}
   intro="Browse the full directory."
   count={`${all.length} communities`}
   breadcrumbs={[{ label: 'Communities', href: '/communities/' }, { label: `Page ${pageNumber}` }]}

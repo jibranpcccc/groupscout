@@ -5,6 +5,8 @@ import FilterBar from '../../components/FilterBar.astro';
 import EmptyState from '../../components/EmptyState.astro';
 import SafetyNotice from '../../components/SafetyNotice.astro';
 import { categories, getCategoryBySlug, slugifyTag } from '../../config/categories';
+import { getExamFamily } from '../../config/examFamilies';
+import { getExam } from '../../config/exams';
 import { getByCategory } from '../../lib/communities';
 import { sortCommunities, availableFilterOptions } from '../../lib/filters';
 import { PAGE_SIZE, CATEGORY_INDEX_MIN } from '../../config/discovery';
@@ -23,6 +25,10 @@ const all = getByCategory(category.slug);
 const sorted = sortCommunities(all, 'newest');
 const pageOne = sorted.slice(0, PAGE_SIZE);
 const options = availableFilterOptions(all);
+const examFamily = getExamFamily(category.slug);
+const childExams = (examFamily?.exams ?? [])
+  .map((s) => getExam(s))
+  .filter((e): e is NonNullable<typeof e> => Boolean(e));
 
 const pageLd = jsonLd({
   '@context': 'https://schema.org',
@@ -78,6 +84,27 @@ const pageLd = jsonLd({
       )
     }
   </div>
+
+  {
+    childExams.length > 0 && (
+      <div class="mt-8 border-t border-stone-200 pt-6">
+        <h2 class="text-base font-semibold text-stone-900">Exam Hubs in {category.name}</h2>
+        <p class="mt-1 text-sm text-stone-500">Explore dedicated study communities and preparation channels by exam.</p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          {
+            childExams.map((ex) => (
+              <a
+                href={`/exam/${ex.slug}/`}
+                class="inline-flex items-center gap-1.5 rounded-lg border border-blue-200 bg-blue-50/60 px-3 py-1.5 text-sm font-medium text-blue-800 hover:bg-blue-100"
+              >
+                <span>{ex.name} Study Groups</span>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    )
+  }
 
   <div class="mt-8">
     <h2 class="text-sm font-semibold text-stone-900">Tags in this category</h2>

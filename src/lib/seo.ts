@@ -2,6 +2,7 @@ import { siteConfig } from '../config/site';
 import type { Community } from '../types/community';
 import { getCategoryName } from '../config/categories';
 import { getPlatformName } from '../config/platforms';
+import { getExamName } from '../config/exams';
 
 /**
  * SEO helpers: unique titles, descriptions, canonical URLs, Open Graph and
@@ -22,15 +23,37 @@ export function pageTitle(...parts: (string | null | undefined)[]): string {
 }
 
 export function communityTitle(community: Community): string {
-  return pageTitle(community.title, getPlatformName(community.platform));
+  const platformName = getPlatformName(community.platform);
+  const primaryExam = community.exams?.[0] ? getExamName(community.exams[0]) : null;
+
+  if (primaryExam) {
+    return `${community.title} – ${primaryExam} Study Group on ${platformName} | ${siteConfig.name}`;
+  }
+  return `${community.title} – ${platformName} Study Group | ${siteConfig.name}`;
+}
+
+export function communityDescription(community: Community): string {
+  const platformName = getPlatformName(community.platform);
+  const primaryExam = community.exams?.[0] ? getExamName(community.exams[0]) : null;
+  const targetTopic = primaryExam ? `${primaryExam} exam preparation` : `${getCategoryName(community.category)} study`;
+
+  if (community.description && community.description.trim().length >= 40) {
+    const cleanDesc = community.description.trim().replace(/\s+/g, ' ');
+    if (cleanDesc.length > 155) {
+      return `${cleanDesc.slice(0, 152)}...`;
+    }
+    return cleanDesc;
+  }
+
+  return `Public ${platformName} study group: ${community.title} for ${targetTopic}. Browse verified resources and discussions on StudyScout.`;
 }
 
 export function categoryPageTitle(slug: string): string {
-  return pageTitle(getCategoryName(slug), 'Communities');
+  return pageTitle(getCategoryName(slug), 'Study Groups & Communities');
 }
 
 export function platformPageTitle(platform: string): string {
-  return pageTitle(`${getPlatformName(platform)} Communities`);
+  return pageTitle(`${getPlatformName(platform)} Study Groups`);
 }
 
 export function tagPageTitle(tag: string): string {

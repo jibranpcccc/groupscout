@@ -12,12 +12,10 @@ import {
   getPublishedCommunities,
   getRecentlyAdded,
   getRecentlyChecked,
-  getDatasetStats,
 } from '../lib/communities';
 import { pageTitle, websiteJsonLd, organizationJsonLd } from '../lib/seo';
 
 const published = getPublishedCommunities();
-const stats = getDatasetStats();
 const recentlyAdded = getRecentlyAdded(8);
 const recentlyChecked = getRecentlyChecked(8);
 const categoryCounts = new Map(
@@ -25,10 +23,10 @@ const categoryCounts = new Map(
 );
 
 // Exams covered by real published inventory (exams field), fallback to config
-// for the browse cards — cards link to exam pages regardless of inventory.
 const examSlugsWithInventory = new Set(published.flatMap((c) => c.exams ?? []));
 const featuredExams = [
-  'sat', 'ielts', 'gre', 'mcat', 'nclex', 'usmle', 'cfa', 'aws', 'security-plus', 'ccna', 'pmp',
+  'ielts', 'upsc', 'jee', 'neet', 'sat', 'usmle', 'nclex', 'gre', 'toefl',
+  'mcat', 'cfa', 'act', 'cpa', 'gate', 'ap-exams', 'gmat', 'lsat', 'cissp', 'pmp',
 ]
   .map((slug) => getExam(slug))
   .filter((e): e is NonNullable<typeof e> => Boolean(e));
@@ -37,7 +35,7 @@ const emptyState = published.length === 0;
 ---
 
 <BaseLayout
-  title={pageTitle()}
+  title={pageTitle('Exam Prep Study Groups for IELTS, SAT, USMLE & More')}
   description={siteConfig.description}
   canonicalPath="/"
   jsonLd={`${websiteJsonLd()}\n${organizationJsonLd()}`}

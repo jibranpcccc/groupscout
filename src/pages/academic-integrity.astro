@@ -1,0 +1,122 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { pageTitle, breadcrumbJsonLd, jsonLd } from '../lib/seo';
+import { siteConfig } from '../config/site';
+
+const crumbs = [
+  { label: 'Directory', href: '/communities/' },
+  { label: 'Academic Integrity Policy' },
+];
+
+const webPageLd = jsonLd({
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Academic Integrity & Anti-Exam Dump Policy',
+  description: 'StudyScout policies regarding exam security, prohibited content, braindumps, leaked materials, and candidate integrity.',
+  url: '/academic-integrity/',
+  isPartOf: { '@type': 'WebSite', name: siteConfig.name },
+});
+---
+
+<BaseLayout
+  title={pageTitle('Academic Integrity & Anti-Dump Policy')}
+  description="StudyScout standards on academic integrity, prohibited materials, exam dump enforcement, and candidate safety."
+  canonicalPath="/academic-integrity/"
+  jsonLd={`${breadcrumbJsonLd([{ name: 'Academic Integrity', path: '/academic-integrity/' }])}\n${webPageLd}`}
+>
+  <div class="mx-auto w-full max-w-4xl px-4 py-10 sm:px-6">
+    <Breadcrumbs items={crumbs} class="mb-4" />
+
+    <header class="border-b border-stone-200 pb-6">
+      <h1 class="text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl">
+        Academic Integrity &amp; Anti-Exam Dump Policy
+      </h1>
+      <p class="mt-3 text-lg leading-relaxed text-stone-600">
+        StudyScout is dedicated exclusively to legitimate peer study groups, collaborative
+        discussion, and authorized exam preparation. We maintain a zero-tolerance policy
+        toward exam security violations, brain dumps, leaked questions, and fraudulent testing practices.
+      </p>
+    </header>
+
+    <div class="prose-static mt-8 space-y-8 text-stone-700">
+      <section>
+        <h2 class="text-xl font-bold text-stone-900">1. Prohibited Materials and Behaviors</h2>
+        <p class="mt-2">
+          The following content and activities are strictly prohibited from being hosted, shared,
+          promoted, or solicited in any community listed on StudyScout:
+        </p>
+        <ul class="mt-3 list-disc space-y-2 pl-5 text-stone-600">
+          <li>
+            <strong>Exam Dumps &amp; Braindumps:</strong> Any compilation of actual, verbatim, or reconstructed questions from live standardized tests, board examinations, or professional certification tests.
+          </li>
+          <li>
+            <strong>Leaked or Recalled Exam Questions:</strong> Materials claiming to contain recent exam questions, memory recalls, answer keys, or confidential testing items.
+          </li>
+          <li>
+            <strong>Proxy Test Taking &amp; Impersonation:</strong> Offers or solicitations for surrogate test-takers, exam impersonation services, or unauthorized remote testing assistance.
+          </li>
+          <li>
+            <strong>Credential &amp; Account Selling:</strong> Sale or trading of unauthorized accounts, exam registration vouchers, or counterfeit credential certificates.
+          </li>
+          <li>
+            <strong>Guaranteed Pass Schemes:</strong> Unsubstantiated claims promising guaranteed pass marks, pay-after-you-pass arrangements, or back-door certification paths.
+          </li>
+          <li>
+            <strong>Stolen &amp; Copyright-Infringing Materials:</strong> Unauthorized distribution of proprietary question banks, video courses, textbook PDFs, or test-maker intellectual property.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-stone-900">2. Automated Screening &amp; Quarantine Gates</h2>
+        <p class="mt-2">
+          StudyScout deploys automated discovery and validation filters designed to identify and block
+          illicit testing operations:
+        </p>
+        <ul class="mt-3 list-disc space-y-2 pl-5 text-stone-600">
+          <li>
+            <strong>Negative Keyword Filtering:</strong> Autonomous pipelines automatically reject candidate URLs containing dump keywords, leak references, and blacklisted domains.
+          </li>
+          <li>
+            <strong>Continuous Link &amp; Content Monitoring:</strong> Listed communities are periodically re-checked for compliance. Groups that shift from study discussion to commercial dump distribution are quarantined immediately.
+          </li>
+          <li>
+            <strong>Fail-Closed Publication:</strong> Any candidate channel whose identity, discussion authenticity, or exam focus cannot be verified is held or permanently excluded.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-stone-900">3. Consequences of Academic Dishonesty</h2>
+        <p class="mt-2">
+          Students and candidates should understand that participating in exam dump channels carries severe personal and professional risks:
+        </p>
+        <ul class="mt-3 list-disc space-y-2 pl-5 text-stone-600">
+          <li>
+            <strong>Score Invalidation &amp; Bans:</strong> Major testing organizations (College Board, ETS, Pearson VUE, USMLE/FSMB, CFA Institute, PMI, CompTIA) actively monitor leak channels. Candidates found possessing or sharing recalled content face immediate score cancellations and lifetime testing bans.
+          </li>
+          <li>
+            <strong>Professional Licensing Revocation:</strong> Medical boards, state bar associations, and accounting institutes revoke licenses and report unethical conduct to employer registries.
+          </li>
+          <li>
+            <strong>Malware and Financial Fraud:</strong> Many "free dump" and "leak" channels are vectors for phishing, credential theft, ransomware, and payment fraud.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-stone-900">4. Reporting Violations</h2>
+        <p class="mt-2">
+          We welcome reports from students, educators, test owners, and community moderators. If you encounter any listed group that promotes exam dumps, leaked questions, or academic fraud:
+        </p>
+        <div class="mt-4 rounded-xl border border-stone-200 bg-stone-50 p-5">
+          <p class="font-medium text-stone-900">Submit an Instant Correction or Removal Request:</p>
+          <p class="mt-1 text-sm text-stone-600">
+            Use our <a href="/report/" class="font-semibold text-blue-700 hover:underline">Report Listing Form</a> to submit the community URL and details. Reported listings are flagged for immediate manual investigation and removed upon confirmation.
+          </p>
+        </div>
+      </section>
+    </div>
+  </div>
+</BaseLayout>

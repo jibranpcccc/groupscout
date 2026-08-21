@@ -2,14 +2,13 @@
 import type { GetStaticPaths } from 'astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SearchBox from '../../components/SearchBox.astro';
-import PlatformBadge from '../../components/PlatformBadge.astro';
 import CommunityGrid from '../../components/CommunityGrid.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import { exams, getExam, getExamName } from '../../config/exams';
+import { exams, getExamName } from '../../config/exams';
 import { getExamFamily, getExamFamilyName } from '../../config/examFamilies';
 import { getPublishedCommunities } from '../../lib/communities';
 import { EXAM_INDEX_MIN } from '../../config/discovery';
-import { pageTitle, collectionPageJsonLd, breadcrumbJsonLd } from '../../lib/seo';
+import { collectionPageJsonLd, breadcrumbJsonLd } from '../../lib/seo';
 
 export const getStaticPaths = (() => {
   return exams.map((exam) => ({ params: { slug: exam.slug }, props: { exam } }));
@@ -30,22 +29,31 @@ const platformsWithInventory = [...platformBreakdown.entries()]
   .join(', ');
 
 const noindex = published.length < EXAM_INDEX_MIN;
-const title = published.length === 0
-  ? `${exam.name} Study Groups`
-  : `${exam.name} Study Groups — ${platformsWithInventory} | StudyScout`;
+const title = published.length > 0 && platformsWithInventory
+  ? `${exam.name} Study Groups (${platformsWithInventory}) | StudyScout`
+  : `${exam.name} Study Groups & Communities | StudyScout`;
+
+const metaDesc = published.length >= EXAM_INDEX_MIN
+  ? `Explore ${published.length} active ${exam.name} study groups on ${[...platformBreakdown.keys()].map((p) => platformNames[p] || p).join(', ')}. ${exam.description}`
+  : `${exam.description} Find and compare public ${exam.name} study communities and student groups on StudyScout.`;
 
 const crumbs = [
-  { label: 'Exams', href: '/communities/' },
+  { label: family?.name ?? 'Exams', href: `/category/${exam.family}/` },
   { label: exam.name },
+];
+
+const crumbLd = [
+  { name: family?.name ?? 'Exams', path: `/category/${exam.family}/` },
+  { name: `${exam.name} Study Groups`, path: `/exam/${exam.slug}/` },
 ];
 ---
 
 <BaseLayout
   title={title}
-  description={`${exam.description} Browse and discover ${exam.name} study communities across Discord, Telegram and WhatsApp.`}
+  description={metaDesc}
   canonicalPath={`/exam/${exam.slug}/`}
   noindex={noindex}
-  jsonLd={`${breadcrumbJsonLd(crumbs.map((c) => ({ name: c.label, path: c.href ?? `#${c.label}` })))}\n${collectionPageJsonLd(exam.name, exam.description, published)}`}
+  jsonLd={`${breadcrumbJsonLd(crumbLd)}\n${collectionPageJsonLd(exam.name, exam.description, published)}`}
 >
   <Breadcrumbs items={crumbs} />
 
