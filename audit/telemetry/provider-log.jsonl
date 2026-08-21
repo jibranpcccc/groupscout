@@ -1,2 +1,3 @@
 {"timestamp":"2026-08-19T16:36:20.383Z","provider":"gemini-google-search","requests":8,"rawCandidates":0,"active":0,"newPending":0,"duplicates":0}
 {"timestamp":"2026-08-19T16:36:20.384Z","provider":"tavily-search","requests":8,"rawCandidates":16,"active":3,"newPending":3,"duplicates":0}
+{"timestamp":"2026-08-21T09:40:13.935Z","provider":"tavily-search","requests":25,"rawCandidates":132,"active":8,"newPending":8,"duplicates":41}

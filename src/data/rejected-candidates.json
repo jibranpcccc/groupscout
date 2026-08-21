@@ -3807,5 +3807,222 @@
     "rejectedAt": "2026-08-21T09:13:28.005Z",
     "reason": "off-niche (coupon/promo spam)",
     "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-08-21T09:40:05.490Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/oliveboardapp",
+    "sourceUrl": "https://t.me/s/OliveboardApp?before=21970",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-08-21T09:40:06.698Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/sliit_23",
+    "sourceUrl": "https://t.me/s/sliit_23?before=70",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-08-21T09:40:06.698Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/teneo_official_announcements",
+    "sourceUrl": "https://t.me/s/teneo_official_announcements?before=94",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-08-21T09:40:06.699Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/quantum_space",
+    "sourceUrl": "https://t.me/s/quantum_space?before=117",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-08-21T09:40:06.700Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://chat.whatsapp.com/JXnGfjF9Zn2DzNNGdkUlO0",
+    "sourceUrl": "https://chat.whatsapp.com/JXnGfjF9Zn2DzNNGdkUlO0",
+    "platform": "whatsapp"
+  },
+  {
+    "rejectedAt": "2026-08-21T09:40:06.700Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://chat.whatsapp.com/HdfJI4LWRov8wyA1HfToYR",
+    "sourceUrl": "https://chat.whatsapp.com/HdfJI4LWRov8wyA1HfToYR",
+    "platform": "whatsapp"
+  },
+  {
+    "rejectedAt": "2026-08-21T09:40:06.701Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://chat.whatsapp.com/LIPsHkZtcjaLA3zy5DQ92y",
+    "sourceUrl": "https://chat.whatsapp.com/LIPsHkZtcjaLA3zy5DQ92y",
+    "platform": "whatsapp"
+  },
+  {
+    "rejectedAt": "2026-08-21T09:40:06.702Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://chat.whatsapp.com/GlYVdiTLJvf8A1w3G2G9PT",
+    "sourceUrl": "https://chat.whatsapp.com/GlYVdiTLJvf8A1w3G2G9PT",
+    "platform": "whatsapp"
+  },
+  {
+    "rejectedAt": "2026-08-21T09:40:06.702Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://chat.whatsapp.com/GMG19prZIPdIQDPTlOL1t9",
+    "sourceUrl": "https://chat.whatsapp.com/GMG19prZIPdIQDPTlOL1t9",
+    "platform": "whatsapp"
+  },
+  {
+    "rejectedAt": "2026-08-21T09:40:06.703Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://chat.whatsapp.com/GWZwZeFvd6mH1wMT2Cyps0",
+    "sourceUrl": "https://chat.whatsapp.com/GWZwZeFvd6mH1wMT2Cyps0",
+    "platform": "whatsapp"
+  },
+  {
+    "rejectedAt": "2026-08-21T09:40:06.704Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://chat.whatsapp.com/IBQpVp6maboEvSVwAZaKYc",
+    "sourceUrl": "https://chat.whatsapp.com/IBQpVp6maboEvSVwAZaKYc",
+    "platform": "whatsapp"
+  },
+  {
+    "rejectedAt": "2026-08-21T09:40:06.704Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://chat.whatsapp.com/invite/8q30jUtxrGGIE8NALMWRWR",
+    "sourceUrl": "https://chat.whatsapp.com/invite/8q30jUtxrGGIE8NALMWRWR",
+    "platform": "whatsapp"
+  },
+  {
+    "rejectedAt": "2026-08-21T09:40:06.705Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://chat.whatsapp.com/E89dw6tqKjo4dFC37f9jJh",
+    "sourceUrl": "https://chat.whatsapp.com/E89dw6tqKjo4dFC37f9jJh",
+    "platform": "whatsapp"
+  },
+  {
+    "rejectedAt": "2026-08-21T09:40:06.705Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://chat.whatsapp.com/DanGLBXYkxi6la0smuoTrf",
+    "sourceUrl": "https://chat.whatsapp.com/DanGLBXYkxi6la0smuoTrf",
+    "platform": "whatsapp"
+  },
+  {
+    "rejectedAt": "2026-08-21T09:40:06.706Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://discord.com/invite/math",
+    "sourceUrl": "https://discord.com/invite/math",
+    "platform": "discord"
+  },
+  {
+    "rejectedAt": "2026-08-21T09:40:11.516Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://chat.whatsapp.com/Lll8zugCp86AmmQAuKQRLD",
+    "sourceUrl": "https://chat.whatsapp.com/Lll8zugCp86AmmQAuKQRLD",
+    "platform": "whatsapp"
+  },
+  {
+    "rejectedAt": "2026-08-21T09:40:11.517Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://discord.com/invite/mhBpMwSY9e",
+    "sourceUrl": "https://discord.com/invite/mhBpMwSY9e",
+    "platform": "discord"
+  },
+  {
+    "rejectedAt": "2026-08-21T09:40:11.517Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/ctpethiopia",
+    "sourceUrl": "https://www.t.me/s/ctpethiopia?before=247",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-08-21T09:40:11.518Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://chat.whatsapp.com/JpuZsqQwx5r3FXLpCbMfav",
+    "sourceUrl": "https://chat.whatsapp.com/JpuZsqQwx5r3FXLpCbMfav",
+    "platform": "whatsapp"
+  },
+  {
+    "rejectedAt": "2026-08-21T09:40:11.519Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://chat.whatsapp.com/HyO0yKKbdCmBkAW6VmoFfW",
+    "sourceUrl": "https://chat.whatsapp.com/HyO0yKKbdCmBkAW6VmoFfW",
+    "platform": "whatsapp"
+  },
+  {
+    "rejectedAt": "2026-08-21T09:40:12.721Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://discord.com/invite/dion-training-solutions-841367242909941761",
+    "sourceUrl": "https://discord.com/invite/dion-training-solutions-841367242909941761",
+    "platform": "discord"
+  },
+  {
+    "rejectedAt": "2026-08-21T09:40:12.722Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/codingwallahsir",
+    "sourceUrl": "https://t.me/s/CodingWallahSir?before=298",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-08-21T09:40:12.722Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/daily_writeups",
+    "sourceUrl": "https://t.me/s/Daily_Writeups/94096?q=%23data_analysis",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-08-21T09:40:12.723Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/rlebanon",
+    "sourceUrl": "https://t.me/s/RLebanon?before=12424",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-08-21T09:40:13.926Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/lichessdotorg",
+    "sourceUrl": "https://t.me/s/lichessdotorg?before=2304",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-08-21T09:40:13.927Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/nusbuzz",
+    "sourceUrl": "https://t.me/s/nusbuzz?before=454",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-08-21T09:40:13.928Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/nuscomputingclub",
+    "sourceUrl": "https://t.me/s/nuscomputingclub?before=1726",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-08-21T09:40:13.928Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/forexchasersofficial",
+    "sourceUrl": "https://t.me/s/forexchasersofficial?before=",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-08-21T09:40:13.929Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://chat.whatsapp.com/Eta08VRtAhy4PRmoXzsn9h",
+    "sourceUrl": "https://chat.whatsapp.com/Eta08VRtAhy4PRmoXzsn9h",
+    "platform": "whatsapp"
+  },
+  {
+    "rejectedAt": "2026-08-21T09:40:13.930Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://chat.whatsapp.com/C36NwJxLXKl2oRSKOGoptn",
+    "sourceUrl": "https://chat.whatsapp.com/C36NwJxLXKl2oRSKOGoptn",
+    "platform": "whatsapp"
+  },
+  {
+    "rejectedAt": "2026-08-21T09:40:13.930Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://chat.whatsapp.com/your-link",
+    "sourceUrl": "https://chat.whatsapp.com/your-link",
+    "platform": "whatsapp"
   }
 ]

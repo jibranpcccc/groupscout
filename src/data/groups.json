@@ -40,7 +40,7 @@
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
     "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:09:17.867Z",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://discord.com/invite/z3y3e39n9h"
     ],
@@ -52,6 +52,55 @@
     "published": true,
     "linkCheckFailures": 0,
     "discordGuildId": "887542372756500500"
+  },
+  {
+    "id": "cand-mszv0vzf-ayz8gw",
+    "slug": "telegram-officersias",
+    "title": "Officers IAS Academy - UPSC Study Group",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "entrance-exams",
+    "subcategory": null,
+    "tags": [
+      "UPSC",
+      "IAS",
+      "Civil Services"
+    ],
+    "examFamilies": [
+      "entrance-exams"
+    ],
+    "exams": [
+      "upsc"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "study-group",
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/officersias",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": 15400,
+    "memberCountSource": "https://t.me/officersias",
+    "memberCountCheckedAt": "2026-08-21T09:08:40.441Z",
+    "verificationStatus": "source-confirmed",
+    "linkStatus": "active",
+    "lastCheckedAt": "2026-08-21T09:08:40.441Z",
+    "sourceUrls": [
+      "https://t.me/s/OfficersIAS/22932"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-19T08:59:01.226Z",
+    "updatedAt": "2026-08-21T09:08:40.441Z",
+    "safetyFlags": [],
+    "featured": false,
+    "published": true,
+    "linkCheckFailures": 0
   },
   {
     "id": "cand-mszv23kb-khxu57",
@@ -91,8 +140,8 @@
     "memberCountSource": "https://t.me/s/successwithielts",
     "memberCountCheckedAt": "2026-08-21T07:30:00.000Z",
     "verificationStatus": "source-confirmed",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:30:00.000Z",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/successwithielts"
     ],
@@ -142,8 +191,8 @@
     "memberCountSource": null,
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:30:00.000Z",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/ieltsspeakingpartner"
     ],
@@ -152,7 +201,8 @@
     "updatedAt": "2026-08-21T07:18:42.114Z",
     "safetyFlags": [],
     "featured": false,
-    "published": true
+    "published": true,
+    "linkCheckFailures": 0
   },
   {
     "id": "cand-mt1d1wqk-oj46xr",
@@ -192,7 +242,7 @@
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
     "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:09:17.867Z",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://discord.com/invite/crackd"
     ],
@@ -204,6 +254,54 @@
     "published": true,
     "linkCheckFailures": 0,
     "discordGuildId": "1203797348019478528"
+  },
+  {
+    "id": "cand-mt1d216x-tkskql",
+    "slug": "telegram-indiashastra",
+    "title": "India Shastra — UPSC Preparation",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "entrance-exams",
+    "subcategory": null,
+    "tags": [
+      "UPSC",
+      "IAS"
+    ],
+    "examFamilies": [
+      "entrance-exams"
+    ],
+    "exams": [
+      "upsc"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "study-group",
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/indiashastra",
+    "description": "Educational channel providing study resources, summaries, and guidance for UPSC CSE candidates.",
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "active",
+    "lastCheckedAt": "2026-08-21T09:08:40.441Z",
+    "sourceUrls": [
+      "https://t.me/s/indiashastra?before=568"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T10:11:33.897Z",
+    "updatedAt": "2026-08-21T09:08:40.441Z",
+    "safetyFlags": [],
+    "featured": false,
+    "published": true,
+    "linkCheckFailures": 0
   },
   {
     "id": "cand-mt1d26ew-6flb4d",
@@ -241,8 +339,8 @@
     "memberCountSource": null,
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:30:00.000Z",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/s/abusat_760?before=453"
     ],
@@ -291,8 +389,8 @@
     "memberCountSource": "https://t.me/s/ieltswithsanokulov",
     "memberCountCheckedAt": "2026-08-21T07:30:00.000Z",
     "verificationStatus": "source-confirmed",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:30:00.000Z",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/s/IELTSwithSANOKULOV?before=6826"
     ],
@@ -338,8 +436,8 @@
     "memberCountSource": "https://t.me/s/cambridgematerials",
     "memberCountCheckedAt": "2026-08-21T07:30:00.000Z",
     "verificationStatus": "source-confirmed",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:30:00.000Z",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/s/cambridgematerials/966"
     ],
@@ -387,8 +485,8 @@
     "memberCountSource": null,
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:30:00.000Z",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/s/IELTS_8?before=5595"
     ],
@@ -436,8 +534,8 @@
     "memberCountSource": null,
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:30:00.000Z",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/s/forielts?before=36"
     ],
@@ -486,8 +584,8 @@
     "memberCountSource": "https://t.me/s/ieltsupdatesandrecentexams",
     "memberCountCheckedAt": "2026-08-21T07:30:00.000Z",
     "verificationStatus": "source-confirmed",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:30:00.000Z",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/s/ieltsupdatesandrecentexams?before=9654"
     ],
@@ -535,8 +633,8 @@
     "memberCountSource": "https://t.me/s/usmle_facts",
     "memberCountCheckedAt": "2026-08-21T07:30:00.000Z",
     "verificationStatus": "source-confirmed",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:30:00.000Z",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/s/usmle_facts?before=5487"
     ],
@@ -585,8 +683,8 @@
     "memberCountSource": null,
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:30:00.000Z",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/s/usmle_fa_uw?before=181"
     ],
@@ -634,14 +732,62 @@
     "memberCountSource": null,
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:30:00.000Z",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/CPA_USA"
     ],
     "discoveryMethod": "gemini-search",
     "discoveredAt": "2026-08-20T11:08:44.300Z",
     "updatedAt": "2026-08-21T07:18:52.887Z",
+    "safetyFlags": [],
+    "featured": false,
+    "published": true,
+    "linkCheckFailures": 0
+  },
+  {
+    "id": "cand-mt1f3lor-4mskij",
+    "slug": "telegram-cpaexamstudy",
+    "title": "CPA Exam Study Community",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "finance-accounting",
+    "subcategory": null,
+    "tags": [
+      "CPA",
+      "Accounting"
+    ],
+    "examFamilies": [
+      "finance-accounting"
+    ],
+    "exams": [
+      "cpa"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion",
+      "resources"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/cpaexamstudy",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": 911,
+    "memberCountSource": "https://t.me/cpaexamstudy",
+    "memberCountCheckedAt": "2026-08-21T09:08:40.441Z",
+    "verificationStatus": "source-confirmed",
+    "linkStatus": "active",
+    "lastCheckedAt": "2026-08-21T09:08:40.441Z",
+    "sourceUrls": [
+      "https://t.me/cpaexamstudy"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:08:46.347Z",
+    "updatedAt": "2026-08-21T09:08:40.441Z",
     "safetyFlags": [],
     "featured": false,
     "published": true,
@@ -683,8 +829,8 @@
     "memberCountSource": null,
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:30:00.000Z",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/s/CPA0722127983?before=80"
     ],
@@ -730,8 +876,8 @@
     "memberCountSource": "https://t.me/s/accastudents",
     "memberCountCheckedAt": "2026-08-21T07:30:00.000Z",
     "verificationStatus": "source-confirmed",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:30:00.000Z",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/s/accastudents?before=1890"
     ],
@@ -783,8 +929,8 @@
     "memberCountSource": null,
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:30:00.000Z",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/s/cpabecker?before=12"
     ],
@@ -832,14 +978,159 @@
     "memberCountSource": "https://t.me/s/praveenkhatod",
     "memberCountCheckedAt": "2026-08-21T07:30:00.000Z",
     "verificationStatus": "source-confirmed",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:30:00.000Z",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/s/praveenkhatod?before=366"
     ],
     "discoveryMethod": "gemini-search",
     "discoveredAt": "2026-08-20T11:08:54.919Z",
     "updatedAt": "2026-08-21T07:18:57.652Z",
+    "safetyFlags": [],
+    "featured": false,
+    "published": true,
+    "linkCheckFailures": 0
+  },
+  {
+    "id": "cand-mt1f3ty4-z8clfi",
+    "slug": "telegram-sfmca",
+    "title": "EduInvest Academy — CFA & FRM Study",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "finance-accounting",
+    "subcategory": null,
+    "tags": [
+      "CFA",
+      "FRM"
+    ],
+    "examFamilies": [
+      "finance-accounting"
+    ],
+    "exams": [
+      "cfa",
+      "frm"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion",
+      "study-group",
+      "practice-questions"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/sfmca",
+    "description": "Finance and investment exam preparation community for Chartered Financial Analyst and FRM students.",
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": 2330,
+    "memberCountSource": "https://t.me/sfmca",
+    "memberCountCheckedAt": "2026-08-21T09:08:40.441Z",
+    "verificationStatus": "source-confirmed",
+    "linkStatus": "active",
+    "lastCheckedAt": "2026-08-21T09:08:40.441Z",
+    "sourceUrls": [
+      "https://t.me/s/SFMCA?before=518"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:08:57.052Z",
+    "updatedAt": "2026-08-21T09:08:40.441Z",
+    "safetyFlags": [],
+    "featured": false,
+    "published": true,
+    "linkCheckFailures": 0
+  },
+  {
+    "id": "cand-mt1g5du6-lc8934",
+    "slug": "telegram-jeesimplified",
+    "title": "JEE SIMPLIFIED — IIT JEE Prep",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "entrance-exams",
+    "subcategory": null,
+    "tags": [
+      "JEE",
+      "JEE Main",
+      "JEE Advanced"
+    ],
+    "examFamilies": [
+      "entrance-exams"
+    ],
+    "exams": [
+      "jee"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/jeesimplified",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": 35000,
+    "memberCountSource": "https://t.me/jeesimplified",
+    "memberCountCheckedAt": "2026-08-21T09:08:40.441Z",
+    "verificationStatus": "source-confirmed",
+    "linkStatus": "active",
+    "lastCheckedAt": "2026-08-21T09:08:40.441Z",
+    "sourceUrls": [
+      "https://t.me/s/jeesimplified?before=106"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:38:09.102Z",
+    "updatedAt": "2026-08-21T09:08:40.441Z",
+    "safetyFlags": [],
+    "featured": false,
+    "published": true,
+    "linkCheckFailures": 0
+  },
+  {
+    "id": "cand-mt1g5k5r-41xedp",
+    "slug": "telegram-gaurav-sir-physics",
+    "title": "Gaurav Gupta NEET Physics Community",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "entrance-exams",
+    "subcategory": null,
+    "tags": [
+      "NEET",
+      "Medical Entrance"
+    ],
+    "examFamilies": [
+      "entrance-exams"
+    ],
+    "exams": [
+      "neet"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "exam-strategy"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/gaurav_sir_physics",
+    "description": "Physics problem solving, notes, and concept sessions for NEET medical entrance candidates.",
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": 29500,
+    "memberCountSource": "https://t.me/gaurav_sir_physics",
+    "memberCountCheckedAt": "2026-08-21T09:08:40.441Z",
+    "verificationStatus": "source-confirmed",
+    "linkStatus": "active",
+    "lastCheckedAt": "2026-08-21T09:08:40.441Z",
+    "sourceUrls": [
+      "https://t.me/s/Gaurav_sir_Physics?before=8249"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:38:17.295Z",
+    "updatedAt": "2026-08-21T09:08:40.441Z",
     "safetyFlags": [],
     "featured": false,
     "published": true,
@@ -878,8 +1169,8 @@
     "memberCountSource": null,
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:30:00.000Z",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/s/czmgroup?before=10277"
     ],
@@ -935,14 +1226,61 @@
     "memberCountSource": "https://t.me/s/study_abroad_ymgrad",
     "memberCountCheckedAt": "2026-08-21T07:30:00.000Z",
     "verificationStatus": "source-confirmed",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:30:00.000Z",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/s/study_abroad_ymgrad?before=81"
     ],
     "discoveryMethod": "gemini-search",
     "discoveredAt": "2026-08-20T11:38:29.501Z",
     "updatedAt": "2026-08-21T07:19:00.116Z",
+    "safetyFlags": [],
+    "featured": false,
+    "published": true,
+    "linkCheckFailures": 0
+  },
+  {
+    "id": "cand-mt1g5w9s-fdlq1e",
+    "slug": "telegram-reobatch5",
+    "title": "REO CPA Review Community",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "finance-accounting",
+    "subcategory": null,
+    "tags": [
+      "CPA",
+      "Board Exam"
+    ],
+    "examFamilies": [
+      "finance-accounting"
+    ],
+    "exams": [
+      "cpa"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/reobatch5",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": 330,
+    "memberCountSource": "https://t.me/reobatch5",
+    "memberCountCheckedAt": "2026-08-21T09:08:40.441Z",
+    "verificationStatus": "source-confirmed",
+    "linkStatus": "active",
+    "lastCheckedAt": "2026-08-21T09:08:40.441Z",
+    "sourceUrls": [
+      "https://t.me/s/reobatch5"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-20T11:38:32.992Z",
+    "updatedAt": "2026-08-21T09:08:40.441Z",
     "safetyFlags": [],
     "featured": false,
     "published": true,
@@ -981,8 +1319,8 @@
     "memberCountSource": "https://t.me/s/cissp",
     "memberCountCheckedAt": "2026-08-21T07:30:00.000Z",
     "verificationStatus": "source-confirmed",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:30:00.000Z",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/s/cissp?after=7149"
     ],
@@ -1028,7 +1366,7 @@
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
     "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:09:17.867Z",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/s/Free4arab1?q=%23cissp&before=5851"
     ],
@@ -1073,8 +1411,8 @@
     "memberCountSource": null,
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:30:00.000Z",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/s/freeonlinecourses_paid_to_free?before=69141"
     ],
@@ -1119,8 +1457,8 @@
     "memberCountSource": null,
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:30:00.000Z",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/s/cisspknights"
     ],
@@ -1169,8 +1507,8 @@
     "memberCountSource": null,
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:30:00.000Z",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/s/oscplatestcybersecuritycourses?before=1577"
     ],
@@ -1214,7 +1552,7 @@
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
     "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:09:17.867Z",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://discord.com/invite/run6k2B"
     ],
@@ -1260,8 +1598,8 @@
     "memberCountSource": null,
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:30:00.000Z",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/spotopmpclub"
     ],
@@ -1306,8 +1644,8 @@
     "memberCountSource": null,
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:30:00.000Z",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/pmpstudygroup"
     ],
@@ -1352,8 +1690,8 @@
     "memberCountSource": "https://t.me/s/knowledgemap",
     "memberCountCheckedAt": "2026-08-21T07:30:00.000Z",
     "verificationStatus": "source-confirmed",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:30:00.000Z",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/s/knowledgemap?before=2154"
     ],
@@ -1403,7 +1741,7 @@
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
     "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:09:17.867Z",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/s/certibanks?q=%23PRINCE2&before=167"
     ],
@@ -1452,8 +1790,8 @@
     "memberCountSource": "https://t.me/s/certibanks",
     "memberCountCheckedAt": "2026-08-21T07:30:00.000Z",
     "verificationStatus": "source-confirmed",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:30:00.000Z",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/s/certibanks?before=63"
     ],
@@ -1498,8 +1836,8 @@
     "memberCountSource": null,
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:30:00.000Z",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/SAT_files"
     ],
@@ -1544,8 +1882,8 @@
     "memberCountSource": "https://t.me/s/dsatfreematerials",
     "memberCountCheckedAt": "2026-08-21T07:30:00.000Z",
     "verificationStatus": "source-confirmed",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:30:00.000Z",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/dsatfreematerials"
     ],
@@ -1590,8 +1928,8 @@
     "memberCountSource": null,
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:30:00.000Z",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/sat_makon"
     ],
@@ -1636,8 +1974,8 @@
     "memberCountSource": null,
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:30:00.000Z",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/DSATuz"
     ],
@@ -1682,8 +2020,8 @@
     "memberCountSource": null,
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:30:00.000Z",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/s/satashkent"
     ],
@@ -1731,7 +2069,7 @@
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
     "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:09:17.867Z",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://discord.com/invite/apstudents"
     ],
@@ -1777,8 +2115,8 @@
     "memberCountSource": null,
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:30:00.000Z",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://www.t.me/s/studyniti_smritisethi?before=36"
     ],
@@ -1823,8 +2161,8 @@
     "memberCountSource": null,
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:30:00.000Z",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/s/JEEnexus?before=1818"
     ],
@@ -1869,8 +2207,8 @@
     "memberCountSource": "https://t.me/s/jee_full_study_material",
     "memberCountCheckedAt": "2026-08-21T07:30:00.000Z",
     "verificationStatus": "source-confirmed",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:30:00.000Z",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/JEE_Full_Study_Material"
     ],
@@ -1915,8 +2253,8 @@
     "memberCountSource": "https://t.me/s/sankalpnit",
     "memberCountCheckedAt": "2026-08-21T07:30:00.000Z",
     "verificationStatus": "source-confirmed",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:30:00.000Z",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/s/sankalpnit?before=4079"
     ],
@@ -1961,8 +2299,8 @@
     "memberCountSource": null,
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:30:00.000Z",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/s/JEE_Elevate?before=1804"
     ],
@@ -2008,7 +2346,7 @@
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
     "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:09:17.867Z",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://discord.com/invite/KaDMxQESxg"
     ],
@@ -2054,8 +2392,8 @@
     "memberCountSource": null,
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:30:00.000Z",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/IeltsSspeaking"
     ],
@@ -2100,8 +2438,8 @@
     "memberCountSource": null,
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:30:00.000Z",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/s/english_group_links?before=385"
     ],
@@ -2146,8 +2484,8 @@
     "memberCountSource": "https://t.me/s/ieltsfastrack",
     "memberCountCheckedAt": "2026-08-21T07:30:00.000Z",
     "verificationStatus": "source-confirmed",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T07:30:00.000Z",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T09:40:14.380Z",
     "sourceUrls": [
       "https://t.me/s/IELTSFasTrack"
     ],
@@ -3307,343 +3645,6 @@
     "discoveryMethod": "gemini-search",
     "discoveredAt": "2026-08-21T06:57:47.230Z",
     "updatedAt": "2026-08-21T07:19:50.471Z",
-    "safetyFlags": [],
-    "featured": false,
-    "published": true,
-    "linkCheckFailures": 0
-  },
-  {
-    "id": "cand-mszv0vzf-ayz8gw",
-    "slug": "telegram-officersias",
-    "title": "Officers IAS Academy - UPSC Study Group",
-    "platform": "telegram",
-    "vertical": "study-prep",
-    "category": "entrance-exams",
-    "subcategory": null,
-    "tags": [
-      "UPSC",
-      "IAS",
-      "Civil Services"
-    ],
-    "examFamilies": [
-      "entrance-exams"
-    ],
-    "exams": [
-      "upsc"
-    ],
-    "targetMarkets": [],
-    "certificationProvider": null,
-    "studyTypes": [
-      "study-group",
-      "discussion"
-    ],
-    "examLevel": null,
-    "inviteUrl": "https://t.me/officersias",
-    "description": null,
-    "language": null,
-    "country": null,
-    "accessType": "unknown",
-    "communityType": "discussion",
-    "memberCount": 15400,
-    "memberCountSource": "https://t.me/officersias",
-    "memberCountCheckedAt": "2026-08-21T09:08:40.441Z",
-    "verificationStatus": "source-confirmed",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T09:08:40.441Z",
-    "sourceUrls": [
-      "https://t.me/s/OfficersIAS/22932"
-    ],
-    "discoveryMethod": "gemini-search",
-    "discoveredAt": "2026-08-19T08:59:01.226Z",
-    "updatedAt": "2026-08-21T09:08:40.441Z",
-    "safetyFlags": [],
-    "featured": false,
-    "published": true,
-    "linkCheckFailures": 0
-  },
-  {
-    "id": "cand-mt1d216x-tkskql",
-    "slug": "telegram-indiashastra",
-    "title": "India Shastra — UPSC Preparation",
-    "platform": "telegram",
-    "vertical": "study-prep",
-    "category": "entrance-exams",
-    "subcategory": null,
-    "tags": [
-      "UPSC",
-      "IAS"
-    ],
-    "examFamilies": [
-      "entrance-exams"
-    ],
-    "exams": [
-      "upsc"
-    ],
-    "targetMarkets": [],
-    "certificationProvider": null,
-    "studyTypes": [
-      "study-group",
-      "discussion"
-    ],
-    "examLevel": null,
-    "inviteUrl": "https://t.me/indiashastra",
-    "description": "Educational channel providing study resources, summaries, and guidance for UPSC CSE candidates.",
-    "language": null,
-    "country": null,
-    "accessType": "unknown",
-    "communityType": "discussion",
-    "memberCount": null,
-    "memberCountSource": null,
-    "memberCountCheckedAt": null,
-    "verificationStatus": "unverified",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T09:08:40.441Z",
-    "sourceUrls": [
-      "https://t.me/s/indiashastra?before=568"
-    ],
-    "discoveryMethod": "gemini-search",
-    "discoveredAt": "2026-08-20T10:11:33.897Z",
-    "updatedAt": "2026-08-21T09:08:40.441Z",
-    "safetyFlags": [],
-    "featured": false,
-    "published": true,
-    "linkCheckFailures": 0
-  },
-  {
-    "id": "cand-mt1f3lor-4mskij",
-    "slug": "telegram-cpaexamstudy",
-    "title": "CPA Exam Study Community",
-    "platform": "telegram",
-    "vertical": "study-prep",
-    "category": "finance-accounting",
-    "subcategory": null,
-    "tags": [
-      "CPA",
-      "Accounting"
-    ],
-    "examFamilies": [
-      "finance-accounting"
-    ],
-    "exams": [
-      "cpa"
-    ],
-    "targetMarkets": [],
-    "certificationProvider": null,
-    "studyTypes": [
-      "discussion",
-      "resources"
-    ],
-    "examLevel": null,
-    "inviteUrl": "https://t.me/cpaexamstudy",
-    "description": null,
-    "language": null,
-    "country": null,
-    "accessType": "unknown",
-    "communityType": "discussion",
-    "memberCount": 911,
-    "memberCountSource": "https://t.me/cpaexamstudy",
-    "memberCountCheckedAt": "2026-08-21T09:08:40.441Z",
-    "verificationStatus": "source-confirmed",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T09:08:40.441Z",
-    "sourceUrls": [
-      "https://t.me/cpaexamstudy"
-    ],
-    "discoveryMethod": "gemini-search",
-    "discoveredAt": "2026-08-20T11:08:46.347Z",
-    "updatedAt": "2026-08-21T09:08:40.441Z",
-    "safetyFlags": [],
-    "featured": false,
-    "published": true,
-    "linkCheckFailures": 0
-  },
-  {
-    "id": "cand-mt1f3ty4-z8clfi",
-    "slug": "telegram-sfmca",
-    "title": "EduInvest Academy — CFA & FRM Study",
-    "platform": "telegram",
-    "vertical": "study-prep",
-    "category": "finance-accounting",
-    "subcategory": null,
-    "tags": [
-      "CFA",
-      "FRM"
-    ],
-    "examFamilies": [
-      "finance-accounting"
-    ],
-    "exams": [
-      "cfa",
-      "frm"
-    ],
-    "targetMarkets": [],
-    "certificationProvider": null,
-    "studyTypes": [
-      "discussion",
-      "study-group",
-      "practice-questions"
-    ],
-    "examLevel": null,
-    "inviteUrl": "https://t.me/sfmca",
-    "description": "Finance and investment exam preparation community for Chartered Financial Analyst and FRM students.",
-    "language": null,
-    "country": null,
-    "accessType": "unknown",
-    "communityType": "discussion",
-    "memberCount": 2330,
-    "memberCountSource": "https://t.me/sfmca",
-    "memberCountCheckedAt": "2026-08-21T09:08:40.441Z",
-    "verificationStatus": "source-confirmed",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T09:08:40.441Z",
-    "sourceUrls": [
-      "https://t.me/s/SFMCA?before=518"
-    ],
-    "discoveryMethod": "gemini-search",
-    "discoveredAt": "2026-08-20T11:08:57.052Z",
-    "updatedAt": "2026-08-21T09:08:40.441Z",
-    "safetyFlags": [],
-    "featured": false,
-    "published": true,
-    "linkCheckFailures": 0
-  },
-  {
-    "id": "cand-mt1g5du6-lc8934",
-    "slug": "telegram-jeesimplified",
-    "title": "JEE SIMPLIFIED — IIT JEE Prep",
-    "platform": "telegram",
-    "vertical": "study-prep",
-    "category": "entrance-exams",
-    "subcategory": null,
-    "tags": [
-      "JEE",
-      "JEE Main",
-      "JEE Advanced"
-    ],
-    "examFamilies": [
-      "entrance-exams"
-    ],
-    "exams": [
-      "jee"
-    ],
-    "targetMarkets": [],
-    "certificationProvider": null,
-    "studyTypes": [
-      "discussion"
-    ],
-    "examLevel": null,
-    "inviteUrl": "https://t.me/jeesimplified",
-    "description": null,
-    "language": null,
-    "country": null,
-    "accessType": "unknown",
-    "communityType": "discussion",
-    "memberCount": 35000,
-    "memberCountSource": "https://t.me/jeesimplified",
-    "memberCountCheckedAt": "2026-08-21T09:08:40.441Z",
-    "verificationStatus": "source-confirmed",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T09:08:40.441Z",
-    "sourceUrls": [
-      "https://t.me/s/jeesimplified?before=106"
-    ],
-    "discoveryMethod": "gemini-search",
-    "discoveredAt": "2026-08-20T11:38:09.102Z",
-    "updatedAt": "2026-08-21T09:08:40.441Z",
-    "safetyFlags": [],
-    "featured": false,
-    "published": true,
-    "linkCheckFailures": 0
-  },
-  {
-    "id": "cand-mt1g5k5r-41xedp",
-    "slug": "telegram-gaurav-sir-physics",
-    "title": "Gaurav Gupta NEET Physics Community",
-    "platform": "telegram",
-    "vertical": "study-prep",
-    "category": "entrance-exams",
-    "subcategory": null,
-    "tags": [
-      "NEET",
-      "Medical Entrance"
-    ],
-    "examFamilies": [
-      "entrance-exams"
-    ],
-    "exams": [
-      "neet"
-    ],
-    "targetMarkets": [],
-    "certificationProvider": null,
-    "studyTypes": [
-      "exam-strategy"
-    ],
-    "examLevel": null,
-    "inviteUrl": "https://t.me/gaurav_sir_physics",
-    "description": "Physics problem solving, notes, and concept sessions for NEET medical entrance candidates.",
-    "language": null,
-    "country": null,
-    "accessType": "unknown",
-    "communityType": "discussion",
-    "memberCount": 29500,
-    "memberCountSource": "https://t.me/gaurav_sir_physics",
-    "memberCountCheckedAt": "2026-08-21T09:08:40.441Z",
-    "verificationStatus": "source-confirmed",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T09:08:40.441Z",
-    "sourceUrls": [
-      "https://t.me/s/Gaurav_sir_Physics?before=8249"
-    ],
-    "discoveryMethod": "gemini-search",
-    "discoveredAt": "2026-08-20T11:38:17.295Z",
-    "updatedAt": "2026-08-21T09:08:40.441Z",
-    "safetyFlags": [],
-    "featured": false,
-    "published": true,
-    "linkCheckFailures": 0
-  },
-  {
-    "id": "cand-mt1g5w9s-fdlq1e",
-    "slug": "telegram-reobatch5",
-    "title": "REO CPA Review Community",
-    "platform": "telegram",
-    "vertical": "study-prep",
-    "category": "finance-accounting",
-    "subcategory": null,
-    "tags": [
-      "CPA",
-      "Board Exam"
-    ],
-    "examFamilies": [
-      "finance-accounting"
-    ],
-    "exams": [
-      "cpa"
-    ],
-    "targetMarkets": [],
-    "certificationProvider": null,
-    "studyTypes": [
-      "discussion"
-    ],
-    "examLevel": null,
-    "inviteUrl": "https://t.me/reobatch5",
-    "description": null,
-    "language": null,
-    "country": null,
-    "accessType": "unknown",
-    "communityType": "discussion",
-    "memberCount": 330,
-    "memberCountSource": "https://t.me/reobatch5",
-    "memberCountCheckedAt": "2026-08-21T09:08:40.441Z",
-    "verificationStatus": "source-confirmed",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T09:08:40.441Z",
-    "sourceUrls": [
-      "https://t.me/s/reobatch5"
-    ],
-    "discoveryMethod": "gemini-search",
-    "discoveredAt": "2026-08-20T11:38:32.992Z",
-    "updatedAt": "2026-08-21T09:08:40.441Z",
     "safetyFlags": [],
     "featured": false,
     "published": true,
