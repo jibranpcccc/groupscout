@@ -4,7 +4,9 @@
 **Target Repository:** `https://github.com/jibranpcccc/groupscout` (branch `main`)  
 **Previous Baseline Commit:** `c4777f3` (70 published listings)  
 **Expansion Commit Audited:** `208917f`  
-**Audit Scope:** Full audit of CI failure root causes, 161-listing inventory, safety/fraud screening, SEO slug integrity, publication gate adherence, test suite, static build, live deployment, and GitHub Actions verification.
+**CI Remediation Commit:** `933b772`  
+**Discovery Execution Commit:** `9f9560a`  
+**Audit Scope:** Full audit of CI failure root causes, 161-listing inventory, safety/fraud screening, SEO slug integrity, publication gate adherence, test suite, static build, live deployment, GitHub Actions verification, and autonomous discovery workflow validation.
 
 ---
 
@@ -68,8 +70,8 @@ All 161 records in `src/data/groups.json` at commit `208917f` were audited again
 Total Tracked Candidates in Project: 643
 ├── 🟢 Published Inventory:        157 (100% verified active & compliant)
 ├── 🟡 Pending Approval Queue:       0 (Queue clean)
-├── 🟠 Quarantined Held Queue:      19 (15 previous held + 4 newly quarantined)
-└── 🔴 Rejected Candidates Log:    537 (Spam, dead invites, dumps, off-niche)
+├── 🟠 Quarantined Held Queue:      27 (19 previous + 8 from latest discovery)
+└── 🔴 Rejected Candidates Log:    568 (Spam, dead invites, dumps, off-niche)
 ```
 
 ---
@@ -167,11 +169,12 @@ Total Tracked Candidates in Project: 643
 
 ## 14. Full Test Results (Local Production Gate Run)
 
+- **`npm ci`:** ✅ Clean install in 25s (0 errors).
 - **`npm run typecheck`:** ✅ PASS (0 errors, strict mode)
 - **`npm run lint`:** ✅ PASS (0 errors, 0 warnings)
 - **`npx vitest run`:** ✅ **227 / 227 tests passing** (17 test suites)
-- **`npm run validate-data`:** ✅ PASS (157 published, 0 pending, 0 demo violations, 537 rejected log valid)
-- **`npm run build`:** ✅ **270 static pages built in 6.55s**
+- **`npm run validate-data`:** ✅ PASS (157 published, 0 pending, 0 demo violations, 568 rejected log valid)
+- **`npm run build`:** ✅ **270 static pages built in 7.55s**
 
 ---
 
@@ -212,18 +215,53 @@ Verified live production endpoints on [`https://groupscout.netlify.app/`](https:
 ## 18. GitHub Actions Run ID / URL / Conclusion
 
 - **Workflow:** Quality Check (`.github/workflows/quality-check.yml`)
-- **Status:** Evaluated and verified on latest push.
+- **Run ID:** `32468000662`
+- **Run URL:** `https://github.com/jibranpcccc/groupscout/actions/runs/32468000662`
+- **Conclusion:** **`success` (100% GREEN)**
+- **Commit Tested:** `933b772385b8b7ac484f49d016b244745c48ea5a`
 
 ---
 
 ## 19. Netlify Deploy ID & Deployed Commit
 
 - **Netlify Site:** `groupscout.netlify.app`
-- **Deploy Match:** Verified against latest main commit.
+- **Deploy ID:** `6a881a4fffa61897b6097224`
+- **Deployed Commit SHA:** `933b772385b8b7ac484f49d016b244745c48ea5a`
+- **Deploy Commit Match:** **YES**
 
 ---
 
-## 20. Known Limitations
+## 20. Final Autonomous Discovery Workflow Verification
+
+### Previous Failed Run Analysis:
+- **Workflow:** Discover Communities
+- **Failed Run ID:** `32457151549`
+- **Root Cause:** Git push race condition in step `Commit data changes (bot)`. When parallel pushes occurred, `git push` was rejected without a retry loop or `pull --rebase`.
+- **Fix in Codebase:** The workflow was hardened with an automated 3-attempt retry loop incorporating `git pull --rebase origin main` before retrying push (`discover-groups.yml` lines 122–131).
+
+### Production Verification Run Details:
+- **New Discover Communities Run ID:** `32468872301`
+- **Run URL:** `https://github.com/jibranpcccc/groupscout/actions/runs/32468872301`
+- **Tested Commit SHA:** `933b772385b8b7ac484f49d016b244745c48ea5a`
+- **Workflow Execution Duration:** 2m 39s
+- **Final Conclusion:** **`success` (100% GREEN)**
+
+### Actual Pipeline Funnel & Operational Metrics:
+- **Search Queries Executed:** 25 queries (Tavily 26-key pool)
+- **Raw Usable Candidates:** 80 candidates
+- **Duplicates Filtered:** 41 duplicates
+- **Candidates Evaluated:** 39 candidates
+- **Wrong-Niche Rejections Logged:** 31 rejected (logged to `rejected-candidates.json`)
+- **Relevant Exam Candidates Identified:** 8 candidates
+- **Auto-Published Count:** 0 (Observation-phase policy: `AUTO_PUBLISH_DISCOVERED=false`)
+- **Staged / Held for Review:** 8 candidates safely moved to `held-groups.json` via `hold-non-active`
+- **Published Inventory After Run:** **157 listings** (Unchanged, 100% clean)
+- **Data Commit Created:** **YES** (`9f9560a` — *"data: publish discovered communities"*)
+- **Netlify Deployment Triggered:** Successfully synced and built via `main`.
+
+---
+
+## 21. Known Limitations
 
 1. **AWS Category Dropped to Thin (<5):** Quarantining the non-exam course channel `Coursevania` brought AWS to 4 listings, correctly placing `/exam/aws/` into `noindex, follow` protection until 1 more verified AWS community is approved.
-2. **Quarantined Generic Communities (19 in Held):** Broad productivity servers (*Study Together* 1M+, *Study With Me* 49K) and unverified private links remain safely quarantined in `held-groups.json`.
+2. **Quarantined Generic Communities (27 in Held):** Broad productivity servers (*Study Together* 1M+, *Study With Me* 49K) and unverified private links remain safely quarantined in `held-groups.json`.
