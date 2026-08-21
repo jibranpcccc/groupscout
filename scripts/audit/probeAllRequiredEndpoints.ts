@@ -1,16 +1,7 @@
 import https from 'https';
+import type { IncomingHttpHeaders } from 'http';
 
-interface ProbeResult {
-  url: string;
-  status: number;
-  robotsMeta: string | null;
-  canonical: string | null;
-  title: string | null;
-  h1: string | null;
-  inSitemap: boolean | null;
-}
-
-function probeUrl(url: string): Promise<{ status: number; headers: any; body: string }> {
+function probeUrl(url: string): Promise<{ status: number; headers: IncomingHttpHeaders; body: string }> {
   return new Promise((resolve, reject) => {
     https.get(url, { headers: { 'User-Agent': 'StudyScout-Production-Integrity-Auditor/1.0' } }, (res) => {
       let data = '';
@@ -75,8 +66,9 @@ async function runProbes() {
         console.log(`  Snippet     : ${res.body.slice(0, 120).replace(/\n/g, ' ')}...`);
       }
       console.log('');
-    } catch (e: any) {
-      console.error(`Error probing ${u}: ${e.message}`);
+    } catch (e: unknown) {
+      const msg = e instanceof Error ? e.message : String(e);
+      console.error(`Error probing ${u}: ${msg}`);
     }
   }
 }
