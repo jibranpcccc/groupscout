@@ -3691,5 +3691,121 @@
     "candidateUrl": "https://chat.whatsapp.com/your-link",
     "sourceUrl": "https://chat.whatsapp.com/your-link",
     "platform": "whatsapp"
+  },
+  {
+    "id": "cand-mt1x4zqq-dtu6gw",
+    "candidateUrl": "https://t.me/okxannouncements",
+    "sourceUrl": "https://t.me/s/OKXAnnouncements?before=5630",
+    "rejectedAt": "2026-08-21T09:08:40.440Z",
+    "reason": "off-niche (crypto announcements channel)",
+    "details": {
+      "platform": "telegram",
+      "title": "OKX Announcements – Telegram — OKX Announcements"
+    },
+    "platform": "telegram"
+  },
+  {
+    "id": "cand-mt2hbqwc-8upzyj",
+    "candidateUrl": "https://t.me/coursecouponclub",
+    "sourceUrl": "https://t.me/s/coursecouponclub?before=56807",
+    "rejectedAt": "2026-08-21T09:08:40.441Z",
+    "reason": "off-niche (coupon spam channel)",
+    "details": {
+      "platform": "telegram",
+      "title": "Udemy Free Courses | 100% OFF Udemy Coupon codes 2026 | Course Coupon Club Udemy courses 90% OFF | Coursera – Telegram —"
+    },
+    "platform": "telegram"
+  },
+  {
+    "id": "cand-mszv0s9f-pkhjan",
+    "candidateUrl": "https://discord.com/invite/sat-preparation-992867137238618274",
+    "sourceUrl": "https://discord.com/invite/sat-preparation-992867137238618274",
+    "rejectedAt": "2026-08-21T09:08:40.441Z",
+    "reason": "dead_link (Discord invite 404/expired)",
+    "details": {
+      "platform": "discord",
+      "title": "SAT Preparation"
+    },
+    "platform": "discord"
+  },
+  {
+    "id": "cand-mt1g5h6o-3kfz47",
+    "candidateUrl": "https://t.me/dravidianlanguage",
+    "sourceUrl": "https://t.me/s/dravidianlanguage?before=132",
+    "rejectedAt": "2026-08-21T09:08:40.441Z",
+    "reason": "off-niche (linguistic channel without exam prep focus)",
+    "details": {
+      "platform": "telegram",
+      "title": "Dravidian Languages Channel – Telegram — 1"
+    },
+    "platform": "telegram"
+  },
+  {
+    "id": "cand-mt1x5csc-pez7pd",
+    "candidateUrl": "https://discord.com/invite/jee-neet-gang-1043443094948954132",
+    "sourceUrl": "https://discord.com/invite/jee-neet-gang-1043443094948954132",
+    "rejectedAt": "2026-08-21T09:08:40.441Z",
+    "reason": "dead_link (Discord invite 404/expired)",
+    "details": {
+      "platform": "discord",
+      "title": "JEE NEET GANG - Discord — JEE NEET GANG is a Discord study server that offers a platform for you to connect with other s"
+    },
+    "platform": "discord"
+  },
+  {
+    "id": "cand-mt1x5dpq-gu2ur5",
+    "candidateUrl": "https://discord.com/invite/neet-fam-810850391004676096",
+    "sourceUrl": "https://discord.com/invite/neet-fam-810850391004676096",
+    "rejectedAt": "2026-08-21T09:08:40.441Z",
+    "reason": "dead_link (Discord invite 404/expired)",
+    "details": {
+      "platform": "discord",
+      "title": "NEET FAM - Discord — Discord's one and all community for NEET UG, MBBS, NEET PG, JEE, Engeneering & more"
+    },
+    "platform": "discord"
+  },
+  {
+    "id": "cand-mt1x5fkj-26g2dk",
+    "candidateUrl": "https://discord.com/invite/neet-labs-1098659349708157018",
+    "sourceUrl": "https://discord.com/invite/neet-labs-1098659349708157018",
+    "rejectedAt": "2026-08-21T09:08:40.442Z",
+    "reason": "dead_link (Discord invite 404/expired)",
+    "details": {
+      "platform": "discord",
+      "title": "NEET - Discord — It's the only NEET thing to do"
+    },
+    "platform": "discord"
+  },
+  {
+    "id": "cand-mt1x642l-8ogepz",
+    "candidateUrl": "https://t.me/awsexamdumps",
+    "sourceUrl": "https://t.me/awsexamdumps",
+    "rejectedAt": "2026-08-21T09:08:40.442Z",
+    "reason": "exam-risk (AWS exam dumps channel - academic integrity violation)",
+    "details": {
+      "platform": "telegram",
+      "title": "Telegram: View @awsexamdumps — Download"
+    },
+    "platform": "telegram"
+  },
+  {
+    "id": "cand-mt2lzgb5-sxtr3r",
+    "candidateUrl": "https://discord.com/invite/apstudy-ap-test-prep-859910344393883710",
+    "sourceUrl": "https://discord.com/invite/apstudy-ap-test-prep-859910344393883710",
+    "rejectedAt": "2026-08-21T09:08:40.442Z",
+    "reason": "dead_link (Discord invite 404/expired)",
+    "details": {
+      "platform": "discord",
+      "title": "APStudy | AP Test Prep - Discord — An educational community for AP Students to access free resources and help other stud"
+    },
+    "platform": "discord"
+  },
+  {
+    "id": "cand-mt2qek9s-72vmsn",
+    "candidateUrl": "https://t.me/everydaynewcourses",
+    "sourceUrl": "https://t.me/s/everydaynewcourses",
+    "rejectedAt": "2026-08-21T09:13:28.005Z",
+    "reason": "off-niche (coupon/promo spam)",
+    "platform": "telegram"
   }
 ]

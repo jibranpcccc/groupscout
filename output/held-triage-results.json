@@ -1,0 +1,628 @@
+[
+  {
+    "id": "cand-mt1x4zqq-dtu6gw",
+    "slug": "telegram-okxannouncements",
+    "title": "OKX Announcements – Telegram — OKX Announcements",
+    "platform": "telegram",
+    "inviteUrl": "https://t.me/okxannouncements",
+    "currentStatus": "active",
+    "currentHeldReason": "off-niche (crypto/coupon channel — outside study-prep vertical)",
+    "currentExams": [
+      "act"
+    ],
+    "decision": "REJECT",
+    "notes": "",
+    "rejectionReason": "off-niche-spam"
+  },
+  {
+    "id": "cand-mt2hbqwc-8upzyj",
+    "slug": "telegram-coursecouponclub",
+    "title": "Udemy Free Courses | 100% OFF Udemy Coupon codes 2026 | Course Coupon Club Udemy courses 90% OFF | Coursera – Telegram —",
+    "platform": "telegram",
+    "inviteUrl": "https://t.me/coursecouponclub",
+    "currentStatus": "active",
+    "currentHeldReason": "off-niche (crypto/coupon channel — outside study-prep vertical)",
+    "currentExams": [
+      "cissp"
+    ],
+    "decision": "REJECT",
+    "notes": "",
+    "rejectionReason": "off-niche-spam"
+  },
+  {
+    "id": "cand-mszv0coc-kd67py",
+    "slug": "discord-study",
+    "title": "Study Together",
+    "platform": "discord",
+    "inviteUrl": "https://discord.com/invite/study",
+    "currentStatus": "active",
+    "currentHeldReason": "primarily generic study/productivity server that also hosts an SAT Prep sub-community — held/rejected from initial production per narrow topical policy (not a dedicated exam-prep community)",
+    "currentExams": [
+      "sat"
+    ],
+    "decision": "KEEP_HELD",
+    "notes": "Generic study server without specific exam channel target",
+    "discordResult": {
+      "status": "active",
+      "guildName": "Study Together ♫",
+      "guildId": "595999872222756885",
+      "memberCount": null,
+      "sourceUrl": "https://discord.com/api/v10/invites/study?with_counts=true&with_expiration=true"
+    },
+    "verifiedMemberCount": null,
+    "guildName": "Study Together ♫"
+  },
+  {
+    "id": "cand-mszv0s9f-pkhjan",
+    "slug": "discord-sat-preparation-992867137238618274",
+    "title": "SAT Preparation",
+    "platform": "discord",
+    "inviteUrl": "https://discord.com/invite/sat-preparation-992867137238618274",
+    "currentStatus": "dead",
+    "currentHeldReason": "linkStatus=dead (not active) — moved out of normal pending per integrity audit",
+    "currentExams": [
+      "sat"
+    ],
+    "decision": "REJECT",
+    "notes": "",
+    "discordResult": {
+      "status": "dead"
+    },
+    "rejectionReason": "dead_invite_link"
+  },
+  {
+    "id": "cand-mszv0vzf-ayz8gw",
+    "slug": "telegram-officersias",
+    "title": "Officers IAS Academy - Study Group",
+    "platform": "telegram",
+    "inviteUrl": "https://t.me/officersias",
+    "currentStatus": "unknown",
+    "currentHeldReason": "live but generic/off-niche (no exam focus) — verified via Tavily extract",
+    "currentExams": [],
+    "decision": "PROMOTE_TO_PUBLISHED",
+    "notes": "",
+    "extractResult": {
+      "success": true,
+      "subscribers": 15400,
+      "title": "Officers IAS Academy - Study Group",
+      "snippet": "Officers IAS Academy - Study Group\n\n15.4K subscribers\n\n2.88K photos\n\n58 videos\n\n352 files\n\n2.44K links\n\nOfficers IAS Academy’s official Telegram group\n\n [Download Telegram](//telegram.org/dl?tme=f88d6dafde64c42612_3555418261786810046) \n\n##### [About]"
+    },
+    "verifiedMemberCount": 15400,
+    "classifiedExams": [
+      "upsc"
+    ],
+    "classifiedFamily": "entrance-exams",
+    "updatedTitle": "Officers IAS Academy - Study Group"
+  },
+  {
+    "id": "cand-mszv1kld-crses5",
+    "slug": "telegram-profitstudy",
+    "title": "PROFIT STUDY (Official)",
+    "platform": "telegram",
+    "inviteUrl": "https://t.me/profitstudy",
+    "currentStatus": "unknown",
+    "currentHeldReason": "live but generic/off-niche (no exam focus) — verified via Tavily extract",
+    "currentExams": [],
+    "decision": "KEEP_HELD",
+    "notes": "Live channel but no specific exam focus",
+    "extractResult": {
+      "success": true,
+      "subscribers": 21600,
+      "title": "***✍***PROFIT STUDY (Official)",
+      "snippet": "***✍***PROFIT STUDY (Official)\n\n21.6K subscribers\n\n1.78K photos\n\n30 videos\n\n851 files\n\n4.39K links\n\n***🔴*** Official website - [ProfitStudy.in](http://ProfitStudy.in/) ***🔴***\n\n [Download Telegram](//telegram.org/dl?tme=f6bb8c59de19ec85d2_178733241"
+    },
+    "verifiedMemberCount": 21600
+  },
+  {
+    "id": "cand-mszv1zm1-ymuhbt",
+    "slug": "discord-studywithme",
+    "title": "Study With Me - Discord",
+    "platform": "discord",
+    "inviteUrl": "https://discord.com/invite/studywithme",
+    "currentStatus": "active",
+    "currentHeldReason": "generic study/accountability community without explicit exam/cert focus — held/rejected from initial production per narrow topical SEO policy",
+    "currentExams": [],
+    "decision": "KEEP_HELD",
+    "notes": "Generic study server without specific exam channel target",
+    "discordResult": {
+      "status": "active",
+      "guildName": "Study With Me",
+      "guildId": "770814980194959360",
+      "memberCount": null,
+      "sourceUrl": "https://discord.com/api/v10/invites/studywithme?with_counts=true&with_expiration=true"
+    },
+    "verifiedMemberCount": null,
+    "guildName": "Study With Me"
+  },
+  {
+    "id": "cand-mszv21np-0ubqgl",
+    "slug": "telegram-joinchat",
+    "title": "IELTS Speaking for Success CHAT",
+    "platform": "telegram",
+    "inviteUrl": "https://t.me/joinchat/sw7rad8rcsyqpbxa",
+    "currentStatus": "unknown",
+    "currentHeldReason": "linkStatus=unknown (not active) — moved out of normal pending per integrity audit",
+    "currentExams": [
+      "ielts"
+    ],
+    "decision": "KEEP_HELD",
+    "notes": "Private invite link (/joinchat/ or message link)"
+  },
+  {
+    "id": "cand-mszv25c2-gut5rp",
+    "slug": "telegram-ieltspracticematerial",
+    "title": "IELTS Practice Materials",
+    "platform": "telegram",
+    "inviteUrl": "https://t.me/ieltspracticematerial",
+    "currentStatus": "unknown",
+    "currentHeldReason": "linkStatus=unknown (not active) — moved out of normal pending per integrity audit",
+    "currentExams": [
+      "ielts"
+    ],
+    "decision": "KEEP_HELD",
+    "notes": "Empty or inaccessible public channel preview",
+    "extractResult": {
+      "success": false,
+      "snippet": ""
+    }
+  },
+  {
+    "id": "cand-mt1d216x-tkskql",
+    "slug": "telegram-indiashastra",
+    "title": "indiashastra",
+    "platform": "telegram",
+    "inviteUrl": "https://t.me/indiashastra",
+    "currentStatus": "unknown",
+    "currentHeldReason": "live but generic/off-niche (no exam focus) — verified via Tavily extract",
+    "currentExams": [],
+    "decision": "PROMOTE_TO_PUBLISHED",
+    "notes": "",
+    "extractResult": {
+      "success": true,
+      "title": "![](https://cdn5.telesco.pe/file/e2EYnEkL63psScxIxv7Q7L-z0VtvezaUOPNioBjsB4iBKla3is9OxAG5Q7H1BnOONyp",
+      "snippet": "![](https://cdn5.telesco.pe/file/e2EYnEkL63psScxIxv7Q7L-z0VtvezaUOPNioBjsB4iBKla3is9OxAG5Q7H1BnOONyp5cEZh4Dg6SXEpTks_P-EE38_oVAKZih8KkwXwM7XcL7cZ4j3GcMDb0zuHk7HH72mBWVemsAaSXh2bpYOaiSfWNnQN8RMD6iFPodIBxOVdXjqEx7YpaDF-I4lSh55gEKt3U90QuDMJvK9KAnEedFAQV"
+    },
+    "classifiedExams": [
+      "upsc"
+    ],
+    "classifiedFamily": "entrance-exams",
+    "updatedTitle": "![](https://cdn5.telesco.pe/file/e2EYnEkL63psScxIxv7Q7L-z0VtvezaUOPNioBjsB4iBKla3is9OxAG5Q7H1BnOONyp"
+  },
+  {
+    "id": "cand-mt1d28uh-tppbg7",
+    "slug": "telegram-studyforjudicialservices",
+    "title": "Study For Judicial Services",
+    "platform": "telegram",
+    "inviteUrl": "https://t.me/studyforjudicialservices",
+    "currentStatus": "unknown",
+    "currentHeldReason": "live but generic/off-niche (no exam focus) — verified via Tavily extract",
+    "currentExams": [],
+    "decision": "KEEP_HELD",
+    "notes": "Live channel but no specific exam focus",
+    "extractResult": {
+      "success": true,
+      "subscribers": 14400,
+      "title": "Study For Judicial Services",
+      "snippet": "Study For Judicial Services\n\n14.4K subscribers\n\n264 photos\n\n8 videos\n\n271 files\n\n1.42K links\n\nStudy for judicial services is currently a YouTube Channel. This channel is handled through Alumini of Aligarh University, Lucknow University, National Univ"
+    },
+    "verifiedMemberCount": 14400
+  },
+  {
+    "id": "cand-mt1f30xz-p6auab",
+    "slug": "telegram-medicine-youtube",
+    "title": "Youtube Medical Videos by MEDIROBOT",
+    "platform": "telegram",
+    "inviteUrl": "https://t.me/medicine_youtube",
+    "currentStatus": "unknown",
+    "currentHeldReason": "live but generic/off-niche (no exam focus) — verified via Tavily extract",
+    "currentExams": [],
+    "decision": "KEEP_HELD",
+    "notes": "Live channel but no specific exam focus",
+    "extractResult": {
+      "success": true,
+      "title": "![](https://cdn5.telesco.pe/file/mhoOu4imv4bcZlnM89RZ6b4-g0OhCr022EjZ_OgCHM2SkcVlAvIp2b36zbj92ZOFba4",
+      "snippet": "![](https://cdn5.telesco.pe/file/mhoOu4imv4bcZlnM89RZ6b4-g0OhCr022EjZ_OgCHM2SkcVlAvIp2b36zbj92ZOFba4pCmp3X2_DP65G0ACKOSC09xlZdx-I9u1Js7oGv6gJ64LPbuPI3ECpCsjTFL5akgPk3K2f2A1Nb3fDlLOyaN6QtwWQE5pKhxmW48VWI8pk_YfujmN1HhI1ndXMP1lHUiGrfXI_UWMZTPchQdN4tJa_D"
+    }
+  },
+  {
+    "id": "cand-mt1f346i-0jwcw7",
+    "slug": "telegram-pathoma-videos",
+    "title": "Pathoma Videos",
+    "platform": "telegram",
+    "inviteUrl": "https://t.me/pathoma_videos",
+    "currentStatus": "unknown",
+    "currentHeldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)",
+    "currentExams": [],
+    "decision": "KEEP_HELD",
+    "notes": "Live channel but no specific exam focus",
+    "extractResult": {
+      "success": true,
+      "subscribers": 24500,
+      "title": "Pathoma Videos 2026",
+      "snippet": "Pathoma Videos 2026\n\n24.5K subscribers\n\n10 photos\n\n210 videos\n\n108 files\n\n15 links\n\nFor Cross Promotion, Ads, Suggetions, Copyright Issues ***👇***  \n***📲***Contact: [@AhmadMoheb](https://t.me/AhmadMoheb)\n\n [Download Telegram](//telegram.org/dl?tme="
+    },
+    "verifiedMemberCount": 24500
+  },
+  {
+    "id": "cand-mt1f3iii-8ml5sx",
+    "slug": "telegram-clatprepeducation",
+    "title": "ClatPrep",
+    "platform": "telegram",
+    "inviteUrl": "https://t.me/clatprepeducation",
+    "currentStatus": "unknown",
+    "currentHeldReason": "live but generic/off-niche (no exam focus) — verified via Tavily extract",
+    "currentExams": [],
+    "decision": "PROMOTE_TO_PUBLISHED",
+    "notes": "",
+    "extractResult": {
+      "success": true,
+      "subscribers": 7750,
+      "title": "Clat Prep | CLAT 2027 | CLAT 2028 | CLAT coaching",
+      "snippet": "Clat Prep | CLAT 2027 | CLAT 2028 | CLAT coaching\n\n7.75K subscribers\n\n4.6K photos\n\n246 videos\n\n492 files\n\n3.7K links\n\nThis is a CLAT preparation channel by ClatPrep. Clat Prep is a part of T.I.M.E family. T.I.M.E., is India's leading test-prep instit"
+    },
+    "verifiedMemberCount": 7750,
+    "classifiedExams": [
+      "sat"
+    ],
+    "classifiedFamily": "college-admissions",
+    "updatedTitle": "Clat Prep | CLAT 2027 | CLAT 2028 | CLAT coaching"
+  },
+  {
+    "id": "cand-mt1f3lor-4mskij",
+    "slug": "telegram-cpaexamstudy",
+    "title": "@cpaexamstudy",
+    "platform": "telegram",
+    "inviteUrl": "https://t.me/cpaexamstudy",
+    "currentStatus": "unknown",
+    "currentHeldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)",
+    "currentExams": [
+      "cpa"
+    ],
+    "decision": "PROMOTE_TO_PUBLISHED",
+    "notes": "",
+    "extractResult": {
+      "success": true,
+      "subscribers": 911,
+      "title": "[Download](//telegram.org/dl?tme=8898f97d15385a8ba8_10481085472003056285)",
+      "snippet": "[Download](//telegram.org/dl?tme=8898f97d15385a8ba8_10481085472003056285)\n\n[![](https://cdn5.telesco.pe/file/XJqQ7IP7Kdsjv5YDK90_NfJhrteYJ6B9mOzVCBjUe9FH56qavC8qhhISPi4EzGLK_b1V_ox_MKVITbKEf9OVqdHF6LXnaDWTBEraYeqpCDCf3FXPAPyUN2tCgPy4PIKUPpGlOp3-8cvjZ"
+    },
+    "verifiedMemberCount": 911,
+    "classifiedExams": [
+      "cpa"
+    ],
+    "classifiedFamily": "finance-accounting",
+    "updatedTitle": "[Download](//telegram.org/dl?tme=8898f97d15385a8ba8_10481085472003056285)"
+  },
+  {
+    "id": "cand-mt1f3ty4-z8clfi",
+    "slug": "telegram-sfmca",
+    "title": "EduInvest™ Academy",
+    "platform": "telegram",
+    "inviteUrl": "https://t.me/sfmca",
+    "currentStatus": "unknown",
+    "currentHeldReason": "live but generic/off-niche (no exam focus) — verified via Tavily extract",
+    "currentExams": [],
+    "decision": "PROMOTE_TO_PUBLISHED",
+    "notes": "",
+    "extractResult": {
+      "success": true,
+      "subscribers": 2330,
+      "title": "EduInvest***™*** Academy",
+      "snippet": "EduInvest***™*** Academy\n\n2.33K subscribers\n\n211 photos\n\n12 videos\n\n30 files\n\n344 links\n\nImp updates for CFA, FRM, CMA and also updates on Finance, Economics and Geo-politics. Blogs and articles of knowledge will be shared here as well.  \n  \n[eduinve"
+    },
+    "verifiedMemberCount": 2330,
+    "classifiedExams": [
+      "cfa",
+      "frm"
+    ],
+    "classifiedFamily": "finance-accounting",
+    "updatedTitle": "EduInvest***™*** Academy"
+  },
+  {
+    "id": "cand-mt1g5du6-lc8934",
+    "slug": "telegram-jeesimplified",
+    "title": "JEE SIMPLIFIED 🧠 – Telegram — JEE SIMPLIFIED 🧠",
+    "platform": "telegram",
+    "inviteUrl": "https://t.me/jeesimplified",
+    "currentStatus": "unknown",
+    "currentHeldReason": "live but generic/off-niche (no exam focus) — verified via Tavily extract",
+    "currentExams": [],
+    "decision": "PROMOTE_TO_PUBLISHED",
+    "notes": "",
+    "extractResult": {
+      "success": true,
+      "subscribers": 35000,
+      "title": "JEE SIMPLIFIED ***🧠***",
+      "snippet": "JEE SIMPLIFIED ***🧠***\n\n35K subscribers\n\n815 photos\n\n138 videos\n\n11 files\n\n742 links\n\nJoin the chat group - <https://t.me/+S7DRfpYwNa82OTc1>\n\n [Download Telegram](//telegram.org/dl?tme=1ee51651139a99c304_16770761011312460895) \n\n##### [Platform](//co"
+    },
+    "verifiedMemberCount": 35000,
+    "classifiedExams": [
+      "jee"
+    ],
+    "classifiedFamily": "entrance-exams",
+    "updatedTitle": "JEE SIMPLIFIED ***🧠***"
+  },
+  {
+    "id": "cand-mt1g5h6o-3kfz47",
+    "slug": "telegram-dravidianlanguage",
+    "title": "Dravidian Languages Channel – Telegram — 1",
+    "platform": "telegram",
+    "inviteUrl": "https://t.me/dravidianlanguage",
+    "currentStatus": "unknown",
+    "currentHeldReason": "live but generic/off-niche (no exam focus) — verified via Tavily extract",
+    "currentExams": [],
+    "decision": "PROMOTE_TO_PUBLISHED",
+    "notes": "",
+    "extractResult": {
+      "success": true,
+      "subscribers": 41,
+      "title": "Dravidian Languages Channel",
+      "snippet": "Dravidian Languages Channel\n\n41 subscribers\n\n7 photos\n\n22 files\n\n7 links\n\nKannada-Malayalam-Tamil-Telugu-Tulu  \nFor feedback contact [@satyanweshi](https://t.me/satyanweshi)\n\n [Download Telegram](//telegram.org/dl?tme=67589ece80689ce054_5283708713275"
+    },
+    "verifiedMemberCount": 41,
+    "classifiedExams": [
+      "sat"
+    ],
+    "classifiedFamily": "college-admissions",
+    "updatedTitle": "Dravidian Languages Channel"
+  },
+  {
+    "id": "cand-mt1g5k5r-41xedp",
+    "slug": "telegram-gaurav-sir-physics",
+    "title": "Gaurav Gupta NEET Physics",
+    "platform": "telegram",
+    "inviteUrl": "https://t.me/gaurav_sir_physics",
+    "currentStatus": "unknown",
+    "currentHeldReason": "live but generic/off-niche (no exam focus) — verified via Tavily extract",
+    "currentExams": [],
+    "decision": "PROMOTE_TO_PUBLISHED",
+    "notes": "",
+    "extractResult": {
+      "success": true,
+      "subscribers": 29500,
+      "title": "Gaurav Gupta NEET Physics (GG Sir) | NOTES, LECTURES, DPPS",
+      "snippet": "Gaurav Gupta NEET Physics (GG Sir) | NOTES, LECTURES, DPPS\n\n29.5K subscribers\n\n191 photos\n\n28 videos\n\n363 files\n\n1.45K links\n\nHey guys this is my official channel. Will upload DPPs and all the resources related to NEET physics here..:)  \n[#Pheel](?q="
+    },
+    "verifiedMemberCount": 29500,
+    "classifiedExams": [
+      "neet"
+    ],
+    "classifiedFamily": "entrance-exams",
+    "updatedTitle": "Gaurav Gupta NEET Physics (GG Sir) | NOTES, LECTURES, DPPS"
+  },
+  {
+    "id": "cand-mt1g5ui8-fm4zbf",
+    "slug": "telegram-indianaiproduction",
+    "title": "Indian AI Production – Telegram — Please keep patience, I will share all study material related \"Complete learning road",
+    "platform": "telegram",
+    "inviteUrl": "https://t.me/indianaiproduction",
+    "currentStatus": "unknown",
+    "currentHeldReason": "live but generic/off-niche (no exam focus) — verified via Tavily extract",
+    "currentExams": [],
+    "decision": "KEEP_HELD",
+    "notes": "Live channel but no specific exam focus",
+    "extractResult": {
+      "success": true,
+      "subscribers": 966,
+      "title": "Indian AI Production",
+      "snippet": "Indian AI Production\n\n966 subscribers\n\n30 photos\n\n3 videos\n\n18 files\n\n102 links\n\nFree AI education for everyone ***🎓******🖥️***  \n  \nTelegram channel link: <https://t.me/IndianAIProduction> share with your friends and family\n\n [Download Telegram](/"
+    },
+    "verifiedMemberCount": 966
+  },
+  {
+    "id": "cand-mt1g5w9s-fdlq1e",
+    "slug": "telegram-reobatch5",
+    "title": "REO MAY 2023 – Telegram — LIVE WEEKEND LECTURES PLUS ZERO-BASED PRE-RECORDED LECTURES",
+    "platform": "telegram",
+    "inviteUrl": "https://t.me/reobatch5",
+    "currentStatus": "unknown",
+    "currentHeldReason": "live but generic/off-niche (no exam focus) — verified via Tavily extract",
+    "currentExams": [],
+    "decision": "PROMOTE_TO_PUBLISHED",
+    "notes": "",
+    "extractResult": {
+      "success": true,
+      "subscribers": 330,
+      "title": "REO MAY 2023",
+      "snippet": "REO MAY 2023\n\n330 subscribers\n\n3 links\n\nLet's help each other. Padayon CPAs\n\n [Download Telegram](//telegram.org/dl?tme=65712248186f9187c8_14771488422357375200) \n\n##### [About](//telegram.org/faq)\n\n##### [Blog](//telegram.org/blog)\n\n##### [Apps](//te"
+    },
+    "verifiedMemberCount": 330,
+    "classifiedExams": [
+      "cpa"
+    ],
+    "classifiedFamily": "finance-accounting",
+    "updatedTitle": "REO MAY 2023"
+  },
+  {
+    "id": "cand-mt1g5xs0-2bnw3w",
+    "slug": "discord-dtf4uqpdzq",
+    "title": "Join the Professor Messer Discord Server",
+    "platform": "discord",
+    "inviteUrl": "https://discord.com/invite/dtf4uQPDZq",
+    "currentStatus": "active",
+    "currentHeldReason": "generic study/accountability, no exam/cert focus",
+    "currentExams": [],
+    "decision": "KEEP_HELD",
+    "notes": "Generic study server without specific exam channel target",
+    "discordResult": {
+      "status": "active",
+      "guildName": "Professor Messer",
+      "guildId": "524045675848269845",
+      "memberCount": null,
+      "sourceUrl": "https://discord.com/api/v10/invites/dtf4uQPDZq?with_counts=true&with_expiration=true"
+    },
+    "verifiedMemberCount": null,
+    "guildName": "Professor Messer"
+  },
+  {
+    "id": "cand-mt1g6dnk-hoakrl",
+    "slug": "telegram-dsatuz",
+    "title": "DSATuz | Preparing for the SAT — 2 FULL DIGITIAL SAT PRACTICE TESTS📕 ❗️Sharing is caring🎯 ♻️ Share with your friends ♻",
+    "platform": "telegram",
+    "inviteUrl": "https://t.me/dsatuz/1427",
+    "currentStatus": "unknown",
+    "currentHeldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)",
+    "currentExams": [
+      "sat"
+    ],
+    "decision": "KEEP_HELD",
+    "notes": "Private invite link (/joinchat/ or message link)"
+  },
+  {
+    "id": "cand-mt1g6fib-32or1u",
+    "slug": "telegram-studygroupbro",
+    "title": "Study Group — If you have Telegram, you can view and join Study Group right away",
+    "platform": "telegram",
+    "inviteUrl": "https://t.me/studygroupbro",
+    "currentStatus": "unknown",
+    "currentHeldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)",
+    "currentExams": [],
+    "decision": "KEEP_HELD",
+    "notes": "Live channel but no specific exam focus",
+    "extractResult": {
+      "success": true,
+      "subscribers": 4010,
+      "title": "Study Group",
+      "snippet": "Study Group\n\n4.01K subscribers\n\n1 photo\n\n5 videos\n\n118 links\n\nOpen the link on Brave Browser with adblock on, but personally i prefer UC browser or Aloha Browser because you can download the video.\n\n [Download Telegram](//telegram.org/dl?tme=db5d589c"
+    },
+    "verifiedMemberCount": 4010
+  },
+  {
+    "id": "cand-mt1g6iah-0nr4dg",
+    "slug": "telegram-studystark",
+    "title": "Study Stark — If you’re here, you’re different",
+    "platform": "telegram",
+    "inviteUrl": "https://t.me/studystark",
+    "currentStatus": "unknown",
+    "currentHeldReason": "live but generic/off-niche (no exam focus) — verified via Tavily extract",
+    "currentExams": [],
+    "decision": "KEEP_HELD",
+    "notes": "Live channel but no specific exam focus",
+    "extractResult": {
+      "success": true,
+      "subscribers": 588,
+      "title": "[Download](//telegram.org/dl?tme=4f157588922ff28f52_17141486340750012050)",
+      "snippet": "[Download](//telegram.org/dl?tme=4f157588922ff28f52_17141486340750012050)\n\n[![](https://cdn5.telesco.pe/file/Lz_g15wWjR0T6VR2_7VvSJMztD79OQSYErCb_REc9lxrewSp8iYnCK8zlJ8Nu04Gh48HecXDOyx8p8C2L5xErDQSi3CWhFyK5FlA31HzZxfzzlOBiL30ayjjB5G8A-ctUq-Srh7AIaDvn"
+    },
+    "verifiedMemberCount": 588
+  },
+  {
+    "id": "cand-mt1x5csc-pez7pd",
+    "slug": "discord-jee-neet-gang-1043443094948954132",
+    "title": "JEE NEET GANG - Discord — JEE NEET GANG is a Discord study server that offers a platform for you to connect with other s",
+    "platform": "discord",
+    "inviteUrl": "https://discord.com/invite/jee-neet-gang-1043443094948954132",
+    "currentStatus": "unknown",
+    "currentHeldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)",
+    "currentExams": [
+      "jee",
+      "neet"
+    ],
+    "decision": "REJECT",
+    "notes": "",
+    "discordResult": {
+      "status": "dead"
+    },
+    "rejectionReason": "dead_invite_link"
+  },
+  {
+    "id": "cand-mt1x5dpq-gu2ur5",
+    "slug": "discord-neet-fam-810850391004676096",
+    "title": "NEET FAM - Discord — Discord's one and all community for NEET UG, MBBS, NEET PG, JEE, Engeneering & more",
+    "platform": "discord",
+    "inviteUrl": "https://discord.com/invite/neet-fam-810850391004676096",
+    "currentStatus": "unknown",
+    "currentHeldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)",
+    "currentExams": [
+      "jee",
+      "neet"
+    ],
+    "decision": "REJECT",
+    "notes": "",
+    "discordResult": {
+      "status": "dead"
+    },
+    "rejectionReason": "dead_invite_link"
+  },
+  {
+    "id": "cand-mt1x5fkj-26g2dk",
+    "slug": "discord-neet-labs-1098659349708157018",
+    "title": "NEET - Discord — It's the only NEET thing to do",
+    "platform": "discord",
+    "inviteUrl": "https://discord.com/invite/neet-labs-1098659349708157018",
+    "currentStatus": "unknown",
+    "currentHeldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)",
+    "currentExams": [
+      "neet"
+    ],
+    "decision": "REJECT",
+    "notes": "",
+    "discordResult": {
+      "status": "dead"
+    },
+    "rejectionReason": "dead_invite_link"
+  },
+  {
+    "id": "cand-mt1x642l-8ogepz",
+    "slug": "telegram-awsexamdumps",
+    "title": "Telegram: View @awsexamdumps — Download",
+    "platform": "telegram",
+    "inviteUrl": "https://t.me/awsexamdumps",
+    "currentStatus": "unknown",
+    "currentHeldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)",
+    "currentExams": [
+      "aws"
+    ],
+    "decision": "PROMOTE_TO_PUBLISHED",
+    "notes": "",
+    "extractResult": {
+      "success": true,
+      "subscribers": 571,
+      "title": "[Download](//telegram.org/dl?tme=d2b9397350c3213fff_862528735273141512)",
+      "snippet": "[Download](//telegram.org/dl?tme=d2b9397350c3213fff_862528735273141512)\n\n[![](https://cdn5.telesco.pe/file/AD7PQxSxZSp_DXGMkHD-OhIGyDkz-HwPSvb3ii8R3_1ATUgknak7xelpAbx9SF5WhLV3ltAstvWMWjVwNsL-K5QoXZ3NcDP8ZAdVWWj-5rx52emEePZfxenUCsWcisqeauP8p2KAn1nnWg-"
+    },
+    "verifiedMemberCount": 571,
+    "classifiedExams": [
+      "aws"
+    ],
+    "classifiedFamily": "cloud-certifications",
+    "updatedTitle": "[Download](//telegram.org/dl?tme=d2b9397350c3213fff_862528735273141512)"
+  },
+  {
+    "id": "cand-mt1x6500-v4sbsn",
+    "slug": "telegram-itexamcertified",
+    "title": "IT Exam Certifications — All AWS Exams Practice Tests are updated and verified",
+    "platform": "telegram",
+    "inviteUrl": "https://t.me/itexamcertified",
+    "currentStatus": "unknown",
+    "currentHeldReason": "live but generic/off-niche (no exam focus) — verified via Tavily extract",
+    "currentExams": [],
+    "decision": "KEEP_HELD",
+    "notes": "Live channel but no specific exam focus",
+    "extractResult": {
+      "success": true,
+      "subscribers": 9360,
+      "title": "IT Exam Certifications",
+      "snippet": "IT Exam Certifications\n\n9.36K subscribers\n\n327 photos\n\n3 videos\n\n35 files\n\n1.18K links\n\nJoin for free and paid accurate IT exam Practice Tests and study material.  \nFree study materials are forwarded as received, we donot guarantee the authenticity o"
+    },
+    "verifiedMemberCount": 9360
+  },
+  {
+    "id": "cand-mt2lzgb5-sxtr3r",
+    "slug": "discord-apstudy-ap-test-prep-859910344393883710",
+    "title": "APStudy | AP Test Prep - Discord — An educational community for AP Students to access free resources and help other stud",
+    "platform": "discord",
+    "inviteUrl": "https://discord.com/invite/apstudy-ap-test-prep-859910344393883710",
+    "currentStatus": "unknown",
+    "currentHeldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)",
+    "currentExams": [
+      "ap-exams"
+    ],
+    "decision": "REJECT",
+    "notes": "",
+    "discordResult": {
+      "status": "dead"
+    },
+    "rejectionReason": "dead_invite_link"
+  }
+]
