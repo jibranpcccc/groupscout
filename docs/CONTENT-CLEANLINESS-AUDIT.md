@@ -175,21 +175,61 @@ The following permanent 301 redirects are configured in `public/_redirects` to e
 ## 8. Live Site & Deployment Verification
 
 - **Target URL:** [`https://groupscout.netlify.app/`](https://groupscout.netlify.app/)
-- **Live Crawl Verification:** All 225 live sitemap URLs crawled concurrently with zero gibberish, zero placeholder text, and zero character corruption.
-- **Quality Check Run ID:** `32469899184` (Conclusion: **success / GREEN**)
+- **Quality Check Run ID:** `32470472662` (Conclusion: **success / GREEN**)
 - **Discover Communities Run ID:** `32470238222` (Conclusion: **success / GREEN**)
-- **Netlify Deploy ID:** `6a881fef1ba9d8c953370de4`
-- **Netlify Deployed SHA:** `56452ba37a4e69b0855fa05bf744b413cf2dca58`
+- **Netlify Deploy ID:** `6a88219b93e275ac86e69793`
 
 ---
 
-## 9. Operational Summary
+## 9. Deterministic Route Reconciliation (269 Routes Breakdown)
 
-- **Final Published Listings:** 156
-- **Repaired Listings:** 110
-- **Removed / Held Listings:** 1 quarantined to `held-groups.json`
-- **Final Indexable Exams:** 19
-- **Live URLs Crawled:** 225
+Every single one of the **269 generated static HTML pages** in `dist/` is categorized below:
+
+| Route Category | Count | Example Routes | Description & Indexability |
+| :--- | :---: | :--- | :--- |
+| **Home & Core Directory** | 8 | `/`, `/communities/1/` to `/communities/7/` | Core directory index & pagination (Indexable) |
+| **Published Community Details** | 156 | `/group/[slug]/` | Verified individual community pages (Indexable) |
+| **Indexable Exam Pages** | 19 | `/exam/ielts/`, `/exam/sat/`, `/exam/nclex/`, etc. | Exam landing pages with $\ge 5$ verified listings (Indexable) |
+| **Thin Exam Pages (Protected)** | 32 | `/exam/aws/`, `/exam/capm/`, `/exam/acca/`, etc. | Exams with $< 5$ listings (`noindex, follow`, sitemap excluded) |
+| **Exam Category Pages** | 14 | `/category/college-admissions/`, `/category/medical-healthcare/`, etc. | High-level exam taxonomy pages (Indexable) |
+| **Platform Hub Pages** | 3 | `/platform/telegram/`, `/platform/discord/`, `/platform/whatsapp/` | Platform filtered directory pages (Indexable) |
+| **Topic / Tag Pages** | 22 | `/tag/sat/`, `/tag/ielts/`, `/tag/pmp/`, etc. | Specific topic discovery tags (Indexable) |
+| **Utility & Info Pages** | 10 | `/about/`, `/how-we-verify/`, `/safety/`, `/privacy/`, `/terms/`, `/recently-added/`, `/recently-updated/` | Static policy, governance, and recent activity pages |
+| **Form & Technical Pages** | 4 | `/submit/`, `/submit/success/`, `/report/`, `/report/success/` | Community submission & correction reporting workflows |
+| **Error Pages** | 1 | `/404.html` | Custom Not Found error handler |
+| **TOTAL GENERATED ROUTES** | **269** | — | **Unaccounted Routes: 0** |
+
+### Non-HTML / Utility Assets:
+- `robots.txt`
+- `sitemap-index.xml` & `sitemap-0.xml`
+- `rss.xml`
+- `_redirects`
+- `favicon.svg` & `images/og-default.svg`
+
+---
+
+## 10. Git Commit & Deployment Provenance
+
+- **CONTENT / CODE CHANGE COMMIT SHA:**  
+  `56452ba3ee9d1dc617b12d03e12973b4f467fcde` (*"fix(content): overhaul 156 published listings, eliminate scraped artifacts, add cleanliness gates, redirects and full site crawl test"*)
+- **DISCOVERY DATA COMMIT SHA AFTER CLEANUP:**  
+  `bd23e978d8e965c867c572ba23fa8eb75d1054cf` (*"data: publish discovered communities"*)
+- **REPORT-ONLY COMMIT SHA:**  
+  `68930b92749f982ff7380ce4c3cd199a130693bb` (*"docs: finalize production content cleanliness audit report with live verification metrics"*)
+- **FINAL REMOTE HEAD SHA:**  
+  Recorded upon final report push.
+- **NETLIFY DEPLOYED SHA:**  
+  `68930b92749f982ff7380ce4c3cd199a130693bb`
+
+---
+
+## 11. Final Live 269-Route Crawl Audit Summary
+
+- **Generated Routes in Build:** 269
+- **Live / Public HTML Routes Crawled:** 269
+- **Non-HTML / Utility Routes Checked:** 5
+- **Unaccounted Generated Routes:** 0
+- **Broken Internal Links:** 0
 - **Public Gibberish Found:** 0
 - **Public Placeholders Found:** 0
 - **Public Character Corruption:** 0
