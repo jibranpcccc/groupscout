@@ -56,7 +56,7 @@ async function runCompleteCrawl() {
   let placeholderCount = 0;
   let corruptionCount = 0;
   let brokenLinksCount = 0;
-  const issues: any[] = [];
+  const issues: Array<{ url: string; issue: string }> = [];
 
   const BATCH_SIZE = 25;
 
@@ -89,9 +89,10 @@ async function runCompleteCrawl() {
               else gibberishCount++;
             }
           }
-        } catch (err: any) {
+        } catch (err: unknown) {
           brokenLinksCount++;
-          issues.push({ url, issue: `Fetch error: ${err.message}` });
+          const msg = err instanceof Error ? err.message : String(err);
+          issues.push({ url, issue: `Fetch error: ${msg}` });
         }
       })
     );
@@ -105,8 +106,9 @@ async function runCompleteCrawl() {
       if (!res.ok) {
         issues.push({ url, issue: `HTTP status ${res.status}` });
       }
-    } catch (err: any) {
-      issues.push({ url, issue: `Fetch error: ${err.message}` });
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      issues.push({ url, issue: `Fetch error: ${msg}` });
     }
   }
 
