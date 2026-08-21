@@ -175,9 +175,9 @@ The following permanent 301 redirects are configured in `public/_redirects` to e
 ## 8. Live Site & Deployment Verification
 
 - **Target URL:** [`https://groupscout.netlify.app/`](https://groupscout.netlify.app/)
-- **Quality Check Run ID:** `32470472662` (Conclusion: **success / GREEN**)
+- **Quality Check Run ID:** `32471648699` (Conclusion: **success / GREEN**)
 - **Discover Communities Run ID:** `32470238222` (Conclusion: **success / GREEN**)
-- **Netlify Deploy ID:** `6a88219b93e275ac86e69793`
+- **Netlify Deploy ID:** `6a88250569a5adbff79aa25c`
 
 ---
 
@@ -215,11 +215,11 @@ Every single one of the **269 generated static HTML pages** in `dist/` is catego
 - **DISCOVERY DATA COMMIT SHA AFTER CLEANUP:**  
   `bd23e978d8e965c867c572ba23fa8eb75d1054cf` (*"data: publish discovered communities"*)
 - **REPORT-ONLY COMMIT SHA:**  
-  `68930b92749f982ff7380ce4c3cd199a130693bb` (*"docs: finalize production content cleanliness audit report with live verification metrics"*)
+  `68930b92749f982ff7380ce4c3cd199a130693bb` / `61c3b6f6aa7cfbf61c93a62304f37315cea6e3b4`
 - **FINAL REMOTE HEAD SHA:**  
-  Recorded upon final report push.
+  `64d8f0be5165aece520bc8e50bde4b898b9a7e84`
 - **NETLIFY DEPLOYED SHA:**  
-  `68930b92749f982ff7380ce4c3cd199a130693bb`
+  `64d8f0be5165aece520bc8e50bde4b898b9a7e84`
 
 ---
 
