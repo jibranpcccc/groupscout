@@ -4375,5 +4375,52 @@
     "published": false,
     "linkCheckFailures": 0,
     "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mt2lzgb5-sxtr3r",
+    "slug": "discord-apstudy-ap-test-prep-859910344393883710",
+    "title": "APStudy | AP Test Prep - Discord — An educational community for AP Students to access free resources and help other stud",
+    "platform": "discord",
+    "vertical": "study-prep",
+    "category": "college-admissions",
+    "subcategory": null,
+    "tags": [
+      "AP Exams"
+    ],
+    "examFamilies": [
+      "college-admissions"
+    ],
+    "exams": [
+      "ap-exams"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://discord.com/invite/apstudy-ap-test-prep-859910344393883710",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": "2026-08-21T07:09:17.867Z",
+    "sourceUrls": [
+      "https://discord.com/invite/apstudy-ap-test-prep-859910344393883710"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-21T07:09:16.241Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 1,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
   }
 ]
