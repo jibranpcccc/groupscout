@@ -26,12 +26,14 @@ The Tavily discovery provider now supports a **26-key rotation pool** via `TAVIL
 ### ⚠️ Open: Gemini API quota
 The `GEMINI_API_KEY` was added to repo secrets, but the first CI run got HTTP 429 on every Gemini call (`RESOURCE_EXHAUSTED`). The key works locally (all 3 model variants respond). The issue is likely a transient free-tier quota limit (RPM/RPD) — the key works now. The provider has `continue-on-error: true`, so the pipeline doesn't fail, but classification quality degrades when Gemini is unavailable. Fix: (a) re-run the workflow later when quota resets, (b) or generate a fresh key at aistudio.google.com.
 
-### Data state (post-Aug-20 runs)
-- **Pending: 6** — all linkStatus=active, real exam classifications:
-  - Admission Hackers [SAT Prep] (discord, 13,993 members) · crackd - sat & act prep (discord, 28,517 members) · FREE4ARAB (telegram, CISSP) · Cisco Study Group (discord) · CertiBanks (telegram, PRINCE2/PMP/CAPM) · AP Students (discord, AP exams)
-- **Held: 53** — 49 unknown links (Telegram — unverifiable from this network), 3 active-but-generic, 1 dead
-- **Published: 0** — auto-publish still disabled for observation phase
-- **Rejected: 370** — wrong-niche rejections are now genuinely off-niche (the classifier bug below was fixed)
+### ✅ Fixed: exam-recalls high-risk gap (USMLE/bar recall channels)
+Found while reviewing a new pending candidate: "USMLE Step 1, 2CK, 3, CBSE NBME, Shelf Exam, CCSE **Recalls** 2026-2027" passed the risk screen as `clean`. "Recalls" = actual exam questions reconstructed from memory — an explicit test-integrity violation (USMLE/NBME prohibit it outright). Added an `exam-recalls` HIGH-RISK pattern to `examRiskClassifier.ts` (catches usmle/step/NBME/CBSE/CCSE/shelf/bar-exam/medical-boards in proximity to "recall(s/ed/ing)"). Verified: 8/9 recall-phrasing variants now `high-risk-reject`; legitimate SAT/MCAT practice content stays `clean`. The offending pending record was rejected (never published); confirmed 0 recall records in `groups.json`, 1 in rejected with `exam-recalls` flag.
+
+### Data state (post-publish, 2026-08-21)
+- **Published: 9** — first production listings, owner-approved, live on groupscout.netlify.app
+- **Pending: 0** — pipeline continues discovering; next candidates await approval
+- **Held: 77** — mostly Telegram `unknown` links (unverifiable from CI; needs a networked environment for `npm run validate-links`)
+- **Rejected: 452+** — includes the 1 exam-recalls rejection
 
 ### ✅ Fixed: 95% wrong-niche rejections were a classifier gate bug
 Two intertwined bugs made the pipeline reject almost everything:
