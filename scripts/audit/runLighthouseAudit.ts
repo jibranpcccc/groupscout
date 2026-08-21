@@ -14,7 +14,20 @@ const urls = [
 const auditDir = path.resolve(process.cwd(), 'audit');
 if (!fs.existsSync(auditDir)) fs.mkdirSync(auditDir, { recursive: true });
 
-const results: any[] = [];
+interface LighthouseResult {
+  page: string;
+  url: string;
+  performance: number;
+  accessibility: number;
+  bestPractices: number;
+  seo: number;
+  fcp: string;
+  lcp: string;
+  cls: string;
+  tbt: string;
+}
+
+const results: LighthouseResult[] = [];
 
 for (const item of urls) {
   console.log(`Running Lighthouse mobile audit for ${item.name}: ${item.url}...`);
@@ -48,8 +61,9 @@ for (const item of urls) {
       tbt,
     });
     console.log(`✓ ${item.name}: Perf ${perfScore} | A11y ${a11yScore} | BP ${bpScore} | SEO ${seoScore} | LCP ${lcp} | CLS ${cls}`);
-  } catch (err: any) {
-    console.error(`Failed lighthouse on ${item.url}:`, err.message);
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : String(err);
+    console.error(`Failed lighthouse on ${item.url}:`, msg);
   }
 }
 
