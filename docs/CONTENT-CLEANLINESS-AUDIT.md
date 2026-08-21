@@ -175,7 +175,11 @@ The following permanent 301 redirects are configured in `public/_redirects` to e
 ## 8. Live Site & Deployment Verification
 
 - **Target URL:** [`https://groupscout.netlify.app/`](https://groupscout.netlify.app/)
-- **Live Crawl Verification:** All public routes return HTTP 200 with clean, human-readable titles and zero scraped artifacts.
+- **Live Crawl Verification:** All 225 live sitemap URLs crawled concurrently with zero gibberish, zero placeholder text, and zero character corruption.
+- **Quality Check Run ID:** `32469899184` (Conclusion: **success / GREEN**)
+- **Discover Communities Run ID:** `32470238222` (Conclusion: **success / GREEN**)
+- **Netlify Deploy ID:** `6a881fef1ba9d8c953370de4`
+- **Netlify Deployed SHA:** `56452ba37a4e69b0855fa05bf744b413cf2dca58`
 
 ---
 
@@ -185,7 +189,7 @@ The following permanent 301 redirects are configured in `public/_redirects` to e
 - **Repaired Listings:** 110
 - **Removed / Held Listings:** 1 quarantined to `held-groups.json`
 - **Final Indexable Exams:** 19
-- **Live URLs Crawled:** 269
+- **Live URLs Crawled:** 225
 - **Public Gibberish Found:** 0
 - **Public Placeholders Found:** 0
 - **Public Character Corruption:** 0
