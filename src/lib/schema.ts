@@ -256,6 +256,37 @@ export function findProductionViolations(records: unknown[]): ProductionViolatio
     if (c.published && c.description?.toLowerCase().includes('demo fixture')) {
       violations.push({ id, reason: 'description contains "Demo fixture"' });
     }
+    // CONTENT CLEANLINESS GUARD: no scraped artifacts, telescope CDN URLs, download banners, or gibberish
+    const GIBBERISH_PATTERNS = [
+      /telescope/i,
+      /cdn\d?\.telesco\.pe/i,
+      /telegram\.org\/dl/i,
+      /\[Download\]/i,
+      /Download\(/i,
+      /\b(akshfd|asdfgh|qwertyuiop|lorem ipsum|test123|foobar)\b/i,
+      /\d+[KkMm]?\s+subscribers/i,
+    ];
+    if (c.published && c.title) {
+      for (const pat of GIBBERISH_PATTERNS) {
+        if (pat.test(c.title)) {
+          violations.push({ id, reason: `title contains forbidden pattern ${pat.toString()}: "${c.title}"` });
+          break;
+        }
+      }
+      if (c.title.startsWith('http://') || c.title.startsWith('https://')) {
+        violations.push({ id, reason: `title cannot be a raw URL: "${c.title}"` });
+      }
+    }
+    if (c.published && c.slug) {
+      if (c.slug.includes('telescope') || c.slug.includes('download') || c.slug.includes('subscribers')) {
+        violations.push({ id, reason: `slug contains forbidden scraped pattern: "${c.slug}"` });
+      }
+    }
+    if (c.published && c.description) {
+      if (c.description.includes('![](http') || c.description.includes('cdn.telesco.pe') || c.description.includes('[Download]')) {
+        violations.push({ id, reason: `description contains raw scraped markdown or CDN URL: "${c.description.slice(0, 40)}..."` });
+      }
+    }
     // NICHE GUARD: every published record must belong to the study-prep
     // vertical. Old-niche records (crypto/forex/jobs/deals/gaming) can never
     // return to production.

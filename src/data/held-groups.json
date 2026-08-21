@@ -717,6 +717,57 @@
     "heldReason": "live but generic/off-niche (no exam focus) — verified via Tavily extract"
   },
   {
+    "id": "cand-mt2qa9wf-d2soqr",
+    "slug": "telegram-319k-subscribers",
+    "title": "319K subscribers",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "medical-healthcare",
+    "subcategory": null,
+    "tags": [
+      "NCLEX",
+      "Study Channel"
+    ],
+    "examFamilies": [
+      "medical-healthcare"
+    ],
+    "exams": [
+      "nclex"
+    ],
+    "targetMarkets": [
+      "global-english"
+    ],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion",
+      "resources"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/jobsmarticchannel",
+    "description": "[Download Telegram](//telegram.org/dl?tme=4eafcc8d4d265d2844_2204554490568193590) ##### [A",
+    "language": "English",
+    "country": null,
+    "accessType": "free",
+    "communityType": "discussion",
+    "memberCount": 3190,
+    "memberCountSource": "https://t.me/jobsmarticchannel",
+    "memberCountCheckedAt": "2026-08-21T09:09:39.615Z",
+    "verificationStatus": "source-confirmed",
+    "linkStatus": "active",
+    "lastCheckedAt": "2026-08-21T09:09:39.615Z",
+    "sourceUrls": [
+      "https://t.me/s/jobsmarticchannel/4741?q=%23NCLEX2026"
+    ],
+    "discoveryMethod": "other",
+    "discoveredAt": "2026-08-21T09:09:39.615Z",
+    "updatedAt": "2026-08-21T09:09:39.615Z",
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "off-niche channel (job board, not exam prep)"
+  },
+  {
     "id": "cand-mt2qbezt-bag9g1",
     "slug": "telegram-httpscdn5telescopefiledqowd2a3",
     "title": "Lawqueries",
