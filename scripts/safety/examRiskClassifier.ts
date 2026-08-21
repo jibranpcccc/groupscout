@@ -63,6 +63,13 @@ export const HIGH_RISK_PATTERNS: ExamRiskPattern[] = [
   },
   { flag: 'stolen-test-materials', pattern: /\b(?:stolen\s+(?:test|exam)\s+materials?|stolen\s+(?:exam\s+)?questions?)\b/i },
   {
+    // "Recalls" (esp. USMLE/medical/bar) = actual exam questions reconstructed
+    // from memory after sitting the exam — an explicit exam-integrity
+    // violation. USMLE/NBME and most licensing bodies prohibit it outright.
+    flag: 'exam-recalls',
+    pattern: /\b(?:usmle|step\s*\d|nbme|cbse|ccse|shelf|bar\s+exam|medical\s+boards?|licensing\s+exam)\b[^\n]{0,80}\brecall(?:s|ed|ing)?\b|\brecall(?:s|ed|ing)?\b[^\n]{0,40}\b(?:usmle|step\s*\d|nbme|cbse|ccse|shelf|bar\s+exam|medical\s+boards?)\b/i,
+  },
+  {
     flag: 'credential-fraud',
     pattern: /\b(?:credential\s+fraud|fake\s+certificates?|forg(?:e|ed)\s+certificates?|buy\s+verified\s+certificates?|fraudulent\s+certificates?)\b/i,
   },

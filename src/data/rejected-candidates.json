@@ -3155,5 +3155,16 @@
     "candidateUrl": "https://chat.whatsapp.com/your-link",
     "sourceUrl": "https://chat.whatsapp.com/your-link",
     "platform": "whatsapp"
+  },
+  {
+    "rejectedAt": "2026-08-21T06:30:00.000Z",
+    "reason": "exam-risk",
+    "riskFlags": [
+      "exam-recalls"
+    ],
+    "candidateUrl": "https://t.me/usmlestepsrecalls?before=473",
+    "sourceUrl": "https://t.me/s/usmlestepsrecalls?q=%23Step3&before=473",
+    "platform": "telegram",
+    "title": "USMLE Step 1 , 2CK, 3 , CBSE NBME, Shelf Exam, CCSE Recalls 2026-2027 – Telegram — MCAT PROMAX"
   }
 ]
