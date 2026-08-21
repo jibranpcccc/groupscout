@@ -715,5 +715,209 @@
     "published": false,
     "linkCheckFailures": 0,
     "heldReason": "live but generic/off-niche (no exam focus) — verified via Tavily extract"
+  },
+  {
+    "id": "cand-mt2qbezt-bag9g1",
+    "slug": "telegram-httpscdn5telescopefiledqowd2a3",
+    "title": "Lawqueries",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "college-admissions",
+    "subcategory": null,
+    "tags": [
+      "ACT",
+      "Study Channel"
+    ],
+    "examFamilies": [
+      "college-admissions"
+    ],
+    "exams": [
+      "act"
+    ],
+    "targetMarkets": [
+      "global-english"
+    ],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion",
+      "resources"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/lawqueries",
+    "description": "![](https://cdn5.telesco.pe/file/DQoWd2A30ZZq4C2UBmOeCEUxEzwygKcgHewmaEOcZg-YasSeSPsq031DGBg5B721SFQGtyIr8jiJ6pL8rLNaYN9Qul85KLYwqHqUH3g24sq2C5HX6MORkRpSmM7QoXpTSbfVcYMF_iW10cgoWOZCW1kZa6qGfPQO0gc6xow",
+    "language": "English",
+    "country": null,
+    "accessType": "free",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": "https://t.me/lawqueries",
+    "memberCountCheckedAt": "2026-08-21T09:10:32.873Z",
+    "verificationStatus": "unverified",
+    "linkStatus": "active",
+    "lastCheckedAt": "2026-08-21T09:10:32.873Z",
+    "sourceUrls": [
+      "https://t.me/s/lawqueries?before=763"
+    ],
+    "discoveryMethod": "other",
+    "discoveredAt": "2026-08-21T09:10:32.873Z",
+    "updatedAt": "2026-08-21T09:10:32.873Z",
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "unconfirmed exam niche / generic study channel (held for review)"
+  },
+  {
+    "id": "cand-mt2qbmr6-ghqlp9",
+    "slug": "telegram-httpscdn5telescopefilegznj3dpm",
+    "title": "Newsweekme",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "graduate-admissions",
+    "subcategory": null,
+    "tags": [
+      "GRE",
+      "Study Channel"
+    ],
+    "examFamilies": [
+      "graduate-admissions"
+    ],
+    "exams": [
+      "gre"
+    ],
+    "targetMarkets": [
+      "global-english"
+    ],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion",
+      "resources"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/newsweekme",
+    "description": "![](https://cdn5.telesco.pe/file/gZnJ3dPMMChr9ZqMELsLc49Lw-6c77rYI3WK6zN51nmALPW79MuxM8-4kRU427zrv8DhDy_MoeXn1zvlfBCAWMPZTTPR9DHuGK0vKyZCT9h8SLaL1Atz3y8J12kQanPJ75Bhmw-MmTpR3GG77Yno6jcMPgGqCkizF4QMTiU",
+    "language": "English",
+    "country": null,
+    "accessType": "free",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": "https://t.me/newsweekme",
+    "memberCountCheckedAt": "2026-08-21T09:10:42.930Z",
+    "verificationStatus": "unverified",
+    "linkStatus": "active",
+    "lastCheckedAt": "2026-08-21T09:10:42.930Z",
+    "sourceUrls": [
+      "https://t.me/s/NewsWeekMe"
+    ],
+    "discoveryMethod": "other",
+    "discoveredAt": "2026-08-21T09:10:42.930Z",
+    "updatedAt": "2026-08-21T09:10:42.930Z",
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "unconfirmed exam niche / generic study channel (held for review)"
+  },
+  {
+    "id": "cand-mt2qc7mh-wbs5vh",
+    "slug": "telegram-httpscdn4telescopefilettfwbefq",
+    "title": "Impact School Sources",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "english-proficiency",
+    "subcategory": null,
+    "tags": [
+      "TOEFL",
+      "Study Channel"
+    ],
+    "examFamilies": [
+      "english-proficiency"
+    ],
+    "exams": [
+      "toefl"
+    ],
+    "targetMarkets": [
+      "global-english"
+    ],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion",
+      "resources"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/impact_school_sources",
+    "description": "![](https://cdn4.telesco.pe/file/TtFWBEfQcXGOcBrUw-y9bRIMIT65LOtJqYUSXcGpcOWBnf0CCLr0TSRLmkiOohfvFdZkH9RXytb9Mzua5I1oG_56gicdzTgsshcWS8k-l-doFCPQFFapj1_GvMVRlKSvyH5LTzY0KYxloqAz3Ntfja7p88BqzjLgdj9n4kZ",
+    "language": "English",
+    "country": null,
+    "accessType": "free",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": "https://t.me/impact_school_sources",
+    "memberCountCheckedAt": "2026-08-21T09:11:09.977Z",
+    "verificationStatus": "unverified",
+    "linkStatus": "active",
+    "lastCheckedAt": "2026-08-21T09:11:09.977Z",
+    "sourceUrls": [
+      "https://t.me/s/impact_school_sources?before=5519"
+    ],
+    "discoveryMethod": "other",
+    "discoveredAt": "2026-08-21T09:11:09.977Z",
+    "updatedAt": "2026-08-21T09:11:09.977Z",
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "unconfirmed exam niche / generic study channel (held for review)"
+  },
+  {
+    "id": "cand-mt2qench-kahixn",
+    "slug": "telegram-httpscdn5telescopefilebet9vzeq",
+    "title": "Coursevania",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "cloud-certifications",
+    "subcategory": null,
+    "tags": [
+      "AWS",
+      "Study Channel"
+    ],
+    "examFamilies": [
+      "cloud-certifications"
+    ],
+    "exams": [
+      "aws"
+    ],
+    "targetMarkets": [
+      "global-english"
+    ],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion",
+      "resources"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/coursevania",
+    "description": "![](https://cdn5.telesco.pe/file/bET9vZeQBB43ZfKd4ZX69m3XShdjB0MvvNvamsVH7qDB6fOlirtGxaCf3YAs1RVp3h6L2asfzp9JwPwnoD7xmtjp0VXLTWTulkYNowbx548emqr3jtwFs7MwxW0QBg4yVagQUyQ5fq5oXVg1qugmolemMpvaWhQacirWOYr",
+    "language": "English",
+    "country": null,
+    "accessType": "free",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": "https://t.me/coursevania",
+    "memberCountCheckedAt": "2026-08-21T09:13:03.665Z",
+    "verificationStatus": "unverified",
+    "linkStatus": "active",
+    "lastCheckedAt": "2026-08-21T09:13:03.665Z",
+    "sourceUrls": [
+      "https://t.me/s/Coursevania?before=69883"
+    ],
+    "discoveryMethod": "other",
+    "discoveredAt": "2026-08-21T09:13:03.665Z",
+    "updatedAt": "2026-08-21T09:13:03.665Z",
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0,
+    "heldReason": "unconfirmed exam niche / generic study channel (held for review)"
   }
 ]

@@ -77,7 +77,6 @@ export class TavilySearchProvider implements DiscoveryProvider {
 
   async search(query: string): Promise<DiscoveryResult[]> {
     const pool = keyPool; // local ref for this attempt
-    const startIndex = keyIndex;
 
     // Try each key in rotation, advancing on 429
     for (let attempt = 0; attempt < pool.length; attempt++) {

@@ -22,7 +22,7 @@
  * Override the telemetry directory with HERMES_TELEMETRY_DIR (used by tests);
  * otherwise it defaults to the repo's audit/telemetry folder.
  */
-import { readFileSync, existsSync, readdirSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
