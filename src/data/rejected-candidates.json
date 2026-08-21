@@ -4353,5 +4353,13 @@
     "candidateUrl": "https://chat.whatsapp.com/your-link",
     "sourceUrl": "https://chat.whatsapp.com/your-link",
     "platform": "whatsapp"
+  },
+  {
+    "rejectedAt": "2026-08-21T11:07:08.351Z",
+    "reason": "exam-dump-violation",
+    "candidateUrl": "https://t.me/learning_updates",
+    "sourceUrl": "https://t.me/s/learning_updates?after=478",
+    "platform": "telegram",
+    "notes": "Advertises IT Certification Dumps and Coursera Quiz Answers in channel description"
   }
 ]

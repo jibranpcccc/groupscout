@@ -139,23 +139,43 @@ export function getPlatformLabel(id: string): string {
 
 /**
  * Deterministic indexability evaluation for individual community detail pages.
- * Only communities with sufficient unique factual value (substantive description
- * or verified member count data) and active status are eligible for index,follow.
- * Thin/boilerplate listings remain fully browseable but are marked noindex,follow.
+ * A community detail page is indexable ONLY when it satisfies all criteria:
+ * 1. linkStatus is verified 'active'
+ * 2. Explicit mapping to at least one valid exam/certification
+ * 3. Clear study vertical ('study-prep')
+ * 4. Substantive unique factual description (>= 60 characters) providing genuine
+ *    unique information beyond bare title/platform/member count.
+ *    (Member count alone or short snippet < 60 chars is strictly NOT index-worthy).
+ * 5. Zero academic integrity / dump / leak safety flags.
+ *
+ * Valid thin/boilerplate listings remain fully browseable to users across directory,
+ * categories, exam hubs, and search, but are marked noindex,follow and sitemap-excluded.
  */
 export function isCommunityIndexWorthy(c: Community): boolean {
   if (!c.published || c.isSample) return false;
   if (c.linkStatus !== 'active') return false;
+  if (c.vertical !== 'study-prep') return false;
 
-  const hasSubstantiveDesc = Boolean(c.description && c.description.trim().length >= 40);
-  const hasMemberData = Boolean(c.memberCount && c.memberCount > 0);
+  // Explicit exam mapping required
+  if (!c.exams || c.exams.length === 0) return false;
 
-  if (!hasSubstantiveDesc && !hasMemberData) {
+  // Substantive unique description (>= 60 characters) required
+  const desc = c.description ? c.description.trim() : '';
+  if (desc.length < 60) return false;
+
+  // Zero dump / leak / integrity risk flags
+  if (
+    c.safetyFlags &&
+    c.safetyFlags.some(
+      (f) =>
+        f.includes('dump') ||
+        f.includes('leak') ||
+        f.includes('fraud') ||
+        f.includes('unauthorized')
+    )
+  ) {
     return false;
   }
-
-  const hasExamOrCategory = (c.exams && c.exams.length > 0) || Boolean(c.category);
-  if (!hasExamOrCategory) return false;
 
   return true;
 }

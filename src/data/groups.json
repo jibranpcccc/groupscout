@@ -1529,12 +1529,17 @@
     "category": "networking-certifications",
     "subcategory": null,
     "tags": [
+      "CCNA",
+      "Cisco",
+      "networking",
       "study"
     ],
     "examFamilies": [
       "networking-certifications"
     ],
-    "exams": [],
+    "exams": [
+      "ccna"
+    ],
     "targetMarkets": [],
     "certificationProvider": null,
     "studyTypes": [
@@ -1698,56 +1703,6 @@
     "discoveryMethod": "gemini-search",
     "discoveredAt": "2026-08-20T11:38:49.510Z",
     "updatedAt": "2026-08-21T07:19:08.726Z",
-    "safetyFlags": [],
-    "featured": false,
-    "published": true,
-    "linkCheckFailures": 0
-  },
-  {
-    "id": "cand-mt1g69y0-xt0cd3",
-    "slug": "telegram-certibanks",
-    "title": "CertiBanks PRINCE2 Prep Group",
-    "platform": "telegram",
-    "vertical": "study-prep",
-    "category": "project-management",
-    "subcategory": null,
-    "tags": [
-      "PMP",
-      "CAPM",
-      "PRINCE2"
-    ],
-    "examFamilies": [
-      "project-management"
-    ],
-    "exams": [
-      "pmp",
-      "capm",
-      "prince2"
-    ],
-    "targetMarkets": [],
-    "certificationProvider": null,
-    "studyTypes": [
-      "discussion"
-    ],
-    "examLevel": null,
-    "inviteUrl": "https://t.me/certibanks?before=167",
-    "description": null,
-    "language": null,
-    "country": null,
-    "accessType": "unknown",
-    "communityType": "discussion",
-    "memberCount": null,
-    "memberCountSource": null,
-    "memberCountCheckedAt": null,
-    "verificationStatus": "unverified",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T09:57:03.416Z",
-    "sourceUrls": [
-      "https://t.me/s/certibanks?q=%23PRINCE2&before=167"
-    ],
-    "discoveryMethod": "gemini-search",
-    "discoveredAt": "2026-08-20T11:38:50.712Z",
-    "updatedAt": "2026-08-21T06:18:00.487Z",
     "safetyFlags": [],
     "featured": false,
     "published": true,
@@ -3656,17 +3611,19 @@
     "title": "CAT Exam Prep (MBA)",
     "platform": "telegram",
     "vertical": "study-prep",
-    "category": "medical-healthcare",
+    "category": "entrance-exams",
     "subcategory": null,
     "tags": [
-      "MCAT",
-      "Study Channel"
+      "CAT",
+      "MBA",
+      "entrance-exams",
+      "study"
     ],
     "examFamilies": [
       "medical-healthcare"
     ],
     "exams": [
-      "mcat"
+      "cat"
     ],
     "targetMarkets": [
       "global-english"
@@ -3706,17 +3663,19 @@
     "title": "BYJU'S Exam Prep for MBA",
     "platform": "telegram",
     "vertical": "study-prep",
-    "category": "medical-healthcare",
+    "category": "entrance-exams",
     "subcategory": null,
     "tags": [
-      "MCAT",
-      "Study Channel"
+      "CAT",
+      "MBA",
+      "BYJU",
+      "study"
     ],
     "examFamilies": [
       "medical-healthcare"
     ],
     "exams": [
-      "mcat"
+      "cat"
     ],
     "targetMarkets": [
       "global-english"
@@ -3759,14 +3718,15 @@
     "category": "medical-healthcare",
     "subcategory": null,
     "tags": [
-      "MCAT",
-      "Study Channel"
+      "USMLE",
+      "medical",
+      "study"
     ],
     "examFamilies": [
       "medical-healthcare"
     ],
     "exams": [
-      "mcat"
+      "usmle"
     ],
     "targetMarkets": [
       "global-english"
@@ -3806,17 +3766,19 @@
     "title": "BYJU'S Exam Prep CLAT Classes & Notes",
     "platform": "telegram",
     "vertical": "study-prep",
-    "category": "general-study",
+    "category": "law",
     "subcategory": null,
     "tags": [
-      "MCAT",
-      "Study Channel"
+      "CLAT",
+      "law",
+      "judiciary",
+      "study"
     ],
     "examFamilies": [
       "general-study"
     ],
     "exams": [
-      "mcat"
+      "lsat"
     ],
     "targetMarkets": [
       "global-english"
@@ -4712,17 +4674,19 @@
     "title": "GMAT Preparation Discussion Group",
     "platform": "telegram",
     "vertical": "study-prep",
-    "category": "college-admissions",
+    "category": "graduate-admissions",
     "subcategory": null,
     "tags": [
-      "AP-EXAMS",
-      "Study Channel"
+      "GMAT",
+      "MBA",
+      "graduate-admissions",
+      "study"
     ],
     "examFamilies": [
       "college-admissions"
     ],
     "exams": [
-      "ap-exams"
+      "gmat"
     ],
     "targetMarkets": [
       "global-english"
@@ -4813,17 +4777,19 @@
     "title": "ADK Education World (Law & Judiciary Prep)",
     "platform": "telegram",
     "vertical": "study-prep",
-    "category": "college-admissions",
+    "category": "law",
     "subcategory": null,
     "tags": [
-      "AP-EXAMS",
-      "Study Channel"
+      "CLAT",
+      "law",
+      "judiciary",
+      "study"
     ],
     "examFamilies": [
       "college-admissions"
     ],
     "exams": [
-      "ap-exams"
+      "lsat"
     ],
     "targetMarkets": [
       "global-english"
@@ -4873,7 +4839,8 @@
       "college-admissions"
     ],
     "exams": [
-      "ap-exams"
+      "ap-exams",
+      "sat"
     ],
     "targetMarkets": [
       "global-english"
@@ -4885,7 +4852,7 @@
     ],
     "examLevel": null,
     "inviteUrl": "https://t.me/ap_makon",
-    "description": "[@apmakon](https://t.me/apmakon) [Bl",
+    "description": "Makon educational channel providing AP Exams and SAT study materials, practice exercises, and candidate guidance.",
     "language": "English",
     "country": null,
     "accessType": "free",
@@ -4913,17 +4880,19 @@
     "title": "Study Go with Zeenat (Judiciary & Law)",
     "platform": "telegram",
     "vertical": "study-prep",
-    "category": "college-admissions",
+    "category": "law",
     "subcategory": null,
     "tags": [
-      "ACT",
-      "Study Channel"
+      "CLAT",
+      "law",
+      "judiciary",
+      "study"
     ],
     "examFamilies": [
       "college-admissions"
     ],
     "exams": [
-      "act"
+      "lsat"
     ],
     "targetMarkets": [
       "global-english"
@@ -4963,17 +4932,21 @@
     "title": "English Study Material & Test Prep",
     "platform": "telegram",
     "vertical": "study-prep",
-    "category": "general-study",
+    "category": "english-proficiency",
     "subcategory": null,
     "tags": [
-      "ACT",
-      "Study Channel"
+      "English",
+      "IELTS",
+      "TOEFL",
+      "grammar",
+      "study"
     ],
     "examFamilies": [
       "general-study"
     ],
     "exams": [
-      "act"
+      "ielts",
+      "toefl"
     ],
     "targetMarkets": [
       "global-english"
@@ -5521,12 +5494,16 @@
     "subcategory": null,
     "tags": [
       "TOEFL",
-      "Study Channel"
+      "IELTS",
+      "English",
+      "courses",
+      "study"
     ],
     "examFamilies": [
       "english-proficiency"
     ],
     "exams": [
+      "toefl",
       "ielts"
     ],
     "targetMarkets": [
@@ -7463,56 +7440,6 @@
     "discoveryMethod": "other",
     "discoveredAt": "2026-08-21T09:12:52.436Z",
     "updatedAt": "2026-08-21T09:12:52.436Z",
-    "safetyFlags": [],
-    "featured": false,
-    "published": true,
-    "linkCheckFailures": 0
-  },
-  {
-    "id": "cand-mt2qeig6-89xkyq",
-    "slug": "telegram-learning-updates",
-    "title": "Learning Updates (Cloud & Tech Certs)",
-    "platform": "telegram",
-    "vertical": "study-prep",
-    "category": "cloud-certifications",
-    "subcategory": null,
-    "tags": [
-      "AWS",
-      "Study Channel"
-    ],
-    "examFamilies": [
-      "cloud-certifications"
-    ],
-    "exams": [
-      "aws"
-    ],
-    "targetMarkets": [
-      "global-english"
-    ],
-    "certificationProvider": null,
-    "studyTypes": [
-      "discussion",
-      "resources"
-    ],
-    "examLevel": null,
-    "inviteUrl": "https://t.me/learning_updates",
-    "description": "Learning Updates ***🔰*** IT Certification Dumps ***🔰*** Official Latest Ebooks ***🔰*** Coursera Quiz Answers ***🔰*** Paid Courses Answers",
-    "language": "English",
-    "country": null,
-    "accessType": "free",
-    "communityType": "discussion",
-    "memberCount": 1010,
-    "memberCountSource": "https://t.me/learning_updates",
-    "memberCountCheckedAt": "2026-08-21T09:12:57.318Z",
-    "verificationStatus": "source-confirmed",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-21T09:12:57.318Z",
-    "sourceUrls": [
-      "https://t.me/s/learning_updates?after=478"
-    ],
-    "discoveryMethod": "other",
-    "discoveredAt": "2026-08-21T09:12:57.318Z",
-    "updatedAt": "2026-08-21T09:12:57.318Z",
     "safetyFlags": [],
     "featured": false,
     "published": true,

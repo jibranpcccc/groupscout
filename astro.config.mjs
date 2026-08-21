@@ -9,7 +9,6 @@ import { readFileSync } from 'node:fs';
 const siteUrl = process.env.PUBLIC_SITE_URL || 'http://localhost:4321';
 
 // Indexation thresholds (must match src/config/discovery.ts).
-const CATEGORY_INDEX_MIN = 3;
 const EXAM_INDEX_MIN = 5;
 
 // Real published counts from the production data source — demo/sample
@@ -43,16 +42,40 @@ for (const c of realGroups) {
 const isCommunityIndexWorthy = (c) => {
   if (!c.published || c.isSample) return false;
   if (c.linkStatus !== 'active') return false;
-  const hasSubstantiveDesc = Boolean(c.description && c.description.trim().length >= 40);
-  const hasMemberData = Boolean(c.memberCount && c.memberCount > 0);
-  if (!hasSubstantiveDesc && !hasMemberData) return false;
-  const hasExamOrCategory = (c.exams && c.exams.length > 0) || Boolean(c.category);
-  return Boolean(hasExamOrCategory);
+  if (c.vertical !== 'study-prep') return false;
+  if (!c.exams || c.exams.length === 0) return false;
+  const desc = c.description ? c.description.trim() : '';
+  if (desc.length < 60) return false;
+  if (
+    c.safetyFlags &&
+    c.safetyFlags.some(
+      (f) =>
+        f.includes('dump') ||
+        f.includes('leak') ||
+        f.includes('fraud') ||
+        f.includes('unauthorized')
+    )
+  ) {
+    return false;
+  }
+  return true;
 };
 
 const indexableGroupSlugs = new Set(
   realGroups.filter(isCommunityIndexWorthy).map((c) => c.slug)
 );
+
+// Map of categories with indexable child exams (>=5) or >= 5 communities
+const indexableCategories = new Set([
+  'college-admissions',
+  'graduate-admissions',
+  'entrance-exams',
+  'english-proficiency',
+  'medical-healthcare',
+  'law',
+  'finance-accounting',
+  'cybersecurity-certifications',
+]);
 
 export default defineConfig({
   site: siteUrl,
@@ -85,9 +108,9 @@ export default defineConfig({
         const examMatch = page.match(/\/exam\/([^/]+)\/?$/);
         if (examMatch && (examCounts.get(examMatch[1]) ?? 0) < EXAM_INDEX_MIN) return false;
 
-        // Empty/near-empty category pages.
+        // Thin category pages (must have >=5 communities or an indexable child exam).
         const catMatch = page.match(/\/category\/([^/]+)\/?$/);
-        if (catMatch && (categoryCounts.get(catMatch[1]) ?? 0) < CATEGORY_INDEX_MIN) return false;
+        if (catMatch && !indexableCategories.has(catMatch[1])) return false;
 
         return true;
       },
