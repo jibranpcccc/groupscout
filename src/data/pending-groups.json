@@ -40,7 +40,7 @@
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
     "linkStatus": "active",
-    "lastCheckedAt": "2026-08-20T19:34:42.146Z",
+    "lastCheckedAt": "2026-08-21T04:58:58.827Z",
     "sourceUrls": [
       "https://discord.com/invite/z3y3e39n9h"
     ],
@@ -91,7 +91,7 @@
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
     "linkStatus": "active",
-    "lastCheckedAt": "2026-08-20T19:34:42.146Z",
+    "lastCheckedAt": "2026-08-21T04:58:58.827Z",
     "sourceUrls": [
       "https://discord.com/invite/crackd"
     ],
@@ -138,7 +138,7 @@
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
     "linkStatus": "active",
-    "lastCheckedAt": "2026-08-20T19:34:42.146Z",
+    "lastCheckedAt": "2026-08-21T04:58:58.827Z",
     "sourceUrls": [
       "https://t.me/s/Free4arab1?q=%23cissp&before=5851"
     ],
@@ -182,7 +182,7 @@
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
     "linkStatus": "active",
-    "lastCheckedAt": "2026-08-20T19:34:42.146Z",
+    "lastCheckedAt": "2026-08-21T04:58:58.827Z",
     "sourceUrls": [
       "https://discord.com/invite/run6k2B"
     ],
@@ -233,7 +233,7 @@
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
     "linkStatus": "active",
-    "lastCheckedAt": "2026-08-20T19:34:42.146Z",
+    "lastCheckedAt": "2026-08-21T04:58:58.827Z",
     "sourceUrls": [
       "https://t.me/s/certibanks?q=%23PRINCE2&before=167"
     ],
@@ -281,7 +281,7 @@
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
     "linkStatus": "active",
-    "lastCheckedAt": "2026-08-20T19:34:42.146Z",
+    "lastCheckedAt": "2026-08-21T04:58:58.827Z",
     "sourceUrls": [
       "https://discord.com/invite/apstudents"
     ],
@@ -328,7 +328,7 @@
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
     "linkStatus": "active",
-    "lastCheckedAt": "2026-08-20T19:34:42.146Z",
+    "lastCheckedAt": "2026-08-21T04:58:58.827Z",
     "sourceUrls": [
       "https://discord.com/invite/KaDMxQESxg"
     ],
@@ -375,7 +375,7 @@
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
     "linkStatus": "active",
-    "lastCheckedAt": "2026-08-20T19:34:42.146Z",
+    "lastCheckedAt": "2026-08-21T04:58:58.827Z",
     "sourceUrls": [
       "https://discord.com/invite/premed"
     ],
@@ -422,12 +422,60 @@
     "memberCountCheckedAt": null,
     "verificationStatus": "unverified",
     "linkStatus": "active",
-    "lastCheckedAt": "2026-08-20T19:34:42.146Z",
+    "lastCheckedAt": "2026-08-21T04:58:58.827Z",
     "sourceUrls": [
       "https://www.t.me/s/w2hack?q=%23exam&before=7725"
     ],
     "discoveryMethod": "gemini-search",
     "discoveredAt": "2026-08-20T19:34:38.978Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "linkCheckFailures": 0
+  },
+  {
+    "id": "cand-mt2hbme0-dsozt6",
+    "slug": "telegram-usmlestepsrecalls",
+    "title": "USMLE Step 1 , 2CK, 3 , CBSE NBME, Shelf Exam, CCSE Recalls 2026-2027 – Telegram — MCAT PROMAX",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "medical-healthcare",
+    "subcategory": null,
+    "tags": [
+      "MCAT",
+      "USMLE"
+    ],
+    "examFamilies": [
+      "medical-healthcare"
+    ],
+    "exams": [
+      "mcat",
+      "usmle"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/usmlestepsrecalls?before=473",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "active",
+    "lastCheckedAt": "2026-08-21T04:58:58.827Z",
+    "sourceUrls": [
+      "https://t.me/s/usmlestepsrecalls?q=%23Step3&before=473"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-21T04:58:45.911Z",
     "updatedAt": null,
     "safetyFlags": [],
     "featured": false,
