@@ -155,6 +155,11 @@ export async function classifyCandidate(input: ClassificationInput): Promise<Cla
   // so GEMINI_SEARCH_ENABLED must NOT gate it — otherwise disabling search
   // grounding (free-tier quota) would silently reject every candidate.
   const geminiKey = process.env['GEMINI_' + 'API_KEY'];
+  // CI runs with GEMINI_CLASSIFY_ENABLED=false: the free-tier key is capped
+  // at 15 req/min and CI must stay deterministic + quota-proof. The
+  // rule-based tier below handles everything CI needs; Gemini classification
+  // remains available for richer local/offline runs.
+  const geminiClassifyEnabled = process.env.GEMINI_CLASSIFY_ENABLED !== 'false';
 
   // Tier 1 — deterministic rule-based classification (zero cost, no quota).
   // Runs for EVERY candidate BEFORE Gemini: obvious exam-keyword matches are
@@ -167,7 +172,7 @@ export async function classifyCandidate(input: ClassificationInput): Promise<Cla
   }
 
   // Tier 2 — Gemini classification for ambiguous candidates only.
-  if (!geminiKey) {
+  if (!geminiKey || !geminiClassifyEnabled) {
     return fallback;
   }
 
