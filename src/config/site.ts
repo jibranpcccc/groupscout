@@ -11,6 +11,11 @@ function getPublicSiteUrl(): string {
   return env?.PUBLIC_SITE_URL?.replace(/\/+$/, '') || 'https://studygroupshub.com';
 }
 
+function getEnvVar(key: string): string | undefined {
+  const env = (import.meta as unknown as { env?: Record<string, string> }).env;
+  return env?.[key];
+}
+
 export const siteConfig = {
   /** Display name — change here to rebrand (routes don't depend on it). */
   name: 'StudyScout',
@@ -25,6 +30,12 @@ export const siteConfig = {
   /** Footer disclaimer — accurate trademark wording. */
   notAffiliatedNotice:
     'Not affiliated with Telegram, WhatsApp, Discord, or their parent companies.',
+  /** Google Analytics 4 Measurement ID (e.g. G-XXXXXXXXXX) */
+  gaMeasurementId: getEnvVar('PUBLIC_GA_MEASUREMENT_ID'),
+  /** Google Search Console verification meta tag token */
+  googleSiteVerification: getEnvVar('PUBLIC_GOOGLE_SITE_VERIFICATION'),
+  /** Bing Webmaster Tools verification meta tag token */
+  bingSiteVerification: getEnvVar('PUBLIC_BING_SITE_VERIFICATION'),
 } as const;
 
 export type SiteConfig = typeof siteConfig;
