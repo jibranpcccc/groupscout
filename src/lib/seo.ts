@@ -114,11 +114,6 @@ export function websiteJsonLd() {
     name: siteConfig.name,
     url: canonicalUrl('/'),
     description: siteConfig.description,
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: `${canonicalUrl('/communities/')}?q={search_term_string}`,
-      'query-input': 'required name=search_term_string',
-    },
   });
 }
 

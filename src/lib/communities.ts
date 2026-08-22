@@ -138,6 +138,29 @@ export function getPlatformLabel(id: string): string {
 }
 
 /**
+ * Deterministic qualification for taxonomy aggregation pages (platforms, categories, exam hubs).
+ * Requires active link status, study vertical, and zero academic integrity / leak safety flags.
+ */
+export function isCommunityTaxonomyEligible(c: Community): boolean {
+  if (!c.published || c.isSample) return false;
+  if (c.linkStatus !== 'active') return false;
+  if (c.vertical !== 'study-prep') return false;
+  if (
+    c.safetyFlags &&
+    c.safetyFlags.some(
+      (f) =>
+        f.includes('dump') ||
+        f.includes('leak') ||
+        f.includes('fraud') ||
+        f.includes('unauthorized')
+    )
+  ) {
+    return false;
+  }
+  return true;
+}
+
+/**
  * Deterministic indexability evaluation for individual community detail pages.
  * A community detail page is indexable ONLY when it satisfies all criteria:
  * 1. linkStatus is verified 'active'

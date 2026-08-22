@@ -85,6 +85,7 @@ interface ComparisonResult {
   slugB: string;
   exactDuplicateParagraphs: string[];
   highlySimilarParagraphs: string[];
+  howWeCheckDuplicate: boolean;
   similarityScore: number;
   manualReviewRequired: boolean;
 }
@@ -92,6 +93,7 @@ interface ComparisonResult {
 const comparisons: ComparisonResult[] = [];
 let totalExactDuplicates = 0;
 let totalHighSimilarityPairs = 0;
+let totalHowWeCheckDuplicates = 0;
 
 for (let i = 0; i < hubs.length; i++) {
   for (let j = i + 1; j < hubs.length; j++) {
@@ -101,16 +103,23 @@ for (let i = 0; i < hubs.length; i++) {
     // Check exact duplicate paragraphs
     const exactDuplicates: string[] = [];
     const highlySimilar: string[] = [];
+    let howWeCheckDuplicate = false;
 
     // Compare Intros
-    if (a.intro === b.intro && a.intro.length > 0) exactDuplicates.push('intro paragraph');
-    else if (jaccardSimilarity(a.intro, b.intro) > 0.85) highlySimilar.push('intro paragraph');
+    if (a.intro === b.intro && a.intro.length > 0) {
+      exactDuplicates.push('intro paragraph');
+    } else if (jaccardSimilarity(a.intro, b.intro) > 0.85) {
+      highlySimilar.push('intro paragraph');
+    }
 
     // Compare What to look for
     a.whatToLookFor.forEach((itemA, idxA) => {
       b.whatToLookFor.forEach((itemB, idxB) => {
-        if (itemA === itemB && itemA.length > 20) exactDuplicates.push(`What to look for [${idxA}]`);
-        else if (jaccardSimilarity(itemA, itemB) > 0.85 && itemA !== itemB) highlySimilar.push(`What to look for [${idxA} vs ${idxB}]`);
+        if (itemA === itemB && itemA.length > 20) {
+          exactDuplicates.push(`What to look for [${idxA}]`);
+        } else if (jaccardSimilarity(itemA, itemB) > 0.85 && itemA !== itemB) {
+          highlySimilar.push(`What to look for [${idxA} vs ${idxB}]`);
+        }
       });
     });
 
@@ -119,6 +128,20 @@ for (let i = 0; i < hubs.length; i++) {
       exactDuplicates.push('platform guidance');
     } else if (jaccardSimilarity(a.platformGuidance, b.platformGuidance) > 0.85) {
       highlySimilar.push('platform guidance');
+    }
+
+    // Compare How We Check (Intentionally shared verification & anti-dump disclosure)
+    if (a.howWeCheck.length > 0 && b.howWeCheck.length > 0) {
+      // Normalize by removing the exam name
+      const normA = a.howWeCheck.replace(new RegExp(a.name, 'gi'), '').replace(new RegExp(a.slug, 'gi'), '').trim();
+      const normB = b.howWeCheck.replace(new RegExp(b.name, 'gi'), '').replace(new RegExp(b.slug, 'gi'), '').trim();
+      if (a.howWeCheck === b.howWeCheck || normA === normB) {
+        howWeCheckDuplicate = true;
+        totalHowWeCheckDuplicates++;
+      } else if (jaccardSimilarity(a.howWeCheck, b.howWeCheck) > 0.85) {
+        howWeCheckDuplicate = true;
+        totalHowWeCheckDuplicates++;
+      }
     }
 
     // Compare FAQs
@@ -132,13 +155,16 @@ for (let i = 0; i < hubs.length; i++) {
       });
     });
 
-    // Overall narrative similarity
-    const textA = `${a.intro} ${a.whatToLookFor.join(' ')} ${a.platformGuidance} ${a.faqs.map(f => f.a).join(' ')}`;
-    const textB = `${b.intro} ${b.whatToLookFor.join(' ')} ${b.platformGuidance} ${b.faqs.map(f => f.a).join(' ')}`;
+    // Overall narrative similarity including howWeCheck
+    const textA = `${a.intro} ${a.whatToLookFor.join(' ')} ${a.platformGuidance} ${a.howWeCheck} ${a.faqs.map(f => f.a).join(' ')}`;
+    const textB = `${b.intro} ${b.whatToLookFor.join(' ')} ${b.platformGuidance} ${b.howWeCheck} ${b.faqs.map(f => f.a).join(' ')}`;
     const similarity = Math.round(jaccardSimilarity(textA, textB) * 100) / 100;
 
     if (exactDuplicates.length > 0) totalExactDuplicates += exactDuplicates.length;
-    if (similarity > 0.75 || highlySimilar.length > 2) totalHighSimilarityPairs++;
+
+    // Single unified condition for review
+    const requiresReview = exactDuplicates.length > 0 || similarity > 0.75 || highlySimilar.length > 2;
+    if (requiresReview) totalHighSimilarityPairs++;
 
     comparisons.push({
       examA: a.name,
@@ -147,8 +173,9 @@ for (let i = 0; i < hubs.length; i++) {
       slugB: b.slug,
       exactDuplicateParagraphs: exactDuplicates,
       highlySimilarParagraphs: highlySimilar,
+      howWeCheckDuplicate,
       similarityScore: similarity,
-      manualReviewRequired: exactDuplicates.length > 0 || similarity > 0.75,
+      manualReviewRequired: requiresReview,
     });
   }
 }
@@ -158,6 +185,7 @@ const report = {
   totalIndexableExamHubs: hubs.length,
   totalPairsCompared: comparisons.length,
   exactDuplicateSubstantiveParagraphs: totalExactDuplicates,
+  howWeCheckSharedDisclaimerPairs: totalHowWeCheckDuplicates,
   highSimilarityPairsRequiringReview: totalHighSimilarityPairs,
   comparisons,
 };
@@ -168,4 +196,7 @@ fs.writeFileSync('audit/exam-hub-content-similarity.json', JSON.stringify(report
 console.log('Exam Hub Similarity Audit completed.');
 console.log(`Total Pairs Compared: ${comparisons.length}`);
 console.log(`Exact Duplicate Substantive Paragraphs: ${totalExactDuplicates}`);
+console.log(`How-We-Check Shared Disclaimer Pairs: ${totalHowWeCheckDuplicates}`);
+console.log(`High Similarity Pairs Requiring Review: ${totalHighSimilarityPairs}`);
+
 console.log(`High Similarity Pairs Requiring Review: ${totalHighSimilarityPairs}`);

@@ -1,0 +1,122 @@
+[
+  {
+    "page": "homepage",
+    "url": "https://studygroupshub.com/",
+    "viewport": "390px",
+    "width": 390,
+    "height": 844,
+    "screenshotPath": "audit/screenshots/homepage-390px.png",
+    "fileSize": 53631,
+    "status": "SUCCESS"
+  },
+  {
+    "page": "homepage",
+    "url": "https://studygroupshub.com/",
+    "viewport": "768px",
+    "width": 768,
+    "height": 1024,
+    "screenshotPath": "audit/screenshots/homepage-768px.png",
+    "fileSize": 81539,
+    "status": "SUCCESS"
+  },
+  {
+    "page": "homepage",
+    "url": "https://studygroupshub.com/",
+    "viewport": "1440px",
+    "width": 1440,
+    "height": 900,
+    "screenshotPath": "audit/screenshots/homepage-1440px.png",
+    "fileSize": 88813,
+    "status": "SUCCESS"
+  },
+  {
+    "page": "exam-ielts",
+    "url": "https://studygroupshub.com/exam/ielts/",
+    "viewport": "390px",
+    "width": 390,
+    "height": 844,
+    "screenshotPath": "audit/screenshots/exam-ielts-390px.png",
+    "fileSize": 59717,
+    "status": "SUCCESS"
+  },
+  {
+    "page": "exam-ielts",
+    "url": "https://studygroupshub.com/exam/ielts/",
+    "viewport": "768px",
+    "width": 768,
+    "height": 1024,
+    "screenshotPath": "audit/screenshots/exam-ielts-768px.png",
+    "fileSize": 100106,
+    "status": "SUCCESS"
+  },
+  {
+    "page": "exam-ielts",
+    "url": "https://studygroupshub.com/exam/ielts/",
+    "viewport": "1440px",
+    "width": 1440,
+    "height": 900,
+    "screenshotPath": "audit/screenshots/exam-ielts-1440px.png",
+    "fileSize": 110186,
+    "status": "SUCCESS"
+  },
+  {
+    "page": "category-english",
+    "url": "https://studygroupshub.com/category/english-proficiency/",
+    "viewport": "390px",
+    "width": 390,
+    "height": 844,
+    "screenshotPath": "audit/screenshots/category-english-390px.png",
+    "fileSize": 48481,
+    "status": "SUCCESS"
+  },
+  {
+    "page": "category-english",
+    "url": "https://studygroupshub.com/category/english-proficiency/",
+    "viewport": "768px",
+    "width": 768,
+    "height": 1024,
+    "screenshotPath": "audit/screenshots/category-english-768px.png",
+    "fileSize": 82592,
+    "status": "SUCCESS"
+  },
+  {
+    "page": "category-english",
+    "url": "https://studygroupshub.com/category/english-proficiency/",
+    "viewport": "1440px",
+    "width": 1440,
+    "height": 900,
+    "screenshotPath": "audit/screenshots/category-english-1440px.png",
+    "fileSize": 81961,
+    "status": "SUCCESS"
+  },
+  {
+    "page": "detail-makon-sat-ap-gre",
+    "url": "https://studygroupshub.com/group/telegram-makon-sat-ap-gre/",
+    "viewport": "390px",
+    "width": 390,
+    "height": 844,
+    "screenshotPath": "audit/screenshots/detail-makon-sat-ap-gre-390px.png",
+    "fileSize": 48068,
+    "status": "SUCCESS"
+  },
+  {
+    "page": "detail-makon-sat-ap-gre",
+    "url": "https://studygroupshub.com/group/telegram-makon-sat-ap-gre/",
+    "viewport": "768px",
+    "width": 768,
+    "height": 1024,
+    "screenshotPath": "audit/screenshots/detail-makon-sat-ap-gre-768px.png",
+    "fileSize": 77331,
+    "status": "SUCCESS"
+  },
+  {
+    "page": "detail-makon-sat-ap-gre",
+    "url": "https://studygroupshub.com/group/telegram-makon-sat-ap-gre/",
+    "viewport": "1440px",
+    "width": 1440,
+    "height": 900,
+    "screenshotPath": "audit/screenshots/detail-makon-sat-ap-gre-1440px.png",
+    "fileSize": 101370,
+    "status": "SUCCESS"
+  }
+]

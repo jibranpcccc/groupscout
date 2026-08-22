@@ -1,0 +1,152 @@
+[
+  {
+    "route": "/",
+    "status": 200,
+    "robots": "index, follow",
+    "canonical": "https://studygroupshub.com/",
+    "ogUrl": "https://studygroupshub.com/",
+    "title": "Study Groups for IELTS, USMLE, SAT &amp; Certifications | StudyGroupsHub",
+    "h1": "Find Exam &amp; Certification Study Groups",
+    "jsonLd": ""
+  },
+  {
+    "route": "/communities/",
+    "status": 200,
+    "robots": "index, follow",
+    "canonical": "https://studygroupshub.com/communities/",
+    "ogUrl": "https://studygroupshub.com/communities/",
+    "title": "Browse Exam &amp; Certification Study Groups | StudyGroupsHub",
+    "h1": "Browse Exam &amp; Certification Study Groups | StudyGroupsHub",
+    "jsonLd": ""
+  },
+  {
+    "route": "/exam/ielts/",
+    "status": 200,
+    "robots": "index, follow",
+    "canonical": "https://studygroupshub.com/exam/ielts/",
+    "ogUrl": "https://studygroupshub.com/exam/ielts/",
+    "title": "IELTS Telegram Study Groups &amp; Channels | StudyGroupsHub",
+    "h1": "IELTS Study Groups",
+    "jsonLd": ""
+  },
+  {
+    "route": "/exam/usmle/",
+    "status": 200,
+    "robots": "index, follow",
+    "canonical": "https://studygroupshub.com/exam/usmle/",
+    "ogUrl": "https://studygroupshub.com/exam/usmle/",
+    "title": "USMLE Telegram Study Groups &amp; Channels | StudyGroupsHub",
+    "h1": "USMLE Study Groups",
+    "jsonLd": ""
+  },
+  {
+    "route": "/exam/sat/",
+    "status": 200,
+    "robots": "index, follow",
+    "canonical": "https://studygroupshub.com/exam/sat/",
+    "ogUrl": "https://studygroupshub.com/exam/sat/",
+    "title": "SAT Study Groups on Telegram &amp; Discord | StudyGroupsHub",
+    "h1": "SAT Study Groups",
+    "jsonLd": ""
+  },
+  {
+    "route": "/exam/cfa/",
+    "status": 200,
+    "robots": "index, follow",
+    "canonical": "https://studygroupshub.com/exam/cfa/",
+    "ogUrl": "https://studygroupshub.com/exam/cfa/",
+    "title": "CFA Telegram Study Groups &amp; Channels | StudyGroupsHub",
+    "h1": "CFA Study Groups",
+    "jsonLd": ""
+  },
+  {
+    "route": "/category/english-proficiency/",
+    "status": 200,
+    "robots": "index, follow",
+    "canonical": "https://studygroupshub.com/category/english-proficiency/",
+    "ogUrl": "https://studygroupshub.com/category/english-proficiency/",
+    "title": "English Language Exam Study Groups | StudyGroupsHub",
+    "h1": "English Language Exam Study Groups | StudyGroupsHub",
+    "jsonLd": ""
+  },
+  {
+    "route": "/category/medical-healthcare/",
+    "status": 200,
+    "robots": "index, follow",
+    "canonical": "https://studygroupshub.com/category/medical-healthcare/",
+    "ogUrl": "https://studygroupshub.com/category/medical-healthcare/",
+    "title": "Medical &amp; Healthcare Exam Study Groups | StudyGroupsHub",
+    "h1": "Medical &amp; Healthcare Exam Study Groups | StudyGroupsHub",
+    "jsonLd": ""
+  },
+  {
+    "route": "/platform/telegram/",
+    "status": 200,
+    "robots": "index, follow",
+    "canonical": "https://studygroupshub.com/platform/telegram/",
+    "ogUrl": "https://studygroupshub.com/platform/telegram/",
+    "title": "Telegram Exam Study Groups | StudyGroupsHub",
+    "h1": "Telegram Exam Study Groups | StudyGroupsHub",
+    "jsonLd": ""
+  },
+  {
+    "route": "/platform/discord/",
+    "status": 200,
+    "robots": "index, follow",
+    "canonical": "https://studygroupshub.com/platform/discord/",
+    "ogUrl": "https://studygroupshub.com/platform/discord/",
+    "title": "Discord Exam Study Groups | StudyGroupsHub",
+    "h1": "Discord Exam Study Groups | StudyGroupsHub",
+    "jsonLd": ""
+  },
+  {
+    "route": "/platform/whatsapp/",
+    "status": 200,
+    "robots": "noindex, follow",
+    "canonical": "https://studygroupshub.com/platform/whatsapp/",
+    "ogUrl": "https://studygroupshub.com/platform/whatsapp/",
+    "title": "WhatsApp Exam Study Groups | StudyGroupsHub",
+    "h1": "WhatsApp Exam Study Groups | StudyGroupsHub",
+    "jsonLd": ""
+  },
+  {
+    "route": "/group/telegram-makon-sat-ap-gre/",
+    "status": 200,
+    "robots": "index, follow",
+    "canonical": "https://studygroupshub.com/group/telegram-makon-sat-ap-gre/",
+    "ogUrl": "https://studygroupshub.com/group/telegram-makon-sat-ap-gre/",
+    "title": "Makon SAT &amp; GRE Discussion – SAT Study Group on Telegram | StudyGroupsHub",
+    "h1": "Makon SAT &amp; GRE Discussion",
+    "jsonLd": ""
+  },
+  {
+    "route": "/group/telegram-gmat4svu/",
+    "status": 200,
+    "robots": "noindex, follow",
+    "canonical": "https://studygroupshub.com/group/telegram-gmat4svu/",
+    "ogUrl": "https://studygroupshub.com/group/telegram-gmat4svu/",
+    "title": "GMAT Preparation Discussion Group – GMAT Study Group on Telegram | StudyGroupsHub",
+    "h1": "GMAT Preparation Discussion Group",
+    "jsonLd": ""
+  },
+  {
+    "route": "/academic-integrity/",
+    "status": 200,
+    "robots": "index, follow",
+    "canonical": "https://studygroupshub.com/academic-integrity/",
+    "ogUrl": "https://studygroupshub.com/academic-integrity/",
+    "title": "Academic Integrity &amp; Anti-Dump Policy | StudyGroupsHub",
+    "h1": "Academic Integrity &amp; Anti-Exam Dump Policy",
+    "jsonLd": ""
+  },
+  {
+    "route": "/about/",
+    "status": 200,
+    "robots": "index, follow",
+    "canonical": "https://studygroupshub.com/about/",
+    "ogUrl": "https://studygroupshub.com/about/",
+    "title": "About | StudyGroupsHub",
+    "h1": "About",
+    "jsonLd": ""
+  }
+]

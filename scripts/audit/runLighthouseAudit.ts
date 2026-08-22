@@ -15,17 +15,26 @@ const targets = [
 
 console.log('=== RUNNING LIGHTHOUSE MOBILE AUDIT ===\n');
 
-interface LighthouseResult {
+export interface LighthouseMetricResult {
   name: string;
   url: string;
   performance?: number;
   accessibility?: number;
   bestPractices?: number;
   seo?: number;
+  lcp?: string;
+  lcpValue?: number;
+  cls?: string;
+  clsValue?: number;
+  tbt?: string;
+  tbtValue?: number;
+  speedIndex?: string;
+  failingAudits?: Array<{ id: string; title: string; score: number | null; explanation?: string }>;
+  opportunities?: Array<{ id: string; title: string; displayValue?: string }>;
   error?: string;
 }
 
-const results: LighthouseResult[] = [];
+const results: LighthouseMetricResult[] = [];
 
 for (const t of targets) {
   const outFile = `audit/temp-lh-${Date.now()}.json`;
@@ -37,19 +46,52 @@ for (const t of targets) {
     } catch {
       // Chrome launcher on Windows can trigger EPERM on temp dir deletion even after writing output
     }
-    
+
     if (fs.existsSync(outFile)) {
       const lhData = JSON.parse(fs.readFileSync(outFile, 'utf8'));
       const categories = lhData.categories;
-      const scores: LighthouseResult = {
+      const audits = lhData.audits || {};
+
+      const failingAudits: Array<{ id: string; title: string; score: number | null; explanation?: string }> = [];
+      const opportunities: Array<{ id: string; title: string; displayValue?: string }> = [];
+
+      Object.keys(audits).forEach((id) => {
+        const a = audits[id];
+        if (a.score !== null && a.score < 1 && (a.scoreDisplayMode === 'binary' || a.scoreDisplayMode === 'numeric')) {
+          failingAudits.push({
+            id,
+            title: a.title,
+            score: a.score,
+            explanation: a.explanation || a.description,
+          });
+        }
+        if (a.details?.type === 'opportunity' && (a.numericValue ?? 0) > 50) {
+          opportunities.push({
+            id,
+            title: a.title,
+            displayValue: a.displayValue,
+          });
+        }
+      });
+
+      const scores: LighthouseMetricResult = {
         name: t.name,
         url: t.url,
         performance: Math.round((categories.performance?.score ?? 0) * 100),
         accessibility: Math.round((categories.accessibility?.score ?? 0) * 100),
         bestPractices: Math.round((categories['best-practices']?.score ?? 0) * 100),
         seo: Math.round((categories.seo?.score ?? 0) * 100),
+        lcp: audits['largest-contentful-paint']?.displayValue,
+        lcpValue: audits['largest-contentful-paint']?.numericValue,
+        cls: audits['cumulative-layout-shift']?.displayValue,
+        clsValue: audits['cumulative-layout-shift']?.numericValue,
+        tbt: audits['total-blocking-time']?.displayValue,
+        tbtValue: audits['total-blocking-time']?.numericValue,
+        speedIndex: audits['speed-index']?.displayValue,
+        failingAudits,
+        opportunities,
       };
-      console.log(` -> Perf: ${scores.performance} | A11y: ${scores.accessibility} | BP: ${scores.bestPractices} | SEO: ${scores.seo}`);
+      console.log(` -> Perf: ${scores.performance} | A11y: ${scores.accessibility} | BP: ${scores.bestPractices} | SEO: ${scores.seo} | LCP: ${scores.lcp} | CLS: ${scores.cls} | TBT: ${scores.tbt}`);
       results.push(scores);
       fs.unlinkSync(outFile);
     } else {
@@ -65,3 +107,4 @@ for (const t of targets) {
 fs.mkdirSync('audit', { recursive: true });
 fs.writeFileSync('audit/lighthouse-summary.json', JSON.stringify(results, null, 2));
 console.log('\nLighthouse audit complete. Saved to audit/lighthouse-summary.json');
+

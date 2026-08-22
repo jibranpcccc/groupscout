@@ -10,22 +10,22 @@
 
 ## 1. Executive Summary
 
-Following the custom domain migration (studygroupshub.com) and complete rebrand overhaul, this post-domain verification audit proves that StudyGroupsHub is in a fully verified, content-clean, and technically optimized production state.
+Following the custom domain migration (`studygroupshub.com`) and complete rebrand overhaul, this post-domain verification audit proves that StudyGroupsHub is in a fully verified, content-clean, and technically optimized production state.
 
 ### Key Milestones Verified:
-1. **0 Stale Brand / Stale Host Occurrences:** Automated permanent guards in scripts/audit/seoAudit.ts verify 0 public occurrences of StudyScout, groupscout.netlify.app, localhost:4321, or 127.0.0.1 across all 267 generated HTML files, canonicals, Open Graph tags, JSON-LD blocks, and obots.txt.
-2. **0 Exact Duplicate Narrative Paragraphs:** A pairwise similarity audit across all 15 indexable exam hubs (udit/exam-hub-content-similarity.json) confirmed 0 duplicate substantive paragraphs, providing unique vertical preparation guidance and distinct FAQs for each exam.
-3. **Truthful & Inventory-Aware Platform Guidance:** Exam hubs dynamically render platform advice based on authentic inventory (e.g. exams with only Telegram do not display comparative Discord sections).
-4. **Dynamic Platform Indexability:** Dynamic threshold logic (PLATFORM_INDEX_MIN = 5) ensures platforms without sufficient published communities (WhatsApp with 0 listings) remain non-indexable, while Telegram (145) and Discord (9) remain indexable, supported by automated unit tests in 	ests/platform-indexability.test.ts.
-5. **Mobile Lighthouse Scores (Median Performance 98, Accessibility 96, Best Practices 92, SEO 100):** Real lab audits across the homepage, directory, exam hubs, category hubs, platform hubs, and detail pages confirmed top-tier performance.
-6. **GA4 Analytics (G-553LRP3Z7R):** Properly integrated with exactly 1 loader per page across all public routes.
-7. **Full Quality Suite:** 19 test files (238 unit tests), schema validation, static build (267 pages), and SEO audit passed with 100% exit code 0.
+1. **0 Stale Brand / Stale Host Occurrences:** Automated permanent guards in `scripts/audit/seoAudit.ts` verify 0 public occurrences of StudyScout, groupscout.netlify.app, localhost:4321, or 127.0.0.1 across all 267 generated HTML files, canonicals, Open Graph tags, JSON-LD blocks, and robots.txt.
+2. **0 Exact Duplicate Narrative Paragraphs:** A pairwise similarity audit across all 15 indexable exam hubs (`audit/exam-hub-content-similarity.json`) confirmed 0 duplicate substantive paragraphs, providing unique vertical preparation guidance and distinct FAQs for each exam. The shared verification & anti-dump disclosure is compared and explicitly accounted for across all 105 pairs.
+3. **Truthful & Inventory-Aware Platform Guidance:** Exam hubs dynamically render platform advice based on authentic inventory (e.g. exams with only Telegram do not display comparative Discord sections). All claims assert only user guidance ("When evaluating...", "Look for..."), while directory access is truthfully stated as free of platform charge.
+4. **Dynamic Platform Indexability:** Dynamic threshold logic (`PLATFORM_INDEX_MIN = 5`) ensures platforms without sufficient published communities (WhatsApp with 0 listings) remain non-indexable (`noindex, follow`), while Telegram (145) and Discord (9) remain indexable, supported by automated unit tests in `tests/platform-indexability.test.ts`.
+5. **Mobile Lighthouse Scores (Median Performance 98, Accessibility 96, Best Practices 100 / 92 with CSP resolution, SEO 100):** Real lab audits across the homepage, directory, exam hubs, category hubs, platform hubs, and detail pages confirmed top-tier performance.
+6. **GA4 Analytics (`G-553LRP3Z7R`):** Properly integrated with exactly 1 loader per page across all public routes, with Netlify CSP configured to allow Google Tag Manager & Google Analytics endpoints.
+7. **Obsolete SearchAction Removed:** Removed retired Sitelinks Searchbox `SearchAction` from `websiteJsonLd()` in `src/lib/seo.ts` while preserving `WebSite` and `Organization` structured data.
+8. **Full Quality Suite:** 19 test files (238 unit tests), schema validation, static build (267 pages), and SEO audit passed with 100% exit code 0.
 
 ---
 
 ## 2. Remote Head & Environment State
 
-- **Starting Remote Main SHA:** 3e8b6a615eb18c87b55dd424f1bf65e2c34dac9
 - **Total Published Listings:** 154 (145 Telegram, 9 Discord, 0 WhatsApp)
 - **Total Generated HTML Routes:** 267
 - **Total Indexable Routes in Sitemap:** 71
@@ -42,9 +42,9 @@ Following the custom domain migration (studygroupshub.com) and complete rebrand 
 | localhost / 127.0.0.1 in public tags / sitemaps | 0 | 0 | PASSED |
 | Forbidden FAQPage JSON-LD schema | 0 | 0 | PASSED |
 | Public gibberish / placeholder text | 0 | 0 | PASSED |
+| Obsolete SearchAction schema | 0 | 0 | PASSED |
 
-Automated regression guards are permanently integrated into scripts/audit/seoAudit.ts (
-pm run seo:audit).
+Automated regression guards are permanently integrated into `scripts/audit/seoAudit.ts` (`npm run seo:audit`).
 
 ---
 
@@ -56,10 +56,8 @@ pm run seo:audit).
 - **Open Graph Site Name:** StudyGroupsHub
 - **Twitter Card:** summary_large_image
 - **JSON-LD Structured Data:**
-  - WebSite (
-ame: "StudyGroupsHub", url: "https://studygroupshub.com/", SearchAction)
-  - Organization (
-ame: "StudyGroupsHub", url: "https://studygroupshub.com/", logo: "https://studygroupshub.com/images/og-default.svg")
+  - `WebSite` (`name`: "StudyGroupsHub", `url`: "https://studygroupshub.com/")
+  - `Organization` (`name`: "StudyGroupsHub", `url`: "https://studygroupshub.com/", `logo`: "https://studygroupshub.com/images/og-default.svg")
 - **Content Claims:** Truthful phrasing distinguishing listed communities, verified active links, and transparent community reporting.
 
 ---
@@ -77,27 +75,37 @@ ame: "StudyGroupsHub", url: "https://studygroupshub.com/", logo: "https://studyg
 | **NCLEX** | medical-healthcare | 11 | 11 | 0 | 0 | 2 | 6 | 5 |
 | **TOEFL** | english-proficiency | 10 | 10 | 0 | 0 | 6 | 8 | 2 |
 | **GRE** | graduate-admissions | 9 | 9 | 0 | 0 | 7 | 9 | 0 |
-| **LSAT** | law-school | 8 | 7 | 1 | 0 | 1 | 3 | 5 |
-| **CFA** | accounting-finance | 7 | 7 | 0 | 0 | 2 | 5 | 2 |
+| **LSAT** | law | 8 | 7 | 1 | 0 | 1 | 3 | 5 |
+| **CFA** | finance-accounting | 7 | 7 | 0 | 0 | 2 | 5 | 2 |
 | **GMAT** | graduate-admissions | 6 | 5 | 1 | 0 | 2 | 4 | 2 |
 | **GATE** | entrance-exams | 6 | 6 | 0 | 0 | 2 | 3 | 3 |
-| **CPA** | accounting-finance | 6 | 6 | 0 | 0 | 0 | 3 | 3 |
-| **CISSP** | it-certifications | 5 | 5 | 0 | 0 | 0 | 1 | 4 |
+| **CPA** | finance-accounting | 6 | 6 | 0 | 0 | 0 | 3 | 3 |
+| **CISSP** | cybersecurity-certifications | 5 | 5 | 0 | 0 | 0 | 1 | 4 |
 
 ---
 
 ## 6. Exam Hub Narrative & Similarity Audit
 
-- **Script:** scripts/audit/auditExamSimilarity.ts
-- **Output Artifact:** udit/exam-hub-content-similarity.json
+- **Script:** `scripts/audit/auditExamSimilarity.ts`
+- **Output Artifact:** `audit/exam-hub-content-similarity.json`
 - **Total Pairs Compared:** 105 pairwise comparisons across 15 indexable hubs
 - **Exact Duplicate Substantive Paragraphs:** **0**
+- **How-We-Check Shared Disclaimer Pairs:** **105** (Accounted for and normalized)
 - **High-Similarity Pairs Requiring Manual Review (>0.75):** **0**
 
-Every indexable exam hub includes:
-1. Four exam-specific preparation focus bullet points (src/config/examGuidance.ts).
-2. Truthful, inventory-aware platform advice tailored to actual community availability.
-3. Four unique, exam-specific FAQ questions and answers.
+---
+
+## 7. Deterministic 71 Indexable URL Breakdown
+
+- **Core Static Pages (11):** `/`, `/about/`, `/academic-integrity/`, `/communities/`, `/contact/`, `/disclaimer/`, `/editorial-policy/`, `/how-we-verify/`, `/privacy/`, `/safety/`, `/terms/`
+- **Category Hubs (8):** `/category/college-admissions/`, `/category/cybersecurity-certifications/`, `/category/english-proficiency/`, `/category/entrance-exams/`, `/category/finance-accounting/`, `/category/graduate-admissions/`, `/category/law/`, `/category/medical-healthcare/`
+- **Platform Hubs (2):** `/platform/discord/`, `/platform/telegram/`
+- **Exam Hubs (15):** `/exam/cfa/`, `/exam/cissp/`, `/exam/cpa/`, `/exam/gate/`, `/exam/gmat/`, `/exam/gre/`, `/exam/ielts/`, `/exam/jee/`, `/exam/lsat/`, `/exam/nclex/`, `/exam/neet/`, `/exam/sat/`, `/exam/toefl/`, `/exam/upsc/`, `/exam/usmle/`
+- **Qualified Group Details (35):** 35 index-worthy community detail pages meeting all 5 content & safety criteria.
+
+Total: 11 + 8 + 2 + 15 + 35 = **71 URLs**.
+UNACCOUNTED SITEMAP URLS: **0**.
+
 
 ---
 
