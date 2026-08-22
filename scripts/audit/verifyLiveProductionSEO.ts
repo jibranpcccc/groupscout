@@ -11,21 +11,22 @@ function fetchUrl(url: string): Promise<{ status: number; body: string }> {
 }
 
 async function verifyLive() {
-  console.log('Fetching live sitemap from https://groupscout.netlify.app/sitemap-0.xml...');
-  const sitemapRes = await fetchUrl('https://groupscout.netlify.app/sitemap-0.xml');
+  const base = (process.env.PUBLIC_SITE_URL || 'https://studygroupshub.com').replace(/\/+$/, '');
+  console.log(`Fetching live sitemap from ${base}/sitemap-0.xml...`);
+  const sitemapRes = await fetchUrl(`${base}/sitemap-0.xml`);
   console.log(`Live sitemap HTTP status: ${sitemapRes.status}`);
 
   const locs = (sitemapRes.body.match(/<loc>(.*?)<\/loc>/g) || []).map((m) => m.replace(/<\/?loc>/g, ''));
   console.log(`Live sitemap URLs count: ${locs.length}`);
 
-  console.log('\nChecking live Academic Integrity page: https://groupscout.netlify.app/academic-integrity/...');
-  const policyRes = await fetchUrl('https://groupscout.netlify.app/academic-integrity/');
+  console.log(`\nChecking live Academic Integrity page: ${base}/academic-integrity/...`);
+  const policyRes = await fetchUrl(`${base}/academic-integrity/`);
   console.log(`Academic Integrity HTTP status: ${policyRes.status}`);
   const hasAntiDump = policyRes.body.includes('Academic Integrity & Anti-Exam Dump Policy') || policyRes.body.includes('Prohibited Materials');
   console.log(`Academic Integrity content present: ${hasAntiDump}`);
 
-  console.log('\nChecking live robots.txt: https://groupscout.netlify.app/robots.txt...');
-  const robotsRes = await fetchUrl('https://groupscout.netlify.app/robots.txt');
+  console.log(`\nChecking live robots.txt: ${base}/robots.txt...`);
+  const robotsRes = await fetchUrl(`${base}/robots.txt`);
   console.log(`robots.txt HTTP status: ${robotsRes.status}`);
   console.log(`robots.txt content:\n${robotsRes.body.trim()}`);
 

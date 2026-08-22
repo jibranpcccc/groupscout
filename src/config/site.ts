@@ -8,7 +8,7 @@
 
 function getPublicSiteUrl(): string {
   const env = (import.meta as unknown as { env?: Record<string, string> }).env;
-  return env?.PUBLIC_SITE_URL?.replace(/\/+$/, '') || 'http://localhost:4321';
+  return env?.PUBLIC_SITE_URL?.replace(/\/+$/, '') || 'https://studygroupshub.com';
 }
 
 export const siteConfig = {

@@ -12,7 +12,7 @@ function probeUrl(url: string): Promise<{ status: number; headers: IncomingHttpH
 }
 
 async function runProbes() {
-  const base = 'https://groupscout.netlify.app';
+  const base = (process.env.PUBLIC_SITE_URL || 'https://studygroupshub.com').replace(/\/+$/, '');
   const urls = [
     `${base}/`,
     `${base}/communities/`,

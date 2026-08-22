@@ -213,9 +213,20 @@ allHtmlFiles.forEach((fullPath) => {
   else if (['/submit/', '/report/', '/contact/'].includes(route)) pageType = 'submit/report';
   else if (route.endsWith('/success/')) pageType = 'success';
 
-  const fullCanonicalUrl = `https://groupscout.netlify.app${route}`;
-  const inSitemap = sitemapUrls.has(fullCanonicalUrl) || sitemapUrls.has(fullCanonicalUrl.replace(/\/$/, '')) || sitemapUrls.has(`http://localhost:4321${route}`);
-  const lastmod = sitemapUrls.get(fullCanonicalUrl) || sitemapUrls.get(`http://localhost:4321${route}`) || null;
+  const baseSiteUrl = (process.env.PUBLIC_SITE_URL || 'https://studygroupshub.com').replace(/\/+$/, '');
+  const fullCanonicalUrl = `${baseSiteUrl}${route}`;
+  const inSitemap =
+    sitemapUrls.has(fullCanonicalUrl) ||
+    sitemapUrls.has(fullCanonicalUrl.replace(/\/$/, '')) ||
+    sitemapUrls.has(`https://studygroupshub.com${route}`) ||
+    sitemapUrls.has(`https://groupscout.netlify.app${route}`) ||
+    sitemapUrls.has(`http://localhost:4321${route}`);
+  const lastmod =
+    sitemapUrls.get(fullCanonicalUrl) ||
+    sitemapUrls.get(`https://studygroupshub.com${route}`) ||
+    sitemapUrls.get(`https://groupscout.netlify.app${route}`) ||
+    sitemapUrls.get(`http://localhost:4321${route}`) ||
+    null;
 
   auditRecords.push({
     url: fullCanonicalUrl,

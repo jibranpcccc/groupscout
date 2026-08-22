@@ -6,7 +6,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import { readFileSync } from 'node:fs';
 
-const siteUrl = process.env.PUBLIC_SITE_URL || 'http://localhost:4321';
+const siteUrl = process.env.PUBLIC_SITE_URL || 'https://studygroupshub.com';
 
 // Indexation thresholds (must match src/config/discovery.ts).
 const EXAM_INDEX_MIN = 5;
