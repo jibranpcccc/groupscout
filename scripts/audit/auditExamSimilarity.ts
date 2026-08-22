@@ -78,7 +78,16 @@ function jaccardSimilarity(str1: string, str2: string): number {
   return intersection / (set1.size + set2.size - intersection);
 }
 
-const comparisons: any[] = [];
+interface ComparisonResult {
+  pair: string;
+  exactDuplicates: string[];
+  highlySimilar: string[];
+  introSimilarity: number;
+  overallNarrativeSimilarity: number;
+  status: string;
+}
+
+const comparisons: ComparisonResult[] = [];
 let totalExactDuplicates = 0;
 let totalHighSimilarityPairs = 0;
 

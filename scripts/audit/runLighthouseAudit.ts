@@ -15,7 +15,17 @@ const targets = [
 
 console.log('=== RUNNING LIGHTHOUSE MOBILE AUDIT ===\n');
 
-const results: any[] = [];
+interface LighthouseResult {
+  name: string;
+  url: string;
+  performance?: number;
+  accessibility?: number;
+  bestPractices?: number;
+  seo?: number;
+  error?: string;
+}
+
+const results: LighthouseResult[] = [];
 
 for (const t of targets) {
   const outFile = `audit/temp-lh-${Date.now()}.json`;
@@ -24,14 +34,14 @@ for (const t of targets) {
     const cmd = `npx lighthouse "${t.url}" --output=json --output-path=${outFile} --chrome-flags="--headless=new --no-sandbox" --form-factor=mobile --screenEmulation.mobile=true --throttling-method=simulate --quiet`;
     try {
       execSync(cmd, { encoding: 'utf8', timeout: 90000 });
-    } catch (e) {
+    } catch {
       // Chrome launcher on Windows can trigger EPERM on temp dir deletion even after writing output
     }
     
     if (fs.existsSync(outFile)) {
       const lhData = JSON.parse(fs.readFileSync(outFile, 'utf8'));
       const categories = lhData.categories;
-      const scores = {
+      const scores: LighthouseResult = {
         name: t.name,
         url: t.url,
         performance: Math.round((categories.performance?.score ?? 0) * 100),
@@ -45,9 +55,10 @@ for (const t of targets) {
     } else {
       throw new Error('Lighthouse output file was not generated.');
     }
-  } catch (err: any) {
-    console.log(` -> ERROR on ${t.name}: ${err.message}`);
-    results.push({ name: t.name, url: t.url, error: err.message });
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : String(err);
+    console.log(` -> ERROR on ${t.name}: ${msg}`);
+    results.push({ name: t.name, url: t.url, error: msg });
   }
 }
 

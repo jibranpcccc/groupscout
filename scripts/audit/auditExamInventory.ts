@@ -1,10 +1,21 @@
-import fs from 'fs';
 import { exams } from '../../src/config/exams';
 import { getPublishedCommunities, isCommunityIndexWorthy } from '../../src/lib/communities';
 import { EXAM_INDEX_MIN } from '../../src/config/discovery';
 
+interface ExamStat {
+  exam: string;
+  slug: string;
+  total: number;
+  telegram: number;
+  discord: number;
+  whatsapp: number;
+  indexableDetails: number;
+  sourceConfirmed: number;
+  unverified: number;
+}
+
 const published = getPublishedCommunities();
-const examCounts = new Map<string, any>();
+const examCounts = new Map<string, ExamStat>();
 
 for (const exam of exams) {
   const matching = published.filter((c) => (c.exams ?? []).includes(exam.slug));

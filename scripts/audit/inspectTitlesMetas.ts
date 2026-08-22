@@ -16,8 +16,16 @@ function getHtmlFiles(dir: string): string[] {
   return results;
 }
 
+interface RouteMetadata {
+  route: string;
+  title: string;
+  desc: string;
+  canonical: string;
+  h1: string;
+}
+
 const htmlFiles = getHtmlFiles('dist');
-const indexableRoutes: any[] = [];
+const indexableRoutes: RouteMetadata[] = [];
 
 htmlFiles.forEach((file) => {
   const content = fs.readFileSync(file, 'utf8');

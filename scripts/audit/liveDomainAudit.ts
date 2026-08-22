@@ -21,7 +21,8 @@ for (const url of testUrls) {
     const cmd = `curl.exe -s -I -L -m 10 -o NUL -w "URL: %{url_effective} | Code: %{http_code} | Redirects: %{num_redirects}" "${url}"`;
     const res = execSync(cmd, { encoding: 'utf8' }).trim();
     console.log(`[${url}] -> ${res}`);
-  } catch (err: any) {
-    console.log(`[${url}] -> ERROR: ${err.message}`);
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : String(err);
+    console.log(`[${url}] -> ERROR: ${msg}`);
   }
 }
