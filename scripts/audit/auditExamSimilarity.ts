@@ -79,12 +79,14 @@ function jaccardSimilarity(str1: string, str2: string): number {
 }
 
 interface ComparisonResult {
-  pair: string;
-  exactDuplicates: string[];
-  highlySimilar: string[];
-  introSimilarity: number;
-  overallNarrativeSimilarity: number;
-  status: string;
+  examA: string;
+  examB: string;
+  slugA: string;
+  slugB: string;
+  exactDuplicateParagraphs: string[];
+  highlySimilarParagraphs: string[];
+  similarityScore: number;
+  manualReviewRequired: boolean;
 }
 
 const comparisons: ComparisonResult[] = [];
