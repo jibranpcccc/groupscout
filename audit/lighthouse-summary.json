@@ -2,28 +2,105 @@
   {
     "name": "Homepage (Run 1)",
     "url": "https://studygroupshub.com/",
-    "performance": 94,
+    "performance": 60,
     "accessibility": 96,
-    "bestPractices": 92,
+    "bestPractices": 100,
     "seo": 100,
-    "lcp": "1.7 s",
-    "lcpValue": 1741.915,
+    "lcp": "3.8 s",
+    "lcpValue": 3782.776,
     "cls": "0",
     "clsValue": 0,
-    "tbt": "280 ms",
-    "tbtValue": 275,
-    "speedIndex": "2.2 s",
+    "tbt": "1,300 ms",
+    "tbtValue": 1298,
+    "speedIndex": "3.9 s",
     "failingAudits": [
       {
         "id": "first-contentful-paint",
         "title": "First Contentful Paint",
-        "score": 0.99,
+        "score": 0.78,
         "explanation": "First Contentful Paint marks the time at which the first text or image is painted. [Learn more about the First Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/first-contentful-paint/)."
       },
       {
         "id": "largest-contentful-paint",
         "title": "Largest Contentful Paint",
-        "score": 0.99,
+        "score": 0.56,
+        "explanation": "Largest Contentful Paint marks the time at which the largest text or image is painted. [Learn more about the Largest Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/)"
+      },
+      {
+        "id": "speed-index",
+        "title": "Speed Index",
+        "score": 0.82,
+        "explanation": "Speed Index shows how quickly the contents of a page are visibly populated. [Learn more about the Speed Index metric](https://developer.chrome.com/docs/lighthouse/performance/speed-index/)."
+      },
+      {
+        "id": "total-blocking-time",
+        "title": "Total Blocking Time",
+        "score": 0.18,
+        "explanation": "Sum of all time periods between FCP and Time to Interactive, when task length exceeded 50ms, expressed in milliseconds. [Learn more about the Total Blocking Time metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-total-blocking-time/)."
+      },
+      {
+        "id": "max-potential-fid",
+        "title": "Max Potential First Input Delay",
+        "score": 0.01,
+        "explanation": "The maximum potential First Input Delay that your users could experience is the duration of the longest task. [Learn more about the Maximum Potential First Input Delay metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-max-potential-fid/)."
+      },
+      {
+        "id": "interactive",
+        "title": "Time to Interactive",
+        "score": 0.82,
+        "explanation": "Time to Interactive is the amount of time it takes for the page to become fully interactive. [Learn more about the Time to Interactive metric](https://developer.chrome.com/docs/lighthouse/performance/interactive/)."
+      },
+      {
+        "id": "color-contrast",
+        "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+        "score": 0,
+        "explanation": "Low-contrast text is difficult or impossible for many users to read. [Learn how to provide sufficient color contrast](https://dequeuniversity.com/rules/axe/4.12/color-contrast)."
+      },
+      {
+        "id": "network-dependency-tree-insight",
+        "title": "Network dependency tree",
+        "score": 0,
+        "explanation": "[Avoid chaining critical requests](https://developer.chrome.com/docs/performance/insights/network-dependency-tree) by reducing the length of chains, reducing the download size of resources, or deferring the download of unnecessary resources to improve page load."
+      }
+    ],
+    "opportunities": [
+      {
+        "id": "server-response-time",
+        "title": "Reduce initial server response time",
+        "displayValue": "Root document took 650 ms"
+      },
+      {
+        "id": "unused-javascript",
+        "title": "Reduce unused JavaScript",
+        "displayValue": "Est savings of 69 KiB"
+      }
+    ]
+  },
+  {
+    "name": "Homepage (Run 2)",
+    "url": "https://studygroupshub.com/",
+    "performance": 77,
+    "accessibility": 96,
+    "bestPractices": 100,
+    "seo": 100,
+    "lcp": "3.1 s",
+    "lcpValue": 3118.779,
+    "cls": "0",
+    "clsValue": 0,
+    "tbt": "630 ms",
+    "tbtValue": 625,
+    "speedIndex": "2.3 s",
+    "failingAudits": [
+      {
+        "id": "first-contentful-paint",
+        "title": "First Contentful Paint",
+        "score": 0.91,
+        "explanation": "First Contentful Paint marks the time at which the first text or image is painted. [Learn more about the First Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/first-contentful-paint/)."
+      },
+      {
+        "id": "largest-contentful-paint",
+        "title": "Largest Contentful Paint",
+        "score": 0.75,
         "explanation": "Largest Contentful Paint marks the time at which the largest text or image is painted. [Learn more about the Largest Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/)"
       },
       {
@@ -35,7 +112,167 @@
       {
         "id": "total-blocking-time",
         "title": "Total Blocking Time",
-        "score": 0.81,
+        "score": 0.48,
+        "explanation": "Sum of all time periods between FCP and Time to Interactive, when task length exceeded 50ms, expressed in milliseconds. [Learn more about the Total Blocking Time metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-total-blocking-time/)."
+      },
+      {
+        "id": "max-potential-fid",
+        "title": "Max Potential First Input Delay",
+        "score": 0.1,
+        "explanation": "The maximum potential First Input Delay that your users could experience is the duration of the longest task. [Learn more about the Maximum Potential First Input Delay metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-max-potential-fid/)."
+      },
+      {
+        "id": "interactive",
+        "title": "Time to Interactive",
+        "score": 0.92,
+        "explanation": "Time to Interactive is the amount of time it takes for the page to become fully interactive. [Learn more about the Time to Interactive metric](https://developer.chrome.com/docs/lighthouse/performance/interactive/)."
+      },
+      {
+        "id": "color-contrast",
+        "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+        "score": 0,
+        "explanation": "Low-contrast text is difficult or impossible for many users to read. [Learn how to provide sufficient color contrast](https://dequeuniversity.com/rules/axe/4.12/color-contrast)."
+      },
+      {
+        "id": "network-dependency-tree-insight",
+        "title": "Network dependency tree",
+        "score": 0,
+        "explanation": "[Avoid chaining critical requests](https://developer.chrome.com/docs/performance/insights/network-dependency-tree) by reducing the length of chains, reducing the download size of resources, or deferring the download of unnecessary resources to improve page load."
+      }
+    ],
+    "opportunities": [
+      {
+        "id": "server-response-time",
+        "title": "Initial server response time was short",
+        "displayValue": "Root document took 100 ms"
+      },
+      {
+        "id": "unused-javascript",
+        "title": "Reduce unused JavaScript",
+        "displayValue": "Est savings of 68 KiB"
+      }
+    ]
+  },
+  {
+    "name": "Homepage (Run 3)",
+    "url": "https://studygroupshub.com/",
+    "performance": 57,
+    "accessibility": 96,
+    "bestPractices": 100,
+    "seo": 100,
+    "lcp": "4.5 s",
+    "lcpValue": 4506.075,
+    "cls": "0",
+    "clsValue": 0,
+    "tbt": "1,230 ms",
+    "tbtValue": 1229.0000000000005,
+    "speedIndex": "5.0 s",
+    "failingAudits": [
+      {
+        "id": "first-contentful-paint",
+        "title": "First Contentful Paint",
+        "score": 0.99,
+        "explanation": "First Contentful Paint marks the time at which the first text or image is painted. [Learn more about the First Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/first-contentful-paint/)."
+      },
+      {
+        "id": "largest-contentful-paint",
+        "title": "Largest Contentful Paint",
+        "score": 0.37,
+        "explanation": "Largest Contentful Paint marks the time at which the largest text or image is painted. [Learn more about the Largest Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/)"
+      },
+      {
+        "id": "speed-index",
+        "title": "Speed Index",
+        "score": 0.64,
+        "explanation": "Speed Index shows how quickly the contents of a page are visibly populated. [Learn more about the Speed Index metric](https://developer.chrome.com/docs/lighthouse/performance/speed-index/)."
+      },
+      {
+        "id": "total-blocking-time",
+        "title": "Total Blocking Time",
+        "score": 0.2,
+        "explanation": "Sum of all time periods between FCP and Time to Interactive, when task length exceeded 50ms, expressed in milliseconds. [Learn more about the Total Blocking Time metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-total-blocking-time/)."
+      },
+      {
+        "id": "max-potential-fid",
+        "title": "Max Potential First Input Delay",
+        "score": 0.08,
+        "explanation": "The maximum potential First Input Delay that your users could experience is the duration of the longest task. [Learn more about the Maximum Potential First Input Delay metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-max-potential-fid/)."
+      },
+      {
+        "id": "interactive",
+        "title": "Time to Interactive",
+        "score": 0.82,
+        "explanation": "Time to Interactive is the amount of time it takes for the page to become fully interactive. [Learn more about the Time to Interactive metric](https://developer.chrome.com/docs/lighthouse/performance/interactive/)."
+      },
+      {
+        "id": "color-contrast",
+        "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+        "score": 0,
+        "explanation": "Low-contrast text is difficult or impossible for many users to read. [Learn how to provide sufficient color contrast](https://dequeuniversity.com/rules/axe/4.12/color-contrast)."
+      },
+      {
+        "id": "lcp-breakdown-insight",
+        "title": "LCP breakdown",
+        "score": 0,
+        "explanation": "Each [subpart has specific improvement strategies](https://developer.chrome.com/docs/performance/insights/lcp-breakdown). Ideally, most of the LCP time should be spent on loading the resources, not within delays."
+      },
+      {
+        "id": "network-dependency-tree-insight",
+        "title": "Network dependency tree",
+        "score": 0,
+        "explanation": "[Avoid chaining critical requests](https://developer.chrome.com/docs/performance/insights/network-dependency-tree) by reducing the length of chains, reducing the download size of resources, or deferring the download of unnecessary resources to improve page load."
+      }
+    ],
+    "opportunities": [
+      {
+        "id": "server-response-time",
+        "title": "Initial server response time was short",
+        "displayValue": "Root document took 90 ms"
+      },
+      {
+        "id": "unused-javascript",
+        "title": "Reduce unused JavaScript",
+        "displayValue": "Est savings of 69 KiB"
+      }
+    ]
+  },
+  {
+    "name": "Directory",
+    "url": "https://studygroupshub.com/communities/",
+    "performance": 77,
+    "accessibility": 96,
+    "bestPractices": 100,
+    "seo": 100,
+    "lcp": "1.7 s",
+    "lcpValue": 1679.119,
+    "cls": "0",
+    "clsValue": 0,
+    "tbt": "930 ms",
+    "tbtValue": 933,
+    "speedIndex": "3.1 s",
+    "failingAudits": [
+      {
+        "id": "first-contentful-paint",
+        "title": "First Contentful Paint",
+        "score": 0.92,
+        "explanation": "First Contentful Paint marks the time at which the first text or image is painted. [Learn more about the First Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/first-contentful-paint/)."
+      },
+      {
+        "id": "largest-contentful-paint",
+        "title": "Largest Contentful Paint",
+        "score": 0.99,
+        "explanation": "Largest Contentful Paint marks the time at which the largest text or image is painted. [Learn more about the Largest Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/)"
+      },
+      {
+        "id": "speed-index",
+        "title": "Speed Index",
+        "score": 0.93,
+        "explanation": "Speed Index shows how quickly the contents of a page are visibly populated. [Learn more about the Speed Index metric](https://developer.chrome.com/docs/lighthouse/performance/speed-index/)."
+      },
+      {
+        "id": "total-blocking-time",
+        "title": "Total Blocking Time",
+        "score": 0.3,
         "explanation": "Sum of all time periods between FCP and Time to Interactive, when task length exceeded 50ms, expressed in milliseconds. [Learn more about the Total Blocking Time metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-total-blocking-time/)."
       },
       {
@@ -45,10 +282,10 @@
         "explanation": "The maximum potential First Input Delay that your users could experience is the duration of the longest task. [Learn more about the Maximum Potential First Input Delay metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-max-potential-fid/)."
       },
       {
-        "id": "errors-in-console",
-        "title": "Browser errors were logged to the console",
-        "score": 0,
-        "explanation": "Errors logged to the console indicate unresolved problems. They can come from network request failures and other browser concerns. [Learn more about this errors in console diagnostic audit](https://developer.chrome.com/docs/lighthouse/best-practices/errors-in-console/)"
+        "id": "interactive",
+        "title": "Time to Interactive",
+        "score": 0.85,
+        "explanation": "Time to Interactive is the amount of time it takes for the page to become fully interactive. [Learn more about the Time to Interactive metric](https://developer.chrome.com/docs/lighthouse/performance/interactive/)."
       },
       {
         "id": "color-contrast",
@@ -57,10 +294,10 @@
         "explanation": "Low-contrast text is difficult or impossible for many users to read. [Learn how to provide sufficient color contrast](https://dequeuniversity.com/rules/axe/4.12/color-contrast)."
       },
       {
-        "id": "inspector-issues",
-        "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+        "id": "forced-reflow-insight",
+        "title": "Forced reflow",
         "score": 0,
-        "explanation": "Issues logged to the `Issues` panel in Chrome Devtools indicate unresolved problems. They can come from network request failures, insufficient security controls, and other browser concerns. Open up the Issues panel in Chrome DevTools for more details on each issue."
+        "explanation": "A forced reflow occurs when JavaScript queries geometric properties (such as offsetWidth) after styles have been invalidated by a change to the DOM state. This can result in poor performance. Learn more about [forced reflows](https://developer.chrome.com/docs/performance/insights/forced-reflow) and possible mitigations."
       },
       {
         "id": "network-dependency-tree-insight",
@@ -72,61 +309,61 @@
     "opportunities": [
       {
         "id": "server-response-time",
-        "title": "Initial server response time was short",
-        "displayValue": "Root document took 100 ms"
+        "title": "Reduce initial server response time",
+        "displayValue": "Root document took 680 ms"
       }
     ]
   },
   {
-    "name": "Homepage (Run 2)",
-    "url": "https://studygroupshub.com/",
-    "performance": 91,
+    "name": "Exam Hub (IELTS)",
+    "url": "https://studygroupshub.com/exam/ielts/",
+    "performance": 79,
     "accessibility": 96,
-    "bestPractices": 92,
+    "bestPractices": 100,
     "seo": 100,
-    "lcp": "1.5 s",
-    "lcpValue": 1530.597,
+    "lcp": "1.4 s",
+    "lcpValue": 1379.114,
     "cls": "0",
     "clsValue": 0,
-    "tbt": "350 ms",
-    "tbtValue": 347,
-    "speedIndex": "2.9 s",
+    "tbt": "890 ms",
+    "tbtValue": 886,
+    "speedIndex": "2.4 s",
     "failingAudits": [
+      {
+        "id": "first-contentful-paint",
+        "title": "First Contentful Paint",
+        "score": 0.98,
+        "explanation": "First Contentful Paint marks the time at which the first text or image is painted. [Learn more about the First Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/first-contentful-paint/)."
+      },
       {
         "id": "speed-index",
         "title": "Speed Index",
-        "score": 0.95,
+        "score": 0.98,
         "explanation": "Speed Index shows how quickly the contents of a page are visibly populated. [Learn more about the Speed Index metric](https://developer.chrome.com/docs/lighthouse/performance/speed-index/)."
       },
       {
         "id": "total-blocking-time",
         "title": "Total Blocking Time",
-        "score": 0.73,
+        "score": 0.32,
         "explanation": "Sum of all time periods between FCP and Time to Interactive, when task length exceeded 50ms, expressed in milliseconds. [Learn more about the Total Blocking Time metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-total-blocking-time/)."
       },
       {
         "id": "max-potential-fid",
         "title": "Max Potential First Input Delay",
-        "score": 0.18,
+        "score": 0.13,
         "explanation": "The maximum potential First Input Delay that your users could experience is the duration of the longest task. [Learn more about the Maximum Potential First Input Delay metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-max-potential-fid/)."
       },
       {
-        "id": "errors-in-console",
-        "title": "Browser errors were logged to the console",
-        "score": 0,
-        "explanation": "Errors logged to the console indicate unresolved problems. They can come from network request failures and other browser concerns. [Learn more about this errors in console diagnostic audit](https://developer.chrome.com/docs/lighthouse/best-practices/errors-in-console/)"
+        "id": "interactive",
+        "title": "Time to Interactive",
+        "score": 0.93,
+        "explanation": "Time to Interactive is the amount of time it takes for the page to become fully interactive. [Learn more about the Time to Interactive metric](https://developer.chrome.com/docs/lighthouse/performance/interactive/)."
       },
       {
         "id": "color-contrast",
         "title": "Background and foreground colors do not have a sufficient contrast ratio.",
         "score": 0,
         "explanation": "Low-contrast text is difficult or impossible for many users to read. [Learn how to provide sufficient color contrast](https://dequeuniversity.com/rules/axe/4.12/color-contrast)."
-      },
-      {
-        "id": "inspector-issues",
-        "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
-        "score": 0,
-        "explanation": "Issues logged to the `Issues` panel in Chrome Devtools indicate unresolved problems. They can come from network request failures, insufficient security controls, and other browser concerns. Open up the Issues panel in Chrome DevTools for more details on each issue."
       },
       {
         "id": "network-dependency-tree-insight",
@@ -139,35 +376,35 @@
       {
         "id": "server-response-time",
         "title": "Initial server response time was short",
-        "displayValue": "Root document took 80 ms"
+        "displayValue": "Root document took 410 ms"
       }
     ]
   },
   {
-    "name": "Homepage (Run 3)",
-    "url": "https://studygroupshub.com/",
-    "performance": 99,
+    "name": "Exam Hub (USMLE)",
+    "url": "https://studygroupshub.com/exam/usmle/",
+    "performance": 72,
     "accessibility": 96,
-    "bestPractices": 92,
+    "bestPractices": 100,
     "seo": 100,
-    "lcp": "1.7 s",
-    "lcpValue": 1659.0549999999998,
+    "lcp": "3.2 s",
+    "lcpValue": 3185.66,
     "cls": "0",
     "clsValue": 0,
-    "tbt": "30 ms",
-    "tbtValue": 32,
-    "speedIndex": "2.6 s",
+    "tbt": "880 ms",
+    "tbtValue": 881,
+    "speedIndex": "2.7 s",
     "failingAudits": [
       {
         "id": "first-contentful-paint",
         "title": "First Contentful Paint",
-        "score": 0.93,
+        "score": 0.99,
         "explanation": "First Contentful Paint marks the time at which the first text or image is painted. [Learn more about the First Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/first-contentful-paint/)."
       },
       {
         "id": "largest-contentful-paint",
         "title": "Largest Contentful Paint",
-        "score": 0.99,
+        "score": 0.73,
         "explanation": "Largest Contentful Paint marks the time at which the largest text or image is painted. [Learn more about the Largest Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/)"
       },
       {
@@ -177,88 +414,22 @@
         "explanation": "Speed Index shows how quickly the contents of a page are visibly populated. [Learn more about the Speed Index metric](https://developer.chrome.com/docs/lighthouse/performance/speed-index/)."
       },
       {
-        "id": "max-potential-fid",
-        "title": "Max Potential First Input Delay",
-        "score": 0.05,
-        "explanation": "The maximum potential First Input Delay that your users could experience is the duration of the longest task. [Learn more about the Maximum Potential First Input Delay metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-max-potential-fid/)."
-      },
-      {
-        "id": "errors-in-console",
-        "title": "Browser errors were logged to the console",
-        "score": 0,
-        "explanation": "Errors logged to the console indicate unresolved problems. They can come from network request failures and other browser concerns. [Learn more about this errors in console diagnostic audit](https://developer.chrome.com/docs/lighthouse/best-practices/errors-in-console/)"
-      },
-      {
-        "id": "color-contrast",
-        "title": "Background and foreground colors do not have a sufficient contrast ratio.",
-        "score": 0,
-        "explanation": "Low-contrast text is difficult or impossible for many users to read. [Learn how to provide sufficient color contrast](https://dequeuniversity.com/rules/axe/4.12/color-contrast)."
-      },
-      {
-        "id": "inspector-issues",
-        "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
-        "score": 0,
-        "explanation": "Issues logged to the `Issues` panel in Chrome Devtools indicate unresolved problems. They can come from network request failures, insufficient security controls, and other browser concerns. Open up the Issues panel in Chrome DevTools for more details on each issue."
-      },
-      {
-        "id": "network-dependency-tree-insight",
-        "title": "Network dependency tree",
-        "score": 0,
-        "explanation": "[Avoid chaining critical requests](https://developer.chrome.com/docs/performance/insights/network-dependency-tree) by reducing the length of chains, reducing the download size of resources, or deferring the download of unnecessary resources to improve page load."
-      }
-    ],
-    "opportunities": [
-      {
-        "id": "server-response-time",
-        "title": "Initial server response time was short",
-        "displayValue": "Root document took 100 ms"
-      }
-    ]
-  },
-  {
-    "name": "Directory",
-    "url": "https://studygroupshub.com/communities/",
-    "performance": 98,
-    "accessibility": 96,
-    "bestPractices": 92,
-    "seo": 100,
-    "lcp": "1.7 s",
-    "lcpValue": 1682.117,
-    "cls": "0",
-    "clsValue": 0,
-    "tbt": "130 ms",
-    "tbtValue": 133,
-    "speedIndex": "1.8 s",
-    "failingAudits": [
-      {
-        "id": "first-contentful-paint",
-        "title": "First Contentful Paint",
-        "score": 0.98,
-        "explanation": "First Contentful Paint marks the time at which the first text or image is painted. [Learn more about the First Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/first-contentful-paint/)."
-      },
-      {
-        "id": "largest-contentful-paint",
-        "title": "Largest Contentful Paint",
-        "score": 0.99,
-        "explanation": "Largest Contentful Paint marks the time at which the largest text or image is painted. [Learn more about the Largest Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/)"
-      },
-      {
         "id": "total-blocking-time",
         "title": "Total Blocking Time",
-        "score": 0.96,
+        "score": 0.32,
         "explanation": "Sum of all time periods between FCP and Time to Interactive, when task length exceeded 50ms, expressed in milliseconds. [Learn more about the Total Blocking Time metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-total-blocking-time/)."
       },
       {
         "id": "max-potential-fid",
         "title": "Max Potential First Input Delay",
-        "score": 0.33,
+        "score": 0.11,
         "explanation": "The maximum potential First Input Delay that your users could experience is the duration of the longest task. [Learn more about the Maximum Potential First Input Delay metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-max-potential-fid/)."
       },
       {
-        "id": "errors-in-console",
-        "title": "Browser errors were logged to the console",
-        "score": 0,
-        "explanation": "Errors logged to the console indicate unresolved problems. They can come from network request failures and other browser concerns. [Learn more about this errors in console diagnostic audit](https://developer.chrome.com/docs/lighthouse/best-practices/errors-in-console/)"
+        "id": "interactive",
+        "title": "Time to Interactive",
+        "score": 0.91,
+        "explanation": "Time to Interactive is the amount of time it takes for the page to become fully interactive. [Learn more about the Time to Interactive metric](https://developer.chrome.com/docs/lighthouse/performance/interactive/)."
       },
       {
         "id": "color-contrast",
@@ -267,16 +438,10 @@
         "explanation": "Low-contrast text is difficult or impossible for many users to read. [Learn how to provide sufficient color contrast](https://dequeuniversity.com/rules/axe/4.12/color-contrast)."
       },
       {
-        "id": "inspector-issues",
-        "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+        "id": "forced-reflow-insight",
+        "title": "Forced reflow",
         "score": 0,
-        "explanation": "Issues logged to the `Issues` panel in Chrome Devtools indicate unresolved problems. They can come from network request failures, insufficient security controls, and other browser concerns. Open up the Issues panel in Chrome DevTools for more details on each issue."
-      },
-      {
-        "id": "bf-cache",
-        "title": "Page prevented back/forward cache restoration",
-        "score": 0,
-        "explanation": "Many navigations are performed by going back to a previous page, or forwards again. The back/forward cache (bfcache) can speed up these return navigations. [Learn more about the bfcache](https://developer.chrome.com/docs/lighthouse/performance/bf-cache/)"
+        "explanation": "A forced reflow occurs when JavaScript queries geometric properties (such as offsetWidth) after styles have been invalidated by a change to the DOM state. This can result in poor performance. Learn more about [forced reflows](https://developer.chrome.com/docs/performance/insights/forced-reflow) and possible mitigations."
       },
       {
         "id": "network-dependency-tree-insight",
@@ -289,24 +454,29 @@
       {
         "id": "server-response-time",
         "title": "Initial server response time was short",
-        "displayValue": "Root document took 80 ms"
+        "displayValue": "Root document took 430 ms"
+      },
+      {
+        "id": "unused-javascript",
+        "title": "Reduce unused JavaScript",
+        "displayValue": "Est savings of 66 KiB"
       }
     ]
   },
   {
-    "name": "Exam Hub (IELTS)",
-    "url": "https://studygroupshub.com/exam/ielts/",
-    "performance": 99,
+    "name": "Category Hub (English)",
+    "url": "https://studygroupshub.com/category/english-proficiency/",
+    "performance": 80,
     "accessibility": 96,
-    "bestPractices": 92,
+    "bestPractices": 100,
     "seo": 100,
     "lcp": "1.6 s",
-    "lcpValue": 1566.6660000000002,
+    "lcpValue": 1593.563,
     "cls": "0",
     "clsValue": 0,
-    "tbt": "10 ms",
-    "tbtValue": 7,
-    "speedIndex": "2.2 s",
+    "tbt": "760 ms",
+    "tbtValue": 759,
+    "speedIndex": "3.2 s",
     "failingAudits": [
       {
         "id": "first-contentful-paint",
@@ -323,20 +493,26 @@
       {
         "id": "speed-index",
         "title": "Speed Index",
-        "score": 0.99,
+        "score": 0.91,
         "explanation": "Speed Index shows how quickly the contents of a page are visibly populated. [Learn more about the Speed Index metric](https://developer.chrome.com/docs/lighthouse/performance/speed-index/)."
       },
       {
+        "id": "total-blocking-time",
+        "title": "Total Blocking Time",
+        "score": 0.39,
+        "explanation": "Sum of all time periods between FCP and Time to Interactive, when task length exceeded 50ms, expressed in milliseconds. [Learn more about the Total Blocking Time metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-total-blocking-time/)."
+      },
+      {
         "id": "max-potential-fid",
         "title": "Max Potential First Input Delay",
-        "score": 0.09,
+        "score": 0.06,
         "explanation": "The maximum potential First Input Delay that your users could experience is the duration of the longest task. [Learn more about the Maximum Potential First Input Delay metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-max-potential-fid/)."
       },
       {
-        "id": "errors-in-console",
-        "title": "Browser errors were logged to the console",
-        "score": 0,
-        "explanation": "Errors logged to the console indicate unresolved problems. They can come from network request failures and other browser concerns. [Learn more about this errors in console diagnostic audit](https://developer.chrome.com/docs/lighthouse/best-practices/errors-in-console/)"
+        "id": "interactive",
+        "title": "Time to Interactive",
+        "score": 0.91,
+        "explanation": "Time to Interactive is the amount of time it takes for the page to become fully interactive. [Learn more about the Time to Interactive metric](https://developer.chrome.com/docs/lighthouse/performance/interactive/)."
       },
       {
         "id": "color-contrast",
@@ -345,16 +521,10 @@
         "explanation": "Low-contrast text is difficult or impossible for many users to read. [Learn how to provide sufficient color contrast](https://dequeuniversity.com/rules/axe/4.12/color-contrast)."
       },
       {
-        "id": "inspector-issues",
-        "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+        "id": "forced-reflow-insight",
+        "title": "Forced reflow",
         "score": 0,
-        "explanation": "Issues logged to the `Issues` panel in Chrome Devtools indicate unresolved problems. They can come from network request failures, insufficient security controls, and other browser concerns. Open up the Issues panel in Chrome DevTools for more details on each issue."
-      },
-      {
-        "id": "bf-cache",
-        "title": "Page prevented back/forward cache restoration",
-        "score": 0,
-        "explanation": "Many navigations are performed by going back to a previous page, or forwards again. The back/forward cache (bfcache) can speed up these return navigations. [Learn more about the bfcache](https://developer.chrome.com/docs/lighthouse/performance/bf-cache/)"
+        "explanation": "A forced reflow occurs when JavaScript queries geometric properties (such as offsetWidth) after styles have been invalidated by a change to the DOM state. This can result in poor performance. Learn more about [forced reflows](https://developer.chrome.com/docs/performance/insights/forced-reflow) and possible mitigations."
       },
       {
         "id": "network-dependency-tree-insight",
@@ -367,186 +537,54 @@
       {
         "id": "server-response-time",
         "title": "Initial server response time was short",
-        "displayValue": "Root document took 100 ms"
-      }
-    ]
-  },
-  {
-    "name": "Exam Hub (USMLE)",
-    "url": "https://studygroupshub.com/exam/usmle/",
-    "performance": 100,
-    "accessibility": 96,
-    "bestPractices": 92,
-    "seo": 100,
-    "lcp": "1.5 s",
-    "lcpValue": 1532.5430000000001,
-    "cls": "0",
-    "clsValue": 0,
-    "tbt": "10 ms",
-    "tbtValue": 12,
-    "speedIndex": "1.9 s",
-    "failingAudits": [
-      {
-        "id": "first-contentful-paint",
-        "title": "First Contentful Paint",
-        "score": 0.98,
-        "explanation": "First Contentful Paint marks the time at which the first text or image is painted. [Learn more about the First Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/first-contentful-paint/)."
-      },
-      {
-        "id": "max-potential-fid",
-        "title": "Max Potential First Input Delay",
-        "score": 0.23,
-        "explanation": "The maximum potential First Input Delay that your users could experience is the duration of the longest task. [Learn more about the Maximum Potential First Input Delay metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-max-potential-fid/)."
-      },
-      {
-        "id": "errors-in-console",
-        "title": "Browser errors were logged to the console",
-        "score": 0,
-        "explanation": "Errors logged to the console indicate unresolved problems. They can come from network request failures and other browser concerns. [Learn more about this errors in console diagnostic audit](https://developer.chrome.com/docs/lighthouse/best-practices/errors-in-console/)"
-      },
-      {
-        "id": "color-contrast",
-        "title": "Background and foreground colors do not have a sufficient contrast ratio.",
-        "score": 0,
-        "explanation": "Low-contrast text is difficult or impossible for many users to read. [Learn how to provide sufficient color contrast](https://dequeuniversity.com/rules/axe/4.12/color-contrast)."
-      },
-      {
-        "id": "inspector-issues",
-        "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
-        "score": 0,
-        "explanation": "Issues logged to the `Issues` panel in Chrome Devtools indicate unresolved problems. They can come from network request failures, insufficient security controls, and other browser concerns. Open up the Issues panel in Chrome DevTools for more details on each issue."
-      },
-      {
-        "id": "network-dependency-tree-insight",
-        "title": "Network dependency tree",
-        "score": 0,
-        "explanation": "[Avoid chaining critical requests](https://developer.chrome.com/docs/performance/insights/network-dependency-tree) by reducing the length of chains, reducing the download size of resources, or deferring the download of unnecessary resources to improve page load."
-      }
-    ],
-    "opportunities": [
-      {
-        "id": "server-response-time",
-        "title": "Initial server response time was short",
-        "displayValue": "Root document took 90 ms"
-      }
-    ]
-  },
-  {
-    "name": "Category Hub (English)",
-    "url": "https://studygroupshub.com/category/english-proficiency/",
-    "performance": 100,
-    "accessibility": 96,
-    "bestPractices": 92,
-    "seo": 100,
-    "lcp": "1.5 s",
-    "lcpValue": 1538.905,
-    "cls": "0",
-    "clsValue": 0,
-    "tbt": "60 ms",
-    "tbtValue": 61,
-    "speedIndex": "2.0 s",
-    "failingAudits": [
-      {
-        "id": "first-contentful-paint",
-        "title": "First Contentful Paint",
-        "score": 0.98,
-        "explanation": "First Contentful Paint marks the time at which the first text or image is painted. [Learn more about the First Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/first-contentful-paint/)."
-      },
-      {
-        "id": "speed-index",
-        "title": "Speed Index",
-        "score": 0.99,
-        "explanation": "Speed Index shows how quickly the contents of a page are visibly populated. [Learn more about the Speed Index metric](https://developer.chrome.com/docs/lighthouse/performance/speed-index/)."
-      },
-      {
-        "id": "max-potential-fid",
-        "title": "Max Potential First Input Delay",
-        "score": 0.11,
-        "explanation": "The maximum potential First Input Delay that your users could experience is the duration of the longest task. [Learn more about the Maximum Potential First Input Delay metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-max-potential-fid/)."
-      },
-      {
-        "id": "errors-in-console",
-        "title": "Browser errors were logged to the console",
-        "score": 0,
-        "explanation": "Errors logged to the console indicate unresolved problems. They can come from network request failures and other browser concerns. [Learn more about this errors in console diagnostic audit](https://developer.chrome.com/docs/lighthouse/best-practices/errors-in-console/)"
-      },
-      {
-        "id": "color-contrast",
-        "title": "Background and foreground colors do not have a sufficient contrast ratio.",
-        "score": 0,
-        "explanation": "Low-contrast text is difficult or impossible for many users to read. [Learn how to provide sufficient color contrast](https://dequeuniversity.com/rules/axe/4.12/color-contrast)."
-      },
-      {
-        "id": "inspector-issues",
-        "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
-        "score": 0,
-        "explanation": "Issues logged to the `Issues` panel in Chrome Devtools indicate unresolved problems. They can come from network request failures, insufficient security controls, and other browser concerns. Open up the Issues panel in Chrome DevTools for more details on each issue."
-      },
-      {
-        "id": "network-dependency-tree-insight",
-        "title": "Network dependency tree",
-        "score": 0,
-        "explanation": "[Avoid chaining critical requests](https://developer.chrome.com/docs/performance/insights/network-dependency-tree) by reducing the length of chains, reducing the download size of resources, or deferring the download of unnecessary resources to improve page load."
-      }
-    ],
-    "opportunities": [
-      {
-        "id": "server-response-time",
-        "title": "Initial server response time was short",
-        "displayValue": "Root document took 120 ms"
+        "displayValue": "Root document took 420 ms"
       }
     ]
   },
   {
     "name": "Platform Hub (Telegram)",
     "url": "https://studygroupshub.com/platform/telegram/",
-    "performance": 99,
+    "performance": 76,
     "accessibility": 96,
-    "bestPractices": 92,
+    "bestPractices": 100,
     "seo": 100,
-    "lcp": "1.7 s",
-    "lcpValue": 1704.708,
+    "lcp": "1.5 s",
+    "lcpValue": 1493.711,
     "cls": "0",
     "clsValue": 0,
-    "tbt": "70 ms",
-    "tbtValue": 66.5,
-    "speedIndex": "2.4 s",
+    "tbt": "1,150 ms",
+    "tbtValue": 1150.9999999999995,
+    "speedIndex": "2.9 s",
     "failingAudits": [
       {
         "id": "first-contentful-paint",
         "title": "First Contentful Paint",
-        "score": 0.94,
+        "score": 0.96,
         "explanation": "First Contentful Paint marks the time at which the first text or image is painted. [Learn more about the First Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/first-contentful-paint/)."
-      },
-      {
-        "id": "largest-contentful-paint",
-        "title": "Largest Contentful Paint",
-        "score": 0.99,
-        "explanation": "Largest Contentful Paint marks the time at which the largest text or image is painted. [Learn more about the Largest Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/)"
       },
       {
         "id": "speed-index",
         "title": "Speed Index",
-        "score": 0.98,
+        "score": 0.95,
         "explanation": "Speed Index shows how quickly the contents of a page are visibly populated. [Learn more about the Speed Index metric](https://developer.chrome.com/docs/lighthouse/performance/speed-index/)."
       },
       {
         "id": "total-blocking-time",
         "title": "Total Blocking Time",
-        "score": 0.99,
+        "score": 0.22,
         "explanation": "Sum of all time periods between FCP and Time to Interactive, when task length exceeded 50ms, expressed in milliseconds. [Learn more about the Total Blocking Time metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-total-blocking-time/)."
       },
       {
         "id": "max-potential-fid",
         "title": "Max Potential First Input Delay",
-        "score": 0.03,
+        "score": 0.17,
         "explanation": "The maximum potential First Input Delay that your users could experience is the duration of the longest task. [Learn more about the Maximum Potential First Input Delay metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-max-potential-fid/)."
       },
       {
-        "id": "errors-in-console",
-        "title": "Browser errors were logged to the console",
-        "score": 0,
-        "explanation": "Errors logged to the console indicate unresolved problems. They can come from network request failures and other browser concerns. [Learn more about this errors in console diagnostic audit](https://developer.chrome.com/docs/lighthouse/best-practices/errors-in-console/)"
+        "id": "interactive",
+        "title": "Time to Interactive",
+        "score": 0.86,
+        "explanation": "Time to Interactive is the amount of time it takes for the page to become fully interactive. [Learn more about the Time to Interactive metric](https://developer.chrome.com/docs/lighthouse/performance/interactive/)."
       },
       {
         "id": "color-contrast",
@@ -555,10 +593,10 @@
         "explanation": "Low-contrast text is difficult or impossible for many users to read. [Learn how to provide sufficient color contrast](https://dequeuniversity.com/rules/axe/4.12/color-contrast)."
       },
       {
-        "id": "inspector-issues",
-        "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+        "id": "forced-reflow-insight",
+        "title": "Forced reflow",
         "score": 0,
-        "explanation": "Issues logged to the `Issues` panel in Chrome Devtools indicate unresolved problems. They can come from network request failures, insufficient security controls, and other browser concerns. Open up the Issues panel in Chrome DevTools for more details on each issue."
+        "explanation": "A forced reflow occurs when JavaScript queries geometric properties (such as offsetWidth) after styles have been invalidated by a change to the DOM state. This can result in poor performance. Learn more about [forced reflows](https://developer.chrome.com/docs/performance/insights/forced-reflow) and possible mitigations."
       },
       {
         "id": "network-dependency-tree-insight",
@@ -571,36 +609,30 @@
       {
         "id": "server-response-time",
         "title": "Initial server response time was short",
-        "displayValue": "Root document took 90 ms"
+        "displayValue": "Root document took 420 ms"
       }
     ]
   },
   {
     "name": "Detail Page",
     "url": "https://studygroupshub.com/group/telegram-makon-ap-exams-study-channel/",
-    "performance": 100,
+    "performance": 80,
     "accessibility": 96,
-    "bestPractices": 92,
+    "bestPractices": 100,
     "seo": 100,
-    "lcp": "1.6 s",
-    "lcpValue": 1553.2179999999998,
+    "lcp": "1.4 s",
+    "lcpValue": 1359.571,
     "cls": "0",
     "clsValue": 0,
-    "tbt": "10 ms",
-    "tbtValue": 8,
-    "speedIndex": "2.1 s",
+    "tbt": "820 ms",
+    "tbtValue": 821,
+    "speedIndex": "2.2 s",
     "failingAudits": [
       {
         "id": "first-contentful-paint",
         "title": "First Contentful Paint",
-        "score": 0.99,
+        "score": 0.98,
         "explanation": "First Contentful Paint marks the time at which the first text or image is painted. [Learn more about the First Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/first-contentful-paint/)."
-      },
-      {
-        "id": "largest-contentful-paint",
-        "title": "Largest Contentful Paint",
-        "score": 0.99,
-        "explanation": "Largest Contentful Paint marks the time at which the largest text or image is painted. [Learn more about the Largest Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/)"
       },
       {
         "id": "speed-index",
@@ -609,28 +641,28 @@
         "explanation": "Speed Index shows how quickly the contents of a page are visibly populated. [Learn more about the Speed Index metric](https://developer.chrome.com/docs/lighthouse/performance/speed-index/)."
       },
       {
+        "id": "total-blocking-time",
+        "title": "Total Blocking Time",
+        "score": 0.35,
+        "explanation": "Sum of all time periods between FCP and Time to Interactive, when task length exceeded 50ms, expressed in milliseconds. [Learn more about the Total Blocking Time metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-total-blocking-time/)."
+      },
+      {
         "id": "max-potential-fid",
         "title": "Max Potential First Input Delay",
-        "score": 0.23,
+        "score": 0.13,
         "explanation": "The maximum potential First Input Delay that your users could experience is the duration of the longest task. [Learn more about the Maximum Potential First Input Delay metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-max-potential-fid/)."
       },
       {
-        "id": "errors-in-console",
-        "title": "Browser errors were logged to the console",
-        "score": 0,
-        "explanation": "Errors logged to the console indicate unresolved problems. They can come from network request failures and other browser concerns. [Learn more about this errors in console diagnostic audit](https://developer.chrome.com/docs/lighthouse/best-practices/errors-in-console/)"
+        "id": "interactive",
+        "title": "Time to Interactive",
+        "score": 0.91,
+        "explanation": "Time to Interactive is the amount of time it takes for the page to become fully interactive. [Learn more about the Time to Interactive metric](https://developer.chrome.com/docs/lighthouse/performance/interactive/)."
       },
       {
         "id": "color-contrast",
         "title": "Background and foreground colors do not have a sufficient contrast ratio.",
         "score": 0,
         "explanation": "Low-contrast text is difficult or impossible for many users to read. [Learn how to provide sufficient color contrast](https://dequeuniversity.com/rules/axe/4.12/color-contrast)."
-      },
-      {
-        "id": "inspector-issues",
-        "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
-        "score": 0,
-        "explanation": "Issues logged to the `Issues` panel in Chrome Devtools indicate unresolved problems. They can come from network request failures, insufficient security controls, and other browser concerns. Open up the Issues panel in Chrome DevTools for more details on each issue."
       },
       {
         "id": "network-dependency-tree-insight",
@@ -643,7 +675,7 @@
       {
         "id": "server-response-time",
         "title": "Initial server response time was short",
-        "displayValue": "Root document took 400 ms"
+        "displayValue": "Root document took 500 ms"
       }
     ]
   }
