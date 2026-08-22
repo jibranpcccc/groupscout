@@ -8,7 +8,7 @@ import { exams, getExamName } from '../../config/exams';
 import { getExamFamily, getExamFamilyName } from '../../config/examFamilies';
 import { getPublishedCommunities } from '../../lib/communities';
 import { EXAM_INDEX_MIN } from '../../config/discovery';
-import { collectionPageJsonLd, breadcrumbJsonLd } from '../../lib/seo';
+import { pageTitle, collectionPageJsonLd, breadcrumbJsonLd } from '../../lib/seo';
 
 export const getStaticPaths = (() => {
   return exams.map((exam) => ({ params: { slug: exam.slug }, props: { exam } }));
@@ -19,23 +19,25 @@ const { exam } = Astro.props;
 const published = getPublishedCommunities().filter((c) => (c.exams ?? []).includes(exam.slug));
 const family = getExamFamily(exam.family);
 const relatedExams = (family?.exams ?? []).filter((slug) => slug !== exam.slug);
-const platformBreakdown = new Map<string, number>();
-for (const c of published) {
-  platformBreakdown.set(c.platform, (platformBreakdown.get(c.platform) ?? 0) + 1);
+const isIndexable = published.length >= EXAM_INDEX_MIN;
+
+const hasDiscord = published.some((c) => c.platform === 'discord');
+const hasTelegram = published.some((c) => c.platform === 'telegram');
+
+let titleVariant = 'Study Groups & Study Partners';
+if (hasDiscord && hasTelegram) {
+  titleVariant = 'Study Groups on Telegram & Discord';
+} else if (hasTelegram) {
+  titleVariant = 'Study Groups on Telegram';
+} else if (hasDiscord) {
+  titleVariant = 'Study Groups on Discord';
 }
-const platformNames: Record<string, string> = { discord: 'Discord', telegram: 'Telegram', whatsapp: 'WhatsApp' };
-const platformsWithInventory = [...platformBreakdown.entries()]
-  .map(([id, count]) => `${platformNames[id] ?? id} (${count})`)
-  .join(', ');
 
-const noindex = published.length < EXAM_INDEX_MIN;
-const title = published.length > 0 && platformsWithInventory
-  ? `${exam.name} Study Groups (${platformsWithInventory}) | StudyScout`
-  : `${exam.name} Study Groups & Communities | StudyScout`;
+const title = pageTitle(`${exam.name} ${titleVariant}`);
 
-const metaDesc = published.length >= EXAM_INDEX_MIN
-  ? `Explore ${published.length} active ${exam.name} study groups on ${[...platformBreakdown.keys()].map((p) => platformNames[p] || p).join(', ')}. ${exam.description}`
-  : `${exam.description} Find and compare public ${exam.name} study communities and student groups on StudyScout.`;
+const metaDesc = isIndexable
+  ? `Browse active ${exam.name} study groups for exam preparation, peer discussion, study partner matching, and syllabus practice on StudyGroupsHub.`
+  : `Explore public ${exam.name} study communities and student groups on StudyGroupsHub. Verified link status and safety screening.`;
 
 const crumbs = [
   { label: family?.name ?? 'Exams', href: `/category/${exam.family}/` },
@@ -52,28 +54,34 @@ const crumbLd = [
   title={title}
   description={metaDesc}
   canonicalPath={`/exam/${exam.slug}/`}
-  noindex={noindex}
+  noindex={!isIndexable}
   jsonLd={`${breadcrumbJsonLd(crumbLd)}\n${collectionPageJsonLd(exam.name, exam.description, published)}`}
 >
   <Breadcrumbs items={crumbs} />
 
+  <!-- Hero Header -->
   <section class="border-b border-stone-200 bg-gradient-to-b from-blue-50/70 to-canvas">
     <div class="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
       <h1 class="text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl">
         {exam.name} Study Groups
       </h1>
-      <p class="mt-3 max-w-2xl text-stone-600">{exam.description}</p>
+      <p class="mt-3 max-w-3xl text-base leading-relaxed text-stone-600">
+        {exam.description} Connect with fellow candidates for {exam.name} exam preparation,
+        daily practice questions, study partner matching, and peer support.
+      </p>
       <div class="mt-6 flex flex-wrap items-center gap-3 text-sm">
-        <span class="rounded-full bg-blue-100 px-3 py-1 font-medium text-blue-800">
+        <span class="rounded-full bg-blue-100 px-3.5 py-1 font-medium text-blue-800">
           {getExamName(exam.slug)}
         </span>
         <a
           href={`/category/${exam.family}/`}
-          class="rounded-full bg-stone-100 px-3 py-1 font-medium text-stone-700 hover:bg-stone-200"
+          class="rounded-full bg-stone-100 px-3.5 py-1 font-medium text-stone-700 hover:bg-stone-200 transition-colors"
         >
           {family ? family.name : getExamFamilyName(exam.family)}
         </a>
-        <span class="text-stone-500">{published.length} listed</span>
+        <span class="text-stone-500 font-medium">
+          {published.length} {published.length === 1 ? 'community' : 'communities'} listed
+        </span>
       </div>
       <div class="mt-6 max-w-xl">
         <SearchBox size="sm" placeholder={`Search ${exam.name} study groups…`} />
@@ -81,36 +89,142 @@ const crumbLd = [
     </div>
   </section>
 
-  {
-    published.length > 0 ? (
-      <section class="mx-auto w-full max-w-6xl px-4 pt-8 sm:px-6">
-        <CommunityGrid communities={published} />
-      </section>
-    ) : (
-      <section class="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
-        <div class="rounded-xl border border-stone-200 bg-surface p-8 text-center">
+  <!-- Listings Grid Section -->
+  <section class="mx-auto w-full max-w-6xl px-4 pt-10 sm:px-6">
+    <div class="flex items-end justify-between border-b border-stone-200 pb-4">
+      <div>
+        <h2 class="text-xl font-bold text-stone-900">{exam.name} Study Groups You Can Join</h2>
+        <p class="mt-1 text-xs text-stone-500">Public communities with verified active links and curriculum focus.</p>
+      </div>
+      <span class="text-xs font-semibold text-stone-500">{published.length} available</span>
+    </div>
+
+    {
+      published.length > 0 ? (
+        <div class="mt-6">
+          <CommunityGrid communities={published} />
+        </div>
+      ) : (
+        <div class="mt-6 rounded-xl border border-stone-200 bg-surface p-8 text-center">
           <p class="font-semibold text-stone-900">No {exam.name} study groups listed yet.</p>
           <p class="mt-2 text-sm text-stone-600">
-            New communities are being reviewed. Know one?{" "}
-            <a href="/submit/" class="font-medium text-blue-700 hover:underline">Submit it</a>.
+            New communities are being reviewed. Know an active community?{" "}
+            <a href="/submit/" class="font-medium text-blue-700 hover:underline">Submit a new study group</a>.
           </p>
+        </div>
+      )
+    }
+  </section>
+
+  <!-- Rich Helpful Content for Indexable Hubs -->
+  {
+    isIndexable && (
+      <section class="mx-auto w-full max-w-6xl px-4 pt-14 sm:px-6">
+        <div class="grid gap-8 lg:grid-cols-2">
+          <!-- Advice Box -->
+          <div class="rounded-2xl border border-stone-200 bg-surface p-6 sm:p-8 shadow-xs">
+            <h2 class="text-xl font-bold text-stone-900">What to Look for in an {exam.name} Study Group</h2>
+            <ul class="mt-4 space-y-3 text-sm text-stone-600 leading-relaxed">
+              <li class="flex items-start gap-2.5">
+                <span class="font-bold text-blue-600">•</span>
+                <span><strong>Active Problem Solving:</strong> Look for groups where members actively discuss official practice questions, concepts, and revision strategies.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="font-bold text-blue-600">•</span>
+                <span><strong>Study Partner Matching:</strong> High-quality communities facilitate dedicated partner pairing for mock sessions, peer review, and accountability.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="font-bold text-blue-600">•</span>
+                <span><strong>Clear Moderation:</strong> A well-managed group enforces strict rules against spam, commercial advertising, and illicit exam dumps.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="font-bold text-blue-600">•</span>
+                <span><strong>Regular Activity:</strong> Check that current members are actively testing in the upcoming cycle for aligned revision schedules.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Platform Comparison -->
+          <div class="rounded-2xl border border-stone-200 bg-surface p-6 sm:p-8 shadow-xs">
+            <h2 class="text-xl font-bold text-stone-900">Telegram vs Discord for {exam.name} Preparation</h2>
+            <div class="mt-4 space-y-4 text-sm text-stone-600 leading-relaxed">
+              <div>
+                <h3 class="font-semibold text-stone-900">Telegram Study Channels</h3>
+                <p class="mt-0.5 text-xs text-stone-600">
+                  Best for mobile-first notifications, daily revision polls, downloadable PDF notes, and fast discussion threads directly from your phone.
+                </p>
+              </div>
+              <div>
+                <h3 class="font-semibold text-stone-900">Discord Study Servers</h3>
+                <p class="mt-0.5 text-xs text-stone-600">
+                  Best for structured topic channels (e.g. separate sections per exam topic), voice study rooms, screen sharing, and Pomodoro study sessions.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Verification & Quality Section -->
+        <div class="mt-8 rounded-2xl border border-blue-100 bg-blue-50/60 p-6 sm:p-8">
+          <h2 class="text-lg font-bold text-stone-900">How We Check {exam.name} Communities</h2>
+          <p class="mt-2 text-sm leading-relaxed text-stone-700">
+            Every {exam.name} study group listed on StudyGroupsHub is verified for public reachability, authentic exam relevance, and academic integrity.
+            We automatically scan and reject any channel advertising exam leaks, brain dumps, proxy testing, or credential fraud.
+            Learn more about our <a href="/how-we-verify/" class="font-semibold text-blue-700 hover:underline">verification process</a> and <a href="/academic-integrity/" class="font-semibold text-blue-700 hover:underline">anti-dump policy</a>.
+          </p>
+        </div>
+
+        <!-- Visible FAQs -->
+        <div class="mt-12">
+          <h2 class="text-xl font-bold text-stone-900">Frequently Asked Questions About {exam.name} Study Groups</h2>
+          <dl class="mt-6 grid gap-6 sm:grid-cols-2">
+            <div class="rounded-xl border border-stone-200 bg-surface p-5 shadow-xs">
+              <dt class="font-semibold text-stone-900">Are these {exam.name} study groups free to join?</dt>
+              <dd class="mt-2 text-xs leading-relaxed text-stone-600">
+                Yes. All public communities listed on StudyGroupsHub are free to join via standard platform invite links. Be wary of any individual asking for private payments inside a group.
+              </dd>
+            </div>
+
+            <div class="rounded-xl border border-stone-200 bg-surface p-5 shadow-xs">
+              <dt class="font-semibold text-stone-900">How can I find an {exam.name} study partner?</dt>
+              <dd class="mt-2 text-xs leading-relaxed text-stone-600">
+                Join an active group and introduce yourself with your target test date, timezone, and study goals. Many groups have dedicated partner-search channels.
+              </dd>
+            </div>
+
+            <div class="rounded-xl border border-stone-200 bg-surface p-5 shadow-xs">
+              <dt class="font-semibold text-stone-900">Are {exam.name} Telegram &amp; Discord groups safe?</dt>
+              <dd class="mt-2 text-xs leading-relaxed text-stone-600">
+                Public groups are generally safe for peer discussion, but never share personal credentials, financial details, or engage with offers claiming to sell real exam questions.
+              </dd>
+            </div>
+
+            <div class="rounded-xl border border-stone-200 bg-surface p-5 shadow-xs">
+              <dt class="font-semibold text-stone-900">How often are listings checked?</dt>
+              <dd class="mt-2 text-xs leading-relaxed text-stone-600">
+                Our automated validation system tests invite links regularly to detect broken links, private status changes, or spam conversions.
+              </dd>
+            </div>
+          </dl>
         </div>
       </section>
     )
   }
 
+  <!-- Related Exams Section -->
   {
     relatedExams.length > 0 && (
-      <section class="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6">
-        <h2 class="text-lg font-semibold text-stone-900">Related Exams</h2>
-        <div class="mt-3 flex flex-wrap gap-2">
+      <section class="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 border-t border-stone-200 mt-12">
+        <h2 class="text-lg font-bold text-stone-900">Related Exam Communities</h2>
+        <p class="mt-1 text-xs text-stone-500">Explore peer study groups for other exams in the {family ? family.name : 'same'} category.</p>
+        <div class="mt-4 flex flex-wrap gap-2.5">
           {
             relatedExams.map((slug) => (
               <a
                 href={`/exam/${slug}/`}
-                class="rounded-lg border border-stone-200 bg-surface px-3 py-1.5 text-sm font-medium text-stone-700 hover:border-blue-300 hover:text-blue-700"
+                class="rounded-lg border border-stone-200 bg-surface px-3.5 py-2 text-sm font-medium text-stone-700 hover:border-blue-300 hover:text-blue-700 hover:shadow-xs transition-all"
               >
-                {getExamName(slug)}
+                Browse {getExamName(slug)} Study Groups
               </a>
             ))
           }

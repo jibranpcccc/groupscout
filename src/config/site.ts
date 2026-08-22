@@ -18,10 +18,10 @@ function getEnvVar(key: string): string | undefined {
 
 export const siteConfig = {
   /** Display name — change here to rebrand (routes don't depend on it). */
-  name: 'StudyScout',
-  shortName: 'StudyScout',
+  name: 'StudyGroupsHub',
+  shortName: 'StudyGroupsHub',
   description:
-    'StudyScout is a directory of active public exam-prep and professional-certification study communities across Discord, Telegram and WhatsApp.',
+    'StudyGroupsHub is a directory of active public exam-prep and professional-certification study communities across Discord, Telegram and WhatsApp.',
   /** Production URL, no trailing slash. Set PUBLIC_SITE_URL in Netlify/GitHub. */
   url: getPublicSiteUrl(),
   defaultLocale: 'en',

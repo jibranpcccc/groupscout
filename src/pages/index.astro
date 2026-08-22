@@ -4,7 +4,6 @@ import SearchBox from '../components/SearchBox.astro';
 import PlatformBadge from '../components/PlatformBadge.astro';
 import CommunityGrid from '../components/CommunityGrid.astro';
 import AdPlaceholder from '../components/AdPlaceholder.astro';
-import { siteConfig } from '../config/site';
 import { categories } from '../config/categories';
 import { platforms } from '../config/platforms';
 import { exams, getExam } from '../config/exams';
@@ -35,48 +34,48 @@ const emptyState = published.length === 0;
 ---
 
 <BaseLayout
-  title={pageTitle('Exam Prep Study Groups for IELTS, SAT, USMLE & More')}
-  description={siteConfig.description}
+  title={pageTitle('Study Groups for IELTS, USMLE, SAT & Certifications')}
+  description="Discover active public Discord, Telegram and WhatsApp study groups for IELTS, USMLE, SAT, CFA, and professional certifications with verified link status and safety screening."
   canonicalPath="/"
   jsonLd={`${websiteJsonLd()}\n${organizationJsonLd()}`}
 >
-  <!-- Hero -->
+  <!-- Hero Section -->
   <section class="border-b border-stone-200 bg-gradient-to-b from-blue-50/80 to-canvas">
     <div class="mx-auto w-full max-w-6xl px-4 py-16 text-center sm:px-6 sm:py-20">
       <h1 class="mx-auto max-w-3xl text-4xl font-bold tracking-tight text-stone-900 sm:text-5xl">
-        Find Active Exam Prep &amp; Study Groups
+        Find Exam &amp; Certification Study Groups
       </h1>
       <p class="mx-auto mt-4 max-w-2xl text-lg text-stone-600">
-        Discover public Discord, Telegram and WhatsApp communities for exam
-        preparation, professional certifications and study support.
+        Discover active public Discord, Telegram and WhatsApp communities for standardized exam
+        preparation, professional certifications, study partners, and peer accountability.
       </p>
       <div class="mx-auto mt-8 max-w-xl">
-        <SearchBox size="lg" placeholder="Search SAT, IELTS, MCAT, CFA, AWS study groups…" />
+        <SearchBox size="lg" placeholder="Search IELTS, USMLE, SAT, GRE, CFA, AWS study groups…" />
       </div>
 
-      <!-- Counters (computed from real data) -->
+      <!-- Live Counters (computed deterministically from verified data) -->
       <dl class="mx-auto mt-10 grid max-w-2xl grid-cols-2 gap-4 sm:grid-cols-4">
-        <div>
+        <div class="rounded-xl border border-stone-200/80 bg-surface/80 p-3 shadow-xs">
           <dd class="text-2xl font-bold text-stone-900">{published.length}</dd>
-          <dt class="text-xs font-medium uppercase tracking-wide text-stone-500">Listed Study Communities</dt>
+          <dt class="text-xs font-medium uppercase tracking-wide text-stone-500">Listed Communities</dt>
         </div>
-        <div>
+        <div class="rounded-xl border border-stone-200/80 bg-surface/80 p-3 shadow-xs">
           <dd class="text-2xl font-bold text-stone-900">{examSlugsWithInventory.size || exams.length}</dd>
           <dt class="text-xs font-medium uppercase tracking-wide text-stone-500">Exams Covered</dt>
         </div>
-        <div>
+        <div class="rounded-xl border border-stone-200/80 bg-surface/80 p-3 shadow-xs">
           <dd class="text-2xl font-bold text-stone-900">{published.length ? platforms.filter((p) => published.some((c) => c.platform === p.id)).length : platforms.length}</dd>
           <dt class="text-xs font-medium uppercase tracking-wide text-stone-500">Platforms</dt>
         </div>
-        <div>
+        <div class="rounded-xl border border-stone-200/80 bg-surface/80 p-3 shadow-xs">
           <dd class="text-2xl font-bold text-stone-900">{recentlyChecked.length}</dd>
-          <dt class="text-xs font-medium uppercase tracking-wide text-stone-500">Recently Checked</dt>
+          <dt class="text-xs font-medium uppercase tracking-wide text-stone-500">Recently Verified</dt>
         </div>
       </dl>
     </div>
   </section>
 
-  <!-- Empty state (zero inventory — honest, no fixtures) -->
+  <!-- Empty state fallback (honest, no fake fixtures) -->
   {
     emptyState && (
       <section class="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6">
@@ -86,7 +85,7 @@ const emptyState = published.length === 0;
             In the meantime, explore exams, learn how verification works, or submit a study group you know.
           </p>
           <div class="mt-4 flex flex-wrap justify-center gap-3 text-sm font-medium">
-            <a href="/communities/" class="rounded-lg bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">Browse Exams</a>
+            <a href="/communities/" class="rounded-lg bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">Browse all study communities</a>
             <a href="/how-we-verify/" class="rounded-lg border border-stone-300 px-4 py-2 text-stone-700 hover:bg-stone-100">How Verification Works</a>
             <a href="/safety/" class="rounded-lg border border-stone-300 px-4 py-2 text-stone-700 hover:bg-stone-100">Study Safety</a>
             <a href="/submit/" class="rounded-lg border border-stone-300 px-4 py-2 text-stone-700 hover:bg-stone-100">Submit a Community</a>
@@ -96,83 +95,225 @@ const emptyState = published.length === 0;
     )
   }
 
-  <!-- Browse Exams & Certifications -->
+  <!-- Section 1: Browse Study Groups by Exam -->
   <section class="mx-auto w-full max-w-6xl px-4 pt-14 sm:px-6">
     <div class="flex items-end justify-between">
-      <h2 class="text-xl font-semibold text-stone-900">Browse Exams &amp; Certifications</h2>
-      <a href="/communities/" class="text-sm font-medium text-blue-700 hover:underline">All communities →</a>
+      <div>
+        <h2 class="text-2xl font-bold tracking-tight text-stone-900">Browse Study Groups by Exam</h2>
+        <p class="mt-1 text-sm text-stone-600">Explore dedicated preparation communities and student channels for major entrance exams and certifications.</p>
+      </div>
+      <a href="/communities/" class="hidden text-sm font-medium text-blue-700 hover:underline sm:inline-block">Browse all study communities →</a>
     </div>
-    <div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
       {
-        featuredExams.map((exam) => (
-          <a
-            href={`/exam/${exam.slug}/`}
-            class="card group flex items-center justify-between p-4 transition-shadow hover:shadow-md"
-          >
-            <div>
-              <p class="font-semibold text-stone-900 group-hover:text-blue-700">{exam.name}</p>
-              <p class="text-xs text-stone-500">{exam.description}</p>
-            </div>
-            <span class="ml-2 text-stone-400 group-hover:text-blue-600" aria-hidden="true">→</span>
-          </a>
-        ))
+        featuredExams.map((exam) => {
+          const count = published.filter((c) => (c.exams ?? []).includes(exam.slug)).length;
+          return (
+            <a
+              href={`/exam/${exam.slug}/`}
+              class="card group flex items-center justify-between p-4 transition-all hover:border-blue-300 hover:shadow-md"
+            >
+              <div>
+                <p class="font-semibold text-stone-900 group-hover:text-blue-700">{exam.name}</p>
+                <p class="text-xs text-stone-500">{count > 0 ? `${count} active communities` : exam.description}</p>
+              </div>
+              <span class="ml-2 text-stone-400 group-hover:text-blue-600" aria-hidden="true">→</span>
+            </a>
+          );
+        })
+      }
+    </div>
+    <div class="mt-4 text-center sm:hidden">
+      <a href="/communities/" class="text-sm font-medium text-blue-700 hover:underline">Browse all study communities →</a>
+    </div>
+  </section>
+
+  <!-- Section 2: Study Groups by Category -->
+  <section class="mx-auto w-full max-w-6xl px-4 pt-14 sm:px-6">
+    <div>
+      <h2 class="text-2xl font-bold tracking-tight text-stone-900">Study Groups by Category</h2>
+      <p class="mt-1 text-sm text-stone-600">Find study communities organized across 8 primary educational and professional disciplines.</p>
+    </div>
+    <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        categories.map((cat) => {
+          const count = categoryCounts.get(cat.slug) ?? 0;
+          return (
+            <a
+              href={`/category/${cat.slug}/`}
+              class="card group flex flex-col justify-between p-5 transition-all hover:border-blue-300 hover:shadow-md"
+            >
+              <div>
+                <p class="font-semibold text-stone-900 group-hover:text-blue-700">{cat.name}</p>
+                <p class="mt-1.5 text-xs leading-relaxed text-stone-500">{cat.description}</p>
+              </div>
+              <p class="mt-4 text-xs font-semibold text-blue-600">
+                {count} {count === 1 ? 'community' : 'communities'} listed →
+              </p>
+            </a>
+          );
+        })
       }
     </div>
   </section>
 
-  <!-- Exam families -->
-  <section class="mx-auto w-full max-w-6xl px-4 pt-12 sm:px-6">
-    <h2 class="text-xl font-semibold text-stone-900">Exam Families</h2>
-    <div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-      {
-        categories.map((cat) => (
-          <a
-            href={`/category/${cat.slug}/`}
-            class="card group flex flex-col justify-between p-5 transition-shadow hover:shadow-md"
-          >
-            <div>
-              <p class="font-semibold text-stone-900 group-hover:text-blue-700">{cat.name}</p>
-              <p class="mt-1 text-sm text-stone-500">{cat.description}</p>
-            </div>
-            <p class="mt-3 text-xs font-medium text-stone-400">
-              {categoryCounts.get(cat.slug) ?? 0} listed
-            </p>
-          </a>
-        ))
-      }
+  <!-- Section 3: How StudyGroupsHub Checks Communities -->
+  <section class="mx-auto w-full max-w-6xl px-4 pt-16 sm:px-6">
+    <div class="rounded-2xl border border-stone-200 bg-surface p-8 sm:p-10 shadow-xs">
+      <div class="max-w-3xl">
+        <h2 class="text-2xl font-bold tracking-tight text-stone-900">How StudyGroupsHub Checks Communities</h2>
+        <p class="mt-2 text-stone-600 leading-relaxed">
+          Every study group listed in our directory undergoes deterministic validation and policy screening before publication. We do not scrape private user messages or fabricate data.
+        </p>
+      </div>
+
+      <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="rounded-xl border border-stone-100 bg-stone-50/60 p-5">
+          <div class="flex size-9 items-center justify-center rounded-lg bg-blue-100 text-blue-700 font-bold text-sm">1</div>
+          <h3 class="mt-3 font-semibold text-stone-900">Active Link Validation</h3>
+          <p class="mt-1 text-xs leading-relaxed text-stone-600">
+            Invite URLs are checked automatically to ensure they are publicly reachable and not dead or expired.
+          </p>
+        </div>
+
+        <div class="rounded-xl border border-stone-100 bg-stone-50/60 p-5">
+          <div class="flex size-9 items-center justify-center rounded-lg bg-blue-100 text-blue-700 font-bold text-sm">2</div>
+          <h3 class="mt-3 font-semibold text-stone-900">Exam Curriculum Relevance</h3>
+          <p class="mt-1 text-xs leading-relaxed text-stone-600">
+            We confirm groups focus on authentic exam preparation or certification study, excluding unrelated general social chats.
+          </p>
+        </div>
+
+        <div class="rounded-xl border border-stone-100 bg-stone-50/60 p-5">
+          <div class="flex size-9 items-center justify-center rounded-lg bg-blue-100 text-blue-700 font-bold text-sm">3</div>
+          <h3 class="mt-3 font-semibold text-stone-900">Zero Exam-Dump Policy</h3>
+          <p class="mt-1 text-xs leading-relaxed text-stone-600">
+            Channels promoting stolen test questions, answer keys, proxy test-taking, or credential fraud are permanently rejected.
+          </p>
+        </div>
+
+        <div class="rounded-xl border border-stone-100 bg-stone-50/60 p-5">
+          <div class="flex size-9 items-center justify-center rounded-lg bg-blue-100 text-blue-700 font-bold text-sm">4</div>
+          <h3 class="mt-3 font-semibold text-stone-900">Source Evidence Archiving</h3>
+          <p class="mt-1 text-xs leading-relaxed text-stone-600">
+            We record where and when each community was discovered, keeping public citations transparent for every listing.
+          </p>
+        </div>
+
+        <div class="rounded-xl border border-stone-100 bg-stone-50/60 p-5">
+          <div class="flex size-9 items-center justify-center rounded-lg bg-blue-100 text-blue-700 font-bold text-sm">5</div>
+          <h3 class="mt-3 font-semibold text-stone-900">Platform Identification</h3>
+          <p class="mt-1 text-xs leading-relaxed text-stone-600">
+            Clearly distinguishes Discord servers, Telegram channels/groups, and WhatsApp chats so candidates know what app they need.
+          </p>
+        </div>
+
+        <div class="rounded-xl border border-stone-100 bg-stone-50/60 p-5">
+          <div class="flex size-9 items-center justify-center rounded-lg bg-blue-100 text-blue-700 font-bold text-sm">6</div>
+          <h3 class="mt-3 font-semibold text-stone-900">Community Reporting</h3>
+          <p class="mt-1 text-xs leading-relaxed text-stone-600">
+            Students and moderators can report spam, dead links, or policy violations for immediate investigation.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-6 flex flex-wrap gap-4 text-xs font-medium text-stone-600">
+        <a href="/how-we-verify/" class="text-blue-700 hover:underline">Learn more about our verification pipeline →</a>
+        <a href="/academic-integrity/" class="text-blue-700 hover:underline">Read Academic Integrity Policy →</a>
+      </div>
     </div>
   </section>
 
-  <!-- Platforms -->
-  <section class="mx-auto w-full max-w-6xl px-4 pt-12 sm:px-6">
-    <h2 class="text-xl font-semibold text-stone-900">Platforms</h2>
+  <!-- Section 4: Find the Right Study Community -->
+  <section class="mx-auto w-full max-w-6xl px-4 pt-16 sm:px-6">
+    <div class="max-w-3xl">
+      <h2 class="text-2xl font-bold tracking-tight text-stone-900">Find the Right Study Community Format</h2>
+      <p class="mt-2 text-stone-600 leading-relaxed">
+        Online study communities serve different learning styles. Depending on your preparation stage, look for communities matching your study needs:
+      </p>
+    </div>
+
+    <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="card p-5">
+        <h3 class="font-semibold text-stone-900">Peer Accountability Groups</h3>
+        <p class="mt-2 text-xs leading-relaxed text-stone-600">
+          Ideal for maintaining regular study schedules, daily check-ins, Pomodoro sessions, and mutual motivation during long test prep cycles.
+        </p>
+      </div>
+
+      <div class="card p-5">
+        <h3 class="font-semibold text-stone-900">Question &amp; Problem-Solving Channels</h3>
+        <p class="mt-2 text-xs leading-relaxed text-stone-600">
+          Focused on discussing difficult practice questions, explaining concepts, breaking down official syllabus items, and troubleshooting practice tests.
+        </p>
+      </div>
+
+      <div class="card p-5">
+        <h3 class="font-semibold text-stone-900">Study Partner Matching</h3>
+        <p class="mt-2 text-xs leading-relaxed text-stone-600">
+          Communities where students pair up for language speaking practice (e.g. IELTS/TOEFL speaking partners) or mock viva interviews.
+        </p>
+      </div>
+
+      <div class="card p-5">
+        <h3 class="font-semibold text-stone-900">Resource &amp; Strategy Discussions</h3>
+        <p class="mt-2 text-xs leading-relaxed text-stone-600">
+          Discussions sharing recommended authorized textbooks, revision schedules, exam strategies, and official exam board announcements.
+        </p>
+      </div>
+
+      <div class="card p-5">
+        <h3 class="font-semibold text-stone-900">Discord Study Servers</h3>
+        <p class="mt-2 text-xs leading-relaxed text-stone-600">
+          Structured server channels with organized topic threads, live voice study rooms, camera-on study sessions, and bot-moderated help.
+        </p>
+      </div>
+
+      <div class="card p-5">
+        <h3 class="font-semibold text-stone-900">Telegram Study Channels &amp; Groups</h3>
+        <p class="mt-2 text-xs leading-relaxed text-stone-600">
+          Mobile-first channels delivering daily practice quizzes, exam notifications, concept summaries, and peer discussion threads.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Platforms Overview -->
+  <section class="mx-auto w-full max-w-6xl px-4 pt-14 sm:px-6">
+    <h2 class="text-xl font-semibold text-stone-900">Browse by Platform</h2>
     <div class="mt-4 grid gap-3 sm:grid-cols-3">
       {
-        platforms.map((p) => (
-          <a
-            href={`/platform/${p.id}/`}
-            class="card flex items-center justify-between p-5 transition-shadow hover:shadow-md"
-          >
-            <div class="flex items-center gap-3">
-              <PlatformBadge platform={p.id} />
-              <p class="font-semibold text-stone-900">{p.name}</p>
-            </div>
-            <span class="text-xs text-stone-500">
-              {published.filter((c) => c.platform === p.id).length} study groups
-            </span>
-          </a>
-        ))
+        platforms.map((p) => {
+          const count = published.filter((c) => c.platform === p.id).length;
+          return (
+            <a
+              href={`/platform/${p.id}/`}
+              class="card flex items-center justify-between p-5 transition-shadow hover:shadow-md"
+            >
+              <div class="flex items-center gap-3">
+                <PlatformBadge platform={p.id} />
+                <p class="font-semibold text-stone-900">{p.name}</p>
+              </div>
+              <span class="text-xs text-stone-500">
+                {count} {count === 1 ? 'study group' : 'study groups'}
+              </span>
+            </a>
+          );
+        })
       }
     </div>
   </section>
 
-  <!-- Recently added — hidden when empty, never filled with fixtures -->
+  <!-- Section 6: Recently Added Study Groups -->
   {
     recentlyAdded.length > 0 && (
-      <section class="mx-auto w-full max-w-6xl px-4 pt-12 sm:px-6">
+      <section class="mx-auto w-full max-w-6xl px-4 pt-14 sm:px-6">
         <div class="flex items-end justify-between">
-          <h2 class="text-xl font-semibold text-stone-900">Recently Added</h2>
-          <a href="/recently-added/" class="text-sm font-medium text-blue-700 hover:underline">View all →</a>
+          <div>
+            <h2 class="text-xl font-semibold text-stone-900">Recently Added Study Groups</h2>
+            <p class="mt-1 text-xs text-stone-500">Newly identified and verified exam prep communities.</p>
+          </div>
+          <a href="/recently-added/" class="text-sm font-medium text-blue-700 hover:underline">Explore all recent additions →</a>
         </div>
         <div class="mt-4">
           <CommunityGrid communities={recentlyAdded} />
@@ -181,16 +322,25 @@ const emptyState = published.length === 0;
     )
   }
 
-  <!-- Study safety notice -->
-  <section class="mx-auto w-full max-w-6xl px-4 pt-12 sm:px-6">
-    <div class="rounded-xl border border-amber-200 bg-amber-50/70 p-5">
-      <h2 class="text-base font-semibold text-stone-900">Study safely</h2>
-      <p class="mt-1 max-w-3xl text-sm leading-relaxed text-stone-600">
-        Directory inclusion is not an endorsement of study materials or claims made inside a
-        community. Avoid groups offering leaked exams, guaranteed test questions, impersonation
-        services or unauthorized credentials. Learn more at{" "}
-        <a href="/safety/" class="font-medium text-amber-800 underline">Study Safety</a>.
-      </p>
+  <!-- Section 7: Study Safely -->
+  <section class="mx-auto w-full max-w-6xl px-4 pt-14 sm:px-6">
+    <div class="rounded-xl border border-amber-200 bg-amber-50/80 p-6">
+      <div class="flex items-start gap-3">
+        <span class="text-xl">🛡️</span>
+        <div>
+          <h2 class="text-base font-semibold text-stone-900">Study Safely &amp; Protect Your Academic Record</h2>
+          <p class="mt-1.5 max-w-3xl text-sm leading-relaxed text-stone-700">
+            Inclusion in StudyGroupsHub is a directory record, not an endorsement of third-party statements.
+            Never purchase test questions, exam dumps, or unauthorized certificates. Testing authorities actively penalize
+            compromised materials with score cancellations and permanent testing bans.
+          </p>
+          <div class="mt-3 flex flex-wrap gap-4 text-xs font-semibold">
+            <a href="/academic-integrity/" class="text-amber-900 underline hover:text-amber-950">Read Anti-Dump Policy</a>
+            <a href="/safety/" class="text-amber-900 underline hover:text-amber-950">Candidate Safety Guidelines</a>
+            <a href="/report/" class="text-amber-900 underline hover:text-amber-950">Report a Suspicious Group</a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 

@@ -7,7 +7,7 @@ import { platforms, getPlatformById } from '../../config/platforms';
 import { getByPlatform } from '../../lib/communities';
 import { sortCommunities, availableFilterOptions } from '../../lib/filters';
 import { PAGE_SIZE } from '../../config/discovery';
-import { platformPageTitle, breadcrumbJsonLd, jsonLd } from '../../lib/seo';
+import { pageTitle, breadcrumbJsonLd, jsonLd } from '../../lib/seo';
 import { jsonForClient } from '../../scripts/directory';
 
 export function getStaticPaths() {
@@ -23,21 +23,29 @@ const sorted = sortCommunities(all, 'newest');
 const pageOne = sorted.slice(0, PAGE_SIZE);
 const options = availableFilterOptions(all);
 
+const isPlatformIndexable = all.length > 0;
+
+const pageTitleStr = pageTitle(`${platform.name} Exam Study Groups`);
+const pageDescStr = isPlatformIndexable
+  ? `Browse ${all.length} active public ${platform.name} study groups for exam preparation, certifications, and student peer discussion on StudyGroupsHub.`
+  : `Public ${platform.name} study groups and student communities listed on StudyGroupsHub.`;
+
 const pageLd = jsonLd({
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
-  name: `${platform.name} Communities`,
+  name: `${platform.name} Study Groups`,
   description: platform.description,
   url: `/platform/${platform.id}/`,
 });
 ---
 
 <DirectoryLayout
-  title={platformPageTitle(platform.id)}
-  description={`Public ${platform.name} communities listed in the directory. ${platform.description}`}
+  title={pageTitleStr}
+  description={pageDescStr}
   canonicalPath={`/platform/${platform.id}/`}
+  noindex={!isPlatformIndexable}
   intro={platform.description}
-  count={`${all.length} communities`}
+  count={`${all.length} ${all.length === 1 ? 'community' : 'communities'}`}
   breadcrumbs={[{ label: platform.name }]}
   jsonLd={`${breadcrumbJsonLd([{ name: `${platform.name} Communities`, path: `/platform/${platform.id}/` }])}\n${pageLd}`}
 >

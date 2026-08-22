@@ -112,6 +112,13 @@ export default defineConfig({
         const catMatch = page.match(/\/category\/([^/]+)\/?$/);
         if (catMatch && !indexableCategories.has(catMatch[1])) return false;
 
+        // Platform pages (must have at least 1 published community).
+        const platMatch = page.match(/\/platform\/([^/]+)\/?$/);
+        if (platMatch) {
+          const platCount = realGroups.filter((c) => c.platform === platMatch[1]).length;
+          if (platCount === 0) return false;
+        }
+
         return true;
       },
       serialize: (item) => {

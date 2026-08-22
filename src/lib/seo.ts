@@ -45,7 +45,7 @@ export function communityDescription(community: Community): string {
     return cleanDesc;
   }
 
-  return `Public ${platformName} study group: ${community.title} for ${targetTopic}. Browse verified resources and discussions on StudyScout.`;
+  return `Public ${platformName} study group: ${community.title} for ${targetTopic}. Browse verified resources and discussions on StudyGroupsHub.`;
 }
 
 export function categoryPageTitle(slug: string): string {

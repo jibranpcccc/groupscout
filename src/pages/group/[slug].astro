@@ -356,7 +356,7 @@ const webPageLd = jsonLd({
         <div class="card bg-stone-50 p-5">
           <h2 class="text-sm font-semibold text-stone-900">Academic Integrity</h2>
           <p class="mt-2 text-xs leading-relaxed text-stone-600">
-            StudyScout strictly prohibits brain dumps, leaked questions, and academic fraud.
+            StudyGroupsHub strictly prohibits brain dumps, leaked questions, and academic fraud.
             Read our <a href="/academic-integrity/" class="font-medium text-blue-700 hover:underline">Academic Integrity Policy</a> or <a href={`/report/?id=${community.id}&slug=${community.slug}`} class="font-medium text-blue-700 hover:underline">report a listing</a>.
           </p>
         </div>
@@ -367,16 +367,32 @@ const webPageLd = jsonLd({
 
     {
       related.length > 0 && (
-        <section aria-labelledby="related-heading" class="mt-12">
-          <h2 id="related-heading" class="text-xl font-semibold text-stone-900">
-            Related communities
-          </h2>
-          <p class="mt-1 text-sm text-stone-500">
-            Matched deterministically by category, tags and platform.
-          </p>
-          <div class="mt-4">
+        <section aria-labelledby="related-heading" class="mt-12 border-t border-stone-200 pt-8">
+          <div class="flex items-end justify-between">
+            <div>
+              <h2 id="related-heading" class="text-xl font-semibold text-stone-900">
+                Related {primaryExam ? `${primaryExam.name} ` : ''}Study Communities
+              </h2>
+              <p class="mt-1 text-sm text-stone-500">
+                Explore alternative study groups matched by exam, category, and study format.
+              </p>
+            </div>
+            {primaryExam && (
+              <a href={`/exam/${primaryExam.slug}/`} class="hidden text-sm font-medium text-blue-700 hover:underline sm:inline-block">
+                Browse all {primaryExam.name} study groups →
+              </a>
+            )}
+          </div>
+          <div class="mt-6">
             <CommunityGrid communities={related} />
           </div>
+          {primaryExam && (
+            <div class="mt-4 text-center sm:hidden">
+              <a href={`/exam/${primaryExam.slug}/`} class="text-sm font-medium text-blue-700 hover:underline">
+                Browse all {primaryExam.name} study groups →
+              </a>
+            </div>
+          )}
         </section>
       )
     }

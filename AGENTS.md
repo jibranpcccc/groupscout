@@ -1,16 +1,16 @@
-# AGENTS.md — StudyScout Engineering Constitution
+# AGENTS.md — StudyGroupsHub Engineering Constitution
 
 This file is the persistent engineering contract for this repository.
 Future Hermes (or other AI) sessions MUST read this file before modifying the project.
 
 > **This project is an exam-preparation and professional-certification community
-> directory. Do not reintroduce unrelated general-community niches without
+> directory (StudyGroupsHub.com). Do not reintroduce unrelated general-community niches without
 > explicit owner approval.**
 
 The site's single vertical is `study-prep`: public study communities on
 Telegram, WhatsApp and Discord for entrance exams, admissions tests,
-professional licensing exams, English-language proficiency tests, and
-finance/accounting / technology / healthcare / law certifications.
+professional licensing exams, English-language proficiency tests, national competitive exams
+(including UPSC, JEE, NEET, GATE, CAT, CUET), and finance/accounting / technology / healthcare / law certifications.
 
 ## 1. Project purpose
 
@@ -304,11 +304,14 @@ quality suite
 (`npm run typecheck && npm run lint && npm run test && npm run validate-data && npm run build`)
 and fix every failure.
 
-## 20. Deployment & domain
-
-Netlify: build command `npm run build`, publish directory `dist`, set
-`PUBLIC_SITE_URL`. **Do NOT migrate the domain during the stability phase.**
-Keep the temporary Netlify production URL. Do not change canonicals to an
-imaginary future domain. **Do NOT submit to Google Search Console until** the
-final custom domain is selected and initial quality inventory exists.
-Full instructions in `README.md`.
+## 20. Production domain & deployment
+ 
+- Primary production domain: **`https://studygroupshub.com`** (Netlify Site: `groupscout`).
+- GitHub Actions automatically builds and deploys to Netlify on pushes to `main`.
+- Canonical URLs, Open Graph tags, sitemaps, and robots.txt all derive from `PUBLIC_SITE_URL` (`https://studygroupshub.com`).
+ 
+## 21. Exam scope & Indian entrance exams ratification
+ 
+- **Ratified Scope:** Indian national entrance exams (**UPSC, JEE, NEET, GATE, CAT, CUET**) are formally ratified as core Tier-1 in-scope inventory on StudyGroupsHub.
+- High-yield, authentic exam preparation communities for these exams are officially maintained and supported across Telegram and Discord.
+- Zero-tolerance policy remains strictly enforced against exam paper leaks, illicit dumps, and testing fraud across all exam categories.

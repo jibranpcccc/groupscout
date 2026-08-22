@@ -354,7 +354,7 @@ const tagRecords = auditRecords.filter((r) => r.pageType === 'tag');
 const indexableTags = tagRecords.filter((r) => r.isIndexable);
 
 console.log('\n==================================================');
-console.log('   STUDYSCOUT PRODUCTION SEO AUDIT & VERIFICATION');
+console.log('   STUDYGROUPSHUB PRODUCTION SEO AUDIT & VERIFICATION');
 console.log('==================================================');
 console.log(`TOTAL GENERATED HTML ROUTES:       ${totalHtmlPages}`);
 console.log(`TOTAL INDEXABLE PAGES:            ${indexablePages.length}`);

@@ -1,5 +1,5 @@
 /**
- * Core domain types for the StudyScout directory.
+ * Core domain types for the StudyGroupsHub directory.
  *
  * Rule: every field that cannot be confirmed with real evidence must be
  * `null` / `"unknown"` / `[]`. The UI hides unavailable fields — it never

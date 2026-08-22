@@ -10,7 +10,7 @@ import { getExam } from '../../config/exams';
 import { getByCategory, getPublishedCommunities } from '../../lib/communities';
 import { sortCommunities, availableFilterOptions } from '../../lib/filters';
 import { PAGE_SIZE, EXAM_INDEX_MIN } from '../../config/discovery';
-import { categoryPageTitle, breadcrumbJsonLd, jsonLd } from '../../lib/seo';
+import { pageTitle, breadcrumbJsonLd, jsonLd } from '../../lib/seo';
 import { jsonForClient } from '../../scripts/directory';
 
 export function getStaticPaths() {
@@ -41,22 +41,61 @@ for (const c of publishedAll) {
 const hasIndexableChildExam = childExams.some((e) => (examCounts.get(e.slug) ?? 0) >= EXAM_INDEX_MIN);
 const isCategoryIndexable = all.length >= 5 || (all.length > 0 && hasIndexableChildExam);
 
+const categoryMetaMap: Record<string, { title: string; metaDesc: string }> = {
+  'english-proficiency': {
+    title: 'English Language Exam Study Groups',
+    metaDesc: 'Find active study groups for IELTS, TOEFL, PTE, and Cambridge English exams across Telegram and Discord on StudyGroupsHub.',
+  },
+  'medical-healthcare': {
+    title: 'Medical & Healthcare Exam Study Groups',
+    metaDesc: 'Browse verified study groups for USMLE, NCLEX, MCAT, and medical certification exams across Discord and Telegram.',
+  },
+  'college-admissions': {
+    title: 'College Admissions Exam Study Groups',
+    metaDesc: 'Explore active student communities and study groups for SAT, ACT, and AP exams on Discord and Telegram.',
+  },
+  'graduate-admissions': {
+    title: 'Graduate Admissions Exam Study Groups',
+    metaDesc: 'Connect with peers in GRE, GMAT, and graduate school entrance exam study groups on Telegram and Discord.',
+  },
+  'finance-accounting': {
+    title: 'Finance & Accounting Exam Study Groups',
+    metaDesc: 'Find peer study communities and prep channels for CFA, CPA, and financial professional certification exams.',
+  },
+  'cybersecurity-certifications': {
+    title: 'IT & Cybersecurity Certification Study Groups',
+    metaDesc: 'Browse active study groups for AWS, CompTIA Security+, CISSP, and CCNA cloud and cybersecurity certifications.',
+  },
+  'entrance-exams': {
+    title: 'National Entrance Exam Study Groups',
+    metaDesc: 'Explore student channels and revision study groups for UPSC, JEE, NEET, GATE, and national competitive entrance exams.',
+  },
+  'law': {
+    title: 'Law School & Legal Exam Study Groups',
+    metaDesc: 'Find law student communities and preparation groups for the LSAT and bar entrance examinations on StudyGroupsHub.',
+  },
+};
+
+const customMeta = categoryMetaMap[category.slug];
+const pageTitleStr = pageTitle(customMeta?.title ?? `${category.name} Study Groups & Communities`);
+const pageDescStr = customMeta?.metaDesc ?? `${category.description} Browse and filter public ${category.name} study groups on StudyGroupsHub.`;
+
 const pageLd = jsonLd({
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
-  name: `${category.name} Communities`,
+  name: `${category.name} Study Groups`,
   description: category.description,
   url: `/category/${category.slug}/`,
 });
 ---
 
 <DirectoryLayout
-  title={categoryPageTitle(category.slug)}
-  description={`${category.description} Browse and filter public ${category.name} communities.`}
+  title={pageTitleStr}
+  description={pageDescStr}
   canonicalPath={`/category/${category.slug}/`}
   noindex={!isCategoryIndexable}
   intro={category.description}
-  count={`${all.length} communities`}
+  count={`${all.length} ${all.length === 1 ? 'community' : 'communities'}`}
   breadcrumbs={[{ label: category.name }]}
   jsonLd={`${breadcrumbJsonLd([{ name: category.name, path: `/category/${category.slug}/` }])}\n${pageLd}`}
 >
