@@ -93,5 +93,15 @@ export const CATEGORY_INDEX_MIN = 3;
  */
 export const EXAM_INDEX_MIN = 5;
 
+/**
+ * Minimum number of REAL published communities a /platform/ page needs before
+ * it is indexable. Thin/empty platform pages get noindex + sitemap exclusion.
+ */
+export const PLATFORM_INDEX_MIN = 5;
+
+export function isPlatformIndexable(qualifiedCount: number, threshold = PLATFORM_INDEX_MIN): boolean {
+  return qualifiedCount >= threshold;
+}
+
 /** Page size for directory grids / static pagination. */
 export const PAGE_SIZE = 24;

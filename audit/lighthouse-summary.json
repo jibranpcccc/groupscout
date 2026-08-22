@@ -1,62 +1,74 @@
 [
   {
-    "page": "Homepage",
-    "url": "https://groupscout.netlify.app/",
+    "name": "Homepage (Run 1)",
+    "url": "https://studygroupshub.com/",
+    "performance": 100,
+    "accessibility": 96,
+    "bestPractices": 92,
+    "seo": 100
+  },
+  {
+    "name": "Homepage (Run 2)",
+    "url": "https://studygroupshub.com/",
+    "performance": 98,
+    "accessibility": 96,
+    "bestPractices": 92,
+    "seo": 100
+  },
+  {
+    "name": "Homepage (Run 3)",
+    "url": "https://studygroupshub.com/",
+    "performance": 96,
+    "accessibility": 96,
+    "bestPractices": 92,
+    "seo": 100
+  },
+  {
+    "name": "Directory",
+    "url": "https://studygroupshub.com/communities/",
+    "performance": 98,
+    "accessibility": 96,
+    "bestPractices": 92,
+    "seo": 100
+  },
+  {
+    "name": "Exam Hub (IELTS)",
+    "url": "https://studygroupshub.com/exam/ielts/",
     "performance": 99,
     "accessibility": 96,
-    "bestPractices": 100,
-    "seo": 100,
-    "fcp": "1.6 s",
-    "lcp": "1.6 s",
-    "cls": "0",
-    "tbt": "20 ms"
+    "bestPractices": 92,
+    "seo": 100
   },
   {
-    "page": "Directory Root",
-    "url": "https://groupscout.netlify.app/communities/",
-    "performance": 100,
+    "name": "Exam Hub (USMLE)",
+    "url": "https://studygroupshub.com/exam/usmle/",
+    "performance": 87,
     "accessibility": 96,
-    "bestPractices": 100,
-    "seo": 100,
-    "fcp": "1.2 s",
-    "lcp": "1.2 s",
-    "cls": "0",
-    "tbt": "30 ms"
+    "bestPractices": 92,
+    "seo": 100
   },
   {
-    "page": "IELTS Exam Hub",
-    "url": "https://groupscout.netlify.app/exam/ielts/",
+    "name": "Category Hub (English)",
+    "url": "https://studygroupshub.com/category/english-proficiency/",
+    "performance": 97,
+    "accessibility": 96,
+    "bestPractices": 92,
+    "seo": 100
+  },
+  {
+    "name": "Platform Hub (Telegram)",
+    "url": "https://studygroupshub.com/platform/telegram/",
+    "performance": 92,
+    "accessibility": 96,
+    "bestPractices": 92,
+    "seo": 100
+  },
+  {
+    "name": "Detail Page",
+    "url": "https://studygroupshub.com/group/telegram-makon-ap-exams-study-channel/",
     "performance": 99,
     "accessibility": 96,
-    "bestPractices": 100,
-    "seo": 100,
-    "fcp": "1.5 s",
-    "lcp": "1.5 s",
-    "cls": "0",
-    "tbt": "20 ms"
-  },
-  {
-    "page": "USMLE Exam Hub",
-    "url": "https://groupscout.netlify.app/exam/usmle/",
-    "performance": 100,
-    "accessibility": 96,
-    "bestPractices": 100,
-    "seo": 100,
-    "fcp": "1.4 s",
-    "lcp": "1.4 s",
-    "cls": "0",
-    "tbt": "20 ms"
-  },
-  {
-    "page": "Community Detail Page",
-    "url": "https://groupscout.netlify.app/group/telegram-cambridge-ielts-practice-official/",
-    "performance": 100,
-    "accessibility": 95,
-    "bestPractices": 100,
-    "seo": 100,
-    "fcp": "1.0 s",
-    "lcp": "1.0 s",
-    "cls": "0",
-    "tbt": "10 ms"
+    "bestPractices": 92,
+    "seo": 100
   }
 ]

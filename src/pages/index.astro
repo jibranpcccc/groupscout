@@ -69,7 +69,7 @@ const emptyState = published.length === 0;
         </div>
         <div class="rounded-xl border border-stone-200/80 bg-surface/80 p-3 shadow-xs">
           <dd class="text-2xl font-bold text-stone-900">{recentlyChecked.length}</dd>
-          <dt class="text-xs font-medium uppercase tracking-wide text-stone-500">Recently Verified</dt>
+          <dt class="text-xs font-medium uppercase tracking-wide text-stone-500">Recently Checked</dt>
         </div>
       </dl>
     </div>
@@ -163,24 +163,24 @@ const emptyState = published.length === 0;
       <div class="max-w-3xl">
         <h2 class="text-2xl font-bold tracking-tight text-stone-900">How StudyGroupsHub Checks Communities</h2>
         <p class="mt-2 text-stone-600 leading-relaxed">
-          Every study group listed in our directory undergoes deterministic validation and policy screening before publication. We do not scrape private user messages or fabricate data.
+          StudyGroupsHub checks public community links and exam relevance. Some listings have independent source confirmation; others remain unverified and are labeled accordingly. Link status does not constitute an endorsement of a community or its members.
         </p>
       </div>
 
       <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         <div class="rounded-xl border border-stone-100 bg-stone-50/60 p-5">
           <div class="flex size-9 items-center justify-center rounded-lg bg-blue-100 text-blue-700 font-bold text-sm">1</div>
-          <h3 class="mt-3 font-semibold text-stone-900">Active Link Validation</h3>
+          <h3 class="mt-3 font-semibold text-stone-900">Public Link Checking</h3>
           <p class="mt-1 text-xs leading-relaxed text-stone-600">
-            Invite URLs are checked automatically to ensure they are publicly reachable and not dead or expired.
+            Invite URLs are tested automatically to detect broken, invalid, or expired invite links.
           </p>
         </div>
 
         <div class="rounded-xl border border-stone-100 bg-stone-50/60 p-5">
           <div class="flex size-9 items-center justify-center rounded-lg bg-blue-100 text-blue-700 font-bold text-sm">2</div>
-          <h3 class="mt-3 font-semibold text-stone-900">Exam Curriculum Relevance</h3>
+          <h3 class="mt-3 font-semibold text-stone-900">Exam Relevance Screening</h3>
           <p class="mt-1 text-xs leading-relaxed text-stone-600">
-            We confirm groups focus on authentic exam preparation or certification study, excluding unrelated general social chats.
+            We verify that groups focus on legitimate exam preparation, excluding unrelated social chats.
           </p>
         </div>
 
@@ -188,15 +188,15 @@ const emptyState = published.length === 0;
           <div class="flex size-9 items-center justify-center rounded-lg bg-blue-100 text-blue-700 font-bold text-sm">3</div>
           <h3 class="mt-3 font-semibold text-stone-900">Zero Exam-Dump Policy</h3>
           <p class="mt-1 text-xs leading-relaxed text-stone-600">
-            Channels promoting stolen test questions, answer keys, proxy test-taking, or credential fraud are permanently rejected.
+            Channels promoting stolen exam questions, answer keys, proxy testing, or credential fraud are permanently rejected.
           </p>
         </div>
 
         <div class="rounded-xl border border-stone-100 bg-stone-50/60 p-5">
           <div class="flex size-9 items-center justify-center rounded-lg bg-blue-100 text-blue-700 font-bold text-sm">4</div>
-          <h3 class="mt-3 font-semibold text-stone-900">Source Evidence Archiving</h3>
+          <h3 class="mt-3 font-semibold text-stone-900">Source Evidence Logging</h3>
           <p class="mt-1 text-xs leading-relaxed text-stone-600">
-            We record where and when each community was discovered, keeping public citations transparent for every listing.
+            We record public discovery sources and timestamps to maintain transparent citation records.
           </p>
         </div>
 
@@ -210,9 +210,9 @@ const emptyState = published.length === 0;
 
         <div class="rounded-xl border border-stone-100 bg-stone-50/60 p-5">
           <div class="flex size-9 items-center justify-center rounded-lg bg-blue-100 text-blue-700 font-bold text-sm">6</div>
-          <h3 class="mt-3 font-semibold text-stone-900">Community Reporting</h3>
+          <h3 class="mt-3 font-semibold text-stone-900">Correction &amp; Issue Reporting</h3>
           <p class="mt-1 text-xs leading-relaxed text-stone-600">
-            Students and moderators can report spam, dead links, or policy violations for immediate investigation.
+            Students and educators can submit corrections or report dead links and policy violations for investigation.
           </p>
         </div>
       </div>

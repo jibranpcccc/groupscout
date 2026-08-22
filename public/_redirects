@@ -1,3 +1,6 @@
+# Domain migration: redirect legacy Netlify subdomain to primary custom domain
+https://groupscout.netlify.app/*  https://studygroupshub.com/:splat  301!
+
 /group/telegram-173k-subscribers/  /group/telegram-makon-ap-exams-study-channel/  301
 /group/telegram-accastudents/  /group/telegram-acca-study-material/  301
 /group/telegram-adkeducationworld/  /group/telegram-adk-education-world-law-judiciary-prep/  301

@@ -38,11 +38,18 @@ export function communityDescription(community: Community): string {
   const targetTopic = primaryExam ? `${primaryExam} exam preparation` : `${getCategoryName(community.category)} study`;
 
   if (community.description && community.description.trim().length >= 40) {
-    const cleanDesc = community.description.trim().replace(/\s+/g, ' ');
-    if (cleanDesc.length > 155) {
-      return `${cleanDesc.slice(0, 152)}...`;
+    const cleanDesc = community.description
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+      .replace(/[*_~`#]+/g, '')
+      .trim()
+      .replace(/\s+/g, ' ');
+
+    if (cleanDesc.length >= 40) {
+      if (cleanDesc.length > 155) {
+        return `${cleanDesc.slice(0, 152)}...`;
+      }
+      return cleanDesc;
     }
-    return cleanDesc;
   }
 
   return `Public ${platformName} study group: ${community.title} for ${targetTopic}. Browse verified resources and discussions on StudyGroupsHub.`;

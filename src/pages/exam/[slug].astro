@@ -10,6 +10,8 @@ import { getPublishedCommunities } from '../../lib/communities';
 import { EXAM_INDEX_MIN } from '../../config/discovery';
 import { pageTitle, collectionPageJsonLd, breadcrumbJsonLd } from '../../lib/seo';
 
+import { examGuidanceMap } from '../../config/examGuidance';
+
 export const getStaticPaths = (() => {
   return exams.map((exam) => ({ params: { slug: exam.slug }, props: { exam } }));
 }) satisfies GetStaticPaths;
@@ -28,15 +30,23 @@ let titleVariant = 'Study Groups & Study Partners';
 if (hasDiscord && hasTelegram) {
   titleVariant = 'Study Groups on Telegram & Discord';
 } else if (hasTelegram) {
-  titleVariant = 'Study Groups on Telegram';
+  titleVariant = 'Telegram Study Groups & Channels';
 } else if (hasDiscord) {
-  titleVariant = 'Study Groups on Discord';
+  titleVariant = 'Discord Study Groups & Servers';
 }
 
 const title = pageTitle(`${exam.name} ${titleVariant}`);
 
+const platformText = hasDiscord && hasTelegram
+  ? 'Telegram channels and Discord servers'
+  : hasTelegram
+    ? 'Telegram channels'
+    : hasDiscord
+      ? 'Discord servers'
+      : 'peer study communities';
+
 const metaDesc = isIndexable
-  ? `Browse active ${exam.name} study groups for exam preparation, peer discussion, study partner matching, and syllabus practice on StudyGroupsHub.`
+  ? `Browse active ${exam.name} study groups for exam preparation, peer discussion, study partner matching, and syllabus practice across ${platformText} on StudyGroupsHub.`
   : `Explore public ${exam.name} study communities and student groups on StudyGroupsHub. Verified link status and safety screening.`;
 
 const crumbs = [
@@ -48,6 +58,23 @@ const crumbLd = [
   { name: family?.name ?? 'Exams', path: `/category/${exam.family}/` },
   { name: `${exam.name} Study Groups`, path: `/exam/${exam.slug}/` },
 ];
+
+const defaultGuidance = {
+  focusAreas: [
+    { label: 'Core Syllabus Mastery', text: 'Focused review across official exam blueprint domains, reference materials, and key concepts.' },
+    { label: 'Scenario & Problem Analysis', text: 'Peer discussions evaluating practical case scenarios, troubleshooting, and exam strategy.' },
+    { label: 'Study Consistency & Milestones', text: 'Scheduled check-ins to maintain study momentum and syllabus completion.' },
+    { label: 'Authentic Peer Discussion', text: 'Moderated exchange focused on mutual understanding and legitimate exam preparation.' },
+  ],
+  faqs: [
+    { question: `Are these ${exam.name} study groups free to join?`, answer: `All public ${exam.name} communities listed on StudyGroupsHub are free to join via standard platform invite links.` },
+    { question: `How can I find an ${exam.name} study partner?`, answer: `Join an active ${exam.name} group and introduce yourself with your target test date and study goals.` },
+    { question: `Are ${exam.name} study channels safe?`, answer: `Public groups are suitable for peer study. Avoid sharing private credentials or financial details.` },
+    { question: `How often are ${exam.name} links checked?`, answer: `Our automated link validation tests invite URLs regularly to detect and remove broken links.` },
+  ],
+};
+
+const guidance = examGuidanceMap[exam.slug] || defaultGuidance;
 ---
 
 <BaseLayout
@@ -67,7 +94,7 @@ const crumbLd = [
       </h1>
       <p class="mt-3 max-w-3xl text-base leading-relaxed text-stone-600">
         {exam.description} Connect with fellow candidates for {exam.name} exam preparation,
-        daily practice questions, study partner matching, and peer support.
+        daily practice questions, study partner matching, and peer support across {platformText}.
       </p>
       <div class="mt-6 flex flex-wrap items-center gap-3 text-sm">
         <span class="rounded-full bg-blue-100 px-3.5 py-1 font-medium text-blue-800">
@@ -125,42 +152,67 @@ const crumbLd = [
           <div class="rounded-2xl border border-stone-200 bg-surface p-6 sm:p-8 shadow-xs">
             <h2 class="text-xl font-bold text-stone-900">What to Look for in an {exam.name} Study Group</h2>
             <ul class="mt-4 space-y-3 text-sm text-stone-600 leading-relaxed">
-              <li class="flex items-start gap-2.5">
-                <span class="font-bold text-blue-600">•</span>
-                <span><strong>Active Problem Solving:</strong> Look for groups where members actively discuss official practice questions, concepts, and revision strategies.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="font-bold text-blue-600">•</span>
-                <span><strong>Study Partner Matching:</strong> High-quality communities facilitate dedicated partner pairing for mock sessions, peer review, and accountability.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="font-bold text-blue-600">•</span>
-                <span><strong>Clear Moderation:</strong> A well-managed group enforces strict rules against spam, commercial advertising, and illicit exam dumps.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="font-bold text-blue-600">•</span>
-                <span><strong>Regular Activity:</strong> Check that current members are actively testing in the upcoming cycle for aligned revision schedules.</span>
-              </li>
+              {
+                guidance.focusAreas.map((item) => (
+                  <li class="flex items-start gap-2.5">
+                    <span class="font-bold text-blue-600">•</span>
+                    <span><strong>{item.label}:</strong> {item.text}</span>
+                  </li>
+                ))
+              }
             </ul>
           </div>
 
-          <!-- Platform Comparison -->
+          <!-- Platform Guidance (Truthful & Inventory-Aware) -->
           <div class="rounded-2xl border border-stone-200 bg-surface p-6 sm:p-8 shadow-xs">
-            <h2 class="text-xl font-bold text-stone-900">Telegram vs Discord for {exam.name} Preparation</h2>
-            <div class="mt-4 space-y-4 text-sm text-stone-600 leading-relaxed">
-              <div>
-                <h3 class="font-semibold text-stone-900">Telegram Study Channels</h3>
-                <p class="mt-0.5 text-xs text-stone-600">
-                  Best for mobile-first notifications, daily revision polls, downloadable PDF notes, and fast discussion threads directly from your phone.
-                </p>
-              </div>
-              <div>
-                <h3 class="font-semibold text-stone-900">Discord Study Servers</h3>
-                <p class="mt-0.5 text-xs text-stone-600">
-                  Best for structured topic channels (e.g. separate sections per exam topic), voice study rooms, screen sharing, and Pomodoro study sessions.
-                </p>
-              </div>
-            </div>
+            {
+              hasDiscord && hasTelegram ? (
+                <div>
+                  <h2 class="text-xl font-bold text-stone-900">Telegram vs Discord for {exam.name} Preparation</h2>
+                  <div class="mt-4 space-y-4 text-sm text-stone-600 leading-relaxed">
+                    <div>
+                      <h3 class="font-semibold text-stone-900">Telegram Study Channels &amp; Groups</h3>
+                      <p class="mt-0.5 text-xs text-stone-600">
+                        {guidance.platformNote?.dualTelegramNote || `Convenient for mobile practice polls, downloadable ${exam.name} syllabus notes, and instant notification updates.`}
+                      </p>
+                    </div>
+                    <div>
+                      <h3 class="font-semibold text-stone-900">Discord Study Servers</h3>
+                      <p class="mt-0.5 text-xs text-stone-600">
+                        {guidance.platformNote?.dualDiscordNote || `Structured with topic-specific text channels, voice study rooms, screen sharing for ${exam.name} problem solving, and Pomodoro study sessions.`}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ) : hasTelegram ? (
+                <div>
+                  <h2 class="text-xl font-bold text-stone-900">Using Telegram for {exam.name} Study Communities</h2>
+                  <div class="mt-4 space-y-3 text-sm text-stone-600 leading-relaxed">
+                    <p>
+                      Currently, verified public study communities for {exam.name} are active on <strong>Telegram</strong>.
+                    </p>
+                    <p class="text-xs text-stone-600">
+                      {guidance.platformNote?.telegramNote || `Telegram channels and groups allow candidates to participate in daily revision quizzes, exchange study notes, discuss syllabus topics, and connect with peer study partners from any mobile device.`}
+                    </p>
+                    <p class="text-xs text-stone-600">
+                      Always manage channel notifications to maintain focus during intensive study blocks.
+                    </p>
+                  </div>
+                </div>
+              ) : (
+                <div>
+                  <h2 class="text-xl font-bold text-stone-900">Using Discord for {exam.name} Study Communities</h2>
+                  <div class="mt-4 space-y-3 text-sm text-stone-600 leading-relaxed">
+                    <p>
+                      Verified public study communities for {exam.name} are hosted on <strong>Discord</strong>.
+                    </p>
+                    <p class="text-xs text-stone-600">
+                      {guidance.platformNote?.discordNote || `Discord provides dedicated voice study lounges, organized topic channels for specific syllabus sections, and screen-sharing capabilities for group problem-solving.`}
+                    </p>
+                  </div>
+                </div>
+              )
+            }
           </div>
         </div>
 
@@ -168,43 +220,24 @@ const crumbLd = [
         <div class="mt-8 rounded-2xl border border-blue-100 bg-blue-50/60 p-6 sm:p-8">
           <h2 class="text-lg font-bold text-stone-900">How We Check {exam.name} Communities</h2>
           <p class="mt-2 text-sm leading-relaxed text-stone-700">
-            Every {exam.name} study group listed on StudyGroupsHub is verified for public reachability, authentic exam relevance, and academic integrity.
-            We automatically scan and reject any channel advertising exam leaks, brain dumps, proxy testing, or credential fraud.
+            StudyGroupsHub tests public community invite links for {exam.name} and confirms exam relevance before listing.
+            We maintain a strict zero-tolerance policy against exam brain dumps, stolen questions, proxy testing, and credential fraud.
             Learn more about our <a href="/how-we-verify/" class="font-semibold text-blue-700 hover:underline">verification process</a> and <a href="/academic-integrity/" class="font-semibold text-blue-700 hover:underline">anti-dump policy</a>.
           </p>
         </div>
 
-        <!-- Visible FAQs -->
+        <!-- Visible FAQs (Truthful, Unique & Exam-Specific) -->
         <div class="mt-12">
           <h2 class="text-xl font-bold text-stone-900">Frequently Asked Questions About {exam.name} Study Groups</h2>
           <dl class="mt-6 grid gap-6 sm:grid-cols-2">
-            <div class="rounded-xl border border-stone-200 bg-surface p-5 shadow-xs">
-              <dt class="font-semibold text-stone-900">Are these {exam.name} study groups free to join?</dt>
-              <dd class="mt-2 text-xs leading-relaxed text-stone-600">
-                Yes. All public communities listed on StudyGroupsHub are free to join via standard platform invite links. Be wary of any individual asking for private payments inside a group.
-              </dd>
-            </div>
-
-            <div class="rounded-xl border border-stone-200 bg-surface p-5 shadow-xs">
-              <dt class="font-semibold text-stone-900">How can I find an {exam.name} study partner?</dt>
-              <dd class="mt-2 text-xs leading-relaxed text-stone-600">
-                Join an active group and introduce yourself with your target test date, timezone, and study goals. Many groups have dedicated partner-search channels.
-              </dd>
-            </div>
-
-            <div class="rounded-xl border border-stone-200 bg-surface p-5 shadow-xs">
-              <dt class="font-semibold text-stone-900">Are {exam.name} Telegram &amp; Discord groups safe?</dt>
-              <dd class="mt-2 text-xs leading-relaxed text-stone-600">
-                Public groups are generally safe for peer discussion, but never share personal credentials, financial details, or engage with offers claiming to sell real exam questions.
-              </dd>
-            </div>
-
-            <div class="rounded-xl border border-stone-200 bg-surface p-5 shadow-xs">
-              <dt class="font-semibold text-stone-900">How often are listings checked?</dt>
-              <dd class="mt-2 text-xs leading-relaxed text-stone-600">
-                Our automated validation system tests invite links regularly to detect broken links, private status changes, or spam conversions.
-              </dd>
-            </div>
+            {
+              guidance.faqs.map((faq) => (
+                <div class="rounded-xl border border-stone-200 bg-surface p-5 shadow-xs">
+                  <dt class="font-semibold text-stone-900">{faq.question}</dt>
+                  <dd class="mt-2 text-xs leading-relaxed text-stone-600">{faq.answer}</dd>
+                </div>
+              ))
+            }
           </dl>
         </div>
       </section>

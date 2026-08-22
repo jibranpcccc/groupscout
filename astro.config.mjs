@@ -6,10 +6,15 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import { readFileSync } from 'node:fs';
 
-const siteUrl = process.env.PUBLIC_SITE_URL || 'https://studygroupshub.com';
+const rawEnvUrl = process.env.PUBLIC_SITE_URL;
+const siteUrl =
+  rawEnvUrl && !rawEnvUrl.includes('localhost') && !rawEnvUrl.includes('127.0.0.1')
+    ? rawEnvUrl.replace(/\/+$/, '')
+    : 'https://studygroupshub.com';
 
 // Indexation thresholds (must match src/config/discovery.ts).
 const EXAM_INDEX_MIN = 5;
+const PLATFORM_INDEX_MIN = 5;
 
 // Real published counts from the production data source — demo/sample
 // records are excluded so they can never appear in the sitemap.
@@ -112,11 +117,11 @@ export default defineConfig({
         const catMatch = page.match(/\/category\/([^/]+)\/?$/);
         if (catMatch && !indexableCategories.has(catMatch[1])) return false;
 
-        // Platform pages (must have at least 1 published community).
+        // Platform pages (must meet PLATFORM_INDEX_MIN threshold).
         const platMatch = page.match(/\/platform\/([^/]+)\/?$/);
         if (platMatch) {
           const platCount = realGroups.filter((c) => c.platform === platMatch[1]).length;
-          if (platCount === 0) return false;
+          if (platCount < PLATFORM_INDEX_MIN) return false;
         }
 
         return true;

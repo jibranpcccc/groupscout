@@ -6,7 +6,7 @@ import EmptyState from '../../components/EmptyState.astro';
 import { platforms, getPlatformById } from '../../config/platforms';
 import { getByPlatform } from '../../lib/communities';
 import { sortCommunities, availableFilterOptions } from '../../lib/filters';
-import { PAGE_SIZE } from '../../config/discovery';
+import { PAGE_SIZE, PLATFORM_INDEX_MIN } from '../../config/discovery';
 import { pageTitle, breadcrumbJsonLd, jsonLd } from '../../lib/seo';
 import { jsonForClient } from '../../scripts/directory';
 
@@ -23,7 +23,7 @@ const sorted = sortCommunities(all, 'newest');
 const pageOne = sorted.slice(0, PAGE_SIZE);
 const options = availableFilterOptions(all);
 
-const isPlatformIndexable = all.length > 0;
+const isPlatformIndexable = all.length >= PLATFORM_INDEX_MIN;
 
 const pageTitleStr = pageTitle(`${platform.name} Exam Study Groups`);
 const pageDescStr = isPlatformIndexable

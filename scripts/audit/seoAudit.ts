@@ -353,6 +353,44 @@ const thinExamHubs = examHubRecords.filter((r) => !r.isIndexable);
 const tagRecords = auditRecords.filter((r) => r.pageType === 'tag');
 const indexableTags = tagRecords.filter((r) => r.isIndexable);
 
+// Stale Brand and Host Detection
+const staleBrandMatches: Array<{ file: string; match: string }> = [];
+const staleHostMatches: Array<{ file: string; match: string }> = [];
+const forbiddenSchemaMatches: Array<{ file: string; schema: string }> = [];
+
+allHtmlFiles.forEach((fullPath) => {
+  const rel = path.relative(distPath, fullPath).replace(/\\/g, '/');
+  const html = fs.readFileSync(fullPath, 'utf8');
+
+  // Stale brand check
+  if (html.includes('StudyScout')) {
+    staleBrandMatches.push({ file: rel, match: 'StudyScout' });
+  }
+
+  // Stale host in canonical / og / json-ld
+  const staleHostTerms = ['groupscout.netlify.app', 'localhost:4321', 'localhost:3000', '127.0.0.1'];
+  for (const term of staleHostTerms) {
+    if (html.includes(term)) {
+      staleHostMatches.push({ file: rel, match: term });
+    }
+  }
+
+  // Check forbidden FAQPage schema
+  if (html.includes('"@type":"FAQPage"') || html.includes('"@type": "FAQPage"')) {
+    forbiddenSchemaMatches.push({ file: rel, schema: 'FAQPage' });
+  }
+});
+
+// Also check sitemap and robots for stale host
+if (sitemapXml.includes('groupscout.netlify.app') || sitemapXml.includes('localhost')) {
+  staleHostMatches.push({ file: 'sitemap-0.xml', match: 'stale host in sitemap' });
+}
+const robotsPath = path.resolve(distPath, 'robots.txt');
+const robotsTxt = fs.existsSync(robotsPath) ? fs.readFileSync(robotsPath, 'utf8') : '';
+if (robotsTxt.includes('groupscout.netlify.app') || robotsTxt.includes('localhost')) {
+  staleHostMatches.push({ file: 'robots.txt', match: 'stale host in robots.txt' });
+}
+
 console.log('\n==================================================');
 console.log('   STUDYGROUPSHUB PRODUCTION SEO AUDIT & VERIFICATION');
 console.log('==================================================');
@@ -376,6 +414,9 @@ console.log(`NOINDEX IN SITEMAP:               ${noindexInSitemap.length}`);
 console.log(`CANONICAL REDIRECTING:            ${canonicalRedirecting}`);
 console.log(`REDIRECT CHAINS:                  ${redirectChains}`);
 console.log(`PUBLIC GIBBERISH DETECTED:        ${gibberishMatches.length}`);
+console.log(`STALE BRAND OCCURRENCES:          ${staleBrandMatches.length}`);
+console.log(`STALE HOST OCCURRENCES:           ${staleHostMatches.length}`);
+console.log(`FORBIDDEN FAQ SCHEMA OCCURRENCES: ${forbiddenSchemaMatches.length}`);
 console.log('==================================================');
 
 if (duplicateTitles.length > 0) {
@@ -392,6 +433,21 @@ if (duplicateMetaDescs.length > 0) {
   });
 }
 
+if (staleBrandMatches.length > 0) {
+  console.error('\nStale Brand Matches Found:');
+  staleBrandMatches.forEach((m) => console.error(`- ${m.file}: ${m.match}`));
+}
+
+if (staleHostMatches.length > 0) {
+  console.error('\nStale Host Matches Found:');
+  staleHostMatches.forEach((m) => console.error(`- ${m.file}: ${m.match}`));
+}
+
+if (forbiddenSchemaMatches.length > 0) {
+  console.error('\nForbidden FAQPage Schema Matches Found:');
+  forbiddenSchemaMatches.forEach((m) => console.error(`- ${m.file}: ${m.schema}`));
+}
+
 if (
   duplicateTitles.length > 0 ||
   duplicateMetaDescs.length > 0 ||
@@ -400,7 +456,10 @@ if (
   redirectChains > 0 ||
   canonicalRedirecting > 0 ||
   gibberishMatches.length > 0 ||
-  indexableTags.length > 0
+  indexableTags.length > 0 ||
+  staleBrandMatches.length > 0 ||
+  staleHostMatches.length > 0 ||
+  forbiddenSchemaMatches.length > 0
 ) {
   console.error('\n❌ SEO AUDIT FAILED — Issues detected.');
   process.exit(1);

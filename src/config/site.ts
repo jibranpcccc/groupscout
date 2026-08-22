@@ -8,7 +8,11 @@
 
 function getPublicSiteUrl(): string {
   const env = (import.meta as unknown as { env?: Record<string, string> }).env;
-  return env?.PUBLIC_SITE_URL?.replace(/\/+$/, '') || 'https://studygroupshub.com';
+  const configured = env?.PUBLIC_SITE_URL?.replace(/\/+$/, '');
+  if (configured && !configured.includes('localhost') && !configured.includes('127.0.0.1')) {
+    return configured;
+  }
+  return 'https://studygroupshub.com';
 }
 
 function getEnvVar(key: string): string | undefined {
@@ -31,7 +35,7 @@ export const siteConfig = {
   notAffiliatedNotice:
     'Not affiliated with Telegram, WhatsApp, Discord, or their parent companies.',
   /** Google Analytics 4 Measurement ID (e.g. G-XXXXXXXXXX) */
-  gaMeasurementId: getEnvVar('PUBLIC_GA_MEASUREMENT_ID'),
+  gaMeasurementId: getEnvVar('PUBLIC_GA_MEASUREMENT_ID') || 'G-553LRP3Z7R',
   /** Google Search Console verification meta tag token */
   googleSiteVerification: getEnvVar('PUBLIC_GOOGLE_SITE_VERIFICATION'),
   /** Bing Webmaster Tools verification meta tag token */

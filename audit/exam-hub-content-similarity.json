@@ -1,0 +1,1065 @@
+{
+  "timestamp": "2026-08-22T10:24:44.208Z",
+  "totalIndexableExamHubs": 15,
+  "totalPairsCompared": 105,
+  "exactDuplicateSubstantiveParagraphs": 0,
+  "highSimilarityPairsRequiringReview": 0,
+  "comparisons": [
+    {
+      "examA": "SAT",
+      "examB": "GRE",
+      "slugA": "sat",
+      "slugB": "gre",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.22,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "SAT",
+      "examB": "GMAT",
+      "slugA": "sat",
+      "slugB": "gmat",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.25,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "SAT",
+      "examB": "JEE",
+      "slugA": "sat",
+      "slugB": "jee",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.2,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "SAT",
+      "examB": "NEET",
+      "slugA": "sat",
+      "slugB": "neet",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.21,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "SAT",
+      "examB": "GATE",
+      "slugA": "sat",
+      "slugB": "gate",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.2,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "SAT",
+      "examB": "UPSC",
+      "slugA": "sat",
+      "slugB": "upsc",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.18,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "SAT",
+      "examB": "IELTS",
+      "slugA": "sat",
+      "slugB": "ielts",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.23,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "SAT",
+      "examB": "TOEFL",
+      "slugA": "sat",
+      "slugB": "toefl",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.21,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "SAT",
+      "examB": "USMLE",
+      "slugA": "sat",
+      "slugB": "usmle",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.19,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "SAT",
+      "examB": "NCLEX",
+      "slugA": "sat",
+      "slugB": "nclex",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.18,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "SAT",
+      "examB": "LSAT",
+      "slugA": "sat",
+      "slugB": "lsat",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.23,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "SAT",
+      "examB": "CFA",
+      "slugA": "sat",
+      "slugB": "cfa",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.19,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "SAT",
+      "examB": "CPA",
+      "slugA": "sat",
+      "slugB": "cpa",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.19,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "SAT",
+      "examB": "CISSP",
+      "slugA": "sat",
+      "slugB": "cissp",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.18,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "GRE",
+      "examB": "GMAT",
+      "slugA": "gre",
+      "slugB": "gmat",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.21,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "GRE",
+      "examB": "JEE",
+      "slugA": "gre",
+      "slugB": "jee",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.26,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "GRE",
+      "examB": "NEET",
+      "slugA": "gre",
+      "slugB": "neet",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.17,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "GRE",
+      "examB": "GATE",
+      "slugA": "gre",
+      "slugB": "gate",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.25,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "GRE",
+      "examB": "UPSC",
+      "slugA": "gre",
+      "slugB": "upsc",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.24,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "GRE",
+      "examB": "IELTS",
+      "slugA": "gre",
+      "slugB": "ielts",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.3,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "GRE",
+      "examB": "TOEFL",
+      "slugA": "gre",
+      "slugB": "toefl",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.26,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "GRE",
+      "examB": "USMLE",
+      "slugA": "gre",
+      "slugB": "usmle",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.24,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "GRE",
+      "examB": "NCLEX",
+      "slugA": "gre",
+      "slugB": "nclex",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.28,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "GRE",
+      "examB": "LSAT",
+      "slugA": "gre",
+      "slugB": "lsat",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.25,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "GRE",
+      "examB": "CFA",
+      "slugA": "gre",
+      "slugB": "cfa",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.26,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "GRE",
+      "examB": "CPA",
+      "slugA": "gre",
+      "slugB": "cpa",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.25,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "GRE",
+      "examB": "CISSP",
+      "slugA": "gre",
+      "slugB": "cissp",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.23,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "GMAT",
+      "examB": "JEE",
+      "slugA": "gmat",
+      "slugB": "jee",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.18,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "GMAT",
+      "examB": "NEET",
+      "slugA": "gmat",
+      "slugB": "neet",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.23,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "GMAT",
+      "examB": "GATE",
+      "slugA": "gmat",
+      "slugB": "gate",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.17,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "GMAT",
+      "examB": "UPSC",
+      "slugA": "gmat",
+      "slugB": "upsc",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.21,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "GMAT",
+      "examB": "IELTS",
+      "slugA": "gmat",
+      "slugB": "ielts",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.2,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "GMAT",
+      "examB": "TOEFL",
+      "slugA": "gmat",
+      "slugB": "toefl",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.21,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "GMAT",
+      "examB": "USMLE",
+      "slugA": "gmat",
+      "slugB": "usmle",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.2,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "GMAT",
+      "examB": "NCLEX",
+      "slugA": "gmat",
+      "slugB": "nclex",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.2,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "GMAT",
+      "examB": "LSAT",
+      "slugA": "gmat",
+      "slugB": "lsat",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [
+        "intro paragraph"
+      ],
+      "similarityScore": 0.27,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "GMAT",
+      "examB": "CFA",
+      "slugA": "gmat",
+      "slugB": "cfa",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.21,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "GMAT",
+      "examB": "CPA",
+      "slugA": "gmat",
+      "slugB": "cpa",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.19,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "GMAT",
+      "examB": "CISSP",
+      "slugA": "gmat",
+      "slugB": "cissp",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.2,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "JEE",
+      "examB": "NEET",
+      "slugA": "jee",
+      "slugB": "neet",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.24,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "JEE",
+      "examB": "GATE",
+      "slugA": "jee",
+      "slugB": "gate",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.28,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "JEE",
+      "examB": "UPSC",
+      "slugA": "jee",
+      "slugB": "upsc",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.23,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "JEE",
+      "examB": "IELTS",
+      "slugA": "jee",
+      "slugB": "ielts",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.25,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "JEE",
+      "examB": "TOEFL",
+      "slugA": "jee",
+      "slugB": "toefl",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.2,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "JEE",
+      "examB": "USMLE",
+      "slugA": "jee",
+      "slugB": "usmle",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.24,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "JEE",
+      "examB": "NCLEX",
+      "slugA": "jee",
+      "slugB": "nclex",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.25,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "JEE",
+      "examB": "LSAT",
+      "slugA": "jee",
+      "slugB": "lsat",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.2,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "JEE",
+      "examB": "CFA",
+      "slugA": "jee",
+      "slugB": "cfa",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.24,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "JEE",
+      "examB": "CPA",
+      "slugA": "jee",
+      "slugB": "cpa",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.25,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "JEE",
+      "examB": "CISSP",
+      "slugA": "jee",
+      "slugB": "cissp",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.23,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "NEET",
+      "examB": "GATE",
+      "slugA": "neet",
+      "slugB": "gate",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.18,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "NEET",
+      "examB": "UPSC",
+      "slugA": "neet",
+      "slugB": "upsc",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.18,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "NEET",
+      "examB": "IELTS",
+      "slugA": "neet",
+      "slugB": "ielts",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.18,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "NEET",
+      "examB": "TOEFL",
+      "slugA": "neet",
+      "slugB": "toefl",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.19,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "NEET",
+      "examB": "USMLE",
+      "slugA": "neet",
+      "slugB": "usmle",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.21,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "NEET",
+      "examB": "NCLEX",
+      "slugA": "neet",
+      "slugB": "nclex",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.16,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "NEET",
+      "examB": "LSAT",
+      "slugA": "neet",
+      "slugB": "lsat",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.2,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "NEET",
+      "examB": "CFA",
+      "slugA": "neet",
+      "slugB": "cfa",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.2,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "NEET",
+      "examB": "CPA",
+      "slugA": "neet",
+      "slugB": "cpa",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.15,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "NEET",
+      "examB": "CISSP",
+      "slugA": "neet",
+      "slugB": "cissp",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.17,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "GATE",
+      "examB": "UPSC",
+      "slugA": "gate",
+      "slugB": "upsc",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.24,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "GATE",
+      "examB": "IELTS",
+      "slugA": "gate",
+      "slugB": "ielts",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.23,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "GATE",
+      "examB": "TOEFL",
+      "slugA": "gate",
+      "slugB": "toefl",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.21,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "GATE",
+      "examB": "USMLE",
+      "slugA": "gate",
+      "slugB": "usmle",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.24,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "GATE",
+      "examB": "NCLEX",
+      "slugA": "gate",
+      "slugB": "nclex",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.26,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "GATE",
+      "examB": "LSAT",
+      "slugA": "gate",
+      "slugB": "lsat",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.19,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "GATE",
+      "examB": "CFA",
+      "slugA": "gate",
+      "slugB": "cfa",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.23,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "GATE",
+      "examB": "CPA",
+      "slugA": "gate",
+      "slugB": "cpa",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.26,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "GATE",
+      "examB": "CISSP",
+      "slugA": "gate",
+      "slugB": "cissp",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.25,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "UPSC",
+      "examB": "IELTS",
+      "slugA": "upsc",
+      "slugB": "ielts",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.22,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "UPSC",
+      "examB": "TOEFL",
+      "slugA": "upsc",
+      "slugB": "toefl",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.25,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "UPSC",
+      "examB": "USMLE",
+      "slugA": "upsc",
+      "slugB": "usmle",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.21,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "UPSC",
+      "examB": "NCLEX",
+      "slugA": "upsc",
+      "slugB": "nclex",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.24,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "UPSC",
+      "examB": "LSAT",
+      "slugA": "upsc",
+      "slugB": "lsat",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.18,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "UPSC",
+      "examB": "CFA",
+      "slugA": "upsc",
+      "slugB": "cfa",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.25,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "UPSC",
+      "examB": "CPA",
+      "slugA": "upsc",
+      "slugB": "cpa",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.23,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "UPSC",
+      "examB": "CISSP",
+      "slugA": "upsc",
+      "slugB": "cissp",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.23,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "IELTS",
+      "examB": "TOEFL",
+      "slugA": "ielts",
+      "slugB": "toefl",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [
+        "intro paragraph"
+      ],
+      "similarityScore": 0.31,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "IELTS",
+      "examB": "USMLE",
+      "slugA": "ielts",
+      "slugB": "usmle",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.24,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "IELTS",
+      "examB": "NCLEX",
+      "slugA": "ielts",
+      "slugB": "nclex",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.26,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "IELTS",
+      "examB": "LSAT",
+      "slugA": "ielts",
+      "slugB": "lsat",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.22,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "IELTS",
+      "examB": "CFA",
+      "slugA": "ielts",
+      "slugB": "cfa",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.24,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "IELTS",
+      "examB": "CPA",
+      "slugA": "ielts",
+      "slugB": "cpa",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.26,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "IELTS",
+      "examB": "CISSP",
+      "slugA": "ielts",
+      "slugB": "cissp",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.22,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "TOEFL",
+      "examB": "USMLE",
+      "slugA": "toefl",
+      "slugB": "usmle",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.23,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "TOEFL",
+      "examB": "NCLEX",
+      "slugA": "toefl",
+      "slugB": "nclex",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.22,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "TOEFL",
+      "examB": "LSAT",
+      "slugA": "toefl",
+      "slugB": "lsat",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.21,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "TOEFL",
+      "examB": "CFA",
+      "slugA": "toefl",
+      "slugB": "cfa",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.22,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "TOEFL",
+      "examB": "CPA",
+      "slugA": "toefl",
+      "slugB": "cpa",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.21,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "TOEFL",
+      "examB": "CISSP",
+      "slugA": "toefl",
+      "slugB": "cissp",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.25,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "USMLE",
+      "examB": "NCLEX",
+      "slugA": "usmle",
+      "slugB": "nclex",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.25,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "USMLE",
+      "examB": "LSAT",
+      "slugA": "usmle",
+      "slugB": "lsat",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.19,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "USMLE",
+      "examB": "CFA",
+      "slugA": "usmle",
+      "slugB": "cfa",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.27,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "USMLE",
+      "examB": "CPA",
+      "slugA": "usmle",
+      "slugB": "cpa",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.23,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "USMLE",
+      "examB": "CISSP",
+      "slugA": "usmle",
+      "slugB": "cissp",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.24,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "NCLEX",
+      "examB": "LSAT",
+      "slugA": "nclex",
+      "slugB": "lsat",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.2,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "NCLEX",
+      "examB": "CFA",
+      "slugA": "nclex",
+      "slugB": "cfa",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.25,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "NCLEX",
+      "examB": "CPA",
+      "slugA": "nclex",
+      "slugB": "cpa",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [
+        "intro paragraph"
+      ],
+      "similarityScore": 0.27,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "NCLEX",
+      "examB": "CISSP",
+      "slugA": "nclex",
+      "slugB": "cissp",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.24,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "LSAT",
+      "examB": "CFA",
+      "slugA": "lsat",
+      "slugB": "cfa",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.17,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "LSAT",
+      "examB": "CPA",
+      "slugA": "lsat",
+      "slugB": "cpa",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.2,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "LSAT",
+      "examB": "CISSP",
+      "slugA": "lsat",
+      "slugB": "cissp",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.2,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "CFA",
+      "examB": "CPA",
+      "slugA": "cfa",
+      "slugB": "cpa",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.27,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "CFA",
+      "examB": "CISSP",
+      "slugA": "cfa",
+      "slugB": "cissp",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.24,
+      "manualReviewRequired": false
+    },
+    {
+      "examA": "CPA",
+      "examB": "CISSP",
+      "slugA": "cpa",
+      "slugB": "cissp",
+      "exactDuplicateParagraphs": [],
+      "highlySimilarParagraphs": [],
+      "similarityScore": 0.22,
+      "manualReviewRequired": false
+    }
+  ]
+}
