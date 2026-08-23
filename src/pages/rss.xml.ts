@@ -34,6 +34,7 @@ export const GET: APIRoute = () => {
     <title>${siteConfig.name} — Recently Added</title>
     <link>${siteConfig.url}</link>
     <description>Recently added public online communities.</description>
+    <language>en</language>
 ${items}
   </channel>
 </rss>`;
