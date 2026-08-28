@@ -2471,5 +2471,191 @@
     "featured": false,
     "published": false,
     "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mtd6jsvt-3mylbb",
+    "slug": "telegram-imdapp-et",
+    "title": "iMD app – Telegram — iMD app",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "medical-healthcare",
+    "subcategory": null,
+    "tags": [
+      "USMLE",
+      "PLAB"
+    ],
+    "examFamilies": [
+      "medical-healthcare"
+    ],
+    "exams": [
+      "usmle",
+      "plab"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/imdapp_et",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://t.me/s/iMDApp_et"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-28T16:42:39.737Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mtd6jttc-ecomhn",
+    "slug": "telegram-elearninglinks",
+    "title": "E-learning – Telegram — Title: E-learning – Telegram",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "cybersecurity-certifications",
+    "subcategory": null,
+    "tags": [
+      "CISSP"
+    ],
+    "examFamilies": [
+      "cybersecurity-certifications"
+    ],
+    "exams": [
+      "cissp"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/elearninglinks",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://t.me/s/elearninglinks?before=15750"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-28T16:42:40.944Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mtd6juqr-ziyje6",
+    "slug": "telegram-networktalkorg",
+    "title": "Network Talk – Telegram — Title: Network Talk – Telegram",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "networking-certifications",
+    "subcategory": null,
+    "tags": [
+      "CCNP"
+    ],
+    "examFamilies": [
+      "networking-certifications"
+    ],
+    "exams": [
+      "ccnp"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/networktalkorg",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://t.me/s/networktalkorg"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-28T16:42:42.147Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mtd6jvo9-0jmutj",
+    "slug": "telegram-digital-sat-files",
+    "title": "Digital SAT files – Telegram — 🟩 Top Free SAT Prep Resources ✔️ 🔹 1) Khan Academy Official SAT prep made with College",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "college-admissions",
+    "subcategory": null,
+    "tags": [
+      "SAT"
+    ],
+    "examFamilies": [
+      "college-admissions"
+    ],
+    "exams": [
+      "sat"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/digital_sat_files",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://t.me/s/digital_sat_files?before=61"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-08-28T16:42:43.353Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
   }
 ]
