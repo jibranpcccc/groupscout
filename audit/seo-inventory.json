@@ -69,7 +69,7 @@
     "metaDescription": "Study communities for cloud certifications such as AWS, Microsoft Azure and Google Cloud. Browse and filter public Cloud Certifications study groups on StudyGroupsHub.",
     "h1Count": 1,
     "h1Text": "Cloud Certifications Study Groups",
-    "wordCount": 419,
+    "wordCount": 421,
     "inboundLinks": 19,
     "outboundLinks": 40,
     "crawlDepth": 1,
@@ -135,7 +135,7 @@
     "metaDescription": "Join active study groups for IELTS, TOEFL, PTE, and Cambridge English across Telegram and Discord. Find speaking partners and verified practice materials.",
     "h1Count": 1,
     "h1Text": "English Language Exam Study Groups",
-    "wordCount": 1325,
+    "wordCount": 1323,
     "inboundLinks": 267,
     "outboundLinks": 61,
     "crawlDepth": 1,
@@ -179,7 +179,7 @@
     "metaDescription": "Join peer study groups for CFA, CPA, and ACCA exams on Telegram and Discord. Discuss financial reporting, ethics, simulations, and exam prep strategies.",
     "h1Count": 1,
     "h1Text": "Finance &amp; Accounting Exam Study Groups",
-    "wordCount": 951,
+    "wordCount": 949,
     "inboundLinks": 267,
     "outboundLinks": 51,
     "crawlDepth": 1,
@@ -245,7 +245,7 @@
     "metaDescription": "Find active law student communities and study groups for the LSAT, Bar Exam, and SQE on Discord and Telegram. Discuss logical reasoning and legal prep.",
     "h1Count": 1,
     "h1Text": "Law School &amp; Legal Exam Study Groups",
-    "wordCount": 579,
+    "wordCount": 581,
     "inboundLinks": 267,
     "outboundLinks": 43,
     "crawlDepth": 1,
@@ -2013,7 +2013,7 @@
     "url": "https://studygroupshub.com/group/telegram-apply-club-channel/",
     "file": "group/telegram-apply-club-channel/index.html",
     "pageType": "individual community detail",
-    "isIndexable": true,
+    "isIndexable": false,
     "canonical": "https://studygroupshub.com/group/telegram-apply-club-channel/",
     "title": "Apply Club Channel (Global Admissions) – GRE Study Group on Telegram | StudyGroupsHub",
     "metaDescription": "Apply Club Channel",
@@ -2028,8 +2028,8 @@
       "WebPage",
       "EducationalOrganization"
     ],
-    "inSitemap": true,
-    "lastmod": "2026-08-21T09:10:54.487Z"
+    "inSitemap": false,
+    "lastmod": null
   },
   {
     "url": "https://studygroupshub.com/group/telegram-archer-review-nclex-lpn-and-rn/",
@@ -2145,7 +2145,7 @@
     "url": "https://studygroupshub.com/group/telegram-biology-notes-study-material-l/",
     "file": "group/telegram-biology-notes-study-material-l/index.html",
     "pageType": "individual community detail",
-    "isIndexable": true,
+    "isIndexable": false,
     "canonical": "https://studygroupshub.com/group/telegram-biology-notes-study-material-l/",
     "title": "NEET Biology Notes &amp; Kota Material – JEE Study Group on Telegram | StudyGroupsHub",
     "metaDescription": "BIOLOGY NOTES | STUDY MATERIAL l Allen notes | kota notes | Neet notes | Toppers notes |Biology Books 💠Main channel- [@Neet\\Jee\\Co",
@@ -2160,8 +2160,8 @@
       "WebPage",
       "EducationalOrganization"
     ],
-    "inSitemap": true,
-    "lastmod": "2026-08-21T09:12:07.177Z"
+    "inSitemap": false,
+    "lastmod": null
   },
   {
     "url": "https://studygroupshub.com/group/telegram-byju-s-exam-prep-for-mba/",
@@ -2189,7 +2189,7 @@
     "url": "https://studygroupshub.com/group/telegram-byjus-exam-prep-clat-free-clas/",
     "file": "group/telegram-byjus-exam-prep-clat-free-clas/index.html",
     "pageType": "individual community detail",
-    "isIndexable": true,
+    "isIndexable": false,
     "canonical": "https://studygroupshub.com/group/telegram-byjus-exam-prep-clat-free-clas/",
     "title": "BYJU&#39;S Exam Prep CLAT Classes &amp; Notes – LSAT Study Group on Telegram | StudyGroupsHub",
     "metaDescription": "BYJU",
@@ -2204,8 +2204,8 @@
       "WebPage",
       "EducationalOrganization"
     ],
-    "inSitemap": true,
-    "lastmod": "2026-08-21T09:09:17.276Z"
+    "inSitemap": false,
+    "lastmod": null
   },
   {
     "url": "https://studygroupshub.com/group/telegram-ca-cfa-usa-cpa-usa-praveen-khatod/",
@@ -2321,7 +2321,7 @@
     "url": "https://studygroupshub.com/group/telegram-cfa-l1-afm-fm-ca-gaurav-jain/",
     "file": "group/telegram-cfa-l1-afm-fm-ca-gaurav-jain/index.html",
     "pageType": "individual community detail",
-    "isIndexable": true,
+    "isIndexable": false,
     "canonical": "https://studygroupshub.com/group/telegram-cfa-l1-afm-fm-ca-gaurav-jain/",
     "title": "CFA L1 &amp; AFM Prep — CA Gaurav Jain – CFA Study Group on Telegram | StudyGroupsHub",
     "metaDescription": "CFA-L1-AFM-FM CA Gaurav Jain : www.arihantca.com For Enquiries : 8860017983",
@@ -2336,14 +2336,14 @@
       "WebPage",
       "EducationalOrganization"
     ],
-    "inSitemap": true,
-    "lastmod": "2026-08-21T09:11:37.960Z"
+    "inSitemap": false,
+    "lastmod": null
   },
   {
     "url": "https://studygroupshub.com/group/telegram-cfal1-free/",
     "file": "group/telegram-cfal1-free/index.html",
     "pageType": "individual community detail",
-    "isIndexable": true,
+    "isIndexable": false,
     "canonical": "https://studygroupshub.com/group/telegram-cfal1-free/",
     "title": "CFA Level 1 Free Study Hub – CFA Study Group on Telegram | StudyGroupsHub",
     "metaDescription": "CFA LEVEL 1 36 Join CFA LEVEL 2 GROUP - @CFAFREELEVEL2 For buying materi",
@@ -2358,8 +2358,8 @@
       "WebPage",
       "EducationalOrganization"
     ],
-    "inSitemap": true,
-    "lastmod": "2026-08-21T09:11:35.990Z"
+    "inSitemap": false,
+    "lastmod": null
   },
   {
     "url": "https://studygroupshub.com/group/telegram-cissp/",
@@ -2783,7 +2783,7 @@
     "url": "https://studygroupshub.com/group/telegram-gate-wallah-cs-da/",
     "file": "group/telegram-gate-wallah-cs-da/index.html",
     "pageType": "individual community detail",
-    "isIndexable": true,
+    "isIndexable": false,
     "canonical": "https://studygroupshub.com/group/telegram-gate-wallah-cs-da/",
     "title": "GATE Wallah CS &amp; DA – GATE Study Group on Telegram | StudyGroupsHub",
     "metaDescription": "GATE Wallah CS &#38; DA 🎯 GATE Wallah – Official Channel GATE updates • Notes • Strategy • Live sessions ▶️ YouTub",
@@ -2798,8 +2798,8 @@
       "WebPage",
       "EducationalOrganization"
     ],
-    "inSitemap": true,
-    "lastmod": "2026-08-21T09:12:52.436Z"
+    "inSitemap": false,
+    "lastmod": null
   },
   {
     "url": "https://studygroupshub.com/group/telegram-gate-wallah-electronics-communication/",
@@ -2827,7 +2827,7 @@
     "url": "https://studygroupshub.com/group/telegram-gate-wallah-official/",
     "file": "group/telegram-gate-wallah-official/index.html",
     "pageType": "individual community detail",
-    "isIndexable": true,
+    "isIndexable": false,
     "canonical": "https://studygroupshub.com/group/telegram-gate-wallah-official/",
     "title": "GATE Wallah Official Channel – GATE Study Group on Telegram | StudyGroupsHub",
     "metaDescription": "GATE Wallah official 🎯 GATE Wallah – Official Channel GATE updates • Notes • Strategy • Live sessions ▶️ YouTu",
@@ -2842,8 +2842,8 @@
       "WebPage",
       "EducationalOrganization"
     ],
-    "inSitemap": true,
-    "lastmod": "2026-08-21T09:12:46.536Z"
+    "inSitemap": false,
+    "lastmod": null
   },
   {
     "url": "https://studygroupshub.com/group/telegram-gaurav-sir-physics/",
@@ -2893,7 +2893,7 @@
     "url": "https://studygroupshub.com/group/telegram-gmatwallah/",
     "file": "group/telegram-gmatwallah/index.html",
     "pageType": "individual community detail",
-    "isIndexable": true,
+    "isIndexable": false,
     "canonical": "https://studygroupshub.com/group/telegram-gmatwallah/",
     "title": "GMAT Wallah Preparation Community – GMAT Study Group on Telegram | StudyGroupsHub",
     "metaDescription": "GMAT Wallah by PW 4 India’s most loved learning platform❤️ PW",
@@ -2908,14 +2908,14 @@
       "WebPage",
       "EducationalOrganization"
     ],
-    "inSitemap": true,
-    "lastmod": "2026-08-21T09:10:58.623Z"
+    "inSitemap": false,
+    "lastmod": null
   },
   {
     "url": "https://studygroupshub.com/group/telegram-gradsquare-gre-gmat/",
     "file": "group/telegram-gradsquare-gre-gmat/index.html",
     "pageType": "individual community detail",
-    "isIndexable": true,
+    "isIndexable": false,
     "canonical": "https://studygroupshub.com/group/telegram-gradsquare-gre-gmat/",
     "title": "GradSquare GRE &amp; GMAT Prep – GRE Study Group on Telegram | StudyGroupsHub",
     "metaDescription": "GradSquare GRE-GMAT | GMAT This group is for aspirants preparing for GRE|GMAT. Get guidance from best Faculty. [www.gregmatonlin",
@@ -2930,14 +2930,14 @@
       "WebPage",
       "EducationalOrganization"
     ],
-    "inSitemap": true,
-    "lastmod": "2026-08-21T09:10:49.149Z"
+    "inSitemap": false,
+    "lastmod": null
   },
   {
     "url": "https://studygroupshub.com/group/telegram-gre-global-study-group/",
     "file": "group/telegram-gre-global-study-group/index.html",
     "pageType": "individual community detail",
-    "isIndexable": true,
+    "isIndexable": false,
     "canonical": "https://studygroupshub.com/group/telegram-gre-global-study-group/",
     "title": "GRE Global Study Group – GRE Study Group on Telegram | StudyGroupsHub",
     "metaDescription": "GRE Study group 4 , 88 online GRE discussion and study group. Focused on providing resources and helping aspira",
@@ -2952,14 +2952,14 @@
       "WebPage",
       "EducationalOrganization"
     ],
-    "inSitemap": true,
-    "lastmod": "2026-08-21T09:10:41.113Z"
+    "inSitemap": false,
+    "lastmod": null
   },
   {
     "url": "https://studygroupshub.com/group/telegram-gre-preparation/",
     "file": "group/telegram-gre-preparation/index.html",
     "pageType": "individual community detail",
-    "isIndexable": true,
+    "isIndexable": false,
     "canonical": "https://studygroupshub.com/group/telegram-gre-preparation/",
     "title": "GRE Exam Preparation Group – GRE Study Group on Telegram | StudyGroupsHub",
     "metaDescription": "GRE Preparation لینک کانال کوچ‌وایز: @CoachWise1 لینک وبسایت کوچ‌وایز: [www.CoachWise.net](ht",
@@ -2974,14 +2974,14 @@
       "WebPage",
       "EducationalOrganization"
     ],
-    "inSitemap": true,
-    "lastmod": "2026-08-21T09:10:51.994Z"
+    "inSitemap": false,
+    "lastmod": null
   },
   {
     "url": "https://studygroupshub.com/group/telegram-grehub-gre/",
     "file": "group/telegram-grehub-gre/index.html",
     "pageType": "individual community detail",
-    "isIndexable": true,
+    "isIndexable": false,
     "canonical": "https://studygroupshub.com/group/telegram-grehub-gre/",
     "title": "GREhub Preparation Community – GRE Study Group on Telegram | StudyGroupsHub",
     "metaDescription": "GREhub | GRE شبیه ساز حرفه ای آزمون ⬇️ کانال تلگرام دانلود منابع آزمون GRE ☑️گروه تلگرام: 🆔 [@GREhubGroup](http",
@@ -2996,14 +2996,14 @@
       "WebPage",
       "EducationalOrganization"
     ],
-    "inSitemap": true,
-    "lastmod": "2026-08-21T09:10:45.143Z"
+    "inSitemap": false,
+    "lastmod": null
   },
   {
     "url": "https://studygroupshub.com/group/telegram-grestudy/",
     "file": "group/telegram-grestudy/index.html",
     "pageType": "individual community detail",
-    "isIndexable": true,
+    "isIndexable": false,
     "canonical": "https://studygroupshub.com/group/telegram-grestudy/",
     "title": "GRE Study Circle – GRE Study Group on Telegram | StudyGroupsHub",
     "metaDescription": "GRE Study Group 1 , 17 online A group to discuss verbal and quantitative problems, share materials and such. [Vi",
@@ -3018,8 +3018,8 @@
       "WebPage",
       "EducationalOrganization"
     ],
-    "inSitemap": true,
-    "lastmod": "2026-08-21T09:10:39.767Z"
+    "inSitemap": false,
+    "lastmod": null
   },
   {
     "url": "https://studygroupshub.com/group/telegram-iasbaba-official/",
@@ -3069,7 +3069,7 @@
     "url": "https://studygroupshub.com/group/telegram-ielts-cefr-multilevel-toefl-tk/",
     "file": "group/telegram-ielts-cefr-multilevel-toefl-tk/index.html",
     "pageType": "individual community detail",
-    "isIndexable": true,
+    "isIndexable": false,
     "canonical": "https://studygroupshub.com/group/telegram-ielts-cefr-multilevel-toefl-tk/",
     "title": "IELTS, CEFR &amp; TOEFL Multi-Level Prep – IELTS Study Group on Telegram | StudyGroupsHub",
     "metaDescription": "IELTS CEFR MULTILEVEL TOEFL TKT 🏴󠁧󠁢󠁥󠁮󠁧󠁿General English CEFR Multilevel, IELTS, TOEFL, CAE, TESOL, TKT Listeni",
@@ -3084,8 +3084,8 @@
       "WebPage",
       "EducationalOrganization"
     ],
-    "inSitemap": true,
-    "lastmod": "2026-08-21T09:11:21.280Z"
+    "inSitemap": false,
+    "lastmod": null
   },
   {
     "url": "https://studygroupshub.com/group/telegram-ielts-ethiopia1/",
@@ -3421,7 +3421,7 @@
     "url": "https://studygroupshub.com/group/telegram-kgs-neet-english-medium/",
     "file": "group/telegram-kgs-neet-english-medium/index.html",
     "pageType": "individual community detail",
-    "isIndexable": true,
+    "isIndexable": false,
     "canonical": "https://studygroupshub.com/group/telegram-kgs-neet-english-medium/",
     "title": "KGS NEET English Medium Prep – NEET Study Group on Telegram | StudyGroupsHub",
     "metaDescription": "KGS NEET English Medium ! Explore Free content for NEET Preparation with",
@@ -3436,14 +3436,14 @@
       "WebPage",
       "EducationalOrganization"
     ],
-    "inSitemap": true,
-    "lastmod": "2026-08-21T09:11:56.749Z"
+    "inSitemap": false,
+    "lastmod": null
   },
   {
     "url": "https://studygroupshub.com/group/telegram-kgs-neet-hindi-medium/",
     "file": "group/telegram-kgs-neet-hindi-medium/index.html",
     "pageType": "individual community detail",
-    "isIndexable": true,
+    "isIndexable": false,
     "canonical": "https://studygroupshub.com/group/telegram-kgs-neet-hindi-medium/",
     "title": "KGS NEET Hindi Medium Prep – JEE Study Group on Telegram | StudyGroupsHub",
     "metaDescription": "KGS NEET Hindi Medium ! Explore Free content for NEET Preparation with exp",
@@ -3458,14 +3458,14 @@
       "WebPage",
       "EducationalOrganization"
     ],
-    "inSitemap": true,
-    "lastmod": "2026-08-21T09:11:50.733Z"
+    "inSitemap": false,
+    "lastmod": null
   },
   {
     "url": "https://studygroupshub.com/group/telegram-kukuhaeng/",
     "file": "group/telegram-kukuhaeng/index.html",
     "pageType": "individual community detail",
-    "isIndexable": true,
+    "isIndexable": false,
     "canonical": "https://studygroupshub.com/group/telegram-kukuhaeng/",
     "title": "Kukuhaeng English &amp; TOEFL Prep – TOEFL Study Group on Telegram | StudyGroupsHub",
     "metaDescription": "TOEFL Materials 15 channel with materials and tips for TOEFL — 📂 chat for questions &#38; comments https:",
@@ -3480,8 +3480,8 @@
       "WebPage",
       "EducationalOrganization"
     ],
-    "inSitemap": true,
-    "lastmod": "2026-08-21T09:11:23.857Z"
+    "inSitemap": false,
+    "lastmod": null
   },
   {
     "url": "https://studygroupshub.com/group/telegram-law-entrance-exam-prep-forum/",
@@ -3553,7 +3553,7 @@
     "url": "https://studygroupshub.com/group/telegram-learning-english-courses/",
     "file": "group/telegram-learning-english-courses/index.html",
     "pageType": "individual community detail",
-    "isIndexable": true,
+    "isIndexable": false,
     "canonical": "https://studygroupshub.com/group/telegram-learning-english-courses/",
     "title": "Learning English &amp; Exam Courses – TOEFL Study Group on Telegram | StudyGroupsHub",
     "metaDescription": "Learning English Courses ! Here, you",
@@ -3568,8 +3568,8 @@
       "WebPage",
       "EducationalOrganization"
     ],
-    "inSitemap": true,
-    "lastmod": "2026-08-21T09:11:15.386Z"
+    "inSitemap": false,
+    "lastmod": null
   },
   {
     "url": "https://studygroupshub.com/group/telegram-legaledge/",
@@ -3597,7 +3597,7 @@
     "url": "https://studygroupshub.com/group/telegram-lets-crack-upsc-cse-hindi/",
     "file": "group/telegram-lets-crack-upsc-cse-hindi/index.html",
     "pageType": "individual community detail",
-    "isIndexable": true,
+    "isIndexable": false,
     "canonical": "https://studygroupshub.com/group/telegram-lets-crack-upsc-cse-hindi/",
     "title": "Let&#39;s Crack UPSC CSE Hindi – UPSC Study Group on Telegram | StudyGroupsHub",
     "metaDescription": "Let",
@@ -3612,14 +3612,14 @@
       "WebPage",
       "EducationalOrganization"
     ],
-    "inSitemap": true,
-    "lastmod": "2026-08-21T09:12:33.553Z"
+    "inSitemap": false,
+    "lastmod": null
   },
   {
     "url": "https://studygroupshub.com/group/telegram-lets-talk-nursing-chai-rn/",
     "file": "group/telegram-lets-talk-nursing-chai-rn/index.html",
     "pageType": "individual community detail",
-    "isIndexable": true,
+    "isIndexable": false,
     "canonical": "https://studygroupshub.com/group/telegram-lets-talk-nursing-chai-rn/",
     "title": "Lets Talk Nursing (Chai RN) – NCLEX Study Group on Telegram | StudyGroupsHub",
     "metaDescription": "Let’s Talk Nursing (Chai, RN) ’m Chariemae N. Cañazares, RN! You can call me Chai ☺️ Let’s help you ace PNLE with practice qu",
@@ -3634,14 +3634,14 @@
       "WebPage",
       "EducationalOrganization"
     ],
-    "inSitemap": true,
-    "lastmod": "2026-08-21T09:09:51.032Z"
+    "inSitemap": false,
+    "lastmod": null
   },
   {
     "url": "https://studygroupshub.com/group/telegram-level-up-ias-official-channel/",
     "file": "group/telegram-level-up-ias-official-channel/index.html",
     "pageType": "individual community detail",
-    "isIndexable": true,
+    "isIndexable": false,
     "canonical": "https://studygroupshub.com/group/telegram-level-up-ias-official-channel/",
     "title": "Level Up IAS Official Channel – UPSC Study Group on Telegram | StudyGroupsHub",
     "metaDescription": "Level Up IAS (Official Channel) [http://levelupias.com](http://le",
@@ -3656,8 +3656,8 @@
       "WebPage",
       "EducationalOrganization"
     ],
-    "inSitemap": true,
-    "lastmod": "2026-08-21T09:12:37.037Z"
+    "inSitemap": false,
+    "lastmod": null
   },
   {
     "url": "https://studygroupshub.com/group/telegram-livejee/",
@@ -3707,7 +3707,7 @@
     "url": "https://studygroupshub.com/group/telegram-makon-ap-exams-study-channel/",
     "file": "group/telegram-makon-ap-exams-study-channel/index.html",
     "pageType": "individual community detail",
-    "isIndexable": true,
+    "isIndexable": false,
     "canonical": "https://studygroupshub.com/group/telegram-makon-ap-exams-study-channel/",
     "title": "Makon AP Exams Study Channel – AP Exams Study Group on Telegram | StudyGroupsHub",
     "metaDescription": "Makon educational channel providing AP Exams and SAT study materials, practice exercises, and candidate guidance.",
@@ -3722,14 +3722,14 @@
       "WebPage",
       "EducationalOrganization"
     ],
-    "inSitemap": true,
-    "lastmod": "2026-08-21T09:10:26.313Z"
+    "inSitemap": false,
+    "lastmod": null
   },
   {
     "url": "https://studygroupshub.com/group/telegram-makon-sat-ap-gre/",
     "file": "group/telegram-makon-sat-ap-gre/index.html",
     "pageType": "individual community detail",
-    "isIndexable": true,
+    "isIndexable": false,
     "canonical": "https://studygroupshub.com/group/telegram-makon-sat-ap-gre/",
     "title": "Makon SAT &amp; GRE Discussion – SAT Study Group on Telegram | StudyGroupsHub",
     "metaDescription": "Makon [SAT | AP | GRE] | AP | GRE [Онлайн + Офлайн] Студенты набирают до 1600 баллов Преподаватели с результатами: 1600; 5/5",
@@ -3744,8 +3744,8 @@
       "WebPage",
       "EducationalOrganization"
     ],
-    "inSitemap": true,
-    "lastmod": "2026-08-21T09:10:23.732Z"
+    "inSitemap": false,
+    "lastmod": null
   },
   {
     "url": "https://studygroupshub.com/group/telegram-medicalprep/",
@@ -3883,7 +3883,7 @@
     "url": "https://studygroupshub.com/group/telegram-neet-study-material/",
     "file": "group/telegram-neet-study-material/index.html",
     "pageType": "individual community detail",
-    "isIndexable": true,
+    "isIndexable": false,
     "canonical": "https://studygroupshub.com/group/telegram-neet-study-material/",
     "title": "NEET &amp; CUET Notes &amp; Study Material – JEE Study Group on Telegram | StudyGroupsHub",
     "metaDescription": "NEET Study Material ≛ 📩 For Ads/Collab - @PromotixBot 𝐁𝐞𝐬𝐭 𝐄𝐝𝐮𝐜𝐚𝐭𝐢𝐨𝐧 𝐂𝐡𝐚𝐧𝐧𝐞𝐥",
@@ -3898,8 +3898,8 @@
       "WebPage",
       "EducationalOrganization"
     ],
-    "inSitemap": true,
-    "lastmod": "2026-08-21T09:12:05.383Z"
+    "inSitemap": false,
+    "lastmod": null
   },
   {
     "url": "https://studygroupshub.com/group/telegram-neet-wallah/",
@@ -3927,7 +3927,7 @@
     "url": "https://studygroupshub.com/group/telegram-neetprepcom-pure-mcq-practice/",
     "file": "group/telegram-neetprepcom-pure-mcq-practice/index.html",
     "pageType": "individual community detail",
-    "isIndexable": true,
+    "isIndexable": false,
     "canonical": "https://studygroupshub.com/group/telegram-neetprepcom-pure-mcq-practice/",
     "title": "NEETprep MCQ Practice &amp; Testing – NEET Study Group on Telegram | StudyGroupsHub",
     "metaDescription": "NEETprep.com - PURE MCQ Practice &#38; Testing Courses : NEET main selection MCQ practice &#38; Testing se hota hai..Students joi",
@@ -3942,8 +3942,8 @@
       "WebPage",
       "EducationalOrganization"
     ],
-    "inSitemap": true,
-    "lastmod": "2026-08-21T09:11:54.989Z"
+    "inSitemap": false,
+    "lastmod": null
   },
   {
     "url": "https://studygroupshub.com/group/telegram-new-light-institute-kanpur/",
@@ -4147,7 +4147,7 @@
     "url": "https://studygroupshub.com/group/telegram-pte-nclex-ielts-toefl-kaps-que/",
     "file": "group/telegram-pte-nclex-ielts-toefl-kaps-que/index.html",
     "pageType": "individual community detail",
-    "isIndexable": true,
+    "isIndexable": false,
     "canonical": "https://studygroupshub.com/group/telegram-pte-nclex-ielts-toefl-kaps-que/",
     "title": "Medical &amp; Nursing Licensure Exam Prep Circle – IELTS Study Group on Telegram | StudyGroupsHub",
     "metaDescription": "PTE NCLEX IELTS TOEFL KAPS QUESTIONS ARCHER UWORLD SAUNDERS REMAR USMLE PLAB MCCQE PTE IELTS TOEFL CELPIP OSCE AMC NCLEX REVIEW",
@@ -4162,8 +4162,8 @@
       "WebPage",
       "EducationalOrganization"
     ],
-    "inSitemap": true,
-    "lastmod": "2026-08-21T09:09:43.704Z"
+    "inSitemap": false,
+    "lastmod": null
   },
   {
     "url": "https://studygroupshub.com/group/telegram-pushpendra-study-vlogs-jee-prep/",
@@ -4191,7 +4191,7 @@
     "url": "https://studygroupshub.com/group/telegram-pw-ncert-punch-objective/",
     "file": "group/telegram-pw-ncert-punch-objective/index.html",
     "pageType": "individual community detail",
-    "isIndexable": true,
+    "isIndexable": false,
     "canonical": "https://studygroupshub.com/group/telegram-pw-ncert-punch-objective/",
     "title": "PW NCERT Punch Objective Practice – JEE Study Group on Telegram | StudyGroupsHub",
     "metaDescription": "Pw Ncert Punch 4.0 Book 2026 30 -> Neet Study Materials -> Neet Test Series • NEET MODULES • NEE",
@@ -4206,8 +4206,8 @@
       "WebPage",
       "EducationalOrganization"
     ],
-    "inSitemap": true,
-    "lastmod": "2026-08-21T09:12:10.720Z"
+    "inSitemap": false,
+    "lastmod": null
   },
   {
     "url": "https://studygroupshub.com/group/telegram-rc-reddy-ias/",
@@ -4653,7 +4653,7 @@
     "url": "https://studygroupshub.com/group/telegram-toefl-preparation-channel-appl/",
     "file": "group/telegram-toefl-preparation-channel-appl/index.html",
     "pageType": "individual community detail",
-    "isIndexable": true,
+    "isIndexable": false,
     "canonical": "https://studygroupshub.com/group/telegram-toefl-preparation-channel-appl/",
     "title": "TOEFL &amp; IELTS ApplyAbroad Preparation – TOEFL Study Group on Telegram | StudyGroupsHub",
     "metaDescription": "TOEFL Preparation Channel - ApplyAbroad این کانال به راهنمایی، بیان تجربیات و منابع آزمون های تافل و آیلتس می پردازد . این کانال در کنار",
@@ -4668,14 +4668,14 @@
       "WebPage",
       "EducationalOrganization"
     ],
-    "inSitemap": true,
-    "lastmod": "2026-08-21T09:11:11.719Z"
+    "inSitemap": false,
+    "lastmod": null
   },
   {
     "url": "https://studygroupshub.com/group/telegram-toefl-skills-exercises/",
     "file": "group/telegram-toefl-skills-exercises/index.html",
     "pageType": "individual community detail",
-    "isIndexable": true,
+    "isIndexable": false,
     "canonical": "https://studygroupshub.com/group/telegram-toefl-skills-exercises/",
     "title": "TOEFL Skills &amp; Practice Exercises – TOEFL Study Group on Telegram | StudyGroupsHub",
     "metaDescription": "TOEFL SKILLS &#38; EXERCISES 📩Contact the owner Via: 👉 @English\\AssistantBot 🔴",
@@ -4690,8 +4690,8 @@
       "WebPage",
       "EducationalOrganization"
     ],
-    "inSitemap": true,
-    "lastmod": "2026-08-21T09:11:17.324Z"
+    "inSitemap": false,
+    "lastmod": null
   },
   {
     "url": "https://studygroupshub.com/group/telegram-toefl3/",
@@ -4741,7 +4741,7 @@
     "url": "https://studygroupshub.com/group/telegram-upsc-pdf-official-resources/",
     "file": "group/telegram-upsc-pdf-official-resources/index.html",
     "pageType": "individual community detail",
-    "isIndexable": true,
+    "isIndexable": false,
     "canonical": "https://studygroupshub.com/group/telegram-upsc-pdf-official-resources/",
     "title": "UPSC PDF Official Resources – UPSC Study Group on Telegram | StudyGroupsHub",
     "metaDescription": "If you have Telegram, you can view posts by @upscpdfofficials right away. [View",
@@ -4756,8 +4756,8 @@
       "WebPage",
       "EducationalOrganization"
     ],
-    "inSitemap": true,
-    "lastmod": "2026-08-21T09:12:26.253Z"
+    "inSitemap": false,
+    "lastmod": null
   },
   {
     "url": "https://studygroupshub.com/group/telegram-usmle-fa-uw/",
@@ -4939,7 +4939,7 @@
     "url": "https://studygroupshub.com/group/telegram-vision-ias-official/",
     "file": "group/telegram-vision-ias-official/index.html",
     "pageType": "individual community detail",
-    "isIndexable": true,
+    "isIndexable": false,
     "canonical": "https://studygroupshub.com/group/telegram-vision-ias-official/",
     "title": "Vision IAS Official Channel – UPSC Study Group on Telegram | StudyGroupsHub",
     "metaDescription": "Vision IAS (Official)",
@@ -4954,8 +4954,8 @@
       "WebPage",
       "EducationalOrganization"
     ],
-    "inSitemap": true,
-    "lastmod": "2026-08-21T09:12:32.077Z"
+    "inSitemap": false,
+    "lastmod": null
   },
   {
     "url": "https://studygroupshub.com/group/telegram-vsnursingacademy/",
@@ -5027,7 +5027,7 @@
     "url": "https://studygroupshub.com/group/telegram-xylem-ias/",
     "file": "group/telegram-xylem-ias/index.html",
     "pageType": "individual community detail",
-    "isIndexable": true,
+    "isIndexable": false,
     "canonical": "https://studygroupshub.com/group/telegram-xylem-ias/",
     "title": "Xylem IAS UPSC Preparation – UPSC Study Group on Telegram | StudyGroupsHub",
     "metaDescription": "Xylem IAS : Achieve Your Civil Service Dream Xylem IAS offers expert coaching for UPSC with personalized guidance and flexible",
@@ -5042,8 +5042,8 @@
       "WebPage",
       "EducationalOrganization"
     ],
-    "inSitemap": true,
-    "lastmod": "2026-08-21T09:12:35.261Z"
+    "inSitemap": false,
+    "lastmod": null
   },
   {
     "url": "https://studygroupshub.com/group/telegram-yousmle/",
