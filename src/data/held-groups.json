@@ -3205,5 +3205,95 @@
     "featured": false,
     "published": false,
     "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mtlan3uq-ytwcm7",
+    "slug": "telegram-awsdevsecops",
+    "title": "AWS DevOps Group – Telegram — In this video, CISSP vs CISM | Which Security Certification Is Right for You",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "cybersecurity-certifications",
+    "subcategory": null,
+    "tags": [
+      "CISSP"
+    ],
+    "examFamilies": [
+      "cybersecurity-certifications"
+    ],
+    "exams": [
+      "cissp"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/awsdevsecops",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://t.me/s/awsdevsecops?before=598"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-09-03T08:59:21.794Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mtlan4sb-z5pb5i",
+    "slug": "telegram-ijudo",
+    "title": "International Judo Federation — Maurice Topper (GGZ Noord Holland) conducted a study that shows a clear positive effect",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "general-study",
+    "subcategory": null,
+    "tags": [
+      "study"
+    ],
+    "examFamilies": [
+      "general-study"
+    ],
+    "exams": [],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/ijudo",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://t.me/s/ijudo?before=711"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-09-03T08:59:23.003Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
   }
 ]
