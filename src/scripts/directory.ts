@@ -156,7 +156,7 @@ function renderCard(community: Community): string {
     <p class="mt-2 line-clamp-2 text-sm leading-relaxed text-stone-600">${escapeHtml(community.description ?? `A publicly listed ${community.platform} community categorized under ${community.category}.`)}</p>
     <div class="mt-3 flex flex-wrap items-center gap-1.5">
       <a href="/category/${escapeHtml(community.category)}/" class="inline-flex items-center rounded-full border border-stone-200 bg-stone-50 px-2.5 py-0.5 text-xs font-medium text-stone-700 hover:border-blue-300 hover:text-blue-700">${escapeHtml(community.category)}</a>
-      ${community.tags.slice(0, 3).map((tag) => `<a href="/tag/${escapeHtml(slugifyTag(tag))}/" class="rounded-full border border-stone-200 px-2.5 py-0.5 text-xs font-medium text-stone-600 hover:border-blue-300 hover:text-blue-700">${escapeHtml(tag)}</a>`).join('')}
+      ${community.tags.slice(0, 3).map((tag) => `<span class="rounded-full border border-stone-200 bg-stone-50 px-2.5 py-0.5 text-xs font-medium text-stone-600">${escapeHtml(tag)}</span>`).join('')}
     </div>
     <dl class="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-xs text-stone-500">
       ${memberCount ? `<div class="flex items-center gap-1"><dt class="sr-only">Member count</dt><dd class="font-medium text-stone-700">${escapeHtml(memberCount)}</dd></div>` : ''}
@@ -164,8 +164,8 @@ function renderCard(community: Community): string {
       <div class="flex items-center gap-1"><dt class="sr-only">Link status</dt><dd>${escapeHtml(statusLabel)}</dd></div>
     </dl>
     <div class="mt-4 flex items-center gap-2 border-t border-stone-100 pt-4">
-      <a href="/group/${escapeHtml(community.slug)}/" class="btn-secondary px-3 py-1.5 text-xs">View Details</a>
-      <a href="${escapeHtml(community.inviteUrl)}" target="_blank" rel="noopener noreferrer" class="btn-primary px-3 py-1.5 text-xs">Visit Community</a>
+      <a href="/group/${escapeHtml(community.slug)}/" class="btn-secondary px-3 py-1.5 text-xs" aria-label="View details for ${escapeHtml(community.title)}">View Details</a>
+      <a href="${escapeHtml(community.inviteUrl)}" target="_blank" rel="nofollow ugc noopener noreferrer" class="btn-primary px-3 py-1.5 text-xs">Visit Community</a>
     </div>
   </article>`;
 }

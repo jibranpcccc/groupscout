@@ -7,7 +7,13 @@ import { platforms, getPlatformById } from '../../config/platforms';
 import { getByPlatform } from '../../lib/communities';
 import { sortCommunities, availableFilterOptions } from '../../lib/filters';
 import { PAGE_SIZE, PLATFORM_INDEX_MIN } from '../../config/discovery';
-import { pageTitle, breadcrumbJsonLd, jsonLd } from '../../lib/seo';
+import {
+  pageTitle,
+  canonicalUrl,
+  graphJsonLd,
+  breadcrumbGraphNode,
+  collectionPageGraphNode,
+} from '../../lib/seo';
 import { jsonForClient } from '../../scripts/directory';
 
 export function getStaticPaths() {
@@ -30,24 +36,30 @@ const pageDescStr = isPlatformIndexable
   ? `Browse ${all.length} active public ${platform.name} study groups for exam preparation, certifications, and student peer discussion on StudyGroupsHub.`
   : `Public ${platform.name} study groups and student communities listed on StudyGroupsHub.`;
 
-const pageLd = jsonLd({
-  '@context': 'https://schema.org',
-  '@type': 'CollectionPage',
-  name: `${platform.name} Study Groups`,
-  description: platform.description,
-  url: `/platform/${platform.id}/`,
-});
+const canonicalPath = `/platform/${platform.id}/`;
+const pageUrl = canonicalUrl(canonicalPath);
+
+const platformGraph = graphJsonLd([
+  breadcrumbGraphNode([{ name: `${platform.name} Communities`, path: canonicalPath }], pageUrl),
+  collectionPageGraphNode({
+    name: `${platform.name} Study Groups`,
+    description: platform.description,
+    canonicalPath,
+    items: all,
+  }),
+]);
 ---
 
 <DirectoryLayout
   title={pageTitleStr}
+  heading={`${platform.name} Exam Study Groups`}
   description={pageDescStr}
-  canonicalPath={`/platform/${platform.id}/`}
+  canonicalPath={canonicalPath}
   noindex={!isPlatformIndexable}
   intro={platform.description}
   count={`${all.length} ${all.length === 1 ? 'community' : 'communities'}`}
   breadcrumbs={[{ label: platform.name }]}
-  jsonLd={`${breadcrumbJsonLd([{ name: `${platform.name} Communities`, path: `/platform/${platform.id}/` }])}\n${pageLd}`}
+  jsonLd={platformGraph}
 >
   <p class="mb-4 rounded-lg border border-stone-200 bg-stone-50 p-3 text-sm text-stone-600">
     This page lists {platform.name} communities that were publicly identified. It does not

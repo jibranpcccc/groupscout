@@ -17,10 +17,16 @@ import {
 import { getCategoryBySlug, slugifyTag } from '../../config/categories';
 import { getExam, getExamName } from '../../config/exams';
 import { getPlatformById } from '../../config/platforms';
-import { siteConfig } from '../../config/site';
 import { formatDate } from '../../lib/dates';
 import { languageLabel } from '../../lib/language';
-import { communityTitle, communityDescription, breadcrumbJsonLd, jsonLd } from '../../lib/seo';
+import {
+  communityTitle,
+  communityDescription,
+  canonicalUrl,
+  graphJsonLd,
+  breadcrumbGraphNode,
+  communityDetailGraphNode,
+} from '../../lib/seo';
 
 export function getStaticPaths() {
   return getPublishedCommunities().map((c) => ({ params: { slug: c.slug } }));
@@ -51,28 +57,29 @@ const crumbs = [
   { label: community.title },
 ];
 
-const crumbLd = [
-  { name: categoryConfig?.name ?? 'Communities', path: `/category/${community.category}/` },
-  ...(primaryExam ? [{ name: primaryExam.name, path: `/exam/${primaryExam.slug}/` }] : []),
-  { name: community.title, path: `/group/${community.slug}/` },
-];
+const canonicalPath = `/group/${community.slug}/`;
+const pageUrl = canonicalUrl(canonicalPath);
 
-const webPageLd = jsonLd({
-  '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  name: community.title,
-  url: `/group/${community.slug}/`,
-  isPartOf: { '@type': 'WebSite', name: siteConfig.name },
-});
+const detailGraph = graphJsonLd([
+  breadcrumbGraphNode(
+    [
+      { name: categoryConfig?.name ?? 'Communities', path: `/category/${community.category}/` },
+      ...(primaryExam ? [{ name: primaryExam.name, path: `/exam/${primaryExam.slug}/` }] : []),
+      { name: community.title, path: canonicalPath },
+    ],
+    pageUrl
+  ),
+  communityDetailGraphNode(community, pageUrl),
+]);
 ---
 
 <BaseLayout
   title={communityTitle(community)}
   description={communityDescription(community)}
-  canonicalPath={`/group/${community.slug}/`}
+  canonicalPath={canonicalPath}
   noindex={!isIndexable}
   ogType="article"
-  jsonLd={`${breadcrumbJsonLd(crumbLd)}\n${webPageLd}`}
+  jsonLd={detailGraph}
 >
   <div class="mx-auto w-full max-w-5xl px-4 py-8 sm:px-6">
     <Breadcrumbs items={crumbs} class="mb-4" />

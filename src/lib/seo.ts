@@ -107,46 +107,108 @@ export function jsonLd(data: unknown): string {
   return JSON.stringify(data).replace(/</g, '\\u003c');
 }
 
-export function websiteJsonLd() {
-  return jsonLd({
+/** Schema.org @graph container for combining multiple linked entities without JSON syntax errors. */
+export function graphJsonLd(nodes: (Record<string, unknown> | null | undefined)[]): string {
+  const valid = nodes.filter((n): n is Record<string, unknown> => Boolean(n));
+  return JSON.stringify({
     '@context': 'https://schema.org',
+    '@graph': valid,
+  }).replace(/</g, '\\u003c');
+}
+
+export function websiteGraphNode() {
+  return {
     '@type': 'WebSite',
+    '@id': `${canonicalUrl('/')}#website`,
     name: siteConfig.name,
     url: canonicalUrl('/'),
     description: siteConfig.description,
-  });
+    publisher: { '@id': `${canonicalUrl('/')}#organization` },
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${canonicalUrl('/communities/')}?q={search_term_string}`,
+      },
+      'query-input': 'required name=search_term_string',
+    },
+    inLanguage: 'en',
+  };
 }
 
-export function organizationJsonLd() {
-  return jsonLd({
-    '@context': 'https://schema.org',
+export function organizationGraphNode() {
+  return {
     '@type': 'Organization',
+    '@id': `${canonicalUrl('/')}#organization`,
     name: siteConfig.name,
     url: canonicalUrl('/'),
-    logo: canonicalUrl(siteConfig.ogImagePath),
-  });
+    logo: {
+      '@type': 'ImageObject',
+      '@id': `${canonicalUrl('/')}#logo`,
+      url: canonicalUrl(siteConfig.ogImagePath),
+      caption: `${siteConfig.name} Logo`,
+    },
+    description: siteConfig.description,
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'customer support',
+      url: canonicalUrl('/contact/'),
+    },
+  };
 }
 
-export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
-  return jsonLd({
-    '@context': 'https://schema.org',
+export function breadcrumbGraphNode(items: { name: string; path: string }[], pageUrl?: string) {
+  const fullItems = [
+    { name: 'Home', path: '/' },
+    ...items.filter((i) => i.path !== '/' && i.name.toLowerCase() !== 'home'),
+  ];
+  return {
     '@type': 'BreadcrumbList',
-    itemListElement: items.map((item, i) => ({
+    '@id': pageUrl ? `${pageUrl}#breadcrumb` : undefined,
+    itemListElement: fullItems.map((item, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       name: item.name,
       item: canonicalUrl(item.path),
     })),
-  });
+  };
 }
 
-export function collectionPageJsonLd(name: string, description: string, items: Community[]) {
-  return jsonLd({
-    '@context': 'https://schema.org',
+export function faqPageGraphNode(faqs?: { question: string; answer: string }[]) {
+  if (!faqs || faqs.length === 0) return null;
+  return {
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  };
+}
+
+export function collectionPageGraphNode({
+  name,
+  description,
+  canonicalPath,
+  items,
+}: {
+  name: string;
+  description: string;
+  canonicalPath: string;
+  items: Community[];
+}) {
+  const pageUrl = canonicalUrl(canonicalPath);
+  return {
     '@type': 'CollectionPage',
+    '@id': `${pageUrl}#webpage`,
+    url: pageUrl,
     name,
     description,
-    url: canonicalUrl('/communities/'),
+    isPartOf: { '@id': `${canonicalUrl('/')}#website` },
+    breadcrumb: { '@id': `${pageUrl}#breadcrumb` },
     mainEntity: {
       '@type': 'ItemList',
       numberOfItems: items.length,
@@ -157,5 +219,59 @@ export function collectionPageJsonLd(name: string, description: string, items: C
         url: canonicalUrl(`/group/${c.slug}/`),
       })),
     },
-  });
+  };
 }
+
+export function communityDetailGraphNode(community: Community, pageUrl: string) {
+  const examNames = (community.exams ?? []).map(getExamName);
+  return {
+    '@type': 'WebPage',
+    '@id': `${pageUrl}#webpage`,
+    url: pageUrl,
+    name: community.title,
+    description: communityDescription(community),
+    isPartOf: { '@id': `${canonicalUrl('/')}#website` },
+    breadcrumb: { '@id': `${pageUrl}#breadcrumb` },
+    mainEntity: {
+      '@type': 'EducationalOrganization',
+      '@id': `${pageUrl}#organization`,
+      name: community.title,
+      description: community.description ?? `${community.title} study community.`,
+      url: pageUrl,
+      sameAs: community.inviteUrl,
+      knowsAbout: examNames.length > 0 ? examNames : [getCategoryName(community.category)],
+      inLanguage: community.language ?? 'en',
+      ...(community.memberCount
+        ? {
+            interactionStatistic: {
+              '@type': 'InteractionCounter',
+              interactionType: 'https://schema.org/JoinAction',
+              userInteractionCount: community.memberCount,
+            },
+          }
+        : {}),
+    },
+  };
+}
+
+export function websiteJsonLd() {
+  return graphJsonLd([organizationGraphNode(), websiteGraphNode()]);
+}
+
+export function organizationJsonLd() {
+  return graphJsonLd([organizationGraphNode()]);
+}
+
+export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
+  return graphJsonLd([breadcrumbGraphNode(items)]);
+}
+
+export function collectionPageJsonLd(
+  name: string,
+  description: string,
+  items: Community[],
+  canonicalPath = '/communities/'
+) {
+  return graphJsonLd([collectionPageGraphNode({ name, description, canonicalPath, items })]);
+}
+

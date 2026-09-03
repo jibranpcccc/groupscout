@@ -30,7 +30,7 @@ export const siteConfig = {
   url: getPublicSiteUrl(),
   defaultLocale: 'en',
   /** Path to the global Open Graph fallback image (1200×630). */
-  ogImagePath: '/images/og-default.svg',
+  ogImagePath: '/images/og-default.png',
   /** Footer disclaimer — accurate trademark wording. */
   notAffiliatedNotice:
     'Not affiliated with Telegram, WhatsApp, Discord, or their parent companies.',

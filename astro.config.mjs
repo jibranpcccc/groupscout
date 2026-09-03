@@ -85,6 +85,7 @@ const indexableCategories = new Set([
 export default defineConfig({
   site: siteUrl,
   output: 'static',
+  trailingSlash: 'always',
   integrations: [
     sitemap({
       filter: (page) => {
@@ -132,6 +133,17 @@ export default defineConfig({
           const grp = realGroups.find((g) => g.slug === groupMatch[1]);
           if (grp && (grp.updatedAt || grp.lastCheckedAt || grp.discoveredAt)) {
             item.lastmod = new Date(grp.updatedAt || grp.lastCheckedAt || grp.discoveredAt).toISOString();
+          }
+        }
+        const examMatch = item.url.match(/\/exam\/([^/]+)\/?$/);
+        if (examMatch) {
+          const examGroups = realGroups.filter((g) => (g.exams || []).includes(examMatch[1]));
+          const latest = examGroups.reduce((max, g) => {
+            const d = new Date(g.updatedAt || g.lastCheckedAt || g.discoveredAt).getTime();
+            return d > max ? d : max;
+          }, 0);
+          if (latest > 0) {
+            item.lastmod = new Date(latest).toISOString();
           }
         }
         return item;

@@ -8,7 +8,13 @@ import { exams, getExamName } from '../../config/exams';
 import { getExamFamily, getExamFamilyName } from '../../config/examFamilies';
 import { getPublishedCommunities } from '../../lib/communities';
 import { EXAM_INDEX_MIN } from '../../config/discovery';
-import { pageTitle, collectionPageJsonLd, breadcrumbJsonLd } from '../../lib/seo';
+import {
+  pageTitle,
+  canonicalUrl,
+  graphJsonLd,
+  breadcrumbGraphNode,
+  collectionPageGraphNode,
+} from '../../lib/seo';
 
 import { examGuidanceMap } from '../../config/examGuidance';
 
@@ -26,16 +32,50 @@ const isIndexable = published.length >= EXAM_INDEX_MIN;
 const hasDiscord = published.some((c) => c.platform === 'discord');
 const hasTelegram = published.some((c) => c.platform === 'telegram');
 
+const examTitleMap: Record<string, string> = {
+  ielts: 'IELTS Telegram Groups & Speaking Partners (2026)',
+  toefl: 'TOEFL Study Groups & Telegram Channels (2026)',
+  gre: 'GRE Study Groups, Discord Servers & Quant Prep (2026)',
+  gmat: 'GMAT Focus Study Groups: Discord & Telegram (2026)',
+  sat: 'Digital SAT Study Groups: Discord & Telegram (2026)',
+  usmle: 'USMLE Step 1 & 2 Telegram Groups & Partners (2026)',
+  nclex: 'NCLEX-RN Study Groups & Telegram Channels (2026)',
+  lsat: 'LSAT Study Groups & Discord Servers: 170+ Prep (2026)',
+  cfa: 'CFA Level 1, 2 & 3 Study Groups: Discord & Telegram',
+  cpa: 'CPA Exam Study Groups: Discord & Telegram (2026)',
+  cissp: 'CISSP Study Groups & Discord Servers (2026)',
+  upsc: 'UPSC Civil Services Telegram Channels & Groups (2026)',
+  jee: 'JEE 2026 Telegram Group Links & IIT Discord Servers',
+  neet: 'NEET UG 2026 Telegram Group Links & Study Groups',
+  gate: 'GATE 2026 Telegram Group Links & CSE Discord Servers',
+};
+
+const customTitle = examTitleMap[exam.slug];
+
 let titleVariant = 'Study Groups & Study Partners';
 if (hasDiscord && hasTelegram) {
-  titleVariant = 'Study Groups on Telegram & Discord';
+  titleVariant = 'Study Groups: Discord & Telegram Links (2026)';
 } else if (hasTelegram) {
-  titleVariant = 'Telegram Study Groups & Channels';
+  titleVariant = 'Telegram Group Links & Study Channels (2026)';
 } else if (hasDiscord) {
-  titleVariant = 'Discord Study Groups & Servers';
+  titleVariant = 'Discord Servers & Study Groups (2026)';
 }
 
-const title = pageTitle(`${exam.name} ${titleVariant}`);
+const title = pageTitle(customTitle ?? `${exam.name} ${titleVariant}`);
+
+const h1Text = customTitle ?? (hasDiscord && hasTelegram
+  ? `${exam.name} Study Groups, Discord Servers & Telegram Links (2026)`
+  : hasTelegram
+    ? `${exam.name} Telegram Channels, Groups & Study Partners (2026)`
+    : `${exam.name} Discord Servers & Study Groups (2026)`);
+
+const platformShort = hasDiscord && hasTelegram
+  ? 'Telegram & Discord'
+  : hasTelegram
+    ? 'Telegram'
+    : hasDiscord
+      ? 'Discord'
+      : 'peer communities';
 
 const platformText = hasDiscord && hasTelegram
   ? 'Telegram channels and Discord servers'
@@ -46,18 +86,16 @@ const platformText = hasDiscord && hasTelegram
       : 'peer study communities';
 
 const metaDesc = isIndexable
-  ? `Browse active ${exam.name} study groups for exam preparation, peer discussion, study partner matching, and syllabus practice across ${platformText} on StudyGroupsHub.`
-  : `Explore public ${exam.name} study communities and student groups on StudyGroupsHub. Verified link status and safety screening.`;
+  ? `Join ${published.length}+ verified ${exam.name} study groups on ${platformShort}. Connect with study partners, syllabus discussions, and daily practice questions for 2026 prep.`
+  : `Explore public ${exam.name} study communities on StudyGroupsHub. Verified invite links, anti-dump screening, and active peer discussions.`;
 
 const crumbs = [
   { label: family?.name ?? 'Exams', href: `/category/${exam.family}/` },
   { label: exam.name },
 ];
 
-const crumbLd = [
-  { name: family?.name ?? 'Exams', path: `/category/${exam.family}/` },
-  { name: `${exam.name} Study Groups`, path: `/exam/${exam.slug}/` },
-];
+const canonicalPath = `/exam/${exam.slug}/`;
+const pageUrl = canonicalUrl(canonicalPath);
 
 const defaultGuidance = {
   focusAreas: [
@@ -75,14 +113,30 @@ const defaultGuidance = {
 };
 
 const guidance = examGuidanceMap[exam.slug] || defaultGuidance;
+
+const examGraph = graphJsonLd([
+  breadcrumbGraphNode(
+    [
+      { name: family?.name ?? 'Exams', path: `/category/${exam.family}/` },
+      { name: `${exam.name} Study Groups`, path: canonicalPath },
+    ],
+    pageUrl
+  ),
+  collectionPageGraphNode({
+    name: title,
+    description: metaDesc,
+    canonicalPath,
+    items: published,
+  }),
+]);
 ---
 
 <BaseLayout
   title={title}
   description={metaDesc}
-  canonicalPath={`/exam/${exam.slug}/`}
+  canonicalPath={canonicalPath}
   noindex={!isIndexable}
-  jsonLd={`${breadcrumbJsonLd(crumbLd)}\n${collectionPageJsonLd(exam.name, exam.description, published)}`}
+  jsonLd={examGraph}
 >
   <Breadcrumbs items={crumbs} />
 
@@ -90,7 +144,7 @@ const guidance = examGuidanceMap[exam.slug] || defaultGuidance;
   <section class="border-b border-stone-200 bg-gradient-to-b from-blue-50/70 to-canvas">
     <div class="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
       <h1 class="text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl">
-        {exam.name} Study Groups
+        {h1Text}
       </h1>
       <p class="mt-3 max-w-3xl text-base leading-relaxed text-stone-600">
         {exam.description} Connect with fellow candidates for {exam.name} exam preparation,
@@ -151,16 +205,16 @@ const guidance = examGuidanceMap[exam.slug] || defaultGuidance;
           <!-- Advice Box -->
           <div class="rounded-2xl border border-stone-200 bg-surface p-6 sm:p-8 shadow-xs">
             <h2 class="text-xl font-bold text-stone-900">What to Look for in an {exam.name} Study Group</h2>
-            <ul class="mt-4 space-y-3 text-sm text-stone-600 leading-relaxed">
+            <div class="mt-4 space-y-3.5">
               {
                 guidance.focusAreas.map((item) => (
-                  <li class="flex items-start gap-2.5">
-                    <span class="font-bold text-blue-600">•</span>
-                    <span><strong>{item.label}:</strong> {item.text}</span>
-                  </li>
+                  <div class="border-l-2 border-blue-500 pl-3">
+                    <h3 class="text-sm font-bold text-stone-900">{item.label}</h3>
+                    <p class="mt-0.5 text-xs text-stone-600 leading-relaxed">{item.text}</p>
+                  </div>
                 ))
               }
-            </ul>
+            </div>
           </div>
 
           <!-- Platform Guidance (Truthful & Inventory-Aware) -->

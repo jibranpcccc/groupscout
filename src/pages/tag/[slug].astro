@@ -5,7 +5,13 @@ import EmptyState from '../../components/EmptyState.astro';
 import { getAllTags, slugifyTag, getCategoryBySlug } from '../../config/categories';
 import { getByTag, getPublishedCommunities } from '../../lib/communities';
 import { TAG_PAGE_MIN_COMMUNITIES } from '../../config/discovery';
-import { tagPageTitle, breadcrumbJsonLd, jsonLd } from '../../lib/seo';
+import {
+  tagPageTitle,
+  canonicalUrl,
+  graphJsonLd,
+  breadcrumbGraphNode,
+  collectionPageGraphNode,
+} from '../../lib/seo';
 
 /**
  * Tag pages are generated ONLY for tags with enough actual listings
@@ -36,23 +42,30 @@ if (communities.length < TAG_PAGE_MIN_COMMUNITIES) {
   return Astro.redirect(`/category/${tag.categorySlug}/`, 301);
 }
 
-const pageLd = jsonLd({
-  '@context': 'https://schema.org',
-  '@type': 'CollectionPage',
-  name: `${tag.name} Communities`,
-  url: `/tag/${tag.slug}/`,
-});
+const canonicalPath = `/tag/${tag.slug}/`;
+const pageUrl = canonicalUrl(canonicalPath);
+
+const tagGraph = graphJsonLd([
+  breadcrumbGraphNode([{ name: `${tag.name} Communities`, path: canonicalPath }], pageUrl),
+  collectionPageGraphNode({
+    name: `${tag.name} Communities`,
+    description: `Public communities tagged ${tag.name}. Browse, filter and discover.`,
+    canonicalPath,
+    items: communities,
+  }),
+]);
 ---
 
 <DirectoryLayout
   title={tagPageTitle(tag.name)}
+  heading={`${tag.name} Communities`}
   description={`Public communities tagged ${tag.name}. Browse, filter and discover.`}
-  canonicalPath={`/tag/${tag.slug}/`}
+  canonicalPath={canonicalPath}
   noindex={true}
   intro={`Communities tagged “${tag.name}”.`}
   count={`${communities.length} communities`}
   breadcrumbs={[{ label: tag.name }]}
-  jsonLd={`${breadcrumbJsonLd([{ name: `${tag.name} Communities`, path: `/tag/${tag.slug}/` }])}\n${pageLd}`}
+  jsonLd={tagGraph}
 >
   {
     category && (

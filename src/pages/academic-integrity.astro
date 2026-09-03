@@ -1,7 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
-import { pageTitle, breadcrumbJsonLd, jsonLd } from '../lib/seo';
+import {
+  pageTitle,
+  canonicalUrl,
+  graphJsonLd,
+  breadcrumbGraphNode,
+} from '../lib/seo';
 import { siteConfig } from '../config/site';
 
 const crumbs = [
@@ -9,21 +14,27 @@ const crumbs = [
   { label: 'Academic Integrity Policy' },
 ];
 
-const webPageLd = jsonLd({
-  '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  name: 'Academic Integrity & Anti-Exam Dump Policy',
-  description: 'StudyGroupsHub policies regarding exam security, prohibited content, braindumps, leaked materials, and candidate integrity.',
-  url: '/academic-integrity/',
-  isPartOf: { '@type': 'WebSite', name: siteConfig.name },
-});
+const canonicalPath = '/academic-integrity/';
+const pageUrl = canonicalUrl(canonicalPath);
+
+const pageGraph = graphJsonLd([
+  breadcrumbGraphNode([{ name: 'Academic Integrity', path: canonicalPath }], pageUrl),
+  {
+    '@type': 'WebPage',
+    name: 'Academic Integrity & Anti-Exam Dump Policy',
+    description:
+      'StudyGroupsHub policies regarding exam security, prohibited content, braindumps, leaked materials, and candidate integrity.',
+    url: pageUrl,
+    isPartOf: { '@type': 'WebSite', name: siteConfig.name },
+  },
+]);
 ---
 
 <BaseLayout
   title={pageTitle('Academic Integrity & Anti-Dump Policy')}
   description="StudyGroupsHub standards on academic integrity, prohibited materials, exam dump enforcement, and candidate safety."
-  canonicalPath="/academic-integrity/"
-  jsonLd={`${breadcrumbJsonLd([{ name: 'Academic Integrity', path: '/academic-integrity/' }])}\n${webPageLd}`}
+  canonicalPath={canonicalPath}
+  jsonLd={pageGraph}
 >
   <div class="mx-auto w-full max-w-4xl px-4 py-10 sm:px-6">
     <Breadcrumbs items={crumbs} class="mb-4" />

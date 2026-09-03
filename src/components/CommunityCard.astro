@@ -5,7 +5,6 @@ import CategoryBadge from './CategoryBadge.astro';
 import StatusBadge from './StatusBadge.astro';
 import VerificationBadge from './VerificationBadge.astro';
 import { formatDate } from '../lib/dates';
-import { slugifyTag } from '../config/categories';
 
 interface Props {
   community: Community;
@@ -48,12 +47,11 @@ const checked = formatDate(community.lastCheckedAt);
     <CategoryBadge slug={community.category} />
     {
       community.tags.slice(0, 3).map((tag) => (
-        <a
-          href={`/tag/${slugifyTag(tag)}/`}
-          class="rounded-full border border-stone-200 px-2.5 py-0.5 text-xs font-medium text-stone-600 hover:border-blue-300 hover:text-blue-700"
+        <span
+          class="rounded-full border border-stone-200 bg-stone-50 px-2.5 py-0.5 text-xs font-medium text-stone-600"
         >
           {tag}
-        </a>
+        </span>
       ))
     }
   </div>
@@ -84,13 +82,17 @@ const checked = formatDate(community.lastCheckedAt);
   </dl>
 
   <div class="mt-4 flex items-center gap-2 border-t border-stone-100 pt-4">
-    <a href={`/group/${community.slug}/`} class="btn-secondary px-3 py-1.5 text-xs">
+    <a
+      href={`/group/${community.slug}/`}
+      class="btn-secondary px-3 py-1.5 text-xs"
+      aria-label={`View details for ${community.title}`}
+    >
       View Details
     </a>
     <a
       href={community.inviteUrl}
       target="_blank"
-      rel="noopener noreferrer"
+      rel="nofollow ugc noopener noreferrer"
       class="btn-primary px-3 py-1.5 text-xs"
     >
       Visit Community

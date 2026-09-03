@@ -6,7 +6,13 @@ import EmptyState from '../../components/EmptyState.astro';
 import { getPublishedCommunities } from '../../lib/communities';
 import { sortCommunities, availableFilterOptions } from '../../lib/filters';
 import { PAGE_SIZE } from '../../config/discovery';
-import { pageTitle, collectionPageJsonLd, breadcrumbJsonLd } from '../../lib/seo';
+import {
+  pageTitle,
+  canonicalUrl,
+  graphJsonLd,
+  breadcrumbGraphNode,
+  collectionPageGraphNode,
+} from '../../lib/seo';
 import { jsonForClient } from '../../scripts/directory';
 
 const all = getPublishedCommunities();
@@ -15,17 +21,26 @@ const pageOne = sorted.slice(0, PAGE_SIZE);
 const options = availableFilterOptions(all);
 const totalPages = Math.max(1, Math.ceil(all.length / PAGE_SIZE));
 
-const jsonLd = `${collectionPageJsonLd(
-  'All Communities',
-  'Browse all public online communities in the directory.',
-  all
-)}\n${breadcrumbJsonLd([{ name: 'Communities', path: '/communities/' }])}`;
+const canonicalPath = '/communities/';
+const pageUrl = canonicalUrl(canonicalPath);
+
+const jsonLd = graphJsonLd([
+  breadcrumbGraphNode([{ name: 'Communities', path: canonicalPath }], pageUrl),
+  collectionPageGraphNode({
+    name: 'Browse Exam & Certification Study Groups',
+    description:
+      'Browse verified study groups and student communities across Telegram, Discord, and WhatsApp. Filter by exam, platform, and subject on StudyGroupsHub.',
+    canonicalPath,
+    items: all,
+  }),
+]);
 ---
 
 <DirectoryLayout
   title={pageTitle('Browse Exam & Certification Study Groups')}
+  heading="Browse Exam & Certification Study Groups"
   description="Browse verified study groups and student communities across Telegram, Discord, and WhatsApp. Filter by exam, platform, and subject on StudyGroupsHub."
-  canonicalPath="/communities/"
+  canonicalPath={canonicalPath}
   intro="Every published community, sorted newest first. Use search and filters to narrow things down — the full dataset is available client-side with no page reloads."
   count={`${all.length} communities`}
   breadcrumbs={[{ label: 'Communities' }]}

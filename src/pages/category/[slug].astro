@@ -4,13 +4,19 @@ import CommunityGrid from '../../components/CommunityGrid.astro';
 import FilterBar from '../../components/FilterBar.astro';
 import EmptyState from '../../components/EmptyState.astro';
 import SafetyNotice from '../../components/SafetyNotice.astro';
-import { categories, getCategoryBySlug, slugifyTag } from '../../config/categories';
+import { categories, getCategoryBySlug } from '../../config/categories';
 import { getExamFamily } from '../../config/examFamilies';
 import { getExam } from '../../config/exams';
 import { getByCategory, getPublishedCommunities } from '../../lib/communities';
 import { sortCommunities, availableFilterOptions } from '../../lib/filters';
 import { PAGE_SIZE, EXAM_INDEX_MIN } from '../../config/discovery';
-import { pageTitle, breadcrumbJsonLd, jsonLd } from '../../lib/seo';
+import {
+  pageTitle,
+  canonicalUrl,
+  graphJsonLd,
+  breadcrumbGraphNode,
+  collectionPageGraphNode,
+} from '../../lib/seo';
 import { jsonForClient } from '../../scripts/directory';
 
 export function getStaticPaths() {
@@ -44,35 +50,35 @@ const isCategoryIndexable = all.length >= 5 || (all.length > 0 && hasIndexableCh
 const categoryMetaMap: Record<string, { title: string; metaDesc: string }> = {
   'english-proficiency': {
     title: 'English Language Exam Study Groups',
-    metaDesc: 'Find active study groups for IELTS, TOEFL, PTE, and Cambridge English exams across Telegram and Discord on StudyGroupsHub.',
+    metaDesc: 'Join active study groups for IELTS, TOEFL, PTE, and Cambridge English across Telegram and Discord. Find speaking partners and verified practice materials.',
   },
   'medical-healthcare': {
     title: 'Medical & Healthcare Exam Study Groups',
-    metaDesc: 'Browse verified study groups for USMLE, NCLEX, MCAT, and medical certification exams across Discord and Telegram.',
+    metaDesc: 'Browse verified study groups for USMLE, NCLEX, and MCAT exams on Discord and Telegram. Connect with peer doctors, nurses, and clinical study partners.',
   },
   'college-admissions': {
     title: 'College Admissions Exam Study Groups',
-    metaDesc: 'Explore active student communities and study groups for SAT, ACT, and AP exams on Discord and Telegram.',
+    metaDesc: 'Explore active student communities and study groups for SAT, ACT, and AP exams on Discord and Telegram. Get peer prep tips, practice sets, and advice.',
   },
   'graduate-admissions': {
     title: 'Graduate Admissions Exam Study Groups',
-    metaDesc: 'Connect with peers in GRE, GMAT, and graduate school entrance exam study groups on Telegram and Discord.',
+    metaDesc: 'Connect with peers in GRE and GMAT study groups on Telegram and Discord. Find quantitative study partners, verbal prep channels, and business school tips.',
   },
   'finance-accounting': {
     title: 'Finance & Accounting Exam Study Groups',
-    metaDesc: 'Find peer study communities and prep channels for CFA, CPA, and financial professional certification exams.',
+    metaDesc: 'Join peer study groups for CFA, CPA, and ACCA exams on Telegram and Discord. Discuss financial reporting, ethics, simulations, and exam prep strategies.',
   },
   'cybersecurity-certifications': {
-    title: 'IT & Cybersecurity Certification Study Groups',
-    metaDesc: 'Browse active study groups for AWS, CompTIA Security+, CISSP, and CCNA cloud and cybersecurity certifications.',
+    title: 'Cybersecurity Certification Study Groups',
+    metaDesc: 'Browse active study groups for CompTIA Security+, CISSP, CEH, and OSCP on Telegram and Discord. Verified practice labs, domain review, and peer support.',
   },
   'entrance-exams': {
     title: 'National Entrance Exam Study Groups',
-    metaDesc: 'Explore student channels and revision study groups for UPSC, JEE, NEET, GATE, and national competitive entrance exams.',
+    metaDesc: 'Join verified student channels for UPSC CSE, JEE Main & Advanced, NEET-UG, and GATE on Telegram and Discord. Daily revision quizzes and PYQ discussions.',
   },
   'law': {
     title: 'Law School & Legal Exam Study Groups',
-    metaDesc: 'Find law student communities and preparation groups for the LSAT and bar entrance examinations on StudyGroupsHub.',
+    metaDesc: 'Find active law student communities and study groups for the LSAT, Bar Exam, and SQE on Discord and Telegram. Discuss logical reasoning and legal prep.',
   },
 };
 
@@ -80,24 +86,28 @@ const customMeta = categoryMetaMap[category.slug];
 const pageTitleStr = pageTitle(customMeta?.title ?? `${category.name} Study Groups & Communities`);
 const pageDescStr = customMeta?.metaDesc ?? `${category.description} Browse and filter public ${category.name} study groups on StudyGroupsHub.`;
 
-const pageLd = jsonLd({
-  '@context': 'https://schema.org',
-  '@type': 'CollectionPage',
-  name: `${category.name} Study Groups`,
-  description: category.description,
-  url: `/category/${category.slug}/`,
-});
+const canonicalPath = `/category/${category.slug}/`;
+const categoryGraph = graphJsonLd([
+  breadcrumbGraphNode([{ name: category.name, path: canonicalPath }], canonicalUrl(canonicalPath)),
+  collectionPageGraphNode({
+    name: customMeta?.title ?? `${category.name} Study Groups`,
+    description: pageDescStr,
+    canonicalPath,
+    items: all,
+  }),
+]);
 ---
 
 <DirectoryLayout
   title={pageTitleStr}
+  heading={customMeta?.title ?? `${category.name} Study Groups`}
   description={pageDescStr}
-  canonicalPath={`/category/${category.slug}/`}
+  canonicalPath={canonicalPath}
   noindex={!isCategoryIndexable}
   intro={category.description}
   count={`${all.length} ${all.length === 1 ? 'community' : 'communities'}`}
   breadcrumbs={[{ label: category.name }]}
-  jsonLd={`${breadcrumbJsonLd([{ name: category.name, path: `/category/${category.slug}/` }])}\n${pageLd}`}
+  jsonLd={categoryGraph}
 >
   {
     category.note && (
@@ -161,12 +171,11 @@ const pageLd = jsonLd({
     <div class="mt-3 flex flex-wrap gap-2">
       {
         category.tags.map((tag) => (
-          <a
-            href={`/tag/${slugifyTag(tag)}/`}
-            class="rounded-full border border-stone-200 bg-surface px-3 py-1 text-sm text-stone-600 hover:border-blue-300 hover:text-blue-700"
+          <span
+            class="rounded-full border border-stone-200 bg-stone-50 px-3 py-1 text-sm text-stone-600"
           >
             {tag}
-          </a>
+          </span>
         ))
       }
     </div>

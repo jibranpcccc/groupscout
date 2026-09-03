@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { pageTitle, breadcrumbJsonLd, jsonLd } from '../lib/seo';
+import { pageTitle, canonicalUrl, graphJsonLd, breadcrumbGraphNode } from '../lib/seo';
 import { siteConfig } from '../config/site';
 import { getDatasetStats, getPublishedCommunities } from '../lib/communities';
 import { examFamilies, getExamFamilyName } from '../config/examFamilies';
@@ -24,19 +24,25 @@ const coveredFamilies = [
   ),
 ].sort((a, b) => getExamFamilyName(a).localeCompare(getExamFamilyName(b)));
 
-const pageLd = jsonLd({
-  '@context': 'https://schema.org',
-  '@type': 'AboutPage',
-  name: 'About',
-  url: '/about/',
-});
+const canonicalPath = '/about/';
+const pageUrl = canonicalUrl(canonicalPath);
+
+const aboutGraph = graphJsonLd([
+  breadcrumbGraphNode([{ name: 'About', path: canonicalPath }], pageUrl),
+  {
+    '@type': 'AboutPage',
+    name: 'About StudyGroupsHub',
+    url: pageUrl,
+    description: `What ${siteConfig.name} is, how it works and where its listings come from.`,
+  },
+]);
 ---
 
 <BaseLayout
   title={pageTitle('About')}
   description={`What ${siteConfig.name} is, how it works and where its listings come from.`}
-  canonicalPath="/about/"
-  jsonLd={`${breadcrumbJsonLd([{ name: 'About', path: '/about/' }])}\n${pageLd}`}
+  canonicalPath={canonicalPath}
+  jsonLd={aboutGraph}
 >
   <div class="mx-auto w-full max-w-3xl px-4 py-10 sm:px-6">
     <h1 class="text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">About</h1>

@@ -136,17 +136,24 @@ allHtmlFiles.forEach((fullPath) => {
   jsonLdBlocks.forEach((block) => {
     const raw = block.replace(/<script\b[^>]*>|<\/script>/gi, '').trim();
     try {
-      // Could be multiple JSON-LD objects separated by newline
+      const parsed = JSON.parse(raw);
+      const nodes = Array.isArray(parsed['@graph']) ? parsed['@graph'] : [parsed];
+      nodes.forEach((node: any) => {
+        if (node['@type']) schemaTypes.push(node['@type']);
+        if (node.mainEntity?.['@type']) schemaTypes.push(node.mainEntity['@type']);
+      });
+    } catch {
+      // fallback to line by line if any
       raw.split('\n').forEach((line) => {
         const trimmed = line.trim();
         if (trimmed.startsWith('{')) {
-          const parsed = JSON.parse(trimmed);
-          if (parsed['@type']) schemaTypes.push(parsed['@type']);
-          if (parsed.mainEntity?.['@type']) schemaTypes.push(parsed.mainEntity['@type']);
+          try {
+            const parsed = JSON.parse(trimmed);
+            if (parsed['@type']) schemaTypes.push(parsed['@type']);
+            if (parsed.mainEntity?.['@type']) schemaTypes.push(parsed.mainEntity['@type']);
+          } catch {}
         }
       });
-    } catch {
-      // ignore
     }
   });
 
