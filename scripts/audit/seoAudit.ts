@@ -138,9 +138,13 @@ allHtmlFiles.forEach((fullPath) => {
     try {
       const parsed = JSON.parse(raw);
       const nodes = Array.isArray(parsed['@graph']) ? parsed['@graph'] : [parsed];
-      nodes.forEach((node: any) => {
-        if (node['@type']) schemaTypes.push(node['@type']);
-        if (node.mainEntity?.['@type']) schemaTypes.push(node.mainEntity['@type']);
+      nodes.forEach((node: unknown) => {
+        if (node && typeof node === 'object') {
+          const rec = node as Record<string, unknown>;
+          if (typeof rec['@type'] === 'string') schemaTypes.push(rec['@type']);
+          const me = rec.mainEntity as Record<string, unknown> | undefined;
+          if (typeof me?.['@type'] === 'string') schemaTypes.push(me['@type']);
+        }
       });
     } catch {
       // fallback to line by line if any
@@ -149,9 +153,11 @@ allHtmlFiles.forEach((fullPath) => {
         if (trimmed.startsWith('{')) {
           try {
             const parsed = JSON.parse(trimmed);
-            if (parsed['@type']) schemaTypes.push(parsed['@type']);
-            if (parsed.mainEntity?.['@type']) schemaTypes.push(parsed.mainEntity['@type']);
-          } catch {}
+            if (typeof parsed['@type'] === 'string') schemaTypes.push(parsed['@type']);
+            if (typeof parsed.mainEntity?.['@type'] === 'string') schemaTypes.push(parsed.mainEntity['@type']);
+          } catch (_err) {
+            void _err;
+          }
         }
       });
     }
