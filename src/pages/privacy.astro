@@ -1,14 +1,23 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { pageTitle, breadcrumbJsonLd } from '../lib/seo';
+import { pageTitle, canonicalUrl, graphJsonLd, breadcrumbGraphNode, webPageGraphNode } from '../lib/seo';
 import { siteConfig } from '../config/site';
+
+const canonicalPath = '/privacy/';
+const title = pageTitle('Privacy Policy');
+const description = `Privacy policy for ${siteConfig.name} — what data is collected and why.`;
+const pageUrl = canonicalUrl(canonicalPath);
+const jsonLd = graphJsonLd([
+  breadcrumbGraphNode([{ name: 'Privacy', path: canonicalPath }], pageUrl),
+  webPageGraphNode({ name: title, description, canonicalPath }),
+]);
 ---
 
 <BaseLayout
-  title={pageTitle('Privacy Policy')}
-  description={`Privacy policy for ${siteConfig.name} — what data is collected and why.`}
-  canonicalPath="/privacy/"
-  jsonLd={breadcrumbJsonLd([{ name: 'Privacy', path: '/privacy/' }])}
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  jsonLd={jsonLd}
 >
   <div class="mx-auto w-full max-w-3xl px-4 py-10 sm:px-6">
     <h1 class="text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">Privacy Policy</h1>

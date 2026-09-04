@@ -1,0 +1,55 @@
+# StudyGroupsHub
+
+> A human-curated and link-checked directory of verified exam preparation study groups across Telegram and Discord for candidates taking standardized entrance exams and professional certifications.
+
+## Core Study Hubs
+
+- [IELTS Study Groups](https://studygroupshub.com/exam/ielts/): Verified Telegram groups and Discord servers for IELTS Academic and General Training preparation, daily speaking partner practice, and writing evaluation.
+- [SAT Study Groups](https://studygroupshub.com/exam/sat/): Public Digital SAT study communities focusing on math module Desmos shortcuts, reading/writing logic, and Bluebook adaptive mock test reviews.
+- [USMLE Prep Groups](https://studygroupshub.com/exam/usmle/): Communities for USMLE Step 1 and Step 2 CK candidates discussing high-yield clinical vignettes, First Aid concepts, and question bank debriefs.
+- [NCLEX Nursing Groups](https://studygroupshub.com/exam/nclex/): Dedicated peer groups for NCLEX-RN and Next Generation NCLEX (NGN) clinical judgment case studies and nursing licensure prep.
+- [GRE Study Groups](https://studygroupshub.com/exam/gre/): Study groups and Discord servers for GRE general test preparation, vocabulary mnemonics, quantitative comparison, and Analytical Writing.
+- [GMAT Focus Groups](https://studygroupshub.com/exam/gmat/): Peer study channels for the GMAT Focus Edition covering Data Insights, Quantitative, and Verbal reasoning.
+- [TOEFL Prep Channels](https://studygroupshub.com/exam/toefl/): Communities for TOEFL iBT candidates practicing integrated speaking tasks, listening comprehension, and academic writing.
+- [NEET UG Study Channels](https://studygroupshub.com/exam/neet/): Large student discussion groups and daily MCQ practice channels for medical entrance aspirants covering Biology, Chemistry, and Physics.
+- [JEE Exam Groups](https://studygroupshub.com/exam/jee/): High-volume peer groups for JEE Main and Advanced engineering entrance problem-solving and mock test analysis.
+- [UPSC IAS Communities](https://studygroupshub.com/exam/upsc/): Civil Services Examination preparation channels focusing on General Studies syllabus revision, daily editorial analysis, and answer writing.
+- [GATE Engineering Groups](https://studygroupshub.com/exam/gate/): Graduate Aptitude Test in Engineering peer networks covering Computer Science, Electronics, Mechanical, and Civil branches.
+- [CFA Study Hubs](https://studygroupshub.com/exam/cfa/): Chartered Financial Analyst candidate communities across Level 1, Level 2, and Level 3 covering Financial Reporting, Equity, and Fixed Income.
+- [CPA Exam Groups](https://studygroupshub.com/exam/cpa/): Communities for Uniform CPA Examination candidates discussing FAR, AUD, REG, and discipline sections.
+- [LSAT Study Servers](https://studygroupshub.com/exam/lsat/): Law school applicant communities focusing on Logical Reasoning patterns, Reading Comprehension pacing, and 170+ score strategies.
+- [CISSP Security Groups](https://studygroupshub.com/exam/cissp/): Cybersecurity professional groups preparing for the CISSP certification across all 8 (ISC)² CBK security domains.
+
+## Categories
+
+- [College Admissions](https://studygroupshub.com/category/college-admissions/): Undergraduate entrance test preparation including SAT and ACT.
+- [Graduate Admissions](https://studygroupshub.com/category/graduate-admissions/): Post-graduate study communities including GRE, GMAT, and CAT.
+- [Medical & Healthcare](https://studygroupshub.com/category/medical-healthcare/): Medical licensing and nursing exams including USMLE and NCLEX-RN.
+- [English Proficiency](https://studygroupshub.com/category/english-proficiency/): Language certification communities including IELTS and TOEFL.
+- [Entrance Exams](https://studygroupshub.com/category/entrance-exams/): Major national competitive entrance tests including JEE, NEET, and GATE.
+- [Finance & Accounting](https://studygroupshub.com/category/finance-accounting/): Financial certifications including CFA and CPA.
+- [Cybersecurity Certifications](https://studygroupshub.com/category/cybersecurity-certifications/): Information security and IT certifications including CISSP.
+- [Law & Legal Exams](https://studygroupshub.com/category/law/): Law school entrance test communities including LSAT and CLAT.
+
+## Key Facts
+
+- **Website**: https://studygroupshub.com
+- **Industry**: Educational Directories / Test Preparation Community Hub
+- **Access Cost**: Free. All public communities listed on StudyGroupsHub are free to access via direct platform invites.
+- **Platforms Supported**: Telegram channels/groups and Discord servers.
+- **Link Integrity**: Automated validation regularly tests public invite URLs to identify and flag defunct or expired invites.
+- **Anti-Braindump Enforcement**: Explicitly prohibits and excludes braindumps, leaked test questions, stolen materials, and proxy testing schemes.
+- **Independence**: Completely independent directory not affiliated with, sponsored by, or endorsed by Telegram, Discord, College Board, ETS, USMLE, NCSBN, or any examination authority.
+
+## Governance & Policies
+
+- [Academic Integrity Policy](https://studygroupshub.com/academic-integrity/): Standards on prohibited materials, braindump exclusion, and student safety.
+- [How We Verify](https://studygroupshub.com/how-we-verify/): Details on our automated link-checking methodology and verification state definitions.
+- [Editorial Policy](https://studygroupshub.com/editorial-policy/): Community inclusion criteria, review workflows, and listing maintenance.
+- [Study Safety](https://studygroupshub.com/safety/): Guidelines for student privacy, staying safe in public chat channels, and avoiding financial fraud.
+
+## Contact
+
+- **Support & Corrections**: https://studygroupshub.com/contact/
+- **Report Listing**: https://studygroupshub.com/report/
+- **Submit New Community**: https://studygroupshub.com/submit/

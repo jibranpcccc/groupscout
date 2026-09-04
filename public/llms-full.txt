@@ -1,0 +1,166 @@
+# StudyGroupsHub — Full Knowledge Base
+
+> StudyGroupsHub is a human-curated and link-checked directory of verified exam preparation study groups across Telegram and Discord for candidates taking standardized entrance exams and professional certifications.
+
+## About the Directory
+
+StudyGroupsHub provides prospective test-takers and certification candidates with curated, verified links to active peer study communities on Telegram and Discord. The platform addresses a major issue in online exam preparation: spam-laden directories, defunct links, and predatory channels offering illegitimate materials or score guarantees.
+
+### Core Guarantees:
+1. **Automated Link Verification**: Regular automated checks test invite links and mark broken or deactivated channels to prevent dead-end clicks.
+2. **Strict Academic Integrity**: No braindumps, leaked question papers, exam dumps, or unauthorized materials are permitted.
+3. **Multi-Platform Support**: Focuses on active study channels on Telegram (for mobile MCQ polls, daily questions, and announcements) and Discord (for voice study rooms, screen sharing, and Pomodoro focus sprints).
+4. **Completely Free Access**: No paywalls, subscriptions, or login requirements to access public community invite links.
+
+---
+
+## Indexable Exam Preparation Hubs
+
+### 1. IELTS (International English Language Testing System)
+- **URL**: https://studygroupshub.com/exam/ielts/
+- **Focus Areas**:
+  - Daily speaking partner matching and mock interview practice.
+  - Academic & General Training Task 1 (data analysis/letter) and Task 2 essay feedback.
+  - Vocabulary expansion and common band 7+ lexical resources.
+  - Listening and Reading practice test time management.
+- **Platforms**: High activity on Telegram for daily idiom polls and Discord for real-time voice speaking clubs.
+
+### 2. Digital SAT
+- **URL**: https://studygroupshub.com/exam/sat/
+- **Focus Areas**:
+  - Math module Desmos graphing calculator shortcuts and speed methods.
+  - Reading & Writing module logic, transitions, and rhetoric analysis.
+  - Official College Board Bluebook adaptive mock test reviews and pacing debriefs.
+  - Weekly accountability check-ins.
+
+### 3. USMLE (United States Medical Licensing Examination)
+- **URL**: https://studygroupshub.com/exam/usmle/
+- **Focus Areas**:
+  - High-yield clinical vignette breakdown for Step 1 (pass/fail) and Step 2 CK.
+  - Cross-reviewing First Aid, Pathoma, Sketchy, and UWorld concepts.
+  - Study partner matching by test date and dedicated study phase.
+  - Biostatistics and ethics decision tree discussions.
+
+### 4. NCLEX-RN (National Council Licensure Examination)
+- **URL**: https://studygroupshub.com/exam/nclex/
+- **Focus Areas**:
+  - Next Generation NCLEX (NGN) clinical judgment model practice.
+  - Extended multiple response, matrix, and drop-down item analysis.
+  - Prioritization, delegation, and safety/infection control protocols.
+  - Study schedule support for foreign-educated nurses (CGFNS/licensure pathways).
+
+### 5. GRE (Graduate Record Examination)
+- **URL**: https://studygroupshub.com/exam/gre/
+- **Focus Areas**:
+  - High-frequency vocabulary mnemonics and sentence equivalence.
+  - Quantitative comparison simplification techniques.
+  - Reading comprehension inference and argument analysis.
+  - Analytical writing issue essay brainstorming.
+
+### 6. GMAT Focus Edition
+- **URL**: https://studygroupshub.com/exam/gmat/
+- **Focus Areas**:
+  - Data Insights section multi-source reasoning and table analysis.
+  - Quantitative problem-solving shortcuts without calculator access.
+  - Critical reasoning logic flaw detection.
+
+### 7. TOEFL iBT
+- **URL**: https://studygroupshub.com/exam/toefl/
+- **Focus Areas**:
+  - Integrated speaking and academic listening comprehension.
+  - Academic discussion writing task templates and feedback.
+  - Pronunciation and note-taking strategies.
+
+### 8. NEET UG (National Eligibility cum Entrance Test)
+- **URL**: https://studygroupshub.com/exam/neet/
+- **Focus Areas**:
+  - NCERT-based Biology diagram and conceptual line-by-line review.
+  - Physical & Organic Chemistry numerical problem sprints.
+  - Physics formula applications and time management for 180 questions.
+
+### 9. JEE (Joint Entrance Examination - Main & Advanced)
+- **URL**: https://studygroupshub.com/exam/jee/
+- **Focus Areas**:
+  - Advanced multi-concept problem solving across Mathematics, Physics, and Chemistry.
+  - Mock test error analysis and percentile improvement strategies.
+  - Speed drills for numerical response questions.
+
+### 10. UPSC Civil Services Examination (IAS/IPS)
+- **URL**: https://studygroupshub.com/exam/upsc/
+- **Focus Areas**:
+  - General Studies Paper I-IV syllabus mapping and static revision.
+  - Daily Hindu/Indian Express editorial synthesis and notes sharing.
+  - Mains answer writing peer-evaluation and structure feedback.
+  - CSAT reasoning and comprehension practice.
+
+### 11. GATE (Graduate Aptitude Test in Engineering)
+- **URL**: https://studygroupshub.com/exam/gate/
+- **Focus Areas**:
+  - Core branch revision: CS/IT, ECE, EE, ME, and Civil Engineering.
+  - Engineering Mathematics and General Aptitude scoring.
+  - Virtual calculator tricks and previous years' question (PYQ) dissection.
+
+### 12. CFA (Chartered Financial Analyst)
+- **URL**: https://studygroupshub.com/exam/cfa/
+- **Focus Areas**:
+  - Level 1 foundational review (Ethics, FRA, Quantitative, Equity).
+  - Level 2 asset valuation and vignette-style problem sets.
+  - Level 3 portfolio management and constructed response essays.
+
+### 13. CPA (Certified Public Accountant)
+- **URL**: https://studygroupshub.com/exam/cpa/
+- **Focus Areas**:
+  - Core sections: FAR (Financial Accounting & Reporting), AUD (Auditing), REG (Regulation).
+  - Discipline choices: BAR, ISC, and TCP under CPA Evolution.
+  - Task-Based Simulation (TBS) walkthroughs and blueprint analysis.
+
+### 14. LSAT (Law School Admission Test)
+- **URL**: https://studygroupshub.com/exam/lsat/
+- **Focus Areas**:
+  - Logical Reasoning argument structure, conditional logic, and flaw types.
+  - Reading Comprehension comparative passage analysis.
+  - Pacing strategies for 170+ percentile targets.
+
+### 15. CISSP (Certified Information Systems Security Professional)
+- **URL**: https://studygroupshub.com/exam/cissp/
+- **Focus Areas**:
+  - The 8 (ISC)² CBK domains: Security & Risk Management, Asset Security, Security Architecture, etc.
+  - Managerial "think like a manager" mindset training.
+  - Scenario evaluation and exam day endurance.
+
+---
+
+## Category Structure
+
+1. **College Admissions** (`/category/college-admissions/`): SAT, ACT, and undergraduate testing.
+2. **Graduate Admissions** (`/category/graduate-admissions/`): GRE, GMAT, CAT, and post-graduate admissions.
+3. **Medical & Healthcare** (`/category/medical-healthcare/`): USMLE, NCLEX-RN, and healthcare licensure.
+4. **English Proficiency** (`/category/english-proficiency/`): IELTS, TOEFL, and global English certifications.
+5. **Entrance Exams** (`/category/entrance-exams/`): National competitive examinations (JEE, NEET, GATE).
+6. **Finance & Accounting** (`/category/finance-accounting/`): CFA, CPA, and financial certifications.
+7. **Cybersecurity Certifications** (`/category/cybersecurity-certifications/`): CISSP and information security certs.
+8. **Law & Legal Exams** (`/category/law/`): LSAT, CLAT, and law admissions.
+
+---
+
+## Verification & Trust Architecture
+
+- **Public Link Check**: Automated crawler validates that the Telegram or Discord invite is reachable and not revoked.
+- **Exam Relevance**: Verified that discussion actively revolves around curriculum mastery rather than promotional spam.
+- **Safety Screening**: Communities flagged for cheating services, proxy testing, or exam dumps are permanently removed.
+- **Reporting System**: Users can flag problematic or expired listings at `/report/` with rapid editorial review.
+
+## Legal & Organizational Disclaimers
+
+- StudyGroupsHub is a directory service only.
+- It is not an exam provider, testing authority, educational institution, or test-prep coaching franchise.
+- All trademarks (SAT, IELTS, USMLE, NCLEX, GRE, GMAT, CFA, CPA, CISSP, NEET, JEE, UPSC, GATE) belong to their respective trademark holders. Mention of trademarks is solely for nominative descriptive purposes to identify candidate study topics.
+- StudyGroupsHub is not affiliated with Telegram FZ-LLC or Discord Inc.
+
+## Contact Information
+
+- **Website**: https://studygroupshub.com
+- **Contact Form**: https://studygroupshub.com/contact/
+- **Listing Report**: https://studygroupshub.com/report/
+- **Submission**: https://studygroupshub.com/submit/
+- **Sitemap**: https://studygroupshub.com/sitemap-index.xml

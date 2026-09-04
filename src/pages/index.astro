@@ -4,6 +4,7 @@ import SearchBox from '../components/SearchBox.astro';
 import PlatformBadge from '../components/PlatformBadge.astro';
 import CommunityGrid from '../components/CommunityGrid.astro';
 import AdPlaceholder from '../components/AdPlaceholder.astro';
+import StudyPacingCalculator from '../components/StudyPacingCalculator.astro';
 import { categories } from '../config/categories';
 import { platforms } from '../config/platforms';
 import { exams, getExam } from '../config/exams';
@@ -14,6 +15,7 @@ import {
 } from '../lib/communities';
 import {
   pageTitle,
+  canonicalUrl,
   graphJsonLd,
   websiteGraphNode,
   organizationGraphNode,
@@ -27,24 +29,41 @@ const categoryCounts = new Map(
 );
 
 // High-intent 15 indexable exam hubs
-const examSlugsWithInventory = new Set(published.flatMap((c) => c.exams ?? []));
-const featuredExams = [
+const indexableExamSlugs = [
   'ielts', 'upsc', 'jee', 'neet', 'sat', 'usmle', 'nclex', 'gre', 'toefl',
   'cfa', 'cpa', 'gate', 'gmat', 'lsat', 'cissp',
-]
+];
+const examSlugsWithInventory = new Set(published.flatMap((c) => c.exams ?? []));
+const featuredExams = indexableExamSlugs
   .map((slug) => getExam(slug))
   .filter((e): e is NonNullable<typeof e> => Boolean(e));
 
 const activePlatforms = platforms.filter((p) => p.id !== 'whatsapp');
 
 const emptyState = published.length === 0;
+
+const calculatorGraphNode = {
+  '@type': 'WebApplication',
+  '@id': `${canonicalUrl('/')}#calculator`,
+  name: 'Study Partner & Group Pacing Calculator',
+  url: `${canonicalUrl('/')}#pacing-calculator`,
+  applicationCategory: 'EducationalApplication',
+  operatingSystem: 'All',
+  browserRequirements: 'Requires JavaScript and HTML5 support',
+  description: 'Interactive tool calculating optimal peer discussion cadence and study partner hours for standardized entrance exams.',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+  },
+};
 ---
 
 <BaseLayout
   title={pageTitle('Study Groups for IELTS, USMLE, SAT & Certifications')}
   description="Discover active Discord, Telegram, and WhatsApp study groups for IELTS, USMLE, SAT, CFA, and IT certifications. Verified invite links and anti-dump screening."
   canonicalPath="/"
-  jsonLd={graphJsonLd([organizationGraphNode(), websiteGraphNode()])}
+  jsonLd={graphJsonLd([organizationGraphNode(), websiteGraphNode(), calculatorGraphNode])}
 >
   <!-- Hero Section -->
   <section class="border-b border-stone-200 bg-gradient-to-b from-blue-50/80 to-canvas">
@@ -103,7 +122,7 @@ const emptyState = published.length === 0;
   }
 
   <!-- Section 1: Browse Study Groups by Exam -->
-  <section class="mx-auto w-full max-w-6xl px-4 pt-14 sm:px-6">
+  <section id="exams" class="mx-auto w-full max-w-6xl px-4 pt-14 sm:px-6">
     <div class="flex items-end justify-between">
       <div>
         <h2 class="text-2xl font-bold tracking-tight text-stone-900">Browse Study Groups by Exam</h2>
@@ -133,6 +152,11 @@ const emptyState = published.length === 0;
     <div class="mt-4 text-center sm:hidden">
       <a href="/communities/" class="text-sm font-medium text-blue-700 hover:underline">Browse all study communities →</a>
     </div>
+  </section>
+
+  <!-- Interactive Study Partner & Pacing Calculator (Information Gain) -->
+  <section class="mx-auto w-full max-w-6xl px-4 pt-14 sm:px-6">
+    <StudyPacingCalculator />
   </section>
 
   <!-- Section 2: Study Groups by Category -->

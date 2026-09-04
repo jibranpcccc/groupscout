@@ -2,14 +2,23 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import VerificationBadge from '../components/VerificationBadge.astro';
 import StatusBadge from '../components/StatusBadge.astro';
-import { pageTitle, breadcrumbJsonLd } from '../lib/seo';
+import { pageTitle, canonicalUrl, graphJsonLd, breadcrumbGraphNode, webPageGraphNode } from '../lib/seo';
+
+const canonicalPath = '/how-we-verify/';
+const title = pageTitle('How We Verify');
+const description = "What verification states mean for exam-prep communities, what link checks cover, and what they don't.";
+const pageUrl = canonicalUrl(canonicalPath);
+const jsonLd = graphJsonLd([
+  breadcrumbGraphNode([{ name: 'How We Verify', path: canonicalPath }], pageUrl),
+  webPageGraphNode({ name: title, description, canonicalPath }),
+]);
 ---
 
 <BaseLayout
-  title={pageTitle('How We Verify')}
-  description="What verification states mean for exam-prep communities, what link checks cover, and what they don't."
-  canonicalPath="/how-we-verify/"
-  jsonLd={breadcrumbJsonLd([{ name: 'How We Verify', path: '/how-we-verify/' }])}
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  jsonLd={jsonLd}
 >
   <div class="mx-auto w-full max-w-3xl px-4 py-10 sm:px-6">
     <h1 class="text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">How We Verify</h1>

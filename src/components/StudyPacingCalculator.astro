@@ -1,0 +1,166 @@
+---
+import { exams } from '../config/exams';
+
+// Filter strictly to indexable exams
+const indexableExams = [
+  'ielts', 'toefl', 'gre', 'gmat', 'sat',
+  'usmle', 'nclex', 'lsat', 'cfa', 'cpa',
+  'cissp', 'upsc', 'jee', 'neet', 'gate'
+];
+
+const availableExams = exams.filter(e => indexableExams.includes(e.slug));
+---
+
+<div class="rounded-2xl border border-stone-200 bg-surface p-6 sm:p-8 shadow-xs" id="pacing-calculator">
+  <div class="max-w-2xl">
+    <div class="inline-flex items-center gap-1.5 rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-800">
+      <svg class="size-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+      </svg>
+      Interactive Tool
+    </div>
+    <h2 class="mt-3 text-xl font-bold tracking-tight text-stone-900 sm:text-2xl">
+      Study Partner & Group Pacing Calculator
+    </h2>
+    <p class="mt-1.5 text-sm text-stone-600 leading-relaxed">
+      Calculate the ideal balance of independent revision vs peer group discussion based on your timeline and target exam.
+    </p>
+  </div>
+
+  <div class="mt-6 grid gap-4 sm:grid-cols-3">
+    <div>
+      <label for="calc-exam" class="block text-xs font-bold uppercase tracking-wider text-stone-700">Target Exam</label>
+      <select id="calc-exam" class="field mt-1.5 w-full bg-white text-sm">
+        {availableExams.map(e => (
+          <option value={e.slug}>{e.name}</option>
+        ))}
+      </select>
+    </div>
+
+    <div>
+      <label for="calc-weeks" class="block text-xs font-bold uppercase tracking-wider text-stone-700">Weeks to Test</label>
+      <select id="calc-weeks" class="field mt-1.5 w-full bg-white text-sm">
+        <option value="4">4 Weeks (Final Sprint)</option>
+        <option value="8">8 Weeks (Intensive Review)</option>
+        <option value="12" selected>12 Weeks (Standard Prep)</option>
+        <option value="24">24 Weeks (Foundational)</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="calc-hours" class="block text-xs font-bold uppercase tracking-wider text-stone-700">Weekly Prep Time</label>
+      <select id="calc-hours" class="field mt-1.5 w-full bg-white text-sm">
+        <option value="10">10 Hours / Week</option>
+        <option value="20" selected>20 Hours / Week</option>
+        <option value="30">30 Hours / Week</option>
+        <option value="40">40+ Hours / Week</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Dynamic Output Card -->
+  <div class="mt-6 rounded-xl border border-blue-100 bg-blue-50/50 p-5" id="calc-results">
+    <div class="grid gap-4 sm:grid-cols-3">
+      <div class="border-b border-blue-100 pb-3 sm:border-b-0 sm:border-r sm:pb-0 sm:pr-4">
+        <p class="text-xs font-medium text-stone-500">Solo Study Focus</p>
+        <p class="mt-1 text-2xl font-bold text-stone-900" id="res-solo">15 hrs/wk</p>
+        <p class="mt-0.5 text-xs text-stone-600">Core theory, flashcards & question banks</p>
+      </div>
+
+      <div class="border-b border-blue-100 pb-3 sm:border-b-0 sm:border-r sm:pb-0 sm:pr-4">
+        <p class="text-xs font-medium text-stone-500">Peer Group Discussion</p>
+        <p class="mt-1 text-2xl font-bold text-blue-700" id="res-group">5 hrs/wk</p>
+        <p class="mt-0.5 text-xs text-stone-600">Difficult concept debriefs & mock analysis</p>
+      </div>
+
+      <div>
+        <p class="text-xs font-medium text-stone-500">Recommended Group Cadence</p>
+        <p class="mt-1 text-base font-bold text-stone-900" id="res-cadence">2 Sessions / Week</p>
+        <p class="mt-0.5 text-xs text-stone-600" id="res-format">1 mid-week problem sprint + 1 weekend mock debrief</p>
+      </div>
+    </div>
+
+    <div class="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-blue-100/80 pt-4">
+      <p class="text-xs text-stone-600" id="res-tip">
+        💡 <strong>Platform Tip:</strong> Use Telegram for daily question polls; join Discord voice channels for Pomodoro focus sessions.
+      </p>
+      <a
+        id="res-link"
+        href="/exam/ielts/"
+        class="inline-flex items-center text-xs font-bold text-blue-700 hover:text-blue-900 hover:underline"
+      >
+        Browse IELTS Study Groups →
+      </a>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  function updatePacing() {
+    const examSelect = document.getElementById('calc-exam');
+    const weeksSelect = document.getElementById('calc-weeks');
+    const hoursSelect = document.getElementById('calc-hours');
+
+    if (!examSelect || !weeksSelect || !hoursSelect) return;
+
+    const exam = examSelect.value;
+    const weeks = parseInt(weeksSelect.value, 10);
+    const totalHours = parseInt(hoursSelect.value, 10);
+
+    const groupRatio = weeks <= 4 ? 0.35 : weeks <= 8 ? 0.30 : 0.25;
+    const groupHours = Math.round(totalHours * groupRatio);
+    const soloHours = totalHours - groupHours;
+
+    const soloEl = document.getElementById('res-solo');
+    const groupEl = document.getElementById('res-group');
+    const cadenceEl = document.getElementById('res-cadence');
+    const formatEl = document.getElementById('res-format');
+    const linkEl = document.getElementById('res-link');
+    const tipEl = document.getElementById('res-tip');
+
+    if (soloEl) soloEl.textContent = `${soloHours} hrs/wk`;
+    if (groupEl) groupEl.textContent = `${groupHours} hrs/wk`;
+
+    if (cadenceEl && formatEl) {
+      if (weeks <= 4) {
+        cadenceEl.textContent = '3 Sessions / Week';
+        formatEl.textContent = 'High-intensity mock reviews & rapid error dissection';
+      } else if (weeks <= 8) {
+        cadenceEl.textContent = '2 Sessions / Week';
+        formatEl.textContent = '1 mid-week question sprint + 1 weekend mock debrief';
+      } else {
+        cadenceEl.textContent = '1-2 Sessions / Week';
+        formatEl.textContent = 'Weekly topic synthesis & peer accountability check-in';
+      }
+    }
+
+    if (linkEl) {
+      const examName = examSelect.options[examSelect.selectedIndex].text;
+      linkEl.href = `/exam/${exam}/`;
+      linkEl.textContent = `Browse ${examName} Study Groups →`;
+    }
+
+    if (tipEl) {
+      if (['ielts', 'toefl'].includes(exam)) {
+        tipEl.innerHTML = '💡 <strong>Platform Tip:</strong> Pair with a speaking partner on Discord voice rooms; use Telegram for daily writing prompts.';
+      } else if (['sat', 'gre', 'gmat'].includes(exam)) {
+        tipEl.innerHTML = '💡 <strong>Platform Tip:</strong> Join Discord screen-share sessions for math/quant; use Telegram for daily vocabulary quizzes.';
+      } else if (['usmle', 'nclex'].includes(exam)) {
+        tipEl.innerHTML = '💡 <strong>Platform Tip:</strong> Work through clinical vignettes in small groups (2-3 peers) for optimal diagnostic reasoning.';
+      } else {
+        tipEl.innerHTML = '💡 <strong>Platform Tip:</strong> Use Telegram for daily MCQ polls and official updates; use Discord for synchronized study rooms.';
+      }
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const examSelect = document.getElementById('calc-exam');
+    const weeksSelect = document.getElementById('calc-weeks');
+    const hoursSelect = document.getElementById('calc-hours');
+
+    if (examSelect) examSelect.addEventListener('change', updatePacing);
+    if (weeksSelect) weeksSelect.addEventListener('change', updatePacing);
+    if (hoursSelect) hoursSelect.addEventListener('change', updatePacing);
+    updatePacing();
+  });
+</script>

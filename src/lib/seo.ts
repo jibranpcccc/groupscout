@@ -149,10 +149,79 @@ export function organizationGraphNode() {
       caption: `${siteConfig.name} Logo`,
     },
     description: siteConfig.description,
+    knowsAbout: [
+      'Standardized Testing',
+      'Study Groups',
+      'Exam Preparation',
+      'IELTS',
+      'Digital SAT',
+      'USMLE',
+      'NCLEX-RN',
+      'GRE',
+      'GMAT Focus',
+      'NEET UG',
+      'JEE Main',
+      'UPSC Civil Services',
+      'GATE',
+      'CFA',
+      'CPA',
+      'LSAT',
+      'CISSP',
+      'Telegram Communities',
+      'Discord Study Servers',
+      'Academic Integrity',
+    ],
+    publishingPrinciples: canonicalUrl('/editorial-policy/'),
+    ethicsPolicy: canonicalUrl('/academic-integrity/'),
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'customer support',
       url: canonicalUrl('/contact/'),
+    },
+  };
+}
+
+export function webPageGraphNode({
+  name,
+  description,
+  canonicalPath,
+}: {
+  name: string;
+  description: string;
+  canonicalPath: string;
+}) {
+  const pageUrl = canonicalUrl(canonicalPath);
+  return {
+    '@type': 'WebPage',
+    '@id': `${pageUrl}#webpage`,
+    name,
+    url: pageUrl,
+    description,
+    isPartOf: { '@id': `${canonicalUrl('/')}#website` },
+    inLanguage: 'en',
+  };
+}
+
+export function contactPageGraphNode(canonicalPath = '/contact/') {
+  const pageUrl = canonicalUrl(canonicalPath);
+  return {
+    '@type': 'ContactPage',
+    '@id': `${pageUrl}#contactpage`,
+    name: `Contact ${siteConfig.name}`,
+    url: pageUrl,
+    description: `How to contact ${siteConfig.name} with inquiries, corrections, or community removal requests.`,
+    isPartOf: { '@id': `${canonicalUrl('/')}#website` },
+    inLanguage: 'en',
+    mainEntity: {
+      '@type': 'Organization',
+      name: siteConfig.name,
+      url: canonicalUrl('/'),
+      contactPoint: {
+        '@type': 'ContactPoint',
+        contactType: 'customer support',
+        url: pageUrl,
+        availableLanguage: ['en'],
+      },
     },
   };
 }

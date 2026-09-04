@@ -1,14 +1,21 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { pageTitle, breadcrumbJsonLd } from '../lib/seo';
+import { pageTitle, canonicalUrl, graphJsonLd, breadcrumbGraphNode, contactPageGraphNode } from '../lib/seo';
 import { siteConfig } from '../config/site';
+
+const canonicalPath = '/contact/';
+const pageUrl = canonicalUrl(canonicalPath);
+const jsonLd = graphJsonLd([
+  breadcrumbGraphNode([{ name: 'Contact', path: canonicalPath }], pageUrl),
+  contactPageGraphNode(canonicalPath),
+]);
 ---
 
 <BaseLayout
   title={pageTitle('Contact')}
   description={`How to contact ${siteConfig.name} with questions, corrections or removal requests.`}
-  canonicalPath="/contact/"
-  jsonLd={breadcrumbJsonLd([{ name: 'Contact', path: '/contact/' }])}
+  canonicalPath={canonicalPath}
+  jsonLd={jsonLd}
 >
   <div class="mx-auto w-full max-w-3xl px-4 py-10 sm:px-6">
     <h1 class="text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">Contact</h1>
