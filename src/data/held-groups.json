@@ -3295,5 +3295,191 @@
     "featured": false,
     "published": false,
     "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mto497ca-y3qqwb",
+    "slug": "telegram-usmlestep1groups",
+    "title": "USMLE STEP 1 GROUP – Telegram — USMLE STEP 1 GROUP · هنعمل جروب تحضير USMLE من الأول مع بداية رمضان🚨 للاسف ناس كتير مقد",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "medical-healthcare",
+    "subcategory": null,
+    "tags": [
+      "USMLE"
+    ],
+    "examFamilies": [
+      "medical-healthcare"
+    ],
+    "exams": [
+      "usmle"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/usmlestep1groups",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://t.me/s/usmlestep1groups"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-09-05T08:23:53.962Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mto4989p-9agy52",
+    "slug": "telegram-usmlediscussion",
+    "title": "Usmle Step 1 discussion group — ⚡ USMLE Step 1 Discussion group",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "medical-healthcare",
+    "subcategory": null,
+    "tags": [
+      "USMLE"
+    ],
+    "examFamilies": [
+      "medical-healthcare"
+    ],
+    "exams": [
+      "usmle"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/usmlediscussion",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://t.me/usmlediscussion"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-09-05T08:23:55.165Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mto49973-6xhjdt",
+    "slug": "telegram-usmlestep-1-2",
+    "title": "Usmle Step 1 , 2 & 3 – Telegram — USMLE & PLAB Pack 1",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "medical-healthcare",
+    "subcategory": null,
+    "tags": [
+      "USMLE",
+      "PLAB"
+    ],
+    "examFamilies": [
+      "medical-healthcare"
+    ],
+    "exams": [
+      "usmle",
+      "plab"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/usmlestep_1_2",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://t.me/s/usmlestep_1_2?before=1060"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-09-05T08:23:56.367Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mto49a4j-5vjb2u",
+    "slug": "telegram-usmlestudygroups",
+    "title": "USMLE Study Groups — If you have Telegram, you can view and join USMLE Study Groups right away",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "medical-healthcare",
+    "subcategory": null,
+    "tags": [
+      "USMLE"
+    ],
+    "examFamilies": [
+      "medical-healthcare"
+    ],
+    "exams": [
+      "usmle"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/usmlestudygroups",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://t.me/usmlestudygroups"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-09-05T08:23:57.571Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
   }
 ]
