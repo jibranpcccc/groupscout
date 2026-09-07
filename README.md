@@ -1,16 +1,25 @@
-# StudyScout
+# StudyGroupsHub
 
-**Find active exam-prep and professional-certification study groups across Discord, Telegram and WhatsApp.**
+**Live Production Directory**: [https://studygroupshub.com/](https://studygroupshub.com/)
 
-StudyScout is an automated, statically generated directory of public study
+**Find active exam-prep and professional-certification study groups across Discord and Telegram.**
+
+StudyGroupsHub is an automated, statically generated directory of public study
 communities for entrance exams, admissions tests, professional licensing
 exams, English proficiency tests, finance/accounting certifications, and
 technology/security/cloud/networking certifications.
 
+Explore live exam preparation hubs:
+- [IELTS Study Groups](https://studygroupshub.com/exam/ielts/)
+- [Digital SAT Discord & Telegram](https://studygroupshub.com/exam/sat/)
+- [USMLE Step 1 & 2 Groups](https://studygroupshub.com/exam/usmle/)
+- [NCLEX-RN Communities](https://studygroupshub.com/exam/nclex/)
+- [UPSC Civil Services Channels](https://studygroupshub.com/exam/upsc/)
+- [Study Pacing Calculator](https://studygroupshub.com/#calculator)
+
 Built with Astro + TypeScript + Tailwind CSS, deployed on Netlify, powered by
 a free-tier discovery engine (Tavily/Brave search + Gemini classification)
-with strict quality gates, cautious link validation, and a pending-first
-review workflow.
+with strict quality gates, cautious link validation, and an editorial review workflow.
 
 ## Project purpose
 
