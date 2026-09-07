@@ -3527,5 +3527,53 @@
     "featured": false,
     "published": false,
     "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mtr1c73e-8ddd5d",
+    "slug": "telegram-cleariitjeeneet3",
+    "title": "CLEAR IIT JEE / NEET – Telegram — Premium Materials will upload in this group on 26 January",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "entrance-exams",
+    "subcategory": null,
+    "tags": [
+      "JEE",
+      "NEET"
+    ],
+    "examFamilies": [
+      "entrance-exams"
+    ],
+    "exams": [
+      "jee",
+      "neet"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/cleariitjeeneet3",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://t.me/s/cleariitjeeneet3?before=3112"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-09-07T09:25:33.290Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
   }
 ]
