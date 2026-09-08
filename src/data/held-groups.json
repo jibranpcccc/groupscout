@@ -3575,5 +3575,97 @@
     "featured": false,
     "published": false,
     "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mtsfoube-r9ocdx",
+    "slug": "telegram-tenamereja",
+    "title": "Medical Information – Telegram — Study subject-wise early on, then switch to mixed blocks closer to your exam",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "medical-healthcare",
+    "subcategory": null,
+    "tags": [
+      "USMLE"
+    ],
+    "examFamilies": [
+      "medical-healthcare"
+    ],
+    "exams": [
+      "usmle"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/tenamereja",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://t.me/s/tenamereja?after=51620"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-09-08T08:55:04.058Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mtsfov8v-x3nd1v",
+    "slug": "telegram-cisacismisacacrisc",
+    "title": "CISA, CISM, CISSP, CRISC, ISACA, CCSP, CCSK All About — If you have Telegram, you can view and join CISA, CISM, CISSP, C",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "cybersecurity-certifications",
+    "subcategory": null,
+    "tags": [
+      "CISSP"
+    ],
+    "examFamilies": [
+      "cybersecurity-certifications"
+    ],
+    "exams": [
+      "cissp"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/cisacismisacacrisc",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://t.me/cisacismisacacrisc"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-09-08T08:55:05.263Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
   }
 ]
