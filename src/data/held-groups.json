@@ -3757,5 +3757,95 @@
     "featured": false,
     "published": false,
     "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mtvaqn9h-gfbyh4",
+    "slug": "discord-fvckxkwr2j",
+    "title": "neet | MoocLab - Connecting People to Online Learning — A focused community for serious NEET MDS & INI-CET aspirants",
+    "platform": "discord",
+    "vertical": "study-prep",
+    "category": "entrance-exams",
+    "subcategory": null,
+    "tags": [
+      "NEET"
+    ],
+    "examFamilies": [
+      "entrance-exams"
+    ],
+    "exams": [
+      "neet"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://discord.gg/FVcKxkWr2J.",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://discord.gg/FVcKxkWr2J."
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-09-10T08:59:48.677Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mtvaqo7b-d2wxt3",
+    "slug": "telegram-clatprepeducation-3fbefore-3d7456",
+    "title": "ClatPrep | Clat Prep | CLAT 2027 | CLAT 2028 - Telegram Messenger — Access a comprehensive set of 20 CLAT Mocks to enhan",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "general-study",
+    "subcategory": null,
+    "tags": [
+      "study"
+    ],
+    "examFamilies": [
+      "general-study"
+    ],
+    "exams": [],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/clatprepeducation%3fbefore%3d7456",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://t.me/s/clatprepeducation%3Fbefore%3D7456"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-09-10T08:59:49.895Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
   }
 ]
