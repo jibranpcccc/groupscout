@@ -3937,5 +3937,139 @@
     "featured": false,
     "published": false,
     "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mtzmg3ky-ydq16g",
+    "slug": "telegram-studymaterial-hsc-ssc",
+    "title": "STUDY AREA – Telegram — 2",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "entrance-exams",
+    "subcategory": null,
+    "tags": [
+      "UPSC"
+    ],
+    "examFamilies": [
+      "entrance-exams"
+    ],
+    "exams": [
+      "upsc"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/studymaterial_hsc_ssc",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://t.me/s/STUDYMATERIAL_HSC_SSC?before=1836"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-09-13T09:38:36.706Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mtzmg4id-lmqhw5",
+    "slug": "telegram-bahvzwrke542mtdl",
+    "title": "Study Group 2025 | Eng Sub | 스터디그룹 — You are invited to the channel Study Group 2025 | Eng Sub | 스터디그룹",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "general-study",
+    "subcategory": null,
+    "tags": [
+      "study"
+    ],
+    "examFamilies": [
+      "general-study"
+    ],
+    "exams": [],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/+bahvzwrke542mtdl",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://t.me/+bahVZWRke542MTdl"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-09-13T09:38:37.909Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mtzmg5fr-s6sia2",
+    "slug": "telegram-onlinestudypoint",
+    "title": "Online Study Point™ — If you have Telegram, you can view and join Online Study Point™ right away",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "general-study",
+    "subcategory": null,
+    "tags": [
+      "study"
+    ],
+    "examFamilies": [
+      "general-study"
+    ],
+    "exams": [],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/onlinestudypoint",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://t.me/onlinestudypoint"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-09-13T09:38:39.111Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
   }
 ]
