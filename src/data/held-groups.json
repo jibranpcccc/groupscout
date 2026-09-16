@@ -4297,5 +4297,95 @@
     "featured": false,
     "published": false,
     "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mu3w5902-h1skuf",
+    "slug": "discord-x8jusaymq9",
+    "title": "Join the CPA Study Group Discord Server",
+    "platform": "discord",
+    "vertical": "study-prep",
+    "category": "finance-accounting",
+    "subcategory": null,
+    "tags": [
+      "CPA"
+    ],
+    "examFamilies": [
+      "finance-accounting"
+    ],
+    "exams": [
+      "cpa"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://discord.com/invite/X8jUsaymq9",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://discord.com/invite/X8jUsaymq9"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-09-16T09:21:11.378Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mu3w59xm-loe3ef",
+    "slug": "telegram-ciscegroup",
+    "title": "STUDY FOR ICSE CLASS 10 GROUP – Telegram — 390",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "general-study",
+    "subcategory": null,
+    "tags": [
+      "study"
+    ],
+    "examFamilies": [
+      "general-study"
+    ],
+    "exams": [],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/ciscegroup",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://t.me/s/ciscegroup?before=3869"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-09-16T09:21:12.586Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
   }
 ]
