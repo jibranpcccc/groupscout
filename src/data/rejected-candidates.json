@@ -12229,5 +12229,47 @@
     "candidateUrl": "https://chat.whatsapp.com/E89dw6tqKjo4dFC37f9jJh",
     "sourceUrl": "https://chat.whatsapp.com/E89dw6tqKjo4dFC37f9jJh",
     "platform": "whatsapp"
+  },
+  {
+    "rejectedAt": "2026-09-17T09:29:58.654Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://discord.com/invite/math",
+    "sourceUrl": "https://discord.com/invite/math",
+    "platform": "discord"
+  },
+  {
+    "rejectedAt": "2026-09-17T09:29:58.659Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://discord.com/invite/mhBpMwSY9e",
+    "sourceUrl": "https://discord.com/invite/mhBpMwSY9e",
+    "platform": "discord"
+  },
+  {
+    "rejectedAt": "2026-09-17T09:29:58.660Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/lst4law",
+    "sourceUrl": "https://t.me/s/LST4LAW?before=12969",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-09-17T09:29:58.661Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/ctpethiopia",
+    "sourceUrl": "https://www.t.me/s/ctpethiopia?before=247",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-09-17T09:29:58.661Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://chat.whatsapp.com/JSPlzmkGzv5FuUdWF9h0aB",
+    "sourceUrl": "https://chat.whatsapp.com/JSPlzmkGzv5FuUdWF9h0aB",
+    "platform": "whatsapp"
+  },
+  {
+    "rejectedAt": "2026-09-17T09:29:59.872Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://chat.whatsapp.com/C36NwJxLXKl2oRSKOGoptn",
+    "sourceUrl": "https://chat.whatsapp.com/C36NwJxLXKl2oRSKOGoptn",
+    "platform": "whatsapp"
   }
 ]
