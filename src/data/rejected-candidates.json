@@ -13419,5 +13419,110 @@
     "candidateUrl": "https://chat.whatsapp.com/your-link",
     "sourceUrl": "https://chat.whatsapp.com/your-link",
     "platform": "whatsapp"
+  },
+  {
+    "rejectedAt": "2026-09-25T09:39:46.022Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/ecwakaura",
+    "sourceUrl": "https://t.me/s/ecwakaura?before=262",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-09-25T09:39:48.427Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/wftoon",
+    "sourceUrl": "https://t.me/s/wftoon",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-09-25T09:39:48.428Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://upskirts.t.me/",
+    "sourceUrl": "http://upskirts.t.me",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-09-25T09:39:49.631Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://discord.com/invite/mhBpMwSY9e",
+    "sourceUrl": "https://discord.com/invite/mhBpMwSY9e",
+    "platform": "discord"
+  },
+  {
+    "rejectedAt": "2026-09-25T09:39:49.632Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/ctpethiopia",
+    "sourceUrl": "https://www.t.me/s/ctpethiopia?before=247",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-09-25T09:39:49.633Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/aastuse",
+    "sourceUrl": "https://t.me/s/AASTUSE",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-09-25T09:39:49.634Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/udemy4u",
+    "sourceUrl": "https://t.me/s/Udemy4U?before=74731",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-09-25T09:39:49.634Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/matchtradetech",
+    "sourceUrl": "https://t.me/s/matchtradetech?before=662",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-09-25T09:39:49.635Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/hakimethio",
+    "sourceUrl": "https://t.me/s/HakimEthio?after=32735",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-09-25T09:39:49.635Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/daily_writeups",
+    "sourceUrl": "https://t.me/s/Daily_Writeups/123987?q=%23Gaming",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-09-25T09:39:49.636Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/cryptosignals0rg",
+    "sourceUrl": "https://t.me/s/cryptosignals0rg?before=19084",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-09-25T09:39:49.637Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/otaniemievents",
+    "sourceUrl": "https://t.me/s/otaniemievents?before=1739",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-09-25T09:39:54.448Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/aghoribhai51",
+    "sourceUrl": "https://t.me/s/Aghoribhai51",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-09-25T09:39:54.448Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/princeeduhub?before=6779",
+    "sourceUrl": "https://t.me/s/princeeduhub?q=%23neettestseries&before=6779",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-09-25T09:39:54.449Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://chat.whatsapp.com/your-link",
+    "sourceUrl": "https://chat.whatsapp.com/your-link",
+    "platform": "whatsapp"
   }
 ]
