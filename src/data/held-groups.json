@@ -5635,5 +5635,51 @@
     "featured": false,
     "published": false,
     "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mul4y13i-wncrw0",
+    "slug": "telegram-englishwithroop",
+    "title": "English with Roop – Telegram — New Spoken English Batch | Start 5 March",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "english-proficiency",
+    "subcategory": null,
+    "tags": [
+      "IELTS"
+    ],
+    "examFamilies": [
+      "english-proficiency"
+    ],
+    "exams": [
+      "ielts"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/englishwithroop",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://t.me/s/EnglishwithRoop?before=2526"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-09-28T10:59:36.077Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
   }
 ]
