@@ -5681,5 +5681,97 @@
     "featured": false,
     "published": false,
     "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-munyw6hx-whmrho",
+    "slug": "telegram-mathongo-official-2026",
+    "title": "JEE 2026: MathonGo Official Channel – Telegram — Hello JEE 2026 aspirants 👋",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "entrance-exams",
+    "subcategory": null,
+    "tags": [
+      "JEE"
+    ],
+    "examFamilies": [
+      "entrance-exams"
+    ],
+    "exams": [
+      "jee"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/mathongo_official_2026",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://t.me/s/mathongo_official_2026?before=7"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-09-30T10:33:30.597Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-munyw7fj-7d3v5n",
+    "slug": "telegram-powermatlab",
+    "title": "PowerMatlab – Telegram — PowerMatlab",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "college-admissions",
+    "subcategory": null,
+    "tags": [
+      "PSAT"
+    ],
+    "examFamilies": [
+      "college-admissions"
+    ],
+    "exams": [
+      "psat"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/powermatlab",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://t.me/s/powermatlab?before=76"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-09-30T10:33:31.807Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
   }
 ]
