@@ -5773,5 +5773,51 @@
     "featured": false,
     "published": false,
     "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mupfb5eg-3z2bw7",
+    "slug": "telegram-cloudandcybersecurity",
+    "title": "Cloud and Cybersecurity – Telegram — ❤2",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "cybersecurity-certifications",
+    "subcategory": null,
+    "tags": [
+      "CISSP"
+    ],
+    "examFamilies": [
+      "cybersecurity-certifications"
+    ],
+    "exams": [
+      "cissp"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/cloudandcybersecurity",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://t.me/s/cloudandcybersecurity?before=2321"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-10-01T11:00:49.048Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
   }
 ]
