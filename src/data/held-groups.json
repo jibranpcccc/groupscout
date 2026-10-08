@@ -5863,5 +5863,54 @@
     "featured": false,
     "published": false,
     "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-muzgao9j-u4zm8k",
+    "slug": "telegram-forumiasofficial",
+    "title": "ForumIASOfficial – Telegram — ForumIASOfficial",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "college-admissions",
+    "subcategory": null,
+    "tags": [
+      "ACT",
+      "UPSC"
+    ],
+    "examFamilies": [
+      "college-admissions",
+      "entrance-exams"
+    ],
+    "exams": [
+      "act",
+      "upsc"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/forumiasofficial",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://t.me/s/forumiasofficial/41962?q=%23Bihar"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-10-08T11:26:08.215Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
   }
 ]
