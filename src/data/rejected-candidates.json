@@ -17024,5 +17024,68 @@
     "candidateUrl": "https://chat.whatsapp.com/H45bdftuilWJ8yWEDqQPe7",
     "sourceUrl": "https://chat.whatsapp.com/H45bdftuilWJ8yWEDqQPe7",
     "platform": "whatsapp"
+  },
+  {
+    "rejectedAt": "2026-10-09T11:22:56.731Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/sliit_23",
+    "sourceUrl": "https://t.me/s/sliit_23?before=74",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-10-09T11:22:56.735Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/quantum_space",
+    "sourceUrl": "https://t.me/s/quantum_space?before=117",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-10-09T11:22:56.736Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/wftoon",
+    "sourceUrl": "https://t.me/s/wftoon",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-10-09T11:22:56.736Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/amauofficial",
+    "sourceUrl": "https://t.me/s/amauofficial?before=2505",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-10-09T11:22:56.737Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://discord.com/invite/mhBpMwSY9e",
+    "sourceUrl": "https://discord.com/invite/mhBpMwSY9e",
+    "platform": "discord"
+  },
+  {
+    "rejectedAt": "2026-10-09T11:22:57.945Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/cloudcertifications",
+    "sourceUrl": "https://t.me/s/CloudCertifications?before=738",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-10-09T11:22:57.945Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://discord.com/invite/dion-training-solutions-841367242909941761",
+    "sourceUrl": "https://discord.com/invite/dion-training-solutions-841367242909941761",
+    "platform": "discord"
+  },
+  {
+    "rejectedAt": "2026-10-09T11:22:57.946Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://discord.com/invite/sui",
+    "sourceUrl": "https://discord.com/invite/sui",
+    "platform": "discord"
+  },
+  {
+    "rejectedAt": "2026-10-09T11:22:57.946Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://chat.whatsapp.com/H45bdftuilWJ8yWEDqQPe7",
+    "sourceUrl": "https://chat.whatsapp.com/H45bdftuilWJ8yWEDqQPe7",
+    "platform": "whatsapp"
   }
 ]
