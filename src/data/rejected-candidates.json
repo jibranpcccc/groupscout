@@ -17087,5 +17087,54 @@
     "candidateUrl": "https://chat.whatsapp.com/H45bdftuilWJ8yWEDqQPe7",
     "sourceUrl": "https://chat.whatsapp.com/H45bdftuilWJ8yWEDqQPe7",
     "platform": "whatsapp"
+  },
+  {
+    "rejectedAt": "2026-10-10T10:40:09.163Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/sliit_23",
+    "sourceUrl": "https://t.me/s/sliit_23?before=74",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-10-10T10:40:09.169Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://discord.com/invite/mhBpMwSY9e",
+    "sourceUrl": "https://discord.com/invite/mhBpMwSY9e",
+    "platform": "discord"
+  },
+  {
+    "rejectedAt": "2026-10-10T10:40:09.170Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://discord.com/invite/dion-training-solutions-841367242909941761",
+    "sourceUrl": "https://discord.com/invite/dion-training-solutions-841367242909941761",
+    "platform": "discord"
+  },
+  {
+    "rejectedAt": "2026-10-10T10:40:09.170Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://discord.com/invite/clawd",
+    "sourceUrl": "https://discord.com/invite/clawd",
+    "platform": "discord"
+  },
+  {
+    "rejectedAt": "2026-10-10T10:40:09.171Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://discord.com/invite/fallguys",
+    "sourceUrl": "https://discord.com/invite/fallguys",
+    "platform": "discord"
+  },
+  {
+    "rejectedAt": "2026-10-10T10:40:09.172Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://discord.com/invite/sui",
+    "sourceUrl": "https://discord.com/invite/sui",
+    "platform": "discord"
+  },
+  {
+    "rejectedAt": "2026-10-10T10:40:10.382Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://chat.whatsapp.com/H45bdftuilWJ8yWEDqQPe7",
+    "sourceUrl": "https://chat.whatsapp.com/H45bdftuilWJ8yWEDqQPe7",
+    "platform": "whatsapp"
   }
 ]

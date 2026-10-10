@@ -5956,5 +5956,49 @@
     "featured": false,
     "published": false,
     "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mv29j8po-1adg0k",
+    "slug": "telegram-pdfking",
+    "title": "PDF KING [ Download Notes Study Material Previous Year Question Paper Railway RRB Group D] – Telegram — 65",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "general-study",
+    "subcategory": null,
+    "tags": [
+      "study"
+    ],
+    "examFamilies": [
+      "general-study"
+    ],
+    "exams": [],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/pdfking",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://t.me/s/PDFKING?before=649"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-10-10T10:40:09.179Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
   }
 ]
