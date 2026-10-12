@@ -6046,5 +6046,97 @@
     "featured": false,
     "published": false,
     "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mv57hk9j-q7n031",
+    "slug": "telegram-nounupdatecommunity",
+    "title": "NOUN UPDATE CHANNEL – Telegram — Imagine 6 months of unwavering focus, disciplined study, and consistent effort",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "general-study",
+    "subcategory": null,
+    "tags": [
+      "study"
+    ],
+    "examFamilies": [
+      "general-study"
+    ],
+    "exams": [],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/nounupdatecommunity",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://t.me/s/NOUNUPDATECOMMUNITY?before=5246"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-10-12T12:06:10.135Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mv57hl6y-d0tj8h",
+    "slug": "telegram-daily-writeups",
+    "title": "Daily Writeups – Telegram — Medium",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "cybersecurity-certifications",
+    "subcategory": null,
+    "tags": [
+      "CEH",
+      "OSCP"
+    ],
+    "examFamilies": [
+      "cybersecurity-certifications"
+    ],
+    "exams": [
+      "ceh",
+      "oscp"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/daily_writeups",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://t.me/s/Daily_Writeups/134506?q=%23certification"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-10-12T12:06:11.338Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
   }
 ]
