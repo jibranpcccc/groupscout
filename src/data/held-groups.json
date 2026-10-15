@@ -6138,5 +6138,97 @@
     "featured": false,
     "published": false,
     "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mv9blo9z-a26qsb",
+    "slug": "telegram-codeprogrammer",
+    "title": "Machine Learning with Python – Telegram — 🚀🔥 𝗕𝗲𝗰𝗼𝗺𝗲 𝗮𝗻 𝗔𝗴𝗲𝗻𝘁𝗶𝗰 𝗔𝗜 𝗕𝘂𝗶𝗹𝗱𝗲𝗿 — 𝗙𝗿𝗲𝗲 𝗖𝗲𝗿𝘁\ud835",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "college-admissions",
+    "subcategory": null,
+    "tags": [
+      "ACT"
+    ],
+    "examFamilies": [
+      "college-admissions"
+    ],
+    "exams": [
+      "act"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/codeprogrammer",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://t.me/s/codeprogrammer?before=4101"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-10-15T09:12:25.127Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mv9blp7t-hvrixg",
+    "slug": "discord-ep25dxr",
+    "title": "MCAT / Premed — Check out the MCAT / Premed community on Discord - hang out with 30024 other members and enjoy free voic",
+    "platform": "discord",
+    "vertical": "study-prep",
+    "category": "medical-healthcare",
+    "subcategory": null,
+    "tags": [
+      "MCAT"
+    ],
+    "examFamilies": [
+      "medical-healthcare"
+    ],
+    "exams": [
+      "mcat"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://discord.com/invite/EP25DXR",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://discord.com/invite/EP25DXR"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-10-15T09:12:26.345Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
   }
 ]

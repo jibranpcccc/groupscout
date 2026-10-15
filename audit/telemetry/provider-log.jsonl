@@ -56,3 +56,4 @@
 {"timestamp":"2026-10-12T12:06:12.554Z","provider":"tavily-search","requests":25,"rawCandidates":114,"active":2,"newPending":2,"duplicates":47}
 {"timestamp":"2026-10-13T11:53:03.371Z","provider":"tavily-search","requests":25,"rawCandidates":157,"active":0,"newPending":0,"duplicates":58}
 {"timestamp":"2026-10-14T09:34:57.443Z","provider":"tavily-search","requests":25,"rawCandidates":167,"active":0,"newPending":0,"duplicates":58}
+{"timestamp":"2026-10-15T09:12:27.571Z","provider":"tavily-search","requests":25,"rawCandidates":158,"active":2,"newPending":2,"duplicates":48}
