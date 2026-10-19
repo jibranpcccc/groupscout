@@ -6322,5 +6322,51 @@
     "featured": false,
     "published": false,
     "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mvf31kji-xg6i7z",
+    "slug": "telegram-law-exam-clat-legal-lsat-pdf",
+    "title": "View @law_exam_clat_legal_lsat_pdf — THE BEST CHANNEL FOR CLAT PREPARATION",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "law",
+    "subcategory": null,
+    "tags": [
+      "LSAT"
+    ],
+    "examFamilies": [
+      "law"
+    ],
+    "exams": [
+      "lsat"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/law_exam_clat_legal_lsat_pdf",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://t.me/law_exam_clat_legal_lsat_pdf"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-10-19T09:59:27.294Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
   }
 ]
