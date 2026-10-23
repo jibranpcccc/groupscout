@@ -20335,5 +20335,75 @@
     "candidateUrl": "https://chat.whatsapp.com/H45bdftuilWJ8yWEDqQPe7",
     "sourceUrl": "https://chat.whatsapp.com/H45bdftuilWJ8yWEDqQPe7",
     "platform": "whatsapp"
+  },
+  {
+    "rejectedAt": "2026-10-23T09:24:30.562Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/ouits_ornu",
+    "sourceUrl": "https://t.me/s/oUITS_ORnU",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-10-23T09:24:30.568Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/quantum_space",
+    "sourceUrl": "https://t.me/s/quantum_space?before=117",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-10-23T09:24:31.780Z",
+    "reason": "exam-risk",
+    "candidateUrl": "https://t.me/usmlestepsrecalls?before=473",
+    "sourceUrl": "https://t.me/s/usmlestepsrecalls?q=%23Step3&before=473",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-10-23T09:24:31.781Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://discord.com/invite/mhBpMwSY9e",
+    "sourceUrl": "https://discord.com/invite/mhBpMwSY9e",
+    "platform": "discord"
+  },
+  {
+    "rejectedAt": "2026-10-23T09:24:31.781Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/bca_official",
+    "sourceUrl": "https://t.me/s/BCA_official?before=1527",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-10-23T09:24:31.782Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/nusgreyhats",
+    "sourceUrl": "https://t.me/s/nusgreyhats?after=390",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-10-23T09:24:31.783Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/nianticofficial",
+    "sourceUrl": "https://t.me/s/NianticOfficial?before=1100",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-10-23T09:24:31.783Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/unsoundfestival",
+    "sourceUrl": "https://t.me/s/unsoundfestival?before=200",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-10-23T09:24:31.784Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://t.me/laborx",
+    "sourceUrl": "https://t.me/s/laborx",
+    "platform": "telegram"
+  },
+  {
+    "rejectedAt": "2026-10-23T09:24:31.784Z",
+    "reason": "wrong-niche",
+    "candidateUrl": "https://chat.whatsapp.com/CI6TmEvT2OJE8qMtuOAiP4",
+    "sourceUrl": "https://chat.whatsapp.com/CI6TmEvT2OJE8qMtuOAiP4",
+    "platform": "whatsapp"
   }
 ]
