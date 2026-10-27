@@ -6546,5 +6546,51 @@
     "featured": false,
     "published": false,
     "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mvqibfmh-4ek6ql",
+    "slug": "telegram-cloudcertifications",
+    "title": "AWS, Azure, GCP Certifications – Telegram — Github Labs:-",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "cloud-certifications",
+    "subcategory": null,
+    "tags": [
+      "Azure Certifications"
+    ],
+    "examFamilies": [
+      "cloud-certifications"
+    ],
+    "exams": [
+      "azure"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/cloudcertifications",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://t.me/s/CloudCertifications?before=315"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-10-27T09:52:29.656Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
   }
 ]
