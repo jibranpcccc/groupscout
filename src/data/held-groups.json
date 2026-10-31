@@ -6730,5 +6730,95 @@
     "featured": false,
     "published": false,
     "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mvw9bqp2-spimwh",
+    "slug": "telegram-online-english-lessons",
+    "title": "Let’s IELTS",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "english-proficiency",
+    "subcategory": null,
+    "tags": [
+      "IELTS"
+    ],
+    "examFamilies": [
+      "english-proficiency"
+    ],
+    "exams": [
+      "ielts"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/online_english_lessons",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://t.me/s/online_english_lessons?q=%23speaking"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-10-31T10:27:24.518Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mvw9brmt-tqkk1v",
+    "slug": "discord-lc-study-group-908801145303076964",
+    "title": "LC STUDY GROUP - Discord — This server is mainly a hangout/lc server for Irish students",
+    "platform": "discord",
+    "vertical": "study-prep",
+    "category": "general-study",
+    "subcategory": null,
+    "tags": [
+      "study"
+    ],
+    "examFamilies": [
+      "general-study"
+    ],
+    "exams": [],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://discord.com/invite/lc-study-group-908801145303076964",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://discord.com/invite/lc-study-group-908801145303076964"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-10-31T10:27:25.733Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
   }
 ]
