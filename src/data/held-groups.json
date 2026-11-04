@@ -6866,5 +6866,51 @@
     "featured": false,
     "published": false,
     "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mw22x5x0-c6264d",
+    "slug": "telegram-ielts-kz",
+    "title": "IDP FEST in SHYMKENT 2026 – Telegram — IELTS Speaking free practice questions",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "english-proficiency",
+    "subcategory": null,
+    "tags": [
+      "IELTS"
+    ],
+    "examFamilies": [
+      "english-proficiency"
+    ],
+    "exams": [
+      "ielts"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/ielts_kz",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://t.me/s/ielts_kz?after=243"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-11-04T12:14:43.764Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
   }
 ]
