@@ -20,6 +20,8 @@ export interface DiscordCheckResult {
   guildName?: string | null;
   /** Real Discord guild (server) id from the API — factual, never guessed. */
   guildId?: string | null;
+  /** Real Discord guild description from the API — factual, never guessed. */
+  guildDescription?: string | null;
   memberCount?: number | null;
   /** API URL that returned the data — usable as a memberCountSource. */
   sourceUrl?: string | null;
@@ -47,17 +49,25 @@ export async function validateDiscordDetailed(url: string): Promise<DiscordCheck
     if (res.status !== 200) return empty;
 
     const data = (await res.json()) as {
-      guild?: { id?: string; name?: string; approximate_member_count?: number } | null;
+      guild?: {
+        id?: string;
+        name?: string;
+        description?: string | null;
+        approximate_member_count?: number;
+      } | null;
     };
 
     // A legitimate invite must resolve to a guild (server). Invites without
     // a guild (e.g. group DMs) are not directory material.
     if (!data.guild?.name) return { status: 'unknown' };
 
+    const rawDesc = typeof data.guild.description === 'string' ? data.guild.description.trim().replace(/\s+/g, ' ') : '';
+
     const result: DiscordCheckResult = {
       status: 'active',
       guildName: data.guild.name ?? null,
       guildId: data.guild.id ?? null,
+      guildDescription: rawDesc.length >= 20 ? rawDesc : null,
       memberCount:
         typeof data.guild.approximate_member_count === 'number'
           ? data.guild.approximate_member_count

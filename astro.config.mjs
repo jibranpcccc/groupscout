@@ -70,17 +70,13 @@ const indexableGroupSlugs = new Set(
   realGroups.filter(isCommunityIndexWorthy).map((c) => c.slug)
 );
 
-// Map of categories with indexable child exams (>=5) or >= 5 communities
-const indexableCategories = new Set([
-  'college-admissions',
-  'graduate-admissions',
-  'entrance-exams',
-  'english-proficiency',
-  'medical-healthcare',
-  'law',
-  'finance-accounting',
-  'cybersecurity-certifications',
-]);
+// Compute indexable categories dynamically (>= 5 communities in category).
+const indexableCategories = new Set();
+for (const [cat, count] of categoryCounts.entries()) {
+  if (count >= 5) {
+    indexableCategories.add(cat);
+  }
+}
 
 export default defineConfig({
   site: siteUrl,
@@ -139,6 +135,18 @@ export default defineConfig({
         if (examMatch) {
           const examGroups = realGroups.filter((g) => (g.exams || []).includes(examMatch[1]));
           const latest = examGroups.reduce((max, g) => {
+            const d = new Date(g.updatedAt || g.lastCheckedAt || g.discoveredAt).getTime();
+            return d > max ? d : max;
+          }, 0);
+          if (latest > 0) {
+            item.lastmod = new Date(latest).toISOString();
+          }
+          return item;
+        }
+        const catMatch = item.url.match(/\/category\/([^/]+)\/?$/);
+        if (catMatch) {
+          const catGroups = realGroups.filter((g) => g.category === catMatch[1]);
+          const latest = catGroups.reduce((max, g) => {
             const d = new Date(g.updatedAt || g.lastCheckedAt || g.discoveredAt).getTime();
             return d > max ? d : max;
           }, 0);

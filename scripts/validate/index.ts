@@ -62,8 +62,12 @@ function transition(
     }
     return { status: 'unknown', failures: nextFailures };
   }
-  // Ambiguous/blocked/timeout — never dead, and failures only accumulate
-  // on strong evidence (handled above).
+  // Ambiguous/blocked/timeout — never dead, and preserve already-active links
+  // so transient network blocks (e.g. t.me timeouts in CI) do not strip
+  // verified listings from the indexable sitemap.
+  if (current === 'active') {
+    return { status: 'active', failures };
+  }
   return { status: 'unknown', failures: 0 };
 }
 
@@ -83,6 +87,7 @@ async function main(): Promise<void> {
       memberCountSource?: string;
       memberCountCheckedAt?: string;
       discordGuildId?: string;
+      description?: string;
     }
   >();
 
@@ -111,12 +116,17 @@ async function main(): Promise<void> {
       memberCountSource?: string;
       memberCountCheckedAt?: string;
       discordGuildId?: string;
+      description?: string;
     } = {};
     if (community.platform === 'discord' && typeof observed === 'object') {
       const detailed = observed as DiscordCheckResult;
       if (detailed.guildId && community.discordGuildId == null) {
         memberInfo.discordGuildId = detailed.guildId;
         log('validate', `${community.id}: Discord API returned guild id ${detailed.guildId} — storing for dedupe`);
+      }
+      if (detailed.guildDescription && (!community.description || community.description.trim().length < 20)) {
+        memberInfo.description = detailed.guildDescription;
+        log('validate', `${community.id}: Discord API returned guild description (${detailed.guildDescription.length} chars) — storing`);
       }
       if (detailed.memberCount != null && community.memberCount == null && detailed.sourceUrl) {
         memberInfo = {
@@ -176,6 +186,7 @@ async function main(): Promise<void> {
         memberCountSource: u.memberCountSource ?? c.memberCountSource,
         memberCountCheckedAt: u.memberCountCheckedAt ?? c.memberCountCheckedAt,
         discordGuildId: u.discordGuildId ?? c.discordGuildId,
+        description: u.description ?? c.description,
       };
     });
 
