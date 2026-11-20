@@ -7270,5 +7270,187 @@
     "featured": false,
     "published": false,
     "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mwozmxw5-lun2pz",
+    "slug": "telegram-wsechannel",
+    "title": "World Speaks English (IELTS Prep) – Telegram — ————",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "english-proficiency",
+    "subcategory": null,
+    "tags": [
+      "IELTS"
+    ],
+    "examFamilies": [
+      "english-proficiency"
+    ],
+    "exams": [
+      "ielts"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/wsechannel",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://t.me/s/wsechannel?before=375"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-11-20T13:01:30.004Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mwozmytj-97129t",
+    "slug": "whatsapp-iupnikynynxbhktvcbhmd7",
+    "title": "WhatsApp Group Invite — Features Calling Messaging Groups Channels Meta AI Status Security Parental controls Privacy Blo",
+    "platform": "whatsapp",
+    "vertical": "study-prep",
+    "category": "english-proficiency",
+    "subcategory": null,
+    "tags": [
+      "IELTS",
+      "TOEFL"
+    ],
+    "examFamilies": [
+      "english-proficiency"
+    ],
+    "exams": [
+      "ielts",
+      "toefl"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://chat.whatsapp.com/IUpNikYNYnXBHktVCBHMD7",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://chat.whatsapp.com/IUpNikYNYnXBHktVCBHMD7"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-11-20T13:01:31.207Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mwozmzr5-igw5d2",
+    "slug": "whatsapp-hlvzvenq9tgjwqxjr3p5ke",
+    "title": "WhatsApp Group Invite — Features Calling Messaging Groups Channels Meta AI Status Security Parental controls Privacy Blo",
+    "platform": "whatsapp",
+    "vertical": "study-prep",
+    "category": "general-study",
+    "subcategory": null,
+    "tags": [
+      "study"
+    ],
+    "examFamilies": [
+      "general-study"
+    ],
+    "exams": [],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://chat.whatsapp.com/HLvZvEnQ9tgJWqXjR3p5ke",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://chat.whatsapp.com/HLvZvEnQ9tgJWqXjR3p5ke"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-11-20T13:01:32.417Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mwozn0ol-4s0eet",
+    "slug": "whatsapp-dpgj8szmfbb041ii4scma3",
+    "title": "WhatsApp Group Invite — Features Calling Messaging Groups Channels Meta AI Status Security Parental controls Privacy Blo",
+    "platform": "whatsapp",
+    "vertical": "study-prep",
+    "category": "general-study",
+    "subcategory": null,
+    "tags": [
+      "study"
+    ],
+    "examFamilies": [
+      "general-study"
+    ],
+    "exams": [],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://chat.whatsapp.com/DpgJ8SZMfBB041II4sCMA3",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://chat.whatsapp.com/DpgJ8SZMfBB041II4sCMA3"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-11-20T13:01:33.621Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
   }
 ]
