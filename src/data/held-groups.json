@@ -7452,5 +7452,187 @@
     "featured": false,
     "published": false,
     "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mwqehoih-c0q5eg",
+    "slug": "telegram-thesouproom",
+    "title": "[TSR] The Soup Room – Telegram — Why TSR Is Unlike Anything Else",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "college-admissions",
+    "subcategory": null,
+    "tags": [
+      "ACT"
+    ],
+    "examFamilies": [
+      "college-admissions"
+    ],
+    "exams": [
+      "act"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/thesouproom",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://t.me/s/TheSoupRoom?before=445"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-11-21T12:45:04.984Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mwqehpfz-xrbjmv",
+    "slug": "whatsapp-fsoykmv6m1gapftubcgxgi",
+    "title": "WhatsApp Group Invite — Features Calling Messaging Groups Channels Meta AI Status Security Parental controls Privacy Blo",
+    "platform": "whatsapp",
+    "vertical": "study-prep",
+    "category": "graduate-admissions",
+    "subcategory": null,
+    "tags": [
+      "GMAT"
+    ],
+    "examFamilies": [
+      "graduate-admissions"
+    ],
+    "exams": [
+      "gmat"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://chat.whatsapp.com/FSOYKMV6m1gAPFTUbcgXGI?mode=gi_t",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://chat.whatsapp.com/FSOYKMV6m1gAPFTUbcgXGI?mode=gi_t"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-11-21T12:45:06.190Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mwqehqdi-hyt2tt",
+    "slug": "whatsapp-ibqpvp6maboevsvwazakyc",
+    "title": "WhatsApp Group Invite — Features Calling Messaging Groups Channels Meta AI Status Security Parental controls Privacy Blo",
+    "platform": "whatsapp",
+    "vertical": "study-prep",
+    "category": "general-study",
+    "subcategory": null,
+    "tags": [
+      "study"
+    ],
+    "examFamilies": [
+      "general-study"
+    ],
+    "exams": [],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://chat.whatsapp.com/IBQpVp6maboEvSVwAZaKYc",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://chat.whatsapp.com/IBQpVp6maboEvSVwAZaKYc"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-11-21T12:45:07.398Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mwqehrbb-y4ooi3",
+    "slug": "whatsapp-lrrzl4egatblnqectefjsw",
+    "title": "WhatsApp Group Invite — Features Calling Messaging Groups Channels Meta AI Status Security Parental controls Privacy Blo",
+    "platform": "whatsapp",
+    "vertical": "study-prep",
+    "category": "college-admissions",
+    "subcategory": null,
+    "tags": [
+      "ACT"
+    ],
+    "examFamilies": [
+      "college-admissions"
+    ],
+    "exams": [
+      "act"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://chat.whatsapp.com/LRRZL4egaTBLnQECTefjSW",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://chat.whatsapp.com/LRRZL4egaTBLnQECTefjSW"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-11-21T12:45:08.615Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
   }
 ]
