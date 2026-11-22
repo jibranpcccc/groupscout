@@ -7634,5 +7634,93 @@
     "featured": false,
     "published": false,
     "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mwrtrl3i-aczpnt",
+    "slug": "whatsapp-joissdnnjdrk6lxvxtms6d",
+    "title": "WhatsApp Group Invite — Features Calling Messaging Groups Channels Meta AI Status Security Parental controls Privacy Blo",
+    "platform": "whatsapp",
+    "vertical": "study-prep",
+    "category": "general-study",
+    "subcategory": null,
+    "tags": [
+      "study"
+    ],
+    "examFamilies": [
+      "general-study"
+    ],
+    "exams": [],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://chat.whatsapp.com/JoIssDNNJDrK6LxVXtms6D",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://chat.whatsapp.com/JoIssDNNJDrK6LxVXtms6D"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-11-22T12:40:27.533Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mwrtrm0z-gxjvoa",
+    "slug": "whatsapp-boicxmhuvfh9j3x583wqgi",
+    "title": "WhatsApp Group Invite — Features Calling Messaging Groups Channels Meta AI Status Security Parental controls Privacy Blo",
+    "platform": "whatsapp",
+    "vertical": "study-prep",
+    "category": "general-study",
+    "subcategory": null,
+    "tags": [
+      "study"
+    ],
+    "examFamilies": [
+      "general-study"
+    ],
+    "exams": [],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://chat.whatsapp.com/BoICxmHuVFh9j3X583wqgI",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://chat.whatsapp.com/BoICxmHuVFh9j3X583wqgI"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-11-22T12:40:28.739Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
   }
 ]
