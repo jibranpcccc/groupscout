@@ -7722,5 +7722,143 @@
     "featured": false,
     "published": false,
     "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mwtdrf53-6io5wr",
+    "slug": "discord-neet-study-lytmus-ai-1474132758304657602",
+    "title": "Discord — You need to enable JavaScript to run this app",
+    "platform": "discord",
+    "vertical": "study-prep",
+    "category": "entrance-exams",
+    "subcategory": null,
+    "tags": [
+      "NEET"
+    ],
+    "examFamilies": [
+      "entrance-exams"
+    ],
+    "exams": [
+      "neet"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://discord.com/invite/neet-study-lytmus-ai-1474132758304657602",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://discord.com/invite/neet-study-lytmus-ai-1474132758304657602"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-11-23T14:47:58.311Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mwtdrg2s-1zkltb",
+    "slug": "telegram-emsa-ethiopia",
+    "title": "Ethiopian Medical Students Association | EMSA-Ethiopia – Telegram — \\#",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "medical-healthcare",
+    "subcategory": null,
+    "tags": [
+      "USMLE"
+    ],
+    "examFamilies": [
+      "medical-healthcare"
+    ],
+    "exams": [
+      "usmle"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/emsa_ethiopia?before=1617",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://t.me/s/EMSA_ETHIOPIA?q=%23YetenaWeg&before=1617"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-11-23T14:47:59.524Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mwtdrh06-cpzjjq",
+    "slug": "telegram-usmle-step3",
+    "title": "All USMLE Step 3 – Telegram — 2nd month: UWorld MCQs (around 1500 q) + CCS cases (around 50 cases) + Biostatistics revie",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "medical-healthcare",
+    "subcategory": null,
+    "tags": [
+      "USMLE"
+    ],
+    "examFamilies": [
+      "medical-healthcare"
+    ],
+    "exams": [
+      "usmle"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/usmle_step3",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://t.me/s/usmle_step3?before=69"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-11-23T14:48:00.726Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
   }
 ]
