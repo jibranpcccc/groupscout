@@ -7860,5 +7860,97 @@
     "featured": false,
     "published": false,
     "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mwutj96a-jhrjns",
+    "slug": "discord-admission-hackers-sat-prep-887542372756500500",
+    "title": "Discord — You need to enable JavaScript to run this app",
+    "platform": "discord",
+    "vertical": "study-prep",
+    "category": "college-admissions",
+    "subcategory": null,
+    "tags": [
+      "SAT"
+    ],
+    "examFamilies": [
+      "college-admissions"
+    ],
+    "exams": [
+      "sat"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://discord.com/invite/admission-hackers-sat-prep-887542372756500500",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://discord.com/invite/admission-hackers-sat-prep-887542372756500500"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-11-24T14:57:17.362Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
+  },
+  {
+    "id": "cand-mwutja42-kykzfy",
+    "slug": "telegram-lawstudyabroad",
+    "title": "Law Study Abroad – Telegram — 👉🏻",
+    "platform": "telegram",
+    "vertical": "study-prep",
+    "category": "law",
+    "subcategory": null,
+    "tags": [
+      "LSAT"
+    ],
+    "examFamilies": [
+      "law"
+    ],
+    "exams": [
+      "lsat"
+    ],
+    "targetMarkets": [],
+    "certificationProvider": null,
+    "studyTypes": [
+      "discussion"
+    ],
+    "examLevel": null,
+    "inviteUrl": "https://t.me/lawstudyabroad",
+    "description": null,
+    "language": null,
+    "country": null,
+    "accessType": "unknown",
+    "communityType": "discussion",
+    "memberCount": null,
+    "memberCountSource": null,
+    "memberCountCheckedAt": null,
+    "verificationStatus": "unverified",
+    "linkStatus": "unknown",
+    "lastCheckedAt": null,
+    "sourceUrls": [
+      "https://t.me/s/lawstudyabroad?before=334"
+    ],
+    "discoveryMethod": "gemini-search",
+    "discoveredAt": "2026-11-24T14:57:18.578Z",
+    "updatedAt": null,
+    "safetyFlags": [],
+    "featured": false,
+    "published": false,
+    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
   }
 ]
