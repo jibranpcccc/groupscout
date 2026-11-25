@@ -79,6 +79,8 @@ const urlToFile = new Map<string, string>();
 const outLinksMap = new Map<string, Set<string>>();
 const inLinksMap = new Map<string, Set<string>>();
 const nofollowInternalLinks: Array<{ from: string; to: string }> = [];
+const brokenInternalLinks: Array<{ from: string; to: string }> = [];
+const baseSiteUrl = (process.env.PUBLIC_SITE_URL || 'https://studygroupshub.com').replace(/\/+$/, '');
 
 allHtmlFiles.forEach((fullPath) => {
   const rel = path.relative(distPath, fullPath).replace(/\\/g, '/');
@@ -103,6 +105,14 @@ const GIBBERISH_PATTERNS = [
   { name: 'Character corruption / replacement char', regex: /\ufffd|\?\?\?\?/i },
 ];
 
+const decodeHtmlEntities = (str: string): string =>
+  str
+    .replace(/&amp;/g, '&')
+    .replace(/&#39;|&apos;/g, "'")
+    .replace(/&quot;/g, '"')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>');
+
 allHtmlFiles.forEach((fullPath) => {
   const rel = path.relative(distPath, fullPath).replace(/\\/g, '/');
   const route = fileToUrl.get(rel) || '/';
@@ -110,12 +120,15 @@ allHtmlFiles.forEach((fullPath) => {
 
   // Title
   const titleMatch = html.match(/<title>([^<]*)<\/title>/i);
-  const title = titleMatch ? titleMatch[1].trim() : '';
+  const title = titleMatch ? decodeHtmlEntities(titleMatch[1].trim()) : '';
 
   // Meta Description
-  const metaDescMatch = html.match(/<meta\s+name=["']description["']\s+content=["']([^"']*)["']/i) ||
-                        html.match(/<meta\s+content=["']([^"']*)["']\s+name=["']description["']/i);
-  const metaDescription = metaDescMatch ? metaDescMatch[1].trim() : '';
+  const metaDescMatch =
+    html.match(/<meta\s+name="description"\s+content="([^"]*)"/i) ||
+    html.match(/<meta\s+name='description'\s+content='([^']*)'/i) ||
+    html.match(/<meta\s+content="([^"]*)"\s+name="description"/i) ||
+    html.match(/<meta\s+content='([^']*)'\s+name='description'/i);
+  const metaDescription = metaDescMatch ? decodeHtmlEntities(metaDescMatch[1].trim()) : '';
 
   // Canonical
   const canonicalMatch = html.match(/<link\s+rel=["']canonical["']\s+href=["']([^"']*)["']/i);
@@ -208,6 +221,8 @@ allHtmlFiles.forEach((fullPath) => {
     if (urlToFile.has(href)) {
       outLinksMap.get(route)?.add(href);
       inLinksMap.get(href)?.add(route);
+    } else if (!redirectsMap.has(href)) {
+      brokenInternalLinks.push({ from: route, to: href });
     }
   });
 
@@ -226,7 +241,6 @@ allHtmlFiles.forEach((fullPath) => {
   else if (['/submit/', '/report/', '/contact/'].includes(route)) pageType = 'submit/report';
   else if (route.endsWith('/success/')) pageType = 'success';
 
-  const baseSiteUrl = (process.env.PUBLIC_SITE_URL || 'https://studygroupshub.com').replace(/\/+$/, '');
   const fullCanonicalUrl = `${baseSiteUrl}${route}`;
   const inSitemap =
     sitemapUrls.has(fullCanonicalUrl) ||
@@ -321,7 +335,7 @@ const duplicateMetaDescs = Array.from(metaDescMap.entries()).filter(([_, urls]) 
 const invalidH1Pages = auditRecords.filter((r) => r.h1Count !== 1 && r.pageType !== 'utility/error');
 
 // Check Orphan indexable pages (0 inbound links)
-const orphanIndexable = indexablePages.filter((r) => r.inboundLinks === 0 && r.url !== 'https://groupscout.netlify.app/');
+const orphanIndexable = indexablePages.filter((r) => r.inboundLinks === 0 && r.url !== `${baseSiteUrl}/`);
 
 // Check Max Click Depth for important indexable pages
 const maxClickDepthImportant = Math.max(
@@ -330,8 +344,12 @@ const maxClickDepthImportant = Math.max(
     .map((r) => r.crawlDepth)
 );
 
-// Check Noindex in sitemap
+// Check Noindex in sitemap & Indexable missing from sitemap
 const noindexInSitemap = auditRecords.filter((r) => !r.isIndexable && r.inSitemap);
+const missingFromSitemap = indexablePages.filter((r) => !r.inSitemap && !r.url.endsWith('/404'));
+const missingLastmod = Array.from(sitemapUrls.entries()).filter(([, lm]) => !lm);
+const longTitles = indexablePages.filter((r) => r.title.length > 65);
+const shortMetaDescs = indexablePages.filter((r) => r.metaDescription.length < 70);
 
 // Check Redirect Chains & Loops in _redirects
 let redirectChains = 0;
@@ -388,9 +406,12 @@ allHtmlFiles.forEach((fullPath) => {
     }
   }
 
-  // Check forbidden FAQPage schema
+  // Check forbidden FAQPage / retired SearchAction schema
   if (html.includes('"@type":"FAQPage"') || html.includes('"@type": "FAQPage"')) {
     forbiddenSchemaMatches.push({ file: rel, schema: 'FAQPage' });
+  }
+  if (html.includes('"@type":"SearchAction"') || html.includes('"@type": "SearchAction"')) {
+    forbiddenSchemaMatches.push({ file: rel, schema: 'SearchAction' });
   }
 });
 
@@ -417,13 +438,17 @@ console.log(`INDEXABLE EXAM HUBS:              ${indexableExamHubs.length}`);
 console.log(`THIN NOINDEX EXAM HUBS:           ${thinExamHubs.length}`);
 console.log(`TAG PAGES INDEXABLE:              ${indexableTags.length} (target: 0)`);
 console.log(`ORPHAN INDEXABLE PAGES:           ${orphanIndexable.length}`);
-console.log(`BROKEN INTERNAL LINKS:            0`);
+console.log(`BROKEN INTERNAL LINKS:            ${brokenInternalLinks.length}`);
 console.log(`INTERNAL NOFOLLOW LINKS:          ${nofollowInternalLinks.length}`);
 console.log(`MAX IMPORTANT PAGE CLICK DEPTH:   ${maxClickDepthImportant}`);
 console.log(`DUPLICATE TITLES:                 ${duplicateTitles.length}`);
 console.log(`DUPLICATE META DESCRIPTIONS:      ${duplicateMetaDescs.length}`);
+console.log(`LONG INDEXABLE TITLES (>65):      ${longTitles.length}`);
+console.log(`SHORT INDEXABLE DESCS (<70):      ${shortMetaDescs.length}`);
 console.log(`INVALID H1 COUNT PAGES:           ${invalidH1Pages.length}`);
 console.log(`NOINDEX IN SITEMAP:               ${noindexInSitemap.length}`);
+console.log(`MISSING FROM SITEMAP:             ${missingFromSitemap.length}`);
+console.log(`SITEMAP MISSING LASTMOD:          ${missingLastmod.length}`);
 console.log(`CANONICAL REDIRECTING:            ${canonicalRedirecting}`);
 console.log(`REDIRECT CHAINS:                  ${redirectChains}`);
 console.log(`PUBLIC GIBBERISH DETECTED:        ${gibberishMatches.length}`);
@@ -461,11 +486,29 @@ if (forbiddenSchemaMatches.length > 0) {
   forbiddenSchemaMatches.forEach((m) => console.error(`- ${m.file}: ${m.schema}`));
 }
 
+if (brokenInternalLinks.length > 0) {
+  console.error('\nBroken Internal Links Found:');
+  brokenInternalLinks.slice(0, 30).forEach((b) => console.error(`- ${b.from} -> ${b.to}`));
+}
+
+if (missingFromSitemap.length > 0) {
+  console.error('\nIndexable Pages Missing From Sitemap:');
+  missingFromSitemap.forEach((m) => console.error(`- ${m.url}`));
+}
+
+if (missingLastmod.length > 0) {
+  console.error('\nSitemap URLs Missing <lastmod>:');
+  missingLastmod.slice(0, 20).forEach(([u]) => console.error(`- ${u}`));
+}
+
 if (
   duplicateTitles.length > 0 ||
   duplicateMetaDescs.length > 0 ||
   orphanIndexable.length > 0 ||
+  brokenInternalLinks.length > 0 ||
   noindexInSitemap.length > 0 ||
+  missingFromSitemap.length > 0 ||
+  missingLastmod.length > 0 ||
   redirectChains > 0 ||
   canonicalRedirecting > 0 ||
   gibberishMatches.length > 0 ||

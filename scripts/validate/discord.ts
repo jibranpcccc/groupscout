@@ -49,6 +49,7 @@ export async function validateDiscordDetailed(url: string): Promise<DiscordCheck
     if (res.status !== 200) return empty;
 
     const data = (await res.json()) as {
+      approximate_member_count?: number;
       guild?: {
         id?: string;
         name?: string;
@@ -62,16 +63,19 @@ export async function validateDiscordDetailed(url: string): Promise<DiscordCheck
     if (!data.guild?.name) return { status: 'unknown' };
 
     const rawDesc = typeof data.guild.description === 'string' ? data.guild.description.trim().replace(/\s+/g, ' ') : '';
+    const approxCount =
+      typeof data.approximate_member_count === 'number'
+        ? data.approximate_member_count
+        : typeof data.guild.approximate_member_count === 'number'
+          ? data.guild.approximate_member_count
+          : null;
 
     const result: DiscordCheckResult = {
       status: 'active',
       guildName: data.guild.name ?? null,
       guildId: data.guild.id ?? null,
       guildDescription: rawDesc.length >= 20 ? rawDesc : null,
-      memberCount:
-        typeof data.guild.approximate_member_count === 'number'
-          ? data.guild.approximate_member_count
-          : null,
+      memberCount: approxCount,
       sourceUrl: apiUrl,
     };
     return result;

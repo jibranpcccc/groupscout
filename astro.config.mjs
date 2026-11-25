@@ -33,16 +33,31 @@ const slugifyTag = (tag) =>
 const tagCounts = new Map();
 const categoryCounts = new Map();
 const examCounts = new Map();
+const categoryExams = new Map();
 for (const c of realGroups) {
   categoryCounts.set(c.category, (categoryCounts.get(c.category) || 0) + 1);
+  if (!categoryExams.has(c.category)) categoryExams.set(c.category, new Set());
   for (const t of c.tags) {
     const s = slugifyTag(t);
     tagCounts.set(s, (tagCounts.get(s) || 0) + 1);
   }
   for (const e of c.exams ?? []) {
     examCounts.set(e, (examCounts.get(e) || 0) + 1);
+    categoryExams.get(c.category).add(e);
   }
 }
+
+const tsMs = (val) => {
+  if (!val) return 0;
+  const ms = new Date(val).getTime();
+  return Number.isFinite(ms) ? ms : 0;
+};
+const latestGroupMs = (g) => Math.max(tsMs(g.updatedAt), tsMs(g.lastCheckedAt), tsMs(g.discoveredAt));
+const siteLatestMs = realGroups.reduce((max, g) => {
+  const m = latestGroupMs(g);
+  return m > max ? m : max;
+}, 0);
+const siteLatestIso = (siteLatestMs > 0 ? new Date(siteLatestMs) : new Date()).toISOString();
 
 const isCommunityIndexWorthy = (c) => {
   if (!c.published || c.isSample) return false;
@@ -127,33 +142,32 @@ export default defineConfig({
         const groupMatch = item.url.match(/\/group\/([^/]+)\/?$/);
         if (groupMatch) {
           const grp = realGroups.find((g) => g.slug === groupMatch[1]);
-          if (grp && (grp.updatedAt || grp.lastCheckedAt || grp.discoveredAt)) {
-            item.lastmod = new Date(grp.updatedAt || grp.lastCheckedAt || grp.discoveredAt).toISOString();
-          }
+          const ms = grp ? latestGroupMs(grp) : 0;
+          item.lastmod = ms > 0 ? new Date(ms).toISOString() : siteLatestIso;
+          return item;
         }
         const examMatch = item.url.match(/\/exam\/([^/]+)\/?$/);
         if (examMatch) {
           const examGroups = realGroups.filter((g) => (g.exams || []).includes(examMatch[1]));
-          const latest = examGroups.reduce((max, g) => {
-            const d = new Date(g.updatedAt || g.lastCheckedAt || g.discoveredAt).getTime();
-            return d > max ? d : max;
-          }, 0);
-          if (latest > 0) {
-            item.lastmod = new Date(latest).toISOString();
-          }
+          const latest = examGroups.reduce((max, g) => Math.max(max, latestGroupMs(g)), 0);
+          item.lastmod = latest > 0 ? new Date(latest).toISOString() : siteLatestIso;
           return item;
         }
         const catMatch = item.url.match(/\/category\/([^/]+)\/?$/);
         if (catMatch) {
           const catGroups = realGroups.filter((g) => g.category === catMatch[1]);
-          const latest = catGroups.reduce((max, g) => {
-            const d = new Date(g.updatedAt || g.lastCheckedAt || g.discoveredAt).getTime();
-            return d > max ? d : max;
-          }, 0);
-          if (latest > 0) {
-            item.lastmod = new Date(latest).toISOString();
-          }
+          const latest = catGroups.reduce((max, g) => Math.max(max, latestGroupMs(g)), 0);
+          item.lastmod = latest > 0 ? new Date(latest).toISOString() : siteLatestIso;
+          return item;
         }
+        const platMatch = item.url.match(/\/platform\/([^/]+)\/?$/);
+        if (platMatch) {
+          const platGroups = realGroups.filter((g) => g.platform === platMatch[1]);
+          const latest = platGroups.reduce((max, g) => Math.max(max, latestGroupMs(g)), 0);
+          item.lastmod = latest > 0 ? new Date(latest).toISOString() : siteLatestIso;
+          return item;
+        }
+        item.lastmod = siteLatestIso;
         return item;
       },
     }),

@@ -10,6 +10,7 @@ import { platforms } from '../config/platforms';
 import { exams, getExam } from '../config/exams';
 import {
   getPublishedCommunities,
+  getDatasetStats,
   getRecentlyAdded,
   getRecentlyChecked,
 } from '../lib/communities';
@@ -22,6 +23,7 @@ import {
 } from '../lib/seo';
 
 const published = getPublishedCommunities();
+const stats = getDatasetStats();
 const recentlyAdded = getRecentlyAdded(8);
 const recentlyChecked = getRecentlyChecked(8);
 const categoryCounts = new Map(
@@ -60,8 +62,8 @@ const calculatorGraphNode = {
 ---
 
 <BaseLayout
-  title={pageTitle('Study Groups for IELTS, USMLE, SAT & Certifications')}
-  description="Discover active Discord, Telegram, and WhatsApp study groups for IELTS, USMLE, SAT, CFA, and IT certifications. Verified invite links and anti-dump screening."
+  title={pageTitle('Study Groups for IELTS, SAT, USMLE & More')}
+  description="Discover active Discord and Telegram study groups for IELTS, USMLE, SAT, CFA, and IT certifications. Automated link checks and anti-dump screening."
   canonicalPath="/"
   jsonLd={graphJsonLd([organizationGraphNode(), websiteGraphNode(), calculatorGraphNode])}
 >
@@ -72,7 +74,7 @@ const calculatorGraphNode = {
         Find Exam &amp; Certification Study Groups
       </h1>
       <p class="mx-auto mt-4 max-w-2xl text-lg text-stone-600">
-        Discover active public Discord, Telegram and WhatsApp communities for standardized exam
+        Discover active public Discord and Telegram communities for standardized exam
         preparation, professional certifications, study partners, and peer accountability.
       </p>
       <div class="mx-auto mt-8 max-w-xl">
@@ -94,7 +96,7 @@ const calculatorGraphNode = {
           <dt class="text-xs font-medium uppercase tracking-wide text-stone-500">Platforms</dt>
         </div>
         <div class="rounded-xl border border-stone-200/80 bg-surface/80 p-3 shadow-xs">
-          <dd class="text-2xl font-bold text-stone-900">{recentlyChecked.length}</dd>
+          <dd class="text-2xl font-bold text-stone-900">{stats.recentlyChecked || recentlyChecked.length}</dd>
           <dt class="text-xs font-medium uppercase tracking-wide text-stone-500">Recently Checked</dt>
         </div>
       </dl>
@@ -141,7 +143,7 @@ const calculatorGraphNode = {
             >
               <div>
                 <p class="font-semibold text-stone-900 group-hover:text-blue-700">{exam.name}</p>
-                <p class="text-xs text-stone-500">{count > 0 ? `${count} active communities` : exam.description}</p>
+                <p class="text-xs text-stone-500">{count > 0 ? `${count} listed communities` : exam.description}</p>
               </div>
               <span class="ml-2 text-stone-400 group-hover:text-blue-600" aria-hidden="true">→</span>
             </a>
@@ -163,7 +165,7 @@ const calculatorGraphNode = {
   <section class="mx-auto w-full max-w-6xl px-4 pt-14 sm:px-6">
     <div>
       <h2 class="text-2xl font-bold tracking-tight text-stone-900">Study Groups by Category</h2>
-      <p class="mt-1 text-sm text-stone-600">Find study communities organized across 8 primary educational and professional disciplines.</p>
+      <p class="mt-1 text-sm text-stone-600">Find study communities organized across {categories.length} educational and professional exam disciplines.</p>
     </div>
     <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {

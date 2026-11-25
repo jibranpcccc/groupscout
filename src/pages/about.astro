@@ -27,20 +27,22 @@ const coveredFamilies = [
 const canonicalPath = '/about/';
 const pageUrl = canonicalUrl(canonicalPath);
 
+const aboutDesc = `Learn how ${siteConfig.name} catalogs public Telegram and Discord study communities with automated link checks, transparent verification, and anti-dump screening.`;
+
 const aboutGraph = graphJsonLd([
   breadcrumbGraphNode([{ name: 'About', path: canonicalPath }], pageUrl),
   {
     '@type': 'AboutPage',
-    name: 'About StudyGroupsHub',
+    name: `About ${siteConfig.name}`,
     url: pageUrl,
-    description: `What ${siteConfig.name} is, how it works and where its listings come from.`,
+    description: aboutDesc,
   },
 ]);
 ---
 
 <BaseLayout
-  title={pageTitle('About')}
-  description={`What ${siteConfig.name} is, how it works and where its listings come from.`}
+  title={pageTitle('About Our Exam Study Directory')}
+  description={aboutDesc}
   canonicalPath={canonicalPath}
   jsonLd={aboutGraph}
 >

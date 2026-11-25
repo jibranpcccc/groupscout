@@ -4,8 +4,8 @@ import { pageTitle, canonicalUrl, graphJsonLd, breadcrumbGraphNode, webPageGraph
 import { siteConfig } from '../config/site';
 
 const canonicalPath = '/terms/';
-const title = pageTitle('Terms of Use');
-const description = `Terms of use for ${siteConfig.name}.`;
+const title = pageTitle('Terms of Use & Acceptable Use');
+const description = `Terms of use for ${siteConfig.name} covering independent directory scope, external community links, acceptable use, submissions, and trademarks.`;
 const pageUrl = canonicalUrl(canonicalPath);
 const jsonLd = graphJsonLd([
   breadcrumbGraphNode([{ name: 'Terms', path: canonicalPath }], pageUrl),
@@ -21,12 +21,11 @@ const jsonLd = graphJsonLd([
 >
   <div class="mx-auto w-full max-w-3xl px-4 py-10 sm:px-6">
     <h1 class="text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">Terms of Use</h1>
-    <p class="mt-2 text-sm text-stone-500">Last updated: August 2026</p>
+    <p class="mt-2 text-sm text-stone-500">Last updated: November 2026</p>
 
     <div class="prose-static mt-6">
       <p>
-        By using {siteConfig.name}, you agree to these terms. This is a starter
-        document — it is not legal advice. Have a lawyer review it before launch.
+        By accessing or using {siteConfig.name}, you agree to these terms of use.
       </p>
 
       <h2>1. The service</h2>

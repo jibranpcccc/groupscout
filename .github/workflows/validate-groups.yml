@@ -21,6 +21,8 @@ jobs:
     env:
       VALIDATE_MAX_CHECKS: ${{ vars.VALIDATE_MAX_CHECKS }}
       VALIDATE_DELAY_MS: ${{ vars.VALIDATE_DELAY_MS }}
+      TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+      TAVILY_API_KEYS: ${{ secrets.TAVILY_API_KEYS }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4

@@ -33,41 +33,61 @@ const hasDiscord = published.some((c) => c.platform === 'discord');
 const hasTelegram = published.some((c) => c.platform === 'telegram');
 
 const examTitleMap: Record<string, string> = {
-  ielts: 'IELTS Telegram Groups & Speaking Partners (2026)',
-  toefl: 'TOEFL Study Groups & Telegram Channels (2026)',
-  gre: 'GRE Study Groups, Discord Servers & Quant Prep (2026)',
-  gmat: 'GMAT Focus Study Groups: Discord & Telegram (2026)',
-  sat: 'Digital SAT Study Groups: Discord & Telegram (2026)',
-  usmle: 'USMLE Step 1 & 2 Telegram Groups & Partners (2026)',
-  nclex: 'NCLEX-RN Study Groups & Telegram Channels (2026)',
-  lsat: 'LSAT Study Groups & Discord Servers: 170+ Prep (2026)',
-  cfa: 'CFA Level 1, 2 & 3 Study Groups: Discord & Telegram',
-  cpa: 'CPA Exam Study Groups: Discord & Telegram (2026)',
-  cissp: 'CISSP Study Groups & Discord Servers (2026)',
-  upsc: 'UPSC Civil Services Telegram Channels & Groups (2026)',
-  jee: 'JEE 2026 Telegram Group Links & IIT Discord Servers',
-  neet: 'NEET UG 2026 Telegram Group Links & Study Groups',
-  gate: 'GATE 2026 Telegram Group Links & CSE Discord Servers',
+  ielts: 'IELTS Telegram Groups & Speaking Prep',
+  toefl: 'TOEFL Study Groups & Telegram Channels',
+  gre: 'GRE Study Groups & Telegram Prep',
+  gmat: 'GMAT Focus Study Groups: Discord & Telegram',
+  sat: 'SAT Study Groups: Discord & Telegram',
+  usmle: 'USMLE Step 1 & 2 Telegram Study Groups',
+  nclex: 'NCLEX-RN Study Groups & Telegram Channels',
+  lsat: 'LSAT Study Groups: Discord & Telegram',
+  cfa: 'CFA Level 1, 2 & 3 Telegram Study Groups',
+  cpa: 'CPA Exam Telegram Study Groups & Prep',
+  cissp: 'CISSP Telegram Study Groups & Prep',
+  upsc: 'UPSC CSE Telegram Channels & Study Groups',
+  jee: 'JEE Main & Advanced Telegram Study Groups',
+  neet: 'NEET UG Study Groups: Telegram & Discord',
+  gate: 'GATE Exam Telegram Study Groups & Channels',
 };
 
 const customTitle = examTitleMap[exam.slug];
 
-let titleVariant = 'Study Groups & Study Partners';
+let titleVariant = 'Study Groups & Partners';
 if (hasDiscord && hasTelegram) {
-  titleVariant = 'Study Groups: Discord & Telegram Links (2026)';
+  titleVariant = 'Study Groups: Discord & Telegram';
 } else if (hasTelegram) {
-  titleVariant = 'Telegram Group Links & Study Channels (2026)';
+  titleVariant = 'Telegram Study Groups & Channels';
 } else if (hasDiscord) {
-  titleVariant = 'Discord Servers & Study Groups (2026)';
+  titleVariant = 'Discord Servers & Study Groups';
 }
 
 const title = pageTitle(customTitle ?? `${exam.name} ${titleVariant}`);
 
 const h1Text = customTitle ?? (hasDiscord && hasTelegram
-  ? `${exam.name} Study Groups, Discord Servers & Telegram Links (2026)`
+  ? `${exam.name} Study Groups, Discord Servers & Telegram Links`
   : hasTelegram
-    ? `${exam.name} Telegram Channels, Groups & Study Partners (2026)`
-    : `${exam.name} Discord Servers & Study Groups (2026)`);
+    ? `${exam.name} Telegram Channels, Groups & Study Partners`
+    : `${exam.name} Discord Servers & Study Groups`);
+
+const latestExamTs = published.reduce((max, c) => {
+  const t = Math.max(
+    c.updatedAt ? new Date(c.updatedAt).getTime() : 0,
+    c.lastCheckedAt ? new Date(c.lastCheckedAt).getTime() : 0,
+    c.discoveredAt ? new Date(c.discoveredAt).getTime() : 0
+  );
+  return Number.isFinite(t) && t > max ? t : max;
+}, 0);
+const updatedMonthLabel = new Intl.DateTimeFormat('en-US', {
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'UTC',
+}).format(latestExamTs > 0 ? new Date(latestExamTs) : new Date());
+
+const VOWEL_SOUND_EXAMS = new Set([
+  'ielts', 'lsat', 'nclex', 'mcat', 'sat', 'act', 'ap-exams',
+  'aws', 'azure', 'acca', 'frm', 'oscp', 'oet', 'oet-medicine', 'oet-nursing', 'sqe',
+]);
+const examArticle = VOWEL_SOUND_EXAMS.has(exam.slug) ? 'an' : 'a';
 
 const platformShort = hasDiscord && hasTelegram
   ? 'Telegram & Discord'
@@ -86,8 +106,8 @@ const platformText = hasDiscord && hasTelegram
       : 'peer study communities';
 
 const metaDesc = isIndexable
-  ? `Join ${published.length}+ verified ${exam.name} study groups on ${platformShort}. Connect with study partners, syllabus discussions, and daily practice questions for 2026 prep.`
-  : `Explore public ${exam.name} study communities on StudyGroupsHub. Verified invite links, anti-dump screening, and active peer discussions.`;
+  ? `Browse ${published.length} public ${exam.name} study groups on ${platformShort}. Find study partners, syllabus discussions, and practice questions on StudyGroupsHub.`
+  : `Explore public ${exam.name} study communities on StudyGroupsHub. Automated link checks, anti-dump screening, and active peer discussions.`;
 
 const crumbs = [
   { label: family?.name ?? 'Exams', href: `/category/${exam.family}/` },
@@ -106,7 +126,7 @@ const defaultGuidance = {
   ],
   faqs: [
     { question: `Are these ${exam.name} study groups free to join?`, answer: `All public ${exam.name} communities listed on StudyGroupsHub are free to join via standard platform invite links.` },
-    { question: `How can I find an ${exam.name} study partner?`, answer: `Join an active ${exam.name} group and introduce yourself with your target test date and study goals.` },
+    { question: `How can I find ${examArticle} ${exam.name} study partner?`, answer: `Join an active ${exam.name} group and introduce yourself with your target test date and study goals.` },
     { question: `Are ${exam.name} study channels safe?`, answer: `Public groups are suitable for peer study. Avoid sharing private credentials or financial details.` },
     { question: `How often are ${exam.name} links checked?`, answer: `Our automated link validation tests invite URLs regularly to detect and remove broken links.` },
   ],
@@ -159,7 +179,7 @@ const examGraph = graphJsonLd([
         <span class="text-stone-300">•</span>
         <span>Academic Integrity Verified</span>
         <span class="text-stone-300">•</span>
-        <span>Updated September 2026</span>
+        <span>Updated {updatedMonthLabel}</span>
       </div>
       <div class="mt-6 flex flex-wrap items-center gap-3 text-sm">
         <span class="rounded-full bg-blue-100 px-3.5 py-1 font-medium text-blue-800">
@@ -186,7 +206,7 @@ const examGraph = graphJsonLd([
     <div class="flex items-end justify-between border-b border-stone-200 pb-4">
       <div>
         <h2 class="text-xl font-bold text-stone-900">{exam.name} Study Groups You Can Join</h2>
-        <p class="mt-1 text-xs text-stone-500">Public communities with verified active links and curriculum focus.</p>
+        <p class="mt-1 text-xs text-stone-500">Public exam-focused communities with automated link checks and anti-dump screening.</p>
       </div>
       <span class="text-xs font-semibold text-stone-500">{published.length} available</span>
     </div>
@@ -215,7 +235,7 @@ const examGraph = graphJsonLd([
         <div class="grid gap-8 lg:grid-cols-2">
           <!-- Advice Box -->
           <div class="rounded-2xl border border-stone-200 bg-surface p-6 sm:p-8 shadow-xs">
-            <h2 class="text-xl font-bold text-stone-900">What to Look for in an {exam.name} Study Group</h2>
+            <h2 class="text-xl font-bold text-stone-900">What to Look for in {examArticle} {exam.name} Study Group</h2>
             <div class="mt-4 space-y-3.5">
               {
                 guidance.focusAreas.map((item) => (

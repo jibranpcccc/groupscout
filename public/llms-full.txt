@@ -23,7 +23,7 @@ StudyGroupsHub provides prospective test-takers and certification candidates wit
   - Academic & General Training Task 1 (data analysis/letter) and Task 2 essay feedback.
   - Vocabulary expansion and common band 7+ lexical resources.
   - Listening and Reading practice test time management.
-- **Platforms**: High activity on Telegram for daily idiom polls and Discord for real-time voice speaking clubs.
+- **Platforms**: High activity on Telegram for daily idiom polls, speaking partner threads, and writing feedback.
 
 ### 2. Digital SAT
 - **URL**: https://studygroupshub.com/exam/sat/

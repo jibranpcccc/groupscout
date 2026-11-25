@@ -25,11 +25,25 @@ export function pageTitle(...parts: (string | null | undefined)[]): string {
 export function communityTitle(community: Community): string {
   const platformName = getPlatformName(community.platform);
   const primaryExam = community.exams?.[0] ? getExamName(community.exams[0]) : null;
+  const suffix = ` | ${siteConfig.name}`;
+
+  const full = primaryExam
+    ? `${community.title} – ${primaryExam} Study Group on ${platformName}${suffix}`
+    : `${community.title} – ${platformName} Study Group${suffix}`;
+  if (full.length <= 65) return full;
 
   if (primaryExam) {
-    return `${community.title} – ${primaryExam} Study Group on ${platformName} | ${siteConfig.name}`;
+    const compact = `${community.title} (${primaryExam}, ${platformName})${suffix}`;
+    if (compact.length <= 65) return compact;
+    const shorter = `${community.title} – ${primaryExam}${suffix}`;
+    if (shorter.length <= 65) return shorter;
+  } else {
+    const compact = `${community.title} (${platformName})${suffix}`;
+    if (compact.length <= 65) return compact;
   }
-  return `${community.title} – ${platformName} Study Group | ${siteConfig.name}`;
+
+  const maxTitleLen = 65 - suffix.length - 1;
+  return `${community.title.slice(0, maxTitleLen).trimEnd()}…${suffix}`;
 }
 
 export function communityDescription(community: Community): string {
@@ -124,14 +138,6 @@ export function websiteGraphNode() {
     url: canonicalUrl('/'),
     description: siteConfig.description,
     publisher: { '@id': `${canonicalUrl('/')}#organization` },
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: `${canonicalUrl('/communities/')}?q={search_term_string}`,
-      },
-      'query-input': 'required name=search_term_string',
-    },
     inLanguage: 'en',
   };
 }
