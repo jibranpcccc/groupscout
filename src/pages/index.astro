@@ -30,10 +30,10 @@ const categoryCounts = new Map(
   categories.map((c) => [c.slug, published.filter((x) => x.category === c.slug).length])
 );
 
-// High-intent 15 indexable exam hubs
+// High-intent 16 indexable exam hubs
 const indexableExamSlugs = [
   'ielts', 'upsc', 'jee', 'neet', 'sat', 'usmle', 'nclex', 'gre', 'toefl',
-  'cfa', 'cpa', 'gate', 'gmat', 'lsat', 'cissp',
+  'cfa', 'cpa', 'gate', 'gmat', 'lsat', 'cissp', 'pmp',
 ];
 const examSlugsWithInventory = new Set(published.flatMap((c) => c.exams ?? []));
 const featuredExams = indexableExamSlugs

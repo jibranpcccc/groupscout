@@ -281,4 +281,22 @@ export const examGuidanceMap: Record<string, ExamGuidance> = {
       { question: 'Does StudyGroupsHub charge to access CISSP community links?', answer: 'Accessing public (ISC)² CISSP certification study channels on StudyGroupsHub requires no payment or subscription.' },
     ],
   },
+  pmp: {
+    focusAreas: [
+      { label: 'People, Process & Business Domains', text: 'Structure peer study blocks around the three PMI Exam Content Outline domains: People (42%), Process (50%), and Business Environment (8%).' },
+      { label: 'Predictive vs. Agile & Hybrid Scenarios', text: 'Practice dissecting situational questions to select servant-leadership, stakeholder engagement, and agile artifact responses.' },
+      { label: 'EVM & Schedule Network Calculations', text: 'Verify Earned Value Management formulas (CPI, SPI, EAC) and critical path float problems with peers.' },
+      { label: 'Full-Length 180-Question Pacing', text: 'Simulate three 60-question blocks with timed breaks to build endurance and sharpen elimination speed.' },
+    ],
+    platformNote: {
+      dualTelegramNote: 'Telegram groups offer mobile situational practice polls, PMBOK formula reminders, and daily study check-ins.',
+      dualDiscordNote: 'Discord servers provide dedicated certification channels, voice study rooms, and timed mock exam debriefs.',
+    },
+    faqs: [
+      { question: 'How do peer groups help with PMP situational exam questions?', answer: 'Walking through situational questions with fellow candidates helps clarify PMI mindset priorities before taking official mock simulators.' },
+      { question: 'How can I find a PMP study partner for Agile and Hybrid review?', answer: 'Share your target exam date and weak ECO domains in active project management channels to schedule weekly mock debriefs.' },
+      { question: 'Does StudyGroupsHub charge to open PMP study group links?', answer: 'Browsing and opening public PMP and project management community invite links on StudyGroupsHub is completely free.' },
+      { question: 'What safety standards apply to PMP certification communities?', answer: 'StudyGroupsHub rejects channels promoting stolen exam dumps or credential fraud, focusing strictly on legitimate syllabus study.' },
+    ],
+  },
 };

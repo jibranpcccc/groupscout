@@ -128,6 +128,13 @@ StudyGroupsHub provides prospective test-takers and certification candidates wit
   - Managerial "think like a manager" mindset training.
   - Scenario evaluation and exam day endurance.
 
+### 16. PMP (Project Management Professional)
+- **URL**: https://studygroupshub.com/exam/pmp/
+- **Focus Areas**:
+  - PMI Exam Content Outline domains: People, Process, and Business Environment.
+  - Predictive, Agile, and Hybrid situational question analysis.
+  - Earned Value Management (EVM) formulas and 180-question pacing.
+
 ---
 
 ## Category Structure
@@ -140,6 +147,7 @@ StudyGroupsHub provides prospective test-takers and certification candidates wit
 6. **Finance & Accounting** (`/category/finance-accounting/`): CFA, CPA, and financial certifications.
 7. **Cybersecurity Certifications** (`/category/cybersecurity-certifications/`): CISSP and information security certs.
 8. **Law & Legal Exams** (`/category/law/`): LSAT, CLAT, and law admissions.
+9. **Project Management** (`/category/project-management/`): PMP, CAPM, PRINCE2, and Scrum certifications.
 
 ---
 

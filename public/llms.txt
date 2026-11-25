@@ -19,6 +19,7 @@
 - [CPA Exam Groups](https://studygroupshub.com/exam/cpa/): Communities for Uniform CPA Examination candidates discussing FAR, AUD, REG, and discipline sections.
 - [LSAT Study Servers](https://studygroupshub.com/exam/lsat/): Law school applicant communities focusing on Logical Reasoning patterns, Reading Comprehension pacing, and 170+ score strategies.
 - [CISSP Security Groups](https://studygroupshub.com/exam/cissp/): Cybersecurity professional groups preparing for the CISSP certification across all 8 (ISC)² CBK security domains.
+- [PMP Exam Groups](https://studygroupshub.com/exam/pmp/): Project Management Professional candidate communities covering People, Process, Business Environment, and Agile/Hybrid exam scenarios.
 
 ## Categories
 
@@ -30,6 +31,7 @@
 - [Finance & Accounting](https://studygroupshub.com/category/finance-accounting/): Financial certifications including CFA and CPA.
 - [Cybersecurity Certifications](https://studygroupshub.com/category/cybersecurity-certifications/): Information security and IT certifications including CISSP.
 - [Law & Legal Exams](https://studygroupshub.com/category/law/): Law school entrance test communities including LSAT and CLAT.
+- [Project Management](https://studygroupshub.com/category/project-management/): Project leadership and agile certification groups including PMP, CAPM, and PRINCE2.
 
 ## Key Facts
 

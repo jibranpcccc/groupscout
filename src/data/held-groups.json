@@ -489,52 +489,6 @@
     "heldReason": "live but generic/off-niche (no exam focus) — verified via Tavily extract"
   },
   {
-    "id": "cand-mt1g5xs0-2bnw3w",
-    "slug": "discord-dtf4uqpdzq",
-    "title": "Join the Professor Messer Discord Server",
-    "platform": "discord",
-    "vertical": "study-prep",
-    "category": "general-study",
-    "subcategory": null,
-    "tags": [
-      "study"
-    ],
-    "examFamilies": [
-      "general-study"
-    ],
-    "exams": [],
-    "targetMarkets": [],
-    "certificationProvider": null,
-    "studyTypes": [
-      "discussion"
-    ],
-    "examLevel": null,
-    "inviteUrl": "https://discord.com/invite/dtf4uQPDZq",
-    "description": null,
-    "language": null,
-    "country": null,
-    "accessType": "unknown",
-    "communityType": "discussion",
-    "memberCount": null,
-    "memberCountSource": null,
-    "memberCountCheckedAt": null,
-    "verificationStatus": "unverified",
-    "linkStatus": "active",
-    "lastCheckedAt": "2026-08-20T11:39:14.387Z",
-    "sourceUrls": [
-      "https://discord.com/invite/dtf4uQPDZq"
-    ],
-    "discoveryMethod": "gemini-search",
-    "discoveredAt": "2026-08-20T11:38:34.944Z",
-    "updatedAt": null,
-    "safetyFlags": [],
-    "featured": false,
-    "published": false,
-    "linkCheckFailures": 0,
-    "discordGuildId": "524045675848269845",
-    "heldReason": "generic study/accountability, no exam/cert focus"
-  },
-  {
     "id": "cand-mt1g6dnk-hoakrl",
     "slug": "telegram-dsatuz",
     "title": "DSATuz | Preparing for the SAT — 2 FULL DIGITIAL SAT PRACTICE TESTS📕 ❗️Sharing is caring🎯 ♻️ Share with your friends ♻",
@@ -4299,52 +4253,6 @@
     "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
   },
   {
-    "id": "cand-mu3w5902-h1skuf",
-    "slug": "discord-x8jusaymq9",
-    "title": "Join the CPA Study Group Discord Server",
-    "platform": "discord",
-    "vertical": "study-prep",
-    "category": "finance-accounting",
-    "subcategory": null,
-    "tags": [
-      "CPA"
-    ],
-    "examFamilies": [
-      "finance-accounting"
-    ],
-    "exams": [
-      "cpa"
-    ],
-    "targetMarkets": [],
-    "certificationProvider": null,
-    "studyTypes": [
-      "discussion"
-    ],
-    "examLevel": null,
-    "inviteUrl": "https://discord.com/invite/X8jUsaymq9",
-    "description": null,
-    "language": null,
-    "country": null,
-    "accessType": "unknown",
-    "communityType": "discussion",
-    "memberCount": null,
-    "memberCountSource": null,
-    "memberCountCheckedAt": null,
-    "verificationStatus": "unverified",
-    "linkStatus": "unknown",
-    "lastCheckedAt": null,
-    "sourceUrls": [
-      "https://discord.com/invite/X8jUsaymq9"
-    ],
-    "discoveryMethod": "gemini-search",
-    "discoveredAt": "2026-09-16T09:21:11.378Z",
-    "updatedAt": null,
-    "safetyFlags": [],
-    "featured": false,
-    "published": false,
-    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
-  },
-  {
     "id": "cand-mu3w59xm-loe3ef",
     "slug": "telegram-ciscegroup",
     "title": "STUDY FOR ICSE CLASS 10 GROUP – Telegram — 390",
@@ -4562,52 +4470,6 @@
     ],
     "discoveryMethod": "gemini-search",
     "discoveredAt": "2026-09-18T09:03:12.287Z",
-    "updatedAt": null,
-    "safetyFlags": [],
-    "featured": false,
-    "published": false,
-    "heldReason": "linkStatus=unknown — moved from normal pending per observation-phase rule (pending must be active-only)"
-  },
-  {
-    "id": "cand-mu85dwsg-s9we5e",
-    "slug": "discord-3jp8hyh",
-    "title": "Virtual Neet LIVE - Discord — Check out the Virtual Neet LIVE community on Discord - hang out with 1880 other members an",
-    "platform": "discord",
-    "vertical": "study-prep",
-    "category": "entrance-exams",
-    "subcategory": null,
-    "tags": [
-      "NEET"
-    ],
-    "examFamilies": [
-      "entrance-exams"
-    ],
-    "exams": [
-      "neet"
-    ],
-    "targetMarkets": [],
-    "certificationProvider": null,
-    "studyTypes": [
-      "discussion"
-    ],
-    "examLevel": null,
-    "inviteUrl": "https://discord.com/invite/3jP8HYH",
-    "description": null,
-    "language": null,
-    "country": null,
-    "accessType": "unknown",
-    "communityType": "discussion",
-    "memberCount": null,
-    "memberCountSource": null,
-    "memberCountCheckedAt": null,
-    "verificationStatus": "unverified",
-    "linkStatus": "unknown",
-    "lastCheckedAt": null,
-    "sourceUrls": [
-      "https://discord.com/invite/3jP8HYH"
-    ],
-    "discoveryMethod": "gemini-search",
-    "discoveredAt": "2026-09-19T08:50:56.704Z",
     "updatedAt": null,
     "safetyFlags": [],
     "featured": false,
