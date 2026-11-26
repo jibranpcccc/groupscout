@@ -28,22 +28,22 @@ export function communityTitle(community: Community): string {
   const suffix = ` | ${siteConfig.name}`;
 
   const full = primaryExam
-    ? `${community.title} – ${primaryExam} Study Group on ${platformName}${suffix}`
-    : `${community.title} – ${platformName} Study Group${suffix}`;
+    ? `${community.title}: ${primaryExam} Study Group on ${platformName}${suffix}`
+    : `${community.title}: ${platformName} Study Group${suffix}`;
   if (full.length <= 65) return full;
 
   if (primaryExam) {
     const compact = `${community.title} (${primaryExam}, ${platformName})${suffix}`;
     if (compact.length <= 65) return compact;
-    const shorter = `${community.title} – ${primaryExam}${suffix}`;
+    const shorter = `${community.title} - ${primaryExam}${suffix}`;
     if (shorter.length <= 65) return shorter;
   } else {
     const compact = `${community.title} (${platformName})${suffix}`;
     if (compact.length <= 65) return compact;
   }
 
-  const maxTitleLen = 65 - suffix.length - 1;
-  return `${community.title.slice(0, maxTitleLen).trimEnd()}…${suffix}`;
+  const maxTitleLen = 65 - suffix.length - 3;
+  return `${community.title.slice(0, maxTitleLen).trimEnd()}...${suffix}`;
 }
 
 export function communityDescription(community: Community): string {

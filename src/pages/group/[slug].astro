@@ -137,7 +137,11 @@ const detailGraph = graphJsonLd([
             </div>
             <div>
               <dt class="text-xs font-medium uppercase tracking-wide text-stone-500">Platform</dt>
-              <dd class="mt-1 text-sm text-stone-700">{platformConfig?.name}</dd>
+              <dd class="mt-1 text-sm text-stone-700">
+                <a href={`/platform/${community.platform}/`} class="font-medium text-blue-700 hover:underline">
+                  {platformConfig?.name ?? community.platform}
+                </a>
+              </dd>
             </div>
             {
               (community.exams ?? []).length > 0 && (
@@ -332,8 +336,8 @@ const detailGraph = graphJsonLd([
               <h2 id="flags-heading" class="text-lg font-semibold text-stone-900">Review notes</h2>
               <p class="mt-2 rounded-lg border border-amber-200 bg-amber-50 p-3 text-sm text-amber-800">
                 This listing carries review flags ({community.safetyFlags.join(', ')}) that were
-                noted during discovery or moderation. It has not been independently audited —
-                verify claims before acting.
+                noted during discovery or moderation. It has not been independently audited. Verify
+                claims before acting.
               </p>
             </section>
           )

@@ -12,7 +12,7 @@ const jsonLd = graphJsonLd([
 ---
 
 <BaseLayout
-  title={pageTitle('Contact Us — Corrections & Removals')}
+  title={pageTitle('Contact Us: Corrections & Removals')}
   description={`Contact ${siteConfig.name} with listing corrections, removal requests, or directory feedback. Use our report form for broken links or policy issues.`}
   canonicalPath={canonicalPath}
   jsonLd={jsonLd}
@@ -20,9 +20,9 @@ const jsonLd = graphJsonLd([
   <div class="mx-auto w-full max-w-3xl px-4 py-10 sm:px-6">
     <h1 class="text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">Contact</h1>
     <p class="mt-2 text-stone-600">
-      Questions, corrections or removal requests? Send a message — we read everything.
-      For listing issues, the <a href="/report/" class="text-blue-700 underline">report form</a>{' '}
-      is usually faster.
+      Questions, listing corrections, or removal requests? Send a message below and our
+      editorial team will review it. For broken invites or policy violations, the{' '}
+      <a href="/report/" class="text-blue-700 underline">listing report form</a> is usually faster.
     </p>
 
     <form
@@ -60,9 +60,52 @@ const jsonLd = graphJsonLd([
     {
       Astro.url.searchParams.get('sent') === '1' && (
         <div role="status" class="mt-6 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800">
-          Thanks — your message was sent.
+          Thanks. Your message was sent.
         </div>
       )
     }
+
+    <div class="prose-static mt-10">
+      <h2>What can you contact us about?</h2>
+      <p>
+        Use this form for general questions, editorial corrections, or community ownership requests.
+        Choose the fastest path for your request:
+      </p>
+      <ul>
+        <li>
+          <strong>Listing corrections and exam updates:</strong> Let us know if a community covers
+          additional exams, changed its platform focus, or needs updated public metadata.
+        </li>
+        <li>
+          <strong>Community owner verification and removals:</strong> Server admins and channel
+          owners can request <code>owner-confirmed</code> status or ask to remove a listing by
+          verifying ownership from an official community channel.
+        </li>
+        <li>
+          <strong>Broken links or academic integrity violations:</strong> Submit dead invites,
+          spam, braindumps, or leaked question channels through the{' '}
+          <a href="/report/">report form</a> so they enter the moderation queue under our{' '}
+          <a href="/academic-integrity/">Academic Integrity Policy</a>.
+        </li>
+        <li>
+          <strong>Suggest a new study community:</strong> Share active public{' '}
+          <a href="/platform/telegram/">Telegram study groups</a> or{' '}
+          <a href="/platform/discord/">Discord study servers</a> using the{' '}
+          <a href="/submit/">community submission form</a>.
+        </li>
+      </ul>
+
+      <h2>How does StudyGroupsHub handle inquiries?</h2>
+      <p>
+        Every contact message, correction, and removal request is reviewed manually by a human
+        editor. We verify factual changes against public sources before updating the directory, as
+        described in <a href="/how-we-verify/">How We Verify</a> and our{' '}
+        <a href="/editorial-policy/">Editorial Policy</a>. For urgent takedown requests from
+        verified community owners, please include the community slug and an official invite or
+        admin channel link so we can confirm ownership promptly. Email addresses submitted through
+        forms are used solely to process your request and are never published in our public
+        dataset. See our <a href="/privacy/">Privacy Policy</a> for retention details.
+      </p>
+    </div>
   </div>
 </BaseLayout>

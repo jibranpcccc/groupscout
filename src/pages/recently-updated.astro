@@ -20,5 +20,6 @@ const communities = sortCommunities(getPublishedCommunities(), 'recently-checked
   breadcrumbs={[{ label: 'Recently Updated' }]}
   jsonLd={breadcrumbJsonLd([{ name: 'Recently Updated', path: '/recently-updated/' }])}
 >
+  <h2 class="sr-only">Recently checked study communities</h2>
   {communities.length === 0 ? <EmptyState /> : <CommunityGrid communities={communities} />}
 </DirectoryLayout>

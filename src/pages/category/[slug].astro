@@ -128,10 +128,11 @@ const categoryGraph = graphJsonLd([
 
   <p data-directory-summary class="mt-4 text-sm text-stone-500">
     {all.length > 0
-      ? `Showing 1–${Math.min(PAGE_SIZE, all.length)} of ${all.length}`
+      ? `Showing 1-${Math.min(PAGE_SIZE, all.length)} of ${all.length}`
       : 'No communities in this category yet'}
   </p>
 
+  <h2 class="sr-only">{category.name} study communities</h2>
   <div class="mt-4">
     {
       all.length === 0 ? (

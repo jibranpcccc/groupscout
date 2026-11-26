@@ -13,10 +13,11 @@ const communities = getRecentlyAdded(50);
   description="The newest public communities added to the directory, ordered by discovery date."
   canonicalPath="/recently-added/"
   noindex
-  intro="Communities newest to the directory first. “Recently added” reflects our discovery date, not a trend score."
+  intro="Communities newest to the directory first. Recently added reflects our discovery date, not a trend score."
   count={`${communities.length} communities`}
   breadcrumbs={[{ label: 'Recently Added' }]}
   jsonLd={breadcrumbJsonLd([{ name: 'Recently Added', path: '/recently-added/' }])}
 >
+  <h2 class="sr-only">Recently added study communities</h2>
   {communities.length === 0 ? <EmptyState /> : <CommunityGrid communities={communities} />}
 </DirectoryLayout>

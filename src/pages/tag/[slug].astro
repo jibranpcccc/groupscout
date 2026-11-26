@@ -79,5 +79,6 @@ const tagGraph = graphJsonLd([
     )
   }
 
+  <h2 class="sr-only">{tag.name} tagged communities</h2>
   {communities.length === 0 ? <EmptyState /> : <CommunityGrid communities={communities} />}
 </DirectoryLayout>

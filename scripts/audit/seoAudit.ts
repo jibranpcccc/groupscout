@@ -331,8 +331,21 @@ indexablePages.forEach((r) => {
 });
 const duplicateMetaDescs = Array.from(metaDescMap.entries()).filter(([_, urls]) => urls.length > 1);
 
-// Check H1 counts on all pages
+// Check H1 counts and heading hierarchy skips on indexable pages
 const invalidH1Pages = auditRecords.filter((r) => r.h1Count !== 1 && r.pageType !== 'utility/error');
+const headingSkipPages: Array<{ url: string; skip: string }> = [];
+for (const r of indexablePages) {
+  const html = fs.readFileSync(path.join(distPath, r.file), 'utf8');
+  const mainMatch = html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/i);
+  const scope = mainMatch ? mainMatch[1] : html;
+  const levels = Array.from(scope.matchAll(/<h([1-6])\b/gi)).map((m) => Number.parseInt(m[1], 10));
+  for (let i = 0; i < levels.length - 1; i++) {
+    if (levels[i + 1] > levels[i] + 1) {
+      headingSkipPages.push({ url: r.url, skip: `h${levels[i]}->h${levels[i + 1]}` });
+      break;
+    }
+  }
+}
 
 // Check Orphan indexable pages (0 inbound links)
 const orphanIndexable = indexablePages.filter((r) => r.inboundLinks === 0 && r.url !== `${baseSiteUrl}/`);
@@ -446,6 +459,7 @@ console.log(`DUPLICATE META DESCRIPTIONS:      ${duplicateMetaDescs.length}`);
 console.log(`LONG INDEXABLE TITLES (>65):      ${longTitles.length}`);
 console.log(`SHORT INDEXABLE DESCS (<70):      ${shortMetaDescs.length}`);
 console.log(`INVALID H1 COUNT PAGES:           ${invalidH1Pages.length}`);
+console.log(`HEADING HIERARCHY SKIPS:          ${headingSkipPages.length}`);
 console.log(`NOINDEX IN SITEMAP:               ${noindexInSitemap.length}`);
 console.log(`MISSING FROM SITEMAP:             ${missingFromSitemap.length}`);
 console.log(`SITEMAP MISSING LASTMOD:          ${missingLastmod.length}`);
@@ -501,11 +515,17 @@ if (missingLastmod.length > 0) {
   missingLastmod.slice(0, 20).forEach(([u]) => console.error(`- ${u}`));
 }
 
+if (headingSkipPages.length > 0) {
+  console.error('\nHeading Hierarchy Skips Found:');
+  headingSkipPages.forEach((h) => console.error(`- ${h.url} (${h.skip})`));
+}
+
 if (
   duplicateTitles.length > 0 ||
   duplicateMetaDescs.length > 0 ||
   orphanIndexable.length > 0 ||
   brokenInternalLinks.length > 0 ||
+  headingSkipPages.length > 0 ||
   noindexInSitemap.length > 0 ||
   missingFromSitemap.length > 0 ||
   missingLastmod.length > 0 ||

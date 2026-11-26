@@ -41,7 +41,7 @@ const jsonLd = graphJsonLd([
   heading="Browse Exam & Certification Study Groups"
   description="Browse verified study groups and student communities across Telegram, Discord, and WhatsApp. Filter by exam, platform, and subject on StudyGroupsHub."
   canonicalPath={canonicalPath}
-  intro="Every published community, sorted newest first. Use search and filters to narrow things down — the full dataset is available client-side with no page reloads."
+  intro="Every published community, sorted newest first. Use search and filters to narrow results; the full dataset loads client-side with zero page reloads."
   count={`${all.length} communities`}
   breadcrumbs={[{ label: 'Communities' }]}
   jsonLd={jsonLd}
@@ -50,10 +50,11 @@ const jsonLd = graphJsonLd([
 
   <p data-directory-summary class="mt-4 text-sm text-stone-500">
     {all.length > 0
-      ? `Showing 1–${Math.min(PAGE_SIZE, all.length)} of ${all.length}`
+      ? `Showing 1-${Math.min(PAGE_SIZE, all.length)} of ${all.length}`
       : 'No communities yet'}
   </p>
 
+  <h2 class="sr-only">All listed study communities</h2>
   <div class="mt-4">
     {
       all.length === 0 ? (

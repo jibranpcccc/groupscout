@@ -35,7 +35,7 @@ if (pageNumber > totalPages) {
 
 <DirectoryLayout
   title={pageTitle('Browse Study Groups', `Page ${pageNumber}`)}
-  description={`Browse public exam preparation study groups and communities — Page ${pageNumber} of ${totalPages}.`}
+  description={`Browse public exam preparation study groups and communities, Page ${pageNumber} of ${totalPages}.`}
   canonicalPath={`/communities/${pageNumber}/`}
   noindex={true}
   intro="Browse the full directory."
@@ -45,9 +45,10 @@ if (pageNumber > totalPages) {
   <FilterBar options={options} current={{}} basePath="/communities/" />
 
   <p data-directory-summary class="mt-4 text-sm text-stone-500">
-    Showing {start + 1}–{Math.min(start + PAGE_SIZE, all.length)} of {all.length}
+    Showing {start + 1}-{Math.min(start + PAGE_SIZE, all.length)} of {all.length}
   </p>
 
+  <h2 class="sr-only">Study communities directory, page {pageNumber}</h2>
   <div class="mt-4">
     <div id="directory-view" data-base="/communities/" data-page-size={PAGE_SIZE}>
       <script type="application/json" id="directory-data" set:html={jsonForClient(all)} is:inline />

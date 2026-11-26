@@ -26,7 +26,22 @@ const { exam } = Astro.props;
 
 const published = getPublishedCommunities().filter((c) => (c.exams ?? []).includes(exam.slug));
 const family = getExamFamily(exam.family);
-const relatedExams = (family?.exams ?? []).filter((slug) => slug !== exam.slug);
+const crossClusterMap: Record<string, string[]> = {
+  pmp: ['cissp', 'cpa', 'cfa'],
+  cissp: ['pmp', 'cpa', 'cfa'],
+  cpa: ['cfa', 'pmp', 'cissp'],
+  cfa: ['cpa', 'pmp', 'cissp'],
+  lsat: ['gre', 'gmat', 'sat'],
+  gre: ['gmat', 'lsat', 'toefl'],
+  gmat: ['gre', 'cfa', 'lsat'],
+  usmle: ['nclex', 'neet', 'ielts'],
+  nclex: ['usmle', 'neet', 'ielts'],
+};
+const baseRelated = (family?.exams ?? []).filter((slug) => slug !== exam.slug);
+const extraRelated = (crossClusterMap[exam.slug] ?? []).filter(
+  (slug) => slug !== exam.slug && !baseRelated.includes(slug)
+);
+const relatedExams = [...baseRelated, ...extraRelated];
 const isIndexable = published.length >= EXAM_INDEX_MIN;
 
 const hasDiscord = published.some((c) => c.platform === 'discord');
@@ -236,7 +251,7 @@ const examGraph = graphJsonLd([
         <div class="grid gap-8 lg:grid-cols-2">
           <!-- Advice Box -->
           <div class="rounded-2xl border border-stone-200 bg-surface p-6 sm:p-8 shadow-xs">
-            <h2 class="text-xl font-bold text-stone-900">What to Look for in {examArticle} {exam.name} Study Group</h2>
+            <h2 class="text-xl font-bold text-stone-900">What should you look for in {examArticle} {exam.name} study group?</h2>
             <div class="mt-4 space-y-3.5">
               {
                 guidance.focusAreas.map((item) => (
@@ -285,13 +300,17 @@ const examGraph = graphJsonLd([
                   </div>
                   <div class="mt-4 space-y-3 text-sm text-stone-600 leading-relaxed">
                     <div>
-                      <h3 class="font-semibold text-stone-900">Telegram Study Channels &amp; Groups</h3>
+                      <h3 class="font-semibold text-stone-900">
+                        <a href="/platform/telegram/" class="hover:text-blue-700 hover:underline">Telegram Study Channels &amp; Groups</a>
+                      </h3>
                       <p class="mt-0.5 text-xs text-stone-600">
                         {guidance.platformNote?.dualTelegramNote || `Convenient for mobile practice polls, downloadable ${exam.name} syllabus notes, and instant notification updates.`}
                       </p>
                     </div>
                     <div>
-                      <h3 class="font-semibold text-stone-900">Discord Study Servers</h3>
+                      <h3 class="font-semibold text-stone-900">
+                        <a href="/platform/discord/" class="hover:text-blue-700 hover:underline">Discord Study Servers</a>
+                      </h3>
                       <p class="mt-0.5 text-xs text-stone-600">
                         {guidance.platformNote?.dualDiscordNote || `Structured with topic-specific text channels, voice study rooms, screen sharing for ${exam.name} problem solving, and Pomodoro study sessions.`}
                       </p>
@@ -303,7 +322,8 @@ const examGraph = graphJsonLd([
                   <h2 class="text-xl font-bold text-stone-900">Using Telegram for {exam.name} Study Communities</h2>
                   <div class="mt-4 space-y-3 text-sm text-stone-600 leading-relaxed">
                     <p>
-                      Currently, verified public study communities for {exam.name} are active on <strong>Telegram</strong>.
+                      Currently, verified public study communities for {exam.name} are active on{' '}
+                      <a href="/platform/telegram/" class="font-semibold text-blue-700 hover:underline">Telegram</a>.
                     </p>
                     <p class="text-xs text-stone-600">
                       {guidance.platformNote?.telegramNote || `Telegram channels and groups allow candidates to participate in daily revision quizzes, exchange study notes, discuss syllabus topics, and connect with peer study partners from any mobile device.`}
@@ -318,7 +338,8 @@ const examGraph = graphJsonLd([
                   <h2 class="text-xl font-bold text-stone-900">Using Discord for {exam.name} Study Communities</h2>
                   <div class="mt-4 space-y-3 text-sm text-stone-600 leading-relaxed">
                     <p>
-                      Verified public study communities for {exam.name} are hosted on <strong>Discord</strong>.
+                      Verified public study communities for {exam.name} are hosted on{' '}
+                      <a href="/platform/discord/" class="font-semibold text-blue-700 hover:underline">Discord</a>.
                     </p>
                     <p class="text-xs text-stone-600">
                       {guidance.platformNote?.discordNote || `Discord provides dedicated voice study lounges, organized topic channels for specific syllabus sections, and screen-sharing capabilities for group problem-solving.`}
@@ -332,7 +353,7 @@ const examGraph = graphJsonLd([
 
         <!-- Verification & Quality Section -->
         <div class="mt-8 rounded-2xl border border-blue-100 bg-blue-50/60 p-6 sm:p-8">
-          <h2 class="text-lg font-bold text-stone-900">How We Check {exam.name} Communities</h2>
+          <h2 class="text-lg font-bold text-stone-900">How does StudyGroupsHub check {exam.name} study groups?</h2>
           <p class="mt-2 text-sm leading-relaxed text-stone-700">
             StudyGroupsHub tests public community invite links for {exam.name} and confirms exam relevance before listing.
             We reject or flag listings when public evidence indicates promotion of exam dumps, recalled questions, leaked papers, or other prohibited material.

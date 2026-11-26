@@ -82,7 +82,7 @@ const availableExams = exams.filter(e => indexableExams.includes(e.slug));
 
     <div class="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-blue-100/80 pt-4">
       <p class="text-xs text-stone-600" id="res-tip">
-        💡 <strong>Platform Tip:</strong> Use Telegram for daily question polls; join Discord voice channels for Pomodoro focus sessions.
+        <strong>Platform Tip:</strong> Use Telegram for daily question polls; join Discord voice channels for Pomodoro focus sessions.
       </p>
       <a
         id="res-link"
@@ -142,13 +142,13 @@ const availableExams = exams.filter(e => indexableExams.includes(e.slug));
 
     if (tipEl) {
       if (['ielts', 'toefl'].includes(exam)) {
-        tipEl.innerHTML = '💡 <strong>Platform Tip:</strong> Pair with a speaking partner on Discord voice rooms; use Telegram for daily writing prompts.';
+        tipEl.innerHTML = '<strong>Platform Tip:</strong> Pair with a speaking partner on Discord voice rooms; use Telegram for daily writing prompts.';
       } else if (['sat', 'gre', 'gmat'].includes(exam)) {
-        tipEl.innerHTML = '💡 <strong>Platform Tip:</strong> Join Discord screen-share sessions for math/quant; use Telegram for daily vocabulary quizzes.';
+        tipEl.innerHTML = '<strong>Platform Tip:</strong> Join Discord screen-share sessions for math/quant; use Telegram for daily vocabulary quizzes.';
       } else if (['usmle', 'nclex'].includes(exam)) {
-        tipEl.innerHTML = '💡 <strong>Platform Tip:</strong> Work through clinical vignettes in small groups (2-3 peers) for optimal diagnostic reasoning.';
+        tipEl.innerHTML = '<strong>Platform Tip:</strong> Work through clinical vignettes in small groups (2-3 peers) for optimal diagnostic reasoning.';
       } else {
-        tipEl.innerHTML = '💡 <strong>Platform Tip:</strong> Use Telegram for daily MCQ polls and official updates; use Discord for synchronized study rooms.';
+        tipEl.innerHTML = '<strong>Platform Tip:</strong> Use Telegram for daily MCQ polls and official updates; use Discord for synchronized study rooms.';
       }
     }
   }

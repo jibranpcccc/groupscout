@@ -70,10 +70,11 @@ const platformGraph = graphJsonLd([
 
   <p data-directory-summary class="mt-4 text-sm text-stone-500">
     {all.length > 0
-      ? `Showing 1–${Math.min(PAGE_SIZE, all.length)} of ${all.length}`
+      ? `Showing 1-${Math.min(PAGE_SIZE, all.length)} of ${all.length}`
       : 'No communities on this platform yet'}
   </p>
 
+  <h2 class="sr-only">{platform.name} study communities</h2>
   <div class="mt-4">
     {
       all.length === 0 ? (

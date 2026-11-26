@@ -140,22 +140,31 @@ function renderCard(community: Community): string {
             ? 'Removed'
             : 'Status unknown';
 
+  const formatSlugLabel = (slug: string): string =>
+    slug
+      .split('-')
+      .map((w) => (w ? w[0].toUpperCase() + w.slice(1) : ''))
+      .join(' ');
+  const platformLabel = formatSlugLabel(community.platform);
+  const categoryLabel = formatSlugLabel(community.category);
+  const fallbackDesc = `Public ${platformLabel} study community in ${categoryLabel}.`;
+
   return `
   <article class="card flex flex-col p-5 transition-shadow hover:shadow-md">
     <div class="flex items-start justify-between gap-3">
       <span class="inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-medium text-stone-600 bg-stone-50 border-stone-200">
-        ${escapeHtml(community.platform)}
+        ${escapeHtml(platformLabel)}
       </span>
       <div class="flex items-center gap-1.5">
         ${community.featured ? '<span class="inline-flex items-center rounded-full border border-amber-200 bg-amber-50 px-2.5 py-0.5 text-xs font-medium text-amber-700">Featured</span>' : ''}
       </div>
     </div>
-    <h2 class="mt-3 text-lg font-semibold leading-snug text-stone-900">
+    <h3 class="mt-3 text-lg font-semibold leading-snug text-stone-900">
       <a href="/group/${escapeHtml(community.slug)}/" class="hover:text-blue-700">${escapeHtml(community.title)}</a>
-    </h2>
-    <p class="mt-2 line-clamp-2 text-sm leading-relaxed text-stone-600">${escapeHtml(community.description ?? `A publicly listed ${community.platform} community categorized under ${community.category}.`)}</p>
+    </h3>
+    <p class="mt-2 line-clamp-2 text-sm leading-relaxed text-stone-600">${escapeHtml(community.description ?? fallbackDesc)}</p>
     <div class="mt-3 flex flex-wrap items-center gap-1.5">
-      <a href="/category/${escapeHtml(community.category)}/" class="inline-flex items-center rounded-full border border-stone-200 bg-stone-50 px-2.5 py-0.5 text-xs font-medium text-stone-700 hover:border-blue-300 hover:text-blue-700">${escapeHtml(community.category)}</a>
+      <a href="/category/${escapeHtml(community.category)}/" class="inline-flex items-center rounded-full border border-stone-200 bg-stone-50 px-2.5 py-0.5 text-xs font-medium text-stone-700 hover:border-blue-300 hover:text-blue-700">${escapeHtml(categoryLabel)}</a>
       ${community.tags.slice(0, 3).map((tag) => `<span class="rounded-full border border-stone-200 bg-stone-50 px-2.5 py-0.5 text-xs font-medium text-stone-600">${escapeHtml(tag)}</span>`).join('')}
     </div>
     <dl class="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-xs text-stone-500">

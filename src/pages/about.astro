@@ -26,7 +26,6 @@ const coveredFamilies = [
 
 const canonicalPath = '/about/';
 const pageUrl = canonicalUrl(canonicalPath);
-
 const aboutDesc = `Learn how ${siteConfig.name} catalogs public Telegram and Discord study communities with automated link checks, transparent verification, and anti-dump screening.`;
 
 const aboutGraph = graphJsonLd([
@@ -52,35 +51,37 @@ const aboutGraph = graphJsonLd([
       <p>
         {siteConfig.name} is a searchable directory of{' '}
         <strong>public exam-prep and professional-certification study communities</strong>{' '}
-        across {platforms.map((p) => p.name).join(', ')}. It helps students find
-        communities worth joining for exams like the SAT, GRE, IELTS, USMLE, CFA, AWS
-        certifications and many others — and helps them judge whether a listing is
-        trustworthy before they click.
+        across {platforms.map((p) => p.name).join(', ')}. It helps students find active peer
+        groups for exams like the{' '}
+        <a href="/exam/sat/">SAT</a>, <a href="/exam/gre/">GRE</a>,{' '}
+        <a href="/exam/ielts/">IELTS</a>, <a href="/exam/usmle/">USMLE</a>,{' '}
+        <a href="/exam/cfa/">CFA</a>, <a href="/exam/pmp/">PMP</a>, and{' '}
+        <a href="/exam/cissp/">CISSP</a>, and shows transparent verification states before you join.
       </p>
 
       <h2>Why it exists</h2>
       <p>
-        Study groups are scattered across Discord, Telegram and WhatsApp, and most students
-        discover them through word of mouth or search. Many are excellent; some sell fake
-        exam dumps, impersonate tutors, or push credential scams. {siteConfig.name} exists
-        to make the landscape visible — what communities exist, for which exams, on which
-        platforms — with honest verification states and practical{' '}
-        <a href="/safety/">safety guidance</a>.
+        Study groups are scattered across <a href="/platform/discord/">Discord</a>,{' '}
+        <a href="/platform/telegram/">Telegram</a>, and WhatsApp, and most students discover
+        them through word of mouth or search. Many are helpful; some sell fake exam dumps,
+        impersonate tutors, or push credential scams. {siteConfig.name} makes public options
+        easier to inspect: which communities exist, which exams they cover, and which invite
+        links respond, paired with practical <a href="/safety/">safety guidance</a>.
       </p>
 
       <h2>Where listings come from</h2>
       <p>
         Listings are identified from publicly available sources: web search discovery,
         direct submissions, and manual curation. Every listing stores its source URLs,
-        discovery date, verification state and link-check status. Listings are organized
-        by exam, exam family, target market and study type.
+        discovery date, verification state, and link-check status. Listings are organized
+        by exam, exam family, target market, and study type.
       </p>
 
       <h2>What this directory is not</h2>
       <p>
-        We are not an exam provider, a school, a tutoring service or a certification
+        We are not an exam provider, a school, a tutoring service, or a certification
         authority. Inclusion is not an endorsement. We do not join groups, scrape member
-        data, or claim that any community is “safe” or that its materials are official.
+        data, or claim that any community is "safe" or that its materials are official.
         See <a href="/safety/">Safety</a> and{' '}
         <a href="/how-we-verify/">How We Verify</a>.
       </p>
@@ -90,43 +91,52 @@ const aboutGraph = graphJsonLd([
         <li>{stats.listed} published study communities</li>
         <li>{stats.categories} exam families with listings</li>
         <li>{coveredFamilies.length} exam families represented in the dataset</li>
-        <li>{coveredExams.length} exams / certifications covered</li>
+        <li>{coveredExams.length} exams and certifications covered</li>
         <li>{stats.platforms} platforms</li>
         <li>{stats.withMemberCounts} listings with a sourced member count</li>
       </ul>
       <p>
-        Numbers above are computed from the live dataset — we never display invented
-        statistics.
+        Numbers above are computed directly from the live JSON dataset. We never display
+        invented statistics.
       </p>
 
       <h2>Exam families</h2>
       <ul>
         {examFamilies.map((f) => (
           <li>
-            <a href={`/category/${f.slug}/`}>{f.name}</a> — {f.description}
+            <a href={`/category/${f.slug}/`}>{f.name}</a>: {f.description}
           </li>
         ))}
       </ul>
 
-      <h2 id="editorial-team">Editorial team &amp; verification standards</h2>
+      <h2 id="editorial-team">Editorial team and verification standards</h2>
       <p>
-        To protect students from predatory scammers, fraudulent score-guarantee schemes, and unauthorized material distribution, StudyGroupsHub operates under strict editorial oversight and automated monitoring:
+        To protect students from predatory scammers, fraudulent score-guarantee schemes, and
+        unauthorized material distribution, StudyGroupsHub operates under strict editorial
+        oversight and automated monitoring:
       </p>
       <ul>
         <li>
-          <strong>Who reviews listings:</strong> Our research and editorial team reviews candidate communities to verify that active discussions focus on legitimate test preparation, peer problem-solving, and study partner accountability.
+          <strong>Who reviews listings:</strong> Our research and editorial team reviews candidate
+          communities to confirm that active discussions focus on legitimate test preparation,
+          peer problem-solving, and study partner accountability.
         </li>
         <li>
-          <strong>How verification works:</strong> Automated monitoring continuously tests invite link accessibility, while human editors screen listings against braindumps, stolen question banks, and proxy test-taking services per our <a href="/academic-integrity/">Academic Integrity Policy</a>.
+          <strong>How verification works:</strong> Automated monitoring tests invite link
+          accessibility on a regular schedule, while human editors screen listings against
+          braindumps, stolen question banks, and proxy test-taking services per our{' '}
+          <a href="/academic-integrity/">Academic Integrity Policy</a>.
         </li>
         <li>
-          <strong>Why we publish:</strong> To provide candidates with a trustworthy, spam-free resource for connecting with dedicated peers across major standardized tests and professional certifications.
+          <strong>Why we publish:</strong> To provide candidates with a structured, spam-filtered
+          directory for connecting with dedicated peers across major standardized tests and
+          professional certifications.
         </li>
       </ul>
 
       <h2>Contact</h2>
       <p>
-        Questions, corrections or removal requests? Use the{' '}
+        Questions, corrections, or removal requests? Use the{' '}
         <a href="/contact/">contact page</a>, <a href="/submit/">submit a
         community</a>, or <a href="/report/">report a listing</a>.
       </p>

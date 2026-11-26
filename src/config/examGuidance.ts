@@ -129,7 +129,7 @@ export const examGuidanceMap: Record<string, ExamGuidance> = {
   },
   upsc: {
     focusAreas: [
-      { label: 'GS Papers I–IV Conceptual Clarity', text: 'Emphasize structured understanding across Polity, History, Geography, Economy, Environment, and Ethics.' },
+      { label: 'GS Papers I-IV Conceptual Clarity', text: 'Emphasize structured understanding across Polity, History, Geography, Economy, Environment, and Ethics.' },
       { label: 'Daily Editorial & Current Affairs', text: 'Analyze national newspaper editorials and summarize key policy developments for Mains and Prelims.' },
       { label: 'Mains Answer Writing Peer Review', text: 'Practice structured answers with concise introductions, relevant diagrams, and balanced conclusions.' },
       { label: 'Prelims CSAT & MCQ Strategy', text: 'Refine elimination techniques for General Studies MCQs and practice CSAT analytical reasoning.' },
@@ -189,7 +189,7 @@ export const examGuidanceMap: Record<string, ExamGuidance> = {
       telegramNote: 'Telegram groups offer high-yield medical question polls, clinical vignette reviews, and partner matching for Step 1 and Step 2 CK.',
     },
     faqs: [
-      { question: 'How can medical students best utilize USMLE study groups?', answer: 'Use peer groups to discuss underlying physiological mechanisms, clinical reasoning pathways, and study scheduling methods.' },
+      { question: 'How can medical students best use USMLE study groups?', answer: 'Use peer groups to discuss underlying physiological mechanisms, clinical reasoning pathways, and study scheduling methods.' },
       { question: 'How do I find a USMLE study partner for my dedicated prep period?', answer: 'Post in active groups with your target Step, dedicated study phase, and preferred daily discussion times to find a compatible partner.' },
       { question: 'How does StudyGroupsHub maintain compliance with exam integrity policies?', answer: 'We strictly reject or remove any medical prep channels where public evidence shows sharing of recalled USMLE Step questions or board violations.' },
       { question: 'Does StudyGroupsHub charge for access to USMLE links?', answer: 'Opening verified public USMLE Step 1 and Step 2 CK community links on StudyGroupsHub is completely free of charge.' },
